@@ -35,7 +35,24 @@ jobs:
           if [ -x "$ANDROID_HOME/cmdline-tools/latest/bin/android" ]; then
             "$ANDROID_HOME/cmdline-tools/latest/bin/android" --no-metrics --sdk="$ANDROID_HOME" sdk install platforms/android-36 build-tools/36.0.0
           else
-            sdkmanager "platforms;android-36" "build-tools;36.0.0"
+            sdkmanager_path=""
+            for candidate in \
+              "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" \
+              "$ANDROID_HOME"/cmdline-tools/*/bin/sdkmanager \
+              "$ANDROID_HOME/tools/bin/sdkmanager"; do
+              if [ -x "$candidate" ]; then
+                sdkmanager_path="$candidate"
+                break
+              fi
+            done
+            if [ -z "$sdkmanager_path" ]; then
+              sdkmanager_path="$(command -v sdkmanager || true)"
+            fi
+            if [ -z "$sdkmanager_path" ] || [ ! -x "$sdkmanager_path" ]; then
+              echo "::error::sdkmanager not found beneath ANDROID_HOME or on PATH"
+              exit 1
+            fi
+            "$sdkmanager_path" --sdk_root="$ANDROID_HOME" "platforms;android-36" "build-tools;36.0.0"
           fi
       - name: Compile, test, lint, and verify foundation boundaries
         run: ./gradlew --no-daemon --console=plain --warning-mode=all clean test lint spotlessCheck :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
