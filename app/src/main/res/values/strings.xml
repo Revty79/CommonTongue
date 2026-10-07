@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">Common Tongue</string>
+  <string name="product_name">Common Tongue</string>
+  <string name="foundation_build">Foundation Build</string>
+  <string name="engine_not_installed">Translation engine not installed yet.</string>
+  <string name="prototype_description">Offline-first mobile translation prototype.</string>
+</resources>

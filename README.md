@@ -1,0 +1,93 @@
+# Common Tongue
+
+Common Tongue is the working name for an Android-first, offline-first conversational translation product. This repository is `common-tongue`. iPhone support is planned later; this pass contains native Android only.
+
+**Translation DOES NOT EXIST YET.** Pass 1 provides a Kotlin/Jetpack Compose foundation screen, architecture boundaries, tests, and build automation. There are no AI interfaces, models, runtimes, speech features, model/language packs, accounts, databases, or cloud services.
+
+The future first language pair is English and Latin-American Spanish, initially emphasizing Mexican/Latin-American Spanish. Once the required future packs are installed, core translation must operate entirely offline. These are requirements, not implemented capabilities.
+
+## Toolchain
+
+| Component | Selected version |
+| --- | --- |
+| Android Gradle plugin | 9.4.1, built-in Kotlin enabled |
+| Gradle wrapper | 9.6.0 |
+| Kotlin / Compose compiler plugin | 2.4.20 |
+| Compose stable BOM | 2026.06.01 |
+| Material 3 | Managed by the stable Compose BOM |
+| JDK / JVM target | 17 |
+| Android minimum | Android 8.0 / API 26 |
+| Android compile / target | API 36 / API 36 |
+| Android SDK Build Tools | 36.0.0 (AGP default) |
+| Formatting | Spotless 8.10.3 with ktfmt 0.64 |
+
+Versions are centralized in [gradle/libs.versions.toml](gradle/libs.versions.toml); the wrapper pins Gradle and its distribution checksum. Only stable dependencies are used. See [toolchain notes](docs/TOOLCHAIN.md) for sources and compatibility details.
+
+The application ID **`com.commontongue.prototype` is TEMPORARY** and must be finalized before any Play Store release. Debug uses `com.commontongue.prototype.debug`, the launcher label `Common Tongue (Dev)`, and a `-dev` version suffix. The working product name lives in Android resources. Production signing is not configured; release builds are unsigned.
+
+## Project structure
+
+```text
+app/                         Android application
+  src/main/.../platform/     Activity and Android entry points
+  src/main/.../ui/           Foundation screen, ViewModel, state, Material 3 theme
+  src/test/                  ViewModel unit tests
+  src/androidTest/           Compose startup/UI smoke test
+core/domain/                 Pure Kotlin/JVM product concepts and unit test
+gradle/                      Version catalog and wrapper
+.github/workflows/android.yml
+docs/                        Architecture, privacy, model policy, ADRs, validation
+```
+
+There are exactly two Gradle modules: `:app` and `:core:domain`. `:app` depends on `:core:domain`; the domain has no Android, Compose, network, or AI dependency. No dependency injection framework is needed for the current screen.
+
+## Build and run
+
+Install JDK 17 and a current stable Android Studio compatible with AGP 9.4, or use Android command-line tools. Install `platforms;android-36`, `build-tools;36.0.0`, and platform tools. Set `ANDROID_HOME` to the SDK directory or set `sdk.dir` in an untracked `local.properties`. Set `JAVA_HOME` to JDK 17. Do not commit machine-specific paths.
+
+Windows PowerShell:
+
+```powershell
+.\gradlew.bat clean test lint spotlessCheck :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
+```
+
+macOS/Linux:
+
+```sh
+./gradlew clean test lint spotlessCheck :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
+```
+
+The first build downloads development dependencies. This does not add network access to the installed application. Later builds can use Gradle's `--offline` option once the required artifacts are cached.
+
+Open the root directory in Android Studio, sync, and run `app` on an Android API 26+ emulator/device. Alternatively:
+
+```powershell
+.\gradlew.bat :app:installDebug
+adb shell am start -n com.commontongue.prototype.debug/com.commontongue.prototype.platform.MainActivity
+```
+
+The screen displays Common Tongue, Foundation Build, the absent engine status, and the offline-first prototype description. It uses system light/dark behavior, scalable Material typography, safe drawing insets, a heading semantic, and scrolling for large text/small screens. There are no interactive controls or permission prompts.
+
+The debug APK is `app/build/outputs/apk/debug/app-debug.apk`. For an unsigned optimized release APK, run `:app:assembleRelease`. No publishing is configured.
+
+Windows environment note: if unit-test Java reports `Could not find or load main class Files`, check PATH for unmatched quotes. This host had one malformed PATH entry; validation removed quotes only in the build process (`$env:Path = $env:Path.Replace('"', '')`), without modifying the machine's saved environment. Use a valid PATH and JDK 17 for normal builds. Local downloaded tools and emulator data are ignored under `.local/`.
+
+## Checks and tests
+
+- `test`: domain JVM test and debug ViewModel unit tests; no model loading or device needed.
+- `lint`: normal Android lint for the app and pure JVM domain, including dependencies; errors fail the build and warnings remain visible. Version-update advisories for the deliberate SDK/toolchain pins are documented in the validation report.
+- `spotlessCheck`: one consistent Kotlin/Kotlin DSL formatter plus text whitespace checks. Use `spotlessApply` to format.
+- `:app:verifyFoundationManifest`: examines debug/release merged manifests, enforces minSdk 26 / targetSdk 36, and rejects permissions except AndroidX's internal app-scoped signature permission.
+- `assembleDebug`: compiles/packages the development application.
+- `:app:assembleDebugAndroidTest`: compiles/packages the UI test without claiming it ran.
+- `:app:connectedDebugAndroidTest`: actually launches the Activity and runs the Compose smoke test on connected devices.
+
+Run instrumentation locally after starting an emulator or attaching a device. Windows uses `.\gradlew.bat :app:connectedDebugAndroidTest`; macOS/Linux uses `./gradlew :app:connectedDebugAndroidTest`. A skipped device test is not a pass. See [Pass 1 validation](docs/PASS_1_VALIDATION.md) for executed results and environment limits.
+
+The GitHub Actions workflow runs build, unit tests, lint, formatting, manifest verification, debug assembly, and UI-test compilation on push/pull request or manual dispatch. It uses JDK 17, the stable SDK, read-only repository permission, and basic open-source Gradle caching. No custom secrets or paid services are required. Emulator tests remain local/manual in Pass 1. The workflow has not run remotely unless explicitly recorded; this repository is local only.
+
+## Architecture and privacy
+
+Read [ARCHITECTURE.md](docs/ARCHITECTURE.md), [PRIVACY.md](docs/PRIVACY.md), [MODEL_POLICY.md](docs/MODEL_POLICY.md), and the five [architecture decisions](docs/DECISIONS/). Offline translation, ephemeral conversations, replaceable model implementations, low-end phones, and no mandatory account are future product constraints. Pass 1 stores no conversations and makes no network calls.
+
+Stop here for Pass 1. AI interfaces and runtime/model investigation belong to a separately authorized later pass.

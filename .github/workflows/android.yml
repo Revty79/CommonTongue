@@ -1,0 +1,42 @@
+name: Android foundation
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: android-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up JDK 17
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Set up Gradle and validate wrapper
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-provider: basic
+      - name: Install stable Android SDK components
+        run: |
+          if [ -x "$ANDROID_HOME/cmdline-tools/latest/bin/android" ]; then
+            "$ANDROID_HOME/cmdline-tools/latest/bin/android" --no-metrics --sdk="$ANDROID_HOME" sdk install platforms/android-36 build-tools/36.0.0
+          else
+            sdkmanager "platforms;android-36" "build-tools;36.0.0"
+          fi
+      - name: Compile, test, lint, and verify foundation boundaries
+        run: ./gradlew --no-daemon --console=plain --warning-mode=all clean test lint spotlessCheck :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
+      # Instrumentation remains local/manual in Pass 1; see README.md.

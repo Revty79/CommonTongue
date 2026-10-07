@@ -1,0 +1,29 @@
+# Local tools, SDK paths, and validation artifacts.
+.local/
+local.properties
+
+# Android, Gradle, Kotlin, and IDE output.
+.gradle/
+.kotlin/
+**/build/
+.idea/
+.vscode/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Local credentials and signing material must never be committed.
+.env
+.env.*
+secrets.properties
+keystore.properties
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key
+google-services.json
+service-account*.json
