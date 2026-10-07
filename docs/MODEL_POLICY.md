@@ -1,6 +1,6 @@
 # Model adoption policy
 
-Status: foundational policy only. **No AI model or runtime is approved, downloaded, integrated, or bundled in Pass 1.** This document does not select a provider or create AI interfaces.
+Status: foundational shipping policy with isolated Pass 2 research evidence. **No AI model or runtime is approved for production or bundled in the production app.** Pass 1 downloaded/integrated none; Pass 2 downloads local research artifacts into ignored directories and uses a separate spike. This policy creates no AI interfaces.
 
 Every model considered for shipping must have a review record containing:
 
@@ -23,4 +23,6 @@ Freely downloadable does not mean commercially usable or redistributable. A mode
 
 Approval requires evidence appropriate to the intended device range, including low-end phones, and compliance with the offline/privacy rules. No model name may become a domain concept. Implementations must be replaceable behind future capability interfaces and testable with lightweight substitutes. Optional cloud functionality must remain separate, with no silent fallback.
 
-Lite/Standard/Enhanced may inform later device-quality choices. No tier, model benchmark, profiling feature, or runtime investigation is implemented in this pass.
+Pass 2 records provisional A/B/C classifications, immutable artifacts and checksums, conversion/voice provenance gaps, and measured offline desktop/Android results in [candidate records](feasibility/MODEL_CANDIDATES.md) and the [feasibility report](feasibility/PASS_2_OFFLINE_FEASIBILITY.md). Whisper and OPUS-MT are provisional candidates, not shipping approvals. GPL eSpeak and archived Piper/individual voices remain research-only. A public-domain dataset declaration is not assumed to license every derived voice weight; model, engine, and individual voice rights require separate evidence.
+
+Lite/Standard/Enhanced recommendations remain provisional. Physical low-end-phone latency, memory, regional speech quality, battery and thermals are unverified; no tier selection or production profiling feature is implemented.

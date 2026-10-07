@@ -1,0 +1,117 @@
+{
+  "status": "PASS",
+  "sdk": 26,
+  "device": "Android SDK built for x86_64",
+  "abis": [
+    "x86_64",
+    "x86"
+  ],
+  "asr_model": "Whisper tiny Q5_1",
+  "threads": 4,
+  "native_build": "x86_64; optimized; CPU only; GGML_NATIVE=OFF",
+  "start_memory": {
+    "total_pss_kb": 24923,
+    "native_heap_bytes": 13619472,
+    "proc_status": [
+      "VmHWM:\t   79708 kB",
+      "VmRSS:\t   79708 kB"
+    ],
+    "process_cpu_ms": 200
+  },
+  "engine": "com.reecedunn.espeak",
+  "asr_load_ms": 157.2278,
+  "asr_loaded_memory": {
+    "total_pss_kb": 85739,
+    "native_heap_bytes": 665809600,
+    "proc_status": [
+      "VmHWM:\t  139724 kB",
+      "VmRSS:\t  139696 kB"
+    ],
+    "process_cpu_ms": 358
+  },
+  "cases": [
+    {
+      "direction": "en-es",
+      "transcript": "I could pick you up after work, but I cannot stay for dinner.",
+      "translation": "Podría recogerte después del trabajo, pero no puedo quedarme a cenar.",
+      "asr_ms": 3740.7612,
+      "translation_load_ms": 1305.2304,
+      "translation_ms": 1492.4912,
+      "translation_loaded_memory": {
+        "total_pss_kb": 358339,
+        "native_heap_bytes": 839032104,
+        "proc_status": [
+          "VmHWM:\t  406872 kB",
+          "VmRSS:\t  406872 kB"
+        ],
+        "process_cpu_ms": 13974
+      },
+      "tts": {
+        "engine": "com.reecedunn.espeak",
+        "voice": "es",
+        "locale": "es",
+        "requires_network": false,
+        "ms": 25.4335,
+        "wav_bytes": 173972,
+        "file": "en-es-tiny-speech.wav"
+      },
+      "total_ms_including_translator_load": 6721.6474,
+      "process_cpu_ms": 17699,
+      "end_memory": {
+        "total_pss_kb": 592863,
+        "native_heap_bytes": 676067392,
+        "proc_status": [
+          "VmHWM:\t  619512 kB",
+          "VmRSS:\t  619168 kB"
+        ],
+        "process_cpu_ms": 18101
+      }
+    },
+    {
+      "direction": "es-en",
+      "transcript": "te puede llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+      "translation": "I can take you after work, but I can't stay for dinner today.",
+      "asr_ms": 2897.6502,
+      "translation_load_ms": 1083.9555,
+      "translation_ms": 1151.2683,
+      "translation_loaded_memory": {
+        "total_pss_kb": 377943,
+        "native_heap_bytes": 839277376,
+        "proc_status": [
+          "VmHWM:\t  622528 kB",
+          "VmRSS:\t  405532 kB"
+        ],
+        "process_cpu_ms": 29992
+      },
+      "tts": {
+        "engine": "com.reecedunn.espeak",
+        "voice": "en-us",
+        "locale": "en-US",
+        "requires_network": false,
+        "ms": 9.8121,
+        "wav_bytes": 148006,
+        "file": "es-en-tiny-speech.wav"
+      },
+      "total_ms_including_translator_load": 5229.7823,
+      "process_cpu_ms": 15848,
+      "end_memory": {
+        "total_pss_kb": 596868,
+        "native_heap_bytes": 677439696,
+        "proc_status": [
+          "VmHWM:\t  658040 kB",
+          "VmRSS:\t  624360 kB"
+        ],
+        "process_cpu_ms": 33994
+      }
+    }
+  ],
+  "end_memory": {
+    "total_pss_kb": 592576,
+    "native_heap_bytes": 19162832,
+    "proc_status": [
+      "VmHWM:\t  658040 kB",
+      "VmRSS:\t  620188 kB"
+    ],
+    "process_cpu_ms": 34035
+  }
+}

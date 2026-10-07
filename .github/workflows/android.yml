@@ -56,4 +56,6 @@ jobs:
           fi
       - name: Compile, test, lint, and verify foundation boundaries
         run: ./gradlew --no-daemon --console=plain --warning-mode=all clean test lint spotlessCheck :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
+      - name: Check research harness without models
+        run: python3 -m unittest discover -s tools/offline-feasibility/tests -v
       # Instrumentation remains local/manual in Pass 1; see README.md.

@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-07",
+  "baseline_sha": "06f30d4e0479a17b51794a9388bfd5db5b8cf39f",
+  "desktop": {
+    "os": "Windows-11-10.0.26200-SP0",
+    "cpu": "AMD Ryzen 5 5600G",
+    "physical_cores": 6,
+    "logical_cores": 12,
+    "physical_ram_bytes": 33687609344,
+    "python": "3.13.2",
+    "threads": 4,
+    "python_ort": "1.30.0",
+    "piper_bundled_ort_dll_file_version": "1.14.20230224.5.c57cf37"
+  },
+  "native_toolchain": {
+    "ndk": "27.1.12297006",
+    "cmake": "3.22.1",
+    "jdk": "17.0.20.1+1",
+    "abseil": {
+      "version": "20260526.0",
+      "verified_commit": "5650e9cf76d3be4318d5fa3af38ee483ddfd5e4a"
+    }
+  },
+  "android": {
+    "api36": {
+      "avd": "foundation_api36",
+      "system_image": "android-36.1/google_apis_playstore/x86_64; revision 3",
+      "reported_ram_kb": 2013632,
+      "vcpus": 4,
+      "actual_abi": "x86_64",
+      "airplane_mode": 1,
+      "active_default_network": "none",
+      "ip_route": []
+    },
+    "api26": {
+      "avd": "foundation_api26",
+      "system_image": "android-26/google_apis/x86_64",
+      "configured_ram": "2G",
+      "actual_abi": "x86_64",
+      "ip_route": [],
+      "network_block": "Root ADB on dedicated developer image: wlan0 and radio0 links down. Framework can retain stale connected network metadata."
+    },
+    "tts_service_idle_pss_kb_api36": 26558,
+    "tts_service_idle_rss_kb_api36": 101056
+  },
+  "research_apk": {
+    "bytes": 82974032,
+    "sha256": "1375cd934a64af3c6c6a1e85dfa7d91c173df10fe3fae62168d3eca8b88e3a24",
+    "tested_api36_pre_format_apk_sha256": "3c1551763bc56be696d7fea0f73805a3b3335ffb2e12bf3f191a289c4a9f92a5",
+    "requested_permissions": [],
+    "providers": [],
+    "minimum_sdk": 26,
+    "target_sdk": 36,
+    "native_libraries": [
+      {
+        "file": "lib/arm64-v8a/libfeasibility.so",
+        "bytes": 4611984
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime.so",
+        "bytes": 32990472
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime4j_jni.so",
+        "bytes": 83224
+      },
+      {
+        "file": "lib/x86_64/libfeasibility.so",
+        "bytes": 4837720
+      },
+      {
+        "file": "lib/x86_64/libonnxruntime.so",
+        "bytes": 39348480
+      },
+      {
+        "file": "lib/x86_64/libonnxruntime4j_jni.so",
+        "bytes": 80288
+      }
+    ],
+    "identity_note": "API36 optimized runs precede Kotlin formatting; API26 uses the formatted APK. Native/model/decoding configurations are identical."
+  },
+  "runtime_pack_bytes": {
+    "en-es": 116090916,
+    "es-en": 116090881,
+    "en-romance": 115908872
+  },
+  "artifact_lock_sha256": "baa0b18767d677eccddf8324b6d3d1f35f7b81b8945ab6c3a87c670651fe05bd",
+  "remote_ci": {
+    "status": "PASS baseline; NOT RUN Pass2 local commit",
+    "baseline_sha": "06f30d4e0479a17b51794a9388bfd5db5b8cf39f",
+    "run_id": 37694219295,
+    "url": "https://github.com/Revty79/CommonTongue/actions/runs/37694219295",
+    "push_authorized": false
+  }
+}

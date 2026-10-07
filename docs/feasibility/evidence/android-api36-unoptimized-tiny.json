@@ -1,0 +1,116 @@
+{
+  "status": "PASS",
+  "sdk": 36,
+  "device": "sdk_gphone64_x86_64",
+  "abis": [
+    "x86_64",
+    "arm64-v8a"
+  ],
+  "asr_model": "Whisper tiny Q5_1",
+  "threads": 4,
+  "start_memory": {
+    "total_pss_kb": 41703,
+    "native_heap_bytes": 16240048,
+    "proc_status": [
+      "VmHWM:\t  129792 kB",
+      "VmRSS:\t  129792 kB"
+    ],
+    "process_cpu_ms": 922
+  },
+  "engine": "com.reecedunn.espeak",
+  "asr_load_ms": 950.4881,
+  "asr_loaded_memory": {
+    "total_pss_kb": 112857,
+    "native_heap_bytes": 644387696,
+    "proc_status": [
+      "VmHWM:\t  202512 kB",
+      "VmRSS:\t  202512 kB"
+    ],
+    "process_cpu_ms": 2603
+  },
+  "cases": [
+    {
+      "direction": "en-es",
+      "transcript": "I could pick you up after work, but I cannot stay for dinner.",
+      "translation": "Podría recogerte después del trabajo, pero no puedo quedarme a cenar.",
+      "asr_ms": 37023.5747,
+      "translation_load_ms": 1388.9026,
+      "translation_ms": 1209.5639,
+      "translation_loaded_memory": {
+        "total_pss_kb": 360954,
+        "native_heap_bytes": 821701776,
+        "proc_status": [
+          "VmHWM:\t  485740 kB",
+          "VmRSS:\t  453496 kB"
+        ],
+        "process_cpu_ms": 150357
+      },
+      "tts": {
+        "engine": "com.reecedunn.espeak",
+        "voice": "es",
+        "locale": "es",
+        "requires_network": false,
+        "ms": 40.494,
+        "wav_bytes": 173972,
+        "file": "en-es-tiny-speech.wav"
+      },
+      "total_ms_including_translator_load": 39768.8646,
+      "process_cpu_ms": 151155,
+      "end_memory": {
+        "total_pss_kb": 214796,
+        "native_heap_bytes": 657000256,
+        "proc_status": [
+          "VmHWM:\t  703416 kB",
+          "VmRSS:\t  295048 kB"
+        ],
+        "process_cpu_ms": 153925
+      }
+    },
+    {
+      "direction": "es-en",
+      "transcript": "te puede llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+      "translation": "I can take you after work, but I can't stay for dinner today.",
+      "asr_ms": 37336.4049,
+      "translation_load_ms": 1169.1692,
+      "translation_ms": 1508.6436,
+      "translation_loaded_memory": {
+        "total_pss_kb": 364789,
+        "native_heap_bytes": 823211936,
+        "proc_status": [
+          "VmHWM:\t  703416 kB",
+          "VmRSS:\t  426000 kB"
+        ],
+        "process_cpu_ms": 301874
+      },
+      "tts": {
+        "engine": "com.reecedunn.espeak",
+        "voice": "en-029",
+        "locale": "en-JM",
+        "requires_network": false,
+        "ms": 9.1368,
+        "wav_bytes": 147676,
+        "file": "es-en-tiny-speech.wav"
+      },
+      "total_ms_including_translator_load": 40080.6555,
+      "process_cpu_ms": 152325,
+      "end_memory": {
+        "total_pss_kb": 211466,
+        "native_heap_bytes": 658383984,
+        "proc_status": [
+          "VmHWM:\t  703416 kB",
+          "VmRSS:\t  239612 kB"
+        ],
+        "process_cpu_ms": 306329
+      }
+    }
+  ],
+  "end_memory": {
+    "total_pss_kb": 118760,
+    "native_heap_bytes": 24791088,
+    "proc_status": [
+      "VmHWM:\t  703416 kB",
+      "VmRSS:\t  165676 kB"
+    ],
+    "process_cpu_ms": 306506
+  }
+}

@@ -8,11 +8,20 @@ plugins {
 
 spotless {
     kotlin {
-        target("app/src/**/*.kt", "core/domain/src/**/*.kt")
+        target(
+            "app/src/**/*.kt",
+            "core/domain/src/**/*.kt",
+            "spikes/offline-feasibility/src/**/*.kt",
+        )
         ktfmt(libs.versions.ktfmt.get()).kotlinlangStyle()
     }
     kotlinGradle {
-        target("*.gradle.kts", "app/*.gradle.kts", "core/domain/*.gradle.kts")
+        target(
+            "*.gradle.kts",
+            "app/*.gradle.kts",
+            "core/domain/*.gradle.kts",
+            "spikes/offline-feasibility/*.gradle.kts",
+        )
         ktfmt(libs.versions.ktfmt.get()).kotlinlangStyle()
     }
     format("projectText") {

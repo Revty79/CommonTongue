@@ -1,0 +1,2117 @@
+{
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.2",
+  "threads": 4,
+  "network": {
+    "canary_before_tripwire": {
+      "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+      "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+    },
+    "python_tripwire": true,
+    "native_process_network_block": "externally enforced; see canaries and run procedure",
+    "inference_socket_attempts": []
+  },
+  "artifact_lock_sha256": "f04378b96e53897c0f43f25d233f1e99aefaef4681388dd9fc2943d9234fbab9",
+  "text_cases": [
+    {
+      "id": "en01",
+      "direction": "en-es",
+      "category": "conversation",
+      "source": "I can pick you up after work, but I cannot stay for dinner.",
+      "meaning": "Pickup after work; dinner refusal; negation.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+        "ms": 488.57029993087053,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 401797120,
+        "steady_parent_rss_bytes": 402333696,
+        "approx_cpu_seconds": 2.328125,
+        "approx_busy_cpu_cores": 4.6663966140052,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en02",
+      "direction": "en-es",
+      "category": "slang",
+      "source": "That repair cost an arm and a leg. I am pretty broke now.",
+      "meaning": "Very expensive repair; little money; not literal limbs.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "Esa reparación costó un brazo y una pierna.",
+        "ms": 578.9528000168502,
+        "tokens": 10,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 547336192,
+        "steady_parent_rss_bytes": 547545088,
+        "approx_cpu_seconds": 1.875,
+        "approx_busy_cpu_cores": 3.167967673852426,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en03",
+      "direction": "en-es",
+      "category": "idiom",
+      "source": "Let's call it a day and finish the fence tomorrow.",
+      "meaning": "Stop work today; finish fence tomorrow.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "Terminemos mañana con la valla.",
+        "ms": 294.1544000059366,
+        "tokens": 9,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 547811328,
+        "steady_parent_rss_bytes": 547786752,
+        "approx_cpu_seconds": 1.484375,
+        "approx_busy_cpu_cores": 4.864385441088212,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en04",
+      "direction": "en-es",
+      "category": "negation",
+      "source": "Do not start the engine until I remove the jumper cables.",
+      "meaning": "Prohibition until cables removed; safety condition.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "No encienda el motor hasta que retire los cables del puente.",
+        "ms": 613.9978999271989,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 549027840,
+        "steady_parent_rss_bytes": 549097472,
+        "approx_cpu_seconds": 2.5625,
+        "approx_busy_cpu_cores": 4.091154596937074,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en05",
+      "direction": "en-es",
+      "category": "numbers-money",
+      "source": "The total is 127 dollars and 50 cents, not 175 dollars.",
+      "meaning": "127.50 dollars; reject 175.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "El total es 127 dólares y 50 centavos, no 175 dólares.",
+        "ms": 470.72089998982847,
+        "tokens": 14,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 549146624,
+        "steady_parent_rss_bytes": 549122048,
+        "approx_cpu_seconds": 2.1875,
+        "approx_busy_cpu_cores": 4.369710030470162,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en06",
+      "direction": "en-es",
+      "category": "date-time",
+      "source": "The delivery is on October 12 at 3:30 in the afternoon.",
+      "meaning": "October 12; 15:30; delivery.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "La entrega es el 12 de octubre a las 3:30 de la tarde.",
+        "ms": 585.1038999389857,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 549146624,
+        "steady_parent_rss_bytes": 549646336,
+        "approx_cpu_seconds": 2.484375,
+        "approx_busy_cpu_cores": 4.1664046278484115,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en07",
+      "direction": "en-es",
+      "category": "measurement",
+      "source": "Cut two boards, each 45 inches long, and leave a quarter-inch gap.",
+      "meaning": "Two boards; 45 inches each; gap 0.25 inch.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "Corta dos tablas, cada una de 45 pulgadas de largo, y deja un hueco de un cuarto de pulgada.",
+        "ms": 762.3618000652641,
+        "tokens": 23,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 553725952,
+        "steady_parent_rss_bytes": 553701376,
+        "approx_cpu_seconds": 3.125,
+        "approx_busy_cpu_cores": 4.022590353113586,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en08",
+      "direction": "en-es",
+      "category": "automotive",
+      "source": "The truck cranks but won't start, and the check-engine light is on.",
+      "meaning": "Starter turns; engine will not run; warning lamp.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "El camión se pone de manivela pero no arranca, y la luz del motor de verificación está encendida.",
+        "ms": 733.2136000040919,
+        "tokens": 22,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555401216,
+        "steady_parent_rss_bytes": 555376640,
+        "approx_cpu_seconds": 3.15625,
+        "approx_busy_cpu_cores": 4.249158110903566,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en09",
+      "direction": "en-es",
+      "category": "automotive",
+      "source": "The brake pedal feels soft after we replaced the master cylinder.",
+      "meaning": "Spongy brake pedal; master cylinder replacement.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "El pedal del freno se siente suave después de que sustituimos el cilindro maestro.",
+        "ms": 566.7778998613358,
+        "tokens": 18,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555409408,
+        "steady_parent_rss_bytes": 555384832,
+        "approx_cpu_seconds": 2.5,
+        "approx_busy_cpu_cores": 4.308645141706088,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en10",
+      "direction": "en-es",
+      "category": "construction",
+      "source": "Shut off the breaker before you replace that outlet.",
+      "meaning": "Disconnect circuit breaker before electrical outlet work.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "Apaga el interruptor antes de reemplazar esa salida.",
+        "ms": 314.6838000975549,
+        "tokens": 10,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555409408,
+        "steady_parent_rss_bytes": 555384832,
+        "approx_cpu_seconds": 1.390625,
+        "approx_busy_cpu_cores": 4.272656720046117,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en11",
+      "direction": "en-es",
+      "category": "construction",
+      "source": "The concrete needs to cure before we remove the forms.",
+      "meaning": "Concrete curing; remove formwork later.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "El concreto necesita curarse antes de que eliminemos las formas.",
+        "ms": 445.7990999799222,
+        "tokens": 14,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555413504,
+        "steady_parent_rss_bytes": 555388928,
+        "approx_cpu_seconds": 1.875,
+        "approx_busy_cpu_cores": 4.1124706995035405,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en12",
+      "direction": "en-es",
+      "category": "ranch",
+      "source": "Move the calves to the north pasture and check the water trough.",
+      "meaning": "Young cattle; north pasture; drinking trough inspection.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "Mueva los terneros al pasto norte y revise el abrevadero.",
+        "ms": 455.41889988817275,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555413504,
+        "steady_parent_rss_bytes": 555388928,
+        "approx_cpu_seconds": 2.03125,
+        "approx_busy_cpu_cores": 4.358872839606228,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en13",
+      "direction": "en-es",
+      "category": "agriculture",
+      "source": "The irrigation pump lost its prime, so the field is not getting water.",
+      "meaning": "Pump priming lost; field not irrigated.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "La bomba de riego perdió su máxima potencia, así que el campo no está recibiendo agua.",
+        "ms": 571.4187000412494,
+        "tokens": 19,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555413504,
+        "steady_parent_rss_bytes": 555388928,
+        "approx_cpu_seconds": 2.5625,
+        "approx_busy_cpu_cores": 4.404361082318597,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en14",
+      "direction": "en-es",
+      "category": "incomplete",
+      "source": "If the hose is still leaking, maybe just... wait, close the valve first.",
+      "meaning": "Interrupted plan; close valve first; hose leak condition.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "Si la manguera sigue goteando, tal vez... espere, cierre la válvula primero.",
+        "ms": 571.0908998735249,
+        "tokens": 19,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555413504,
+        "steady_parent_rss_bytes": 555388928,
+        "approx_cpu_seconds": 2.46875,
+        "approx_busy_cpu_cores": 4.245612851016217,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en15",
+      "direction": "en-es",
+      "category": "ambiguous",
+      "source": "Put the jack next to the tire, not by the river bank.",
+      "meaning": "Vehicle lifting jack; tire; river bank negated.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "Pon la jota junto a la rueda, no junto a la orilla del río.",
+        "ms": 567.9597998969257,
+        "tokens": 18,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555421696,
+        "steady_parent_rss_bytes": 555397120,
+        "approx_cpu_seconds": 2.53125,
+        "approx_busy_cpu_cores": 4.38298710183398,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en16",
+      "direction": "en-es",
+      "category": "difficult",
+      "source": "I didn't say he stole the tools; I said nobody saw him return them.",
+      "meaning": "No accusation of theft; nobody witnessed return.",
+      "candidate": "en-es",
+      "translation": {
+        "text": "No dije que robó las herramientas; dije que nadie lo vio devolverlas.",
+        "ms": 481.8692000117153,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555421696,
+        "steady_parent_rss_bytes": 555397120,
+        "approx_cpu_seconds": 2.1875,
+        "approx_busy_cpu_cores": 4.448968550853758,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es01",
+      "direction": "es-en",
+      "category": "conversation",
+      "source": "Te puedo llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+      "meaning": "Ride after work; cannot stay for dinner today.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "I can take you after work, but I can't stay for dinner today.",
+        "ms": 596.5672000311315,
+        "tokens": 18,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 406175744,
+        "steady_parent_rss_bytes": 406675456,
+        "approx_cpu_seconds": 2.53125,
+        "approx_busy_cpu_cores": 4.168311347982406,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es02",
+      "direction": "es-en",
+      "category": "regional-slang",
+      "source": "Ahorita no traigo feria; te pago el viernes.",
+      "meaning": "Casual Mexican Spanish: no cash now; payment Friday.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "I don't have a fair right now; I'll pay you Friday.",
+        "ms": 578.0374999158084,
+        "tokens": 18,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 554115072,
+        "steady_parent_rss_bytes": 554209280,
+        "approx_cpu_seconds": 2.65625,
+        "approx_busy_cpu_cores": 4.508625584189439,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es03",
+      "direction": "es-en",
+      "category": "idiom",
+      "source": "Me estás tomando el pelo o de verdad se descompuso otra vez?",
+      "meaning": "Are you teasing me; did it actually break again?",
+      "candidate": "es-en",
+      "translation": {
+        "text": "Are you kidding me or did it really break down again?",
+        "ms": 426.89420003443956,
+        "tokens": 13,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 554233856,
+        "steady_parent_rss_bytes": 554209280,
+        "approx_cpu_seconds": 1.96875,
+        "approx_busy_cpu_cores": 4.484447423536267,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es04",
+      "direction": "es-en",
+      "category": "negation",
+      "source": "No prendas el motor hasta que quite los cables para pasar corriente.",
+      "meaning": "Do not start until jumper cables removed.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "Don't wear the engine until you remove the cables to pass current.",
+        "ms": 545.6886999309063,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 554258432,
+        "steady_parent_rss_bytes": 554233856,
+        "approx_cpu_seconds": 2.515625,
+        "approx_busy_cpu_cores": 4.513091981044919,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es05",
+      "direction": "es-en",
+      "category": "numbers-money",
+      "source": "Son ciento veintisiete dólares con cincuenta centavos, no ciento setenta y cinco.",
+      "meaning": "127.50 dollars; not 175.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "That's $127 with fifty cents, not $175.",
+        "ms": 562.8585000522435,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 554258432,
+        "steady_parent_rss_bytes": 554233856,
+        "approx_cpu_seconds": 2.515625,
+        "approx_busy_cpu_cores": 4.37437389397764,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es06",
+      "direction": "es-en",
+      "category": "date-time",
+      "source": "La entrega es el doce de octubre a las tres y media de la tarde.",
+      "meaning": "October 12; 15:30; delivery.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "The delivery is on October 12th at 3:30 p.m.",
+        "ms": 712.5172999221832,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 554258432,
+        "steady_parent_rss_bytes": 554233856,
+        "approx_cpu_seconds": 2.625,
+        "approx_busy_cpu_cores": 3.6160695649639707,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es07",
+      "direction": "es-en",
+      "category": "measurement",
+      "source": "Necesito tres litros de aceite y una manguera de dos metros.",
+      "meaning": "Three liters oil; two-meter hose.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "I need three liters of oil and a two-meter hose.",
+        "ms": 480.0096999388188,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 554258432,
+        "steady_parent_rss_bytes": 554233856,
+        "approx_cpu_seconds": 2.3125,
+        "approx_busy_cpu_cores": 4.6497048113469575,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es08",
+      "direction": "es-en",
+      "category": "automotive",
+      "source": "La camioneta da marcha, pero no arranca y está prendida la luz del motor.",
+      "meaning": "Starter cranks; no engine start; engine warning lamp.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "The van is running, but it's not starting and the engine light is on.",
+        "ms": 594.9164000339806,
+        "tokens": 19,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 554393600,
+        "steady_parent_rss_bytes": 554893312,
+        "approx_cpu_seconds": 2.578125,
+        "approx_busy_cpu_cores": 4.254653239263012,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es09",
+      "direction": "es-en",
+      "category": "automotive",
+      "source": "El pedal del freno se siente esponjoso desde que cambiamos la bomba de freno.",
+      "meaning": "Spongy brake pedal; master cylinder replaced.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "The brake pedal feels fluffy since we changed the brake pump.",
+        "ms": 443.40819981880486,
+        "tokens": 14,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555012096,
+        "steady_parent_rss_bytes": 554987520,
+        "approx_cpu_seconds": 2.015625,
+        "approx_busy_cpu_cores": 4.43583935804564,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es10",
+      "direction": "es-en",
+      "category": "construction",
+      "source": "Baja el interruptor antes de cambiar ese contacto.",
+      "meaning": "Circuit off before electrical outlet replacement; regional contacto.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "Put the switch down before changing that contact.",
+        "ms": 316.6592998895794,
+        "tokens": 10,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555012096,
+        "steady_parent_rss_bytes": 554987520,
+        "approx_cpu_seconds": 1.484375,
+        "approx_busy_cpu_cores": 4.532307122018469,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es11",
+      "direction": "es-en",
+      "category": "construction",
+      "source": "Hay que dejar curar el concreto antes de quitar la cimbra.",
+      "meaning": "Concrete cure first; regional formwork cimbra.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "You have to let the concrete heal before removing the cipher.",
+        "ms": 469.50630005449057,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555012096,
+        "steady_parent_rss_bytes": 554987520,
+        "approx_cpu_seconds": 2.03125,
+        "approx_busy_cpu_cores": 4.219713881510923,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es12",
+      "direction": "es-en",
+      "category": "ranch",
+      "source": "Lleva los becerros al potrero del norte y revisa el bebedero.",
+      "meaning": "Calves; north pasture; water trough.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "Take the calves to the north pasture and check the trough.",
+        "ms": 411.90869989804924,
+        "tokens": 13,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555012096,
+        "steady_parent_rss_bytes": 554987520,
+        "approx_cpu_seconds": 1.828125,
+        "approx_busy_cpu_cores": 4.3107544323924705,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es13",
+      "direction": "es-en",
+      "category": "agriculture",
+      "source": "La bomba de riego perdió el cebado y no está llegando agua al cultivo.",
+      "meaning": "Lost pump prime; crop not receiving water.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "The irrigation pump lost the primer and no water is coming into the crop.",
+        "ms": 525.7097000721842,
+        "tokens": 17,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555012096,
+        "steady_parent_rss_bytes": 554991616,
+        "approx_cpu_seconds": 2.40625,
+        "approx_busy_cpu_cores": 4.482632904652982,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es14",
+      "direction": "es-en",
+      "category": "incomplete",
+      "source": "Si todavía gotea la manguera, mejor... no, espera, cierra primero la válvula.",
+      "meaning": "Interrupted suggestion; first close valve; leaking hose.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "If the hose still leaks, better... no, wait, close the valve first.",
+        "ms": 606.1475002206862,
+        "tokens": 19,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 555278336,
+        "steady_parent_rss_bytes": 555253760,
+        "approx_cpu_seconds": 2.875,
+        "approx_busy_cpu_cores": 4.651406601359211,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es15",
+      "direction": "es-en",
+      "category": "ambiguous",
+      "source": "Deja el gato junto a la llanta; estoy hablando de la herramienta, no del animal.",
+      "meaning": "Vehicle jack, not cat; next to tire.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "Leave the cat next to the rim; I'm talking about the tool, not the animal.",
+        "ms": 714.5018000155687,
+        "tokens": 22,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 556261376,
+        "steady_parent_rss_bytes": 556761088,
+        "approx_cpu_seconds": 3.328125,
+        "approx_busy_cpu_cores": 4.582303857625359,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "es16",
+      "direction": "es-en",
+      "category": "difficult",
+      "source": "No dije que se robó las herramientas; dije que nadie lo vio devolverlas.",
+      "meaning": "No theft accusation; return not witnessed.",
+      "candidate": "es-en",
+      "translation": {
+        "text": "I didn't say he stole the tools; I said no one saw him return them.",
+        "ms": 675.9464000351727,
+        "tokens": 20,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 557445120,
+        "steady_parent_rss_bytes": 557486080,
+        "approx_cpu_seconds": 3.046875,
+        "approx_busy_cpu_cores": 4.418604786459578,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en01",
+      "direction": "en-es",
+      "category": "conversation",
+      "source": "I can pick you up after work, but I cannot stay for dinner.",
+      "meaning": "Pickup after work; dinner refusal; negation.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+        "ms": 628.6120000295341,
+        "tokens": 17,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 404979712,
+        "steady_parent_rss_bytes": 405479424,
+        "approx_cpu_seconds": 2.84375,
+        "approx_busy_cpu_cores": 4.447296622242481,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en02",
+      "direction": "en-es",
+      "category": "slang",
+      "source": "That repair cost an arm and a leg. I am pretty broke now.",
+      "meaning": "Very expensive repair; little money; not literal limbs.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "Esa reparación cuesta un brazo y una pierna.",
+        "ms": 368.2850000914186,
+        "tokens": 10,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 550653952,
+        "steady_parent_rss_bytes": 550678528,
+        "approx_cpu_seconds": 1.671875,
+        "approx_busy_cpu_cores": 4.38640678775591,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en03",
+      "direction": "en-es",
+      "category": "idiom",
+      "source": "Let's call it a day and finish the fence tomorrow.",
+      "meaning": "Stop work today; finish fence tomorrow.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "Terminemos el día y acabemos la cerca mañana.",
+        "ms": 471.74210008233786,
+        "tokens": 13,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 551747584,
+        "steady_parent_rss_bytes": 551731200,
+        "approx_cpu_seconds": 2.0625,
+        "approx_busy_cpu_cores": 4.242276024872838,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en04",
+      "direction": "en-es",
+      "category": "negation",
+      "source": "Do not start the engine until I remove the jumper cables.",
+      "meaning": "Prohibition until cables removed; safety condition.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "No arranque el motor hasta que yo retire los cables del súper.",
+        "ms": 806.3344000838697,
+        "tokens": 19,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 553336832,
+        "steady_parent_rss_bytes": 553836544,
+        "approx_cpu_seconds": 3.078125,
+        "approx_busy_cpu_cores": 3.75731169009013,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en05",
+      "direction": "en-es",
+      "category": "numbers-money",
+      "source": "The total is 127 dollars and 50 cents, not 175 dollars.",
+      "meaning": "127.50 dollars; reject 175.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "El total es 127 dólares y 50 centavos, no 175 dólares.",
+        "ms": 844.3006998859346,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 553930752,
+        "steady_parent_rss_bytes": 553906176,
+        "approx_cpu_seconds": 2.9375,
+        "approx_busy_cpu_cores": 3.426042330354947,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en06",
+      "direction": "en-es",
+      "category": "date-time",
+      "source": "The delivery is on October 12 at 3:30 in the afternoon.",
+      "meaning": "October 12; 15:30; delivery.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "La entrega es el 12 de octubre a las 3:30 de la tarde.",
+        "ms": 983.6355000734329,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 553930752,
+        "steady_parent_rss_bytes": 553910272,
+        "approx_cpu_seconds": 3.265625,
+        "approx_busy_cpu_cores": 3.2247875798903944,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en07",
+      "direction": "en-es",
+      "category": "measurement",
+      "source": "Cut two boards, each 45 inches long, and leave a quarter-inch gap.",
+      "meaning": "Two boards; 45 inches each; gap 0.25 inch.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "Cortar dos tablas, cada 45 pulgadas de largo, y dejar un cuarto de pulgadas de espacio.",
+        "ms": 1463.9810000080615,
+        "tokens": 26,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 558268416,
+        "steady_parent_rss_bytes": 558243840,
+        "approx_cpu_seconds": 5.25,
+        "approx_busy_cpu_cores": 3.554835951276269,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en08",
+      "direction": "en-es",
+      "category": "automotive",
+      "source": "The truck cranks but won't start, and the check-engine light is on.",
+      "meaning": "Starter turns; engine will not run; warning lamp.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "El camión se pone a funcionar pero no se pone a funcionar, y el motor de control está encendido.",
+        "ms": 985.1106000132859,
+        "tokens": 24,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559624192,
+        "steady_parent_rss_bytes": 559599616,
+        "approx_cpu_seconds": 4.265625,
+        "approx_busy_cpu_cores": 4.273258321258829,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en09",
+      "direction": "en-es",
+      "category": "automotive",
+      "source": "The brake pedal feels soft after we replaced the master cylinder.",
+      "meaning": "Spongy brake pedal; master cylinder replacement.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "El pedal del freno se siente suave después de que reemplazamos el cilindro maestro.",
+        "ms": 935.4197001084685,
+        "tokens": 21,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559624192,
+        "steady_parent_rss_bytes": 559599616,
+        "approx_cpu_seconds": 3.90625,
+        "approx_busy_cpu_cores": 4.114327591680032,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en10",
+      "direction": "en-es",
+      "category": "construction",
+      "source": "Shut off the breaker before you replace that outlet.",
+      "meaning": "Disconnect circuit breaker before electrical outlet work.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "Apaga el interruptor antes de reemplazar esa toma.",
+        "ms": 679.2196000460535,
+        "tokens": 14,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559624192,
+        "steady_parent_rss_bytes": 559599616,
+        "approx_cpu_seconds": 2.625,
+        "approx_busy_cpu_cores": 3.766236784679959,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en11",
+      "direction": "en-es",
+      "category": "construction",
+      "source": "The concrete needs to cure before we remove the forms.",
+      "meaning": "Concrete curing; remove formwork later.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "El concreto necesita curar antes de quitar las formas.",
+        "ms": 561.0242998227477,
+        "tokens": 12,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559624192,
+        "steady_parent_rss_bytes": 559599616,
+        "approx_cpu_seconds": 2.125,
+        "approx_busy_cpu_cores": 3.674633271061768,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en12",
+      "direction": "en-es",
+      "category": "ranch",
+      "source": "Move the calves to the north pasture and check the water trough.",
+      "meaning": "Young cattle; north pasture; drinking trough inspection.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "Mueva los becerros al pasto norte y verifique el agua.",
+        "ms": 969.9981000740081,
+        "tokens": 17,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559624192,
+        "steady_parent_rss_bytes": 559599616,
+        "approx_cpu_seconds": 3.359375,
+        "approx_busy_cpu_cores": 3.4054814725345857,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en13",
+      "direction": "en-es",
+      "category": "agriculture",
+      "source": "The irrigation pump lost its prime, so the field is not getting water.",
+      "meaning": "Pump priming lost; field not irrigated.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "La bomba de riego perdió su primer, por lo que el campo no está recibiendo agua.",
+        "ms": 1166.1280998960137,
+        "tokens": 24,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559624192,
+        "steady_parent_rss_bytes": 559599616,
+        "approx_cpu_seconds": 4.3125,
+        "approx_busy_cpu_cores": 3.647369369296019,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en14",
+      "direction": "en-es",
+      "category": "incomplete",
+      "source": "If the hose is still leaking, maybe just... wait, close the valve first.",
+      "meaning": "Interrupted plan; close valve first; hose leak condition.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "Si la manguera sigue saliendo, tal vez... espera, cierra la válvula primero.",
+        "ms": 1096.8182000797242,
+        "tokens": 22,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559624192,
+        "steady_parent_rss_bytes": 559599616,
+        "approx_cpu_seconds": 4.25,
+        "approx_busy_cpu_cores": 3.7985329619063886,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en15",
+      "direction": "en-es",
+      "category": "ambiguous",
+      "source": "Put the jack next to the tire, not by the river bank.",
+      "meaning": "Vehicle lifting jack; tire; river bank negated.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "Pon la jack junto a la rueda, no junto a la orilla del río.",
+        "ms": 1099.2560999002308,
+        "tokens": 20,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559624192,
+        "steady_parent_rss_bytes": 559599616,
+        "approx_cpu_seconds": 3.4375,
+        "approx_busy_cpu_cores": 3.08984736816884,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    },
+    {
+      "id": "en16",
+      "direction": "en-es",
+      "category": "difficult",
+      "source": "I didn't say he stole the tools; I said nobody saw him return them.",
+      "meaning": "No accusation of theft; nobody witnessed return.",
+      "candidate": "en-romance",
+      "translation": {
+        "text": "No dije que él robó las herramientas; dije que nadie lo vio devolverlas.",
+        "ms": 1519.5390998851508,
+        "tokens": 18,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-romance"
+      },
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 559628288,
+        "steady_parent_rss_bytes": 559603712,
+        "approx_cpu_seconds": 3.6875,
+        "approx_busy_cpu_cores": 2.3950774223217683,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      }
+    }
+  ],
+  "audio_cases": [
+    {
+      "direction": "en-es",
+      "asr": {
+        "model": "tiny",
+        "quantization": "Q5_1",
+        "language": "en",
+        "transcript": "I can pick you up after work, but I cannot stay for dinner.",
+        "wall_ms_including_load": 651.6585999634117,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+        "ms": 518.5514998156577,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "es",
+        "ms": 109.22649991698563,
+        "audio_seconds": 4.891020408163265,
+        "path": ".local\\feasibility-results\\en01-clean-tiny-speech.wav",
+        "bytes": 215738,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 1289.06699991785,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 707772416,
+        "steady_parent_rss_bytes": 555405312,
+        "approx_cpu_seconds": 4.828125,
+        "approx_busy_cpu_cores": 3.7456312121154585,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 500.82720001228154,
+      "sample": {
+        "id": "en01-clean",
+        "direction": "en-es",
+        "reference": "I can pick you up after work, but I cannot stay for dinner.",
+        "category": "conversation",
+        "path": ".local\\feasibility-audio\\en01-clean.wav",
+        "seconds": 3.967625,
+        "sha256": "bd239fab5c5939389a4617bc6587327b1de4c94cde0fd41e894716249676fd42",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.0,
+      "reference_translation": {
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+        "ms": 460.02999995835125,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      }
+    },
+    {
+      "direction": "en-es",
+      "asr": {
+        "model": "tiny",
+        "quantization": "Q5_1",
+        "language": "en",
+        "transcript": "do not start the end until I remove the jumper cables.",
+        "wall_ms_including_load": 693.7543000094593,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "No empieces el final hasta que quite los cables del puente.",
+        "ms": 443.39120015501976,
+        "tokens": 14,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "es",
+        "ms": 134.313500020653,
+        "audio_seconds": 3.9159183673469387,
+        "path": ".local\\feasibility-results\\en04-clean-tiny-speech.wav",
+        "bytes": 172736,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 1284.079299774021,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 708247552,
+        "steady_parent_rss_bytes": 555425792,
+        "approx_cpu_seconds": 5.015625,
+        "approx_busy_cpu_cores": 3.9062953300989616,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 500.82720001228154,
+      "sample": {
+        "id": "en04-clean",
+        "direction": "en-es",
+        "reference": "Do not start the engine until I remove the jumper cables.",
+        "category": "negation",
+        "path": ".local\\feasibility-audio\\en04-clean.wav",
+        "seconds": 3.7100625,
+        "sha256": "78457e60cc7eb004ce6d59f60176a8e2603b60339ac2a4cb0384d9e3df0227bb",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.09090909090909091,
+      "reference_translation": {
+        "text": "No encienda el motor hasta que retire los cables del puente.",
+        "ms": 444.94200008921325,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      }
+    },
+    {
+      "direction": "en-es",
+      "asr": {
+        "model": "tiny",
+        "quantization": "Q5_1",
+        "language": "en",
+        "transcript": "If you don't start, then you don't feel like we move the dump a cable.",
+        "wall_ms_including_load": 1059.9958999082446,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "Si no empiezas, no sentirás que movemos el vertedero de un cable.",
+        "ms": 765.2544998563826,
+        "tokens": 20,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "es",
+        "ms": 100.42969998903573,
+        "audio_seconds": 4.589931972789116,
+        "path": ".local\\feasibility-results\\en04-noise10db-tiny-speech.wav",
+        "bytes": 202460,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 1936.6421001031995,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 708354048,
+        "steady_parent_rss_bytes": 555433984,
+        "approx_cpu_seconds": 6.625,
+        "approx_busy_cpu_cores": 3.4210751757609072,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 500.82720001228154,
+      "sample": {
+        "id": "en04-noise10db",
+        "direction": "en-es",
+        "reference": "Do not start the engine until I remove the jumper cables.",
+        "category": "negation",
+        "path": ".local\\feasibility-audio\\en04-noise10db.wav",
+        "seconds": 3.7100625,
+        "sha256": "33447fdb7ba597df3cfd86ca330624f1378b4da354f8e1de098c78d2dd289f26",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "noise10db"
+      },
+      "asr_wer": 1.3636363636363635,
+      "reference_translation": {
+        "text": "No encienda el motor hasta que retire los cables del puente.",
+        "ms": 419.2661999259144,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      }
+    },
+    {
+      "direction": "en-es",
+      "asr": {
+        "model": "tiny",
+        "quantization": "Q5_1",
+        "language": "en",
+        "transcript": "move the calves to the north pasture and check the water drop.",
+        "wall_ms_including_load": 1599.9741000123322,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "mover los terneros al pasto norte y comprobar la caída del agua.",
+        "ms": 1190.5025001615286,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "es",
+        "ms": 192.9339999333024,
+        "audio_seconds": 4.168208616780046,
+        "path": ".local\\feasibility-results\\en12-clean-tiny-speech.wav",
+        "bytes": 183862,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 2995.631500147283,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 708132864,
+        "steady_parent_rss_bytes": 555438080,
+        "approx_cpu_seconds": 8.5625,
+        "approx_busy_cpu_cores": 2.8584377444773383,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 500.82720001228154,
+      "sample": {
+        "id": "en12-clean",
+        "direction": "en-es",
+        "reference": "Move the calves to the north pasture and check the water trough.",
+        "category": "ranch",
+        "path": ".local\\feasibility-audio\\en12-clean.wav",
+        "seconds": 4.0743125,
+        "sha256": "202951e45ccd45bdf81bed467ccb2b2f336c0daca5c9be26c723b1d64ba598a3",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.08333333333333333,
+      "reference_translation": {
+        "text": "Mueva los terneros al pasto norte y revise el abrevadero.",
+        "ms": 781.8332999013364,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      }
+    },
+    {
+      "direction": "en-es",
+      "asr": {
+        "model": "base",
+        "quantization": "Q5_1",
+        "language": "en",
+        "transcript": "I can pick you up after work, but I cannot stay for dinner.",
+        "wall_ms_including_load": 2851.9008001312613,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+        "ms": 1170.531999785453,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "es",
+        "ms": 166.49099998176098,
+        "audio_seconds": 4.891020408163265,
+        "path": ".local\\feasibility-results\\en01-clean-base-speech.wav",
+        "bytes": 215738,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 4207.397399935871,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 777674752,
+        "steady_parent_rss_bytes": 555438080,
+        "approx_cpu_seconds": 12.921875,
+        "approx_busy_cpu_cores": 3.0713350492119464,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 500.82720001228154,
+      "sample": {
+        "id": "en01-clean",
+        "direction": "en-es",
+        "reference": "I can pick you up after work, but I cannot stay for dinner.",
+        "category": "conversation",
+        "path": ".local\\feasibility-audio\\en01-clean.wav",
+        "seconds": 3.967625,
+        "sha256": "bd239fab5c5939389a4617bc6587327b1de4c94cde0fd41e894716249676fd42",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.0,
+      "reference_translation": {
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+        "ms": 924.1330998484045,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      }
+    },
+    {
+      "direction": "en-es",
+      "asr": {
+        "model": "base",
+        "quantization": "Q5_1",
+        "language": "en",
+        "transcript": "do not start the engine until I remove the jumper cables.",
+        "wall_ms_including_load": 3198.236200027168,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "No encienda el motor hasta que retire los cables de puente.",
+        "ms": 661.0144001897424,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "es",
+        "ms": 126.97120010852814,
+        "audio_seconds": 3.837596371882086,
+        "path": ".local\\feasibility-results\\en04-clean-base-speech.wav",
+        "bytes": 169282,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 4003.590099979192,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 777572352,
+        "steady_parent_rss_bytes": 555446272,
+        "approx_cpu_seconds": 12.328125,
+        "approx_busy_cpu_cores": 3.079383211393386,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 500.82720001228154,
+      "sample": {
+        "id": "en04-clean",
+        "direction": "en-es",
+        "reference": "Do not start the engine until I remove the jumper cables.",
+        "category": "negation",
+        "path": ".local\\feasibility-audio\\en04-clean.wav",
+        "seconds": 3.7100625,
+        "sha256": "78457e60cc7eb004ce6d59f60176a8e2603b60339ac2a4cb0384d9e3df0227bb",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.0,
+      "reference_translation": {
+        "text": "No encienda el motor hasta que retire los cables del puente.",
+        "ms": 633.2177999429405,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      }
+    },
+    {
+      "direction": "en-es",
+      "asr": {
+        "model": "base",
+        "quantization": "Q5_1",
+        "language": "en",
+        "transcript": "to not start the engine until I remove the jumper cable.",
+        "wall_ms_including_load": 1924.002300016582,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "No encienda el motor hasta que quite el cable del puente.",
+        "ms": 470.2955998945981,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "es",
+        "ms": 96.0982998367399,
+        "audio_seconds": 3.7556462585034014,
+        "path": ".local\\feasibility-results\\en04-noise10db-base-speech.wav",
+        "bytes": 165668,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 2507.8634000383317,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 778231808,
+        "steady_parent_rss_bytes": 555446272,
+        "approx_cpu_seconds": 9.390625,
+        "approx_busy_cpu_cores": 3.7446692357989653,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 500.82720001228154,
+      "sample": {
+        "id": "en04-noise10db",
+        "direction": "en-es",
+        "reference": "Do not start the engine until I remove the jumper cables.",
+        "category": "negation",
+        "path": ".local\\feasibility-audio\\en04-noise10db.wav",
+        "seconds": 3.7100625,
+        "sha256": "33447fdb7ba597df3cfd86ca330624f1378b4da354f8e1de098c78d2dd289f26",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "noise10db"
+      },
+      "asr_wer": 0.18181818181818182,
+      "reference_translation": {
+        "text": "No encienda el motor hasta que retire los cables del puente.",
+        "ms": 415.4177000746131,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      }
+    },
+    {
+      "direction": "en-es",
+      "asr": {
+        "model": "base",
+        "quantization": "Q5_1",
+        "language": "en",
+        "transcript": "Move the car to the north pasture and check the water drop.",
+        "wall_ms_including_load": 1428.6895000841469,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "Mueva el coche al pasto norte y compruebe la caída del agua.",
+        "ms": 462.79960009269416,
+        "tokens": 15,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "es",
+        "ms": 88.62540009431541,
+        "audio_seconds": 4.07092970521542,
+        "path": ".local\\feasibility-results\\en12-clean-base-speech.wav",
+        "bytes": 179572,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 1990.1734001468867,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 777977856,
+        "steady_parent_rss_bytes": 555446272,
+        "approx_cpu_seconds": 8.109375,
+        "approx_busy_cpu_cores": 4.074884665939114,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 500.82720001228154,
+      "sample": {
+        "id": "en12-clean",
+        "direction": "en-es",
+        "reference": "Move the calves to the north pasture and check the water trough.",
+        "category": "ranch",
+        "path": ".local\\feasibility-audio\\en12-clean.wav",
+        "seconds": 4.0743125,
+        "sha256": "202951e45ccd45bdf81bed467ccb2b2f336c0daca5c9be26c723b1d64ba598a3",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.16666666666666666,
+      "reference_translation": {
+        "text": "Mueva los terneros al pasto norte y revise el abrevadero.",
+        "ms": 426.3230999931693,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "en-es"
+      }
+    },
+    {
+      "direction": "es-en",
+      "asr": {
+        "model": "tiny",
+        "quantization": "Q5_1",
+        "language": "es",
+        "transcript": "Pero no me voy a ver ni suena el trabajo, pero no me voy a ver a ver a ver a ver.",
+        "wall_ms_including_load": 1026.558900019154,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "But I'm not going to see or work sounds, but I'm not going to see you.",
+        "ms": 787.1030999813229,
+        "tokens": 23,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "en",
+        "ms": 96.08289995230734,
+        "audio_seconds": 4.913333333333333,
+        "path": ".local\\feasibility-results\\es01-clean-tiny-speech.wav",
+        "bytes": 216722,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 1922.4785000551492,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 710082560,
+        "steady_parent_rss_bytes": 558231552,
+        "approx_cpu_seconds": 7.78125,
+        "approx_busy_cpu_cores": 4.0477006800919915,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 545.7425999920815,
+      "sample": {
+        "id": "es01-clean",
+        "direction": "es-en",
+        "reference": "Te puedo llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+        "category": "conversation",
+        "path": ".local\\feasibility-audio\\es01-clean.wav",
+        "seconds": 4.97025,
+        "sha256": "5d7c2de5f0e5647824fbe4400481c6022f9dba3d0ceffa599ab51e79633760ab",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 1.2857142857142858,
+      "reference_translation": {
+        "text": "I can take you after work, but I can't stay for dinner today.",
+        "ms": 511.66979991830885,
+        "tokens": 18,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      }
+    },
+    {
+      "direction": "es-en",
+      "asr": {
+        "model": "tiny",
+        "quantization": "Q5_1",
+        "language": "es",
+        "transcript": "no prendas el motor hasta que quete los calles para pasar coviente.",
+        "wall_ms_including_load": 923.0440000537783,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "Don't start the engine until you take the streets to pass the road.",
+        "ms": 613.779499894008,
+        "tokens": 17,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "en",
+        "ms": 99.34179997071624,
+        "audio_seconds": 4.226394557823129,
+        "path": ".local\\feasibility-results\\es04-clean-tiny-speech.wav",
+        "bytes": 186428,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 1648.7516998313367,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 713121792,
+        "steady_parent_rss_bytes": 558239744,
+        "approx_cpu_seconds": 6.40625,
+        "approx_busy_cpu_cores": 3.8858214785389995,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 545.7425999920815,
+      "sample": {
+        "id": "es04-clean",
+        "direction": "es-en",
+        "reference": "No prendas el motor hasta que quite los cables para pasar corriente.",
+        "category": "negation",
+        "path": ".local\\feasibility-audio\\es04-clean.wav",
+        "seconds": 4.383875,
+        "sha256": "5b359789840001bf5fdfe144676b8cbe80888b9c1f4c6fe004a5bdab51982a0a",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.25,
+      "reference_translation": {
+        "text": "Don't wear the engine until you remove the cables to pass current.",
+        "ms": 520.3523999080062,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      }
+    },
+    {
+      "direction": "es-en",
+      "asr": {
+        "model": "tiny",
+        "quantization": "Q5_1",
+        "language": "es",
+        "transcript": "no prendas en motoras a que quite los calres para pasar corriente.",
+        "wall_ms_including_load": 941.1050998605788,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "Do not wear motors to remove the heat to pass current.",
+        "ms": 453.1278999056667,
+        "tokens": 14,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "en",
+        "ms": 93.30499987117946,
+        "audio_seconds": 3.445487528344671,
+        "path": ".local\\feasibility-results\\es04-noise10db-tiny-speech.wav",
+        "bytes": 151990,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 1499.4381999131292,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 711876608,
+        "steady_parent_rss_bytes": 558243840,
+        "approx_cpu_seconds": 5.90625,
+        "approx_busy_cpu_cores": 3.9393225930675264,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 545.7425999920815,
+      "sample": {
+        "id": "es04-noise10db",
+        "direction": "es-en",
+        "reference": "No prendas el motor hasta que quite los cables para pasar corriente.",
+        "category": "negation",
+        "path": ".local\\feasibility-audio\\es04-noise10db.wav",
+        "seconds": 4.383875,
+        "sha256": "82ff9ed2267997bc3e4046240f196121f87450258e7df4071e72c91da08a7a97",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "noise10db"
+      },
+      "asr_wer": 0.3333333333333333,
+      "reference_translation": {
+        "text": "Don't wear the engine until you remove the cables to pass current.",
+        "ms": 468.1367001030594,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      }
+    },
+    {
+      "direction": "es-en",
+      "asr": {
+        "model": "tiny",
+        "quantization": "Q5_1",
+        "language": "es",
+        "transcript": "y va a lo suele pero sal por pero no te y premiza el reneiro.",
+        "wall_ms_including_load": 1174.1041999775916,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "And he goes to it usually but he comes out for but he doesn't and he rewards the reindeer.",
+        "ms": 722.9716998990625,
+        "tokens": 23,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "en",
+        "ms": 148.08099996298552,
+        "audio_seconds": 6.106984126984127,
+        "path": ".local\\feasibility-results\\es12-clean-tiny-speech.wav",
+        "bytes": 269362,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 2058.1290000118315,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 712892416,
+        "steady_parent_rss_bytes": 558510080,
+        "approx_cpu_seconds": 7.859375,
+        "approx_busy_cpu_cores": 3.818879095389868,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 545.7425999920815,
+      "sample": {
+        "id": "es12-clean",
+        "direction": "es-en",
+        "reference": "Lleva los becerros al potrero del norte y revisa el bebedero.",
+        "category": "ranch",
+        "path": ".local\\feasibility-audio\\es12-clean.wav",
+        "seconds": 3.985,
+        "sha256": "c3c6bdb8ea6b4c6488a4f484ec45fcc0d21108969c5aa5c836742588a4359472",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 1.1818181818181819,
+      "reference_translation": {
+        "text": "Take the calves to the north pasture and check the trough.",
+        "ms": 330.93310007825494,
+        "tokens": 13,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      }
+    },
+    {
+      "direction": "es-en",
+      "asr": {
+        "model": "base",
+        "quantization": "Q5_1",
+        "language": "es",
+        "transcript": "de pueno y vale después de el trabajo, pero hoy no me puebo que haga ser algo.",
+        "wall_ms_including_load": 1558.8677001651376,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "I can't do anything today.",
+        "ms": 281.3557998742908,
+        "tokens": 9,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "en",
+        "ms": 78.27710011042655,
+        "audio_seconds": 2.173469387755102,
+        "path": ".local\\feasibility-results\\es01-clean-base-speech.wav",
+        "bytes": 95894,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 1928.8784998934716,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 782057472,
+        "steady_parent_rss_bytes": 558510080,
+        "approx_cpu_seconds": 7.78125,
+        "approx_busy_cpu_cores": 4.034287385664017,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 545.7425999920815,
+      "sample": {
+        "id": "es01-clean",
+        "direction": "es-en",
+        "reference": "Te puedo llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+        "category": "conversation",
+        "path": ".local\\feasibility-audio\\es01-clean.wav",
+        "seconds": 4.97025,
+        "sha256": "5d7c2de5f0e5647824fbe4400481c6022f9dba3d0ceffa599ab51e79633760ab",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.7857142857142857,
+      "reference_translation": {
+        "text": "I can take you after work, but I can't stay for dinner today.",
+        "ms": 506.54760003089905,
+        "tokens": 18,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      }
+    },
+    {
+      "direction": "es-en",
+      "asr": {
+        "model": "base",
+        "quantization": "Q5_1",
+        "language": "es",
+        "transcript": "no prendas el motor hasta que quipe los cables para pasar corriente.",
+        "wall_ms_including_load": 1655.6087001226842,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "Do not start the engine until it is equipped with the cables to pass the current.",
+        "ms": 796.2112999521196,
+        "tokens": 18,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "en",
+        "ms": 104.08270009793341,
+        "audio_seconds": 4.846621315192744,
+        "path": ".local\\feasibility-results\\es04-clean-base-speech.wav",
+        "bytes": 213780,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 2566.2629001308233,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 780996608,
+        "steady_parent_rss_bytes": 558510080,
+        "approx_cpu_seconds": 9.09375,
+        "approx_busy_cpu_cores": 3.543728272203592,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 545.7425999920815,
+      "sample": {
+        "id": "es04-clean",
+        "direction": "es-en",
+        "reference": "No prendas el motor hasta que quite los cables para pasar corriente.",
+        "category": "negation",
+        "path": ".local\\feasibility-audio\\es04-clean.wav",
+        "seconds": 4.383875,
+        "sha256": "5b359789840001bf5fdfe144676b8cbe80888b9c1f4c6fe004a5bdab51982a0a",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 0.08333333333333333,
+      "reference_translation": {
+        "text": "Don't wear the engine until you remove the cables to pass current.",
+        "ms": 607.4682001490146,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      }
+    },
+    {
+      "direction": "es-en",
+      "asr": {
+        "model": "base",
+        "quantization": "Q5_1",
+        "language": "es",
+        "transcript": "No prendas el motor hasta que quipe los cadres para pasar corriente.",
+        "wall_ms_including_load": 3266.7168001644313,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "Don't start the engine until it's gone to the pipe to pass the current.",
+        "ms": 1193.8928999006748,
+        "tokens": 20,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "en",
+        "ms": 324.7161000035703,
+        "audio_seconds": 4.27437641723356,
+        "path": ".local\\feasibility-results\\es04-noise10db-base-speech.wav",
+        "bytes": 188544,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 4810.086299898103,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 781901824,
+        "steady_parent_rss_bytes": 558448640,
+        "approx_cpu_seconds": 12.703125,
+        "approx_busy_cpu_cores": 2.641001051635463,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 545.7425999920815,
+      "sample": {
+        "id": "es04-noise10db",
+        "direction": "es-en",
+        "reference": "No prendas el motor hasta que quite los cables para pasar corriente.",
+        "category": "negation",
+        "path": ".local\\feasibility-audio\\es04-noise10db.wav",
+        "seconds": 4.383875,
+        "sha256": "82ff9ed2267997bc3e4046240f196121f87450258e7df4071e72c91da08a7a97",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "noise10db"
+      },
+      "asr_wer": 0.16666666666666666,
+      "reference_translation": {
+        "text": "Don't wear the engine until you remove the cables to pass current.",
+        "ms": 628.5115999635309,
+        "tokens": 16,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      }
+    },
+    {
+      "direction": "es-en",
+      "asr": {
+        "model": "base",
+        "quantization": "Q5_1",
+        "language": "es",
+        "transcript": "y el día va los de feros al pofero de noche y de noche.",
+        "wall_ms_including_load": 5429.410999873653,
+        "reported_load_ms": null,
+        "reported_total_ms": null,
+        "threads": 4,
+        "translation_mode": false
+      },
+      "translation": {
+        "text": "And the day goes fierce to the pouf night and night.",
+        "ms": 974.8577999416739,
+        "tokens": 14,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      },
+      "tts": {
+        "engine": "eSpeak NG 1.52.0",
+        "voice": "en",
+        "ms": 222.59870008565485,
+        "audio_seconds": 3.310657596371882,
+        "path": ".local\\feasibility-results\\es12-clean-base-speech.wav",
+        "bytes": 146044,
+        "quality_limit": "Formant/rule-based voice; robotic, not a neural shipping voice"
+      },
+      "total_ms": 6645.373199833557,
+      "memory_cpu": {
+        "peak_process_tree_rss_bytes": 781991936,
+        "steady_parent_rss_bytes": 558448640,
+        "approx_cpu_seconds": 17.390625,
+        "approx_busy_cpu_cores": 2.6170190596946523,
+        "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+      },
+      "translator_load_ms_excluded_from_total": 545.7425999920815,
+      "sample": {
+        "id": "es12-clean",
+        "direction": "es-en",
+        "reference": "Lleva los becerros al potrero del norte y revisa el bebedero.",
+        "category": "ranch",
+        "path": ".local\\feasibility-audio\\es12-clean.wav",
+        "seconds": 3.985,
+        "sha256": "c3c6bdb8ea6b4c6488a4f484ec45fcc0d21108969c5aa5c836742588a4359472",
+        "provenance": "Locally generated eSpeak NG 1.52.0 en/es; no human recordings",
+        "condition": "clean"
+      },
+      "asr_wer": 1.0909090909090908,
+      "reference_translation": {
+        "text": "Take the calves to the north pasture and check the trough.",
+        "ms": 634.4260000623763,
+        "tokens": 13,
+        "completed": true,
+        "decoding": "greedy; no KV cache; max 96 tokens",
+        "model": "es-en"
+      }
+    }
+  ],
+  "loads": [
+    {
+      "model": "en-es",
+      "ms": 500.82720001228154,
+      "peak_process_tree_rss_bytes": 250499072,
+      "steady_parent_rss_bytes": 250490880,
+      "approx_cpu_seconds": 0.71875,
+      "approx_busy_cpu_cores": 1.4126850569994522,
+      "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+    },
+    {
+      "model": "es-en",
+      "ms": 545.7425999920815,
+      "peak_process_tree_rss_bytes": 253816832,
+      "steady_parent_rss_bytes": 253792256,
+      "approx_cpu_seconds": 0.78125,
+      "approx_busy_cpu_cores": 1.4064134253710776,
+      "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+    },
+    {
+      "model": "en-romance",
+      "ms": 1120.9537000395358,
+      "peak_process_tree_rss_bytes": 253272064,
+      "steady_parent_rss_bytes": 253247488,
+      "approx_cpu_seconds": 1.25,
+      "approx_busy_cpu_cores": 1.0580281909679177,
+      "memory_method": "10 ms process-tree RSS sampling; shared pages may be counted twice; not device RAM requirements"
+    }
+  ],
+  "capture_notes": [
+    "2026-10-07; eSpeak-generated speech; CLI default beam 5/best-of 5 and temperature fallback; load logs suppressed in this initial run.",
+    "Artifact lock was subsequently expanded to include Piper. ASR/MT artifacts retained the same pinned identities.",
+    "TTS ms includes engine startup; MT model is reused; ASR reloads per sample."
+  ]
+}

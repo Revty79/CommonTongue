@@ -1,0 +1,77 @@
+[
+  {
+    "file": "files/models/en-es/source.spm",
+    "bytes": 801636,
+    "sha256": "4dd547c24816a335e7b0b2e63376a8f1b3cbfc671eda5ab808dd44fdadaa8791"
+  },
+  {
+    "file": "files/models/en-es/target.spm",
+    "bytes": 825924,
+    "sha256": "e236ee6d866b635c0142114f8647f39831f9d92534aa2aad75c942f6a78ad0e3"
+  },
+  {
+    "file": "files/models/en-es/vocab.json",
+    "bytes": 1720044,
+    "sha256": "b074b4cca0036ade5a39ea97faabd534e1015482c480fc2cb02c6481983eb163"
+  },
+  {
+    "file": "files/models/en-es/config.json",
+    "bytes": 1468,
+    "sha256": "499eae1f97eeba63172fc884f92fd727ae803b7ceb79c0f653aa4b011152af2f"
+  },
+  {
+    "file": "files/models/en-es/onnx/encoder_model_quantized.onnx",
+    "bytes": 52899742,
+    "sha256": "03434edd1147e6c49e22066e9dc5888235e99cc35a6711d1c4ea5b06455d5da9"
+  },
+  {
+    "file": "files/models/en-es/onnx/decoder_model_quantized.onnx",
+    "bytes": 59842102,
+    "sha256": "2b45074cc819f1d901e40510d7bc0781d99327d16c7eca04518c4ee0c3d6ba10"
+  },
+  {
+    "file": "files/models/es-en/source.spm",
+    "bytes": 825924,
+    "sha256": "e236ee6d866b635c0142114f8647f39831f9d92534aa2aad75c942f6a78ad0e3"
+  },
+  {
+    "file": "files/models/es-en/target.spm",
+    "bytes": 801636,
+    "sha256": "4dd547c24816a335e7b0b2e63376a8f1b3cbfc671eda5ab808dd44fdadaa8791"
+  },
+  {
+    "file": "files/models/es-en/vocab.json",
+    "bytes": 1720044,
+    "sha256": "b074b4cca0036ade5a39ea97faabd534e1015482c480fc2cb02c6481983eb163"
+  },
+  {
+    "file": "files/models/es-en/config.json",
+    "bytes": 1433,
+    "sha256": "fab3a7f93185bc5aa7b419f6a1e6e74d98c8f2a506c94493d3019bf46da3478d"
+  },
+  {
+    "file": "files/models/es-en/onnx/encoder_model_quantized.onnx",
+    "bytes": 52899742,
+    "sha256": "c01e70f8455efc350831aa2af7ed187b16829241f0018ba07d1ba643a391bc18"
+  },
+  {
+    "file": "files/models/es-en/onnx/decoder_model_quantized.onnx",
+    "bytes": 59842102,
+    "sha256": "d518f1f0041b2831f0aeb5a087cf899742cd9d4b574f6b98ad9f816b8c06925b"
+  },
+  {
+    "file": "files/models/whisper/ggml-base-q5_1.bin",
+    "bytes": 59707625,
+    "sha256": "422f1ae452ade6f30a004d7e5c6a43195e4433bc370bf23fac9cc591f01a8898"
+  },
+  {
+    "file": "files/audio/en01-clean.wav",
+    "bytes": 112698,
+    "sha256": "0145cfe03e8db45d6e2254a5c7f7872d553b179f3257dd2ad9f4b91d7ccedea7"
+  },
+  {
+    "file": "files/audio/es01-clean.wav",
+    "bytes": 126764,
+    "sha256": "65d80ffe6447c1696645c1a3ec3e11b2baf1c266339811977e68bbad42a96206"
+  }
+]

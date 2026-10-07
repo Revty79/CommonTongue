@@ -1,0 +1,484 @@
+{
+  "metadata": {
+    "en-es": {
+      "repo": "Xenova/opus-mt-en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "source_repo": "Helsinki-NLP/opus-mt-en-es",
+      "source_revision": "5bc4493d463cf000c1f0b50f8d56886a392ed4ab",
+      "source_license": "apache-2.0",
+      "source_weight_bytes": {
+        "pytorch_model.bin": 312087523
+      }
+    },
+    "es-en": {
+      "repo": "Xenova/opus-mt-es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "source_repo": "Helsinki-NLP/opus-mt-es-en",
+      "source_revision": "c96e2c5399ebfae4fc43d9669556b9afa74bb69d",
+      "source_license": "apache-2.0",
+      "source_weight_bytes": {
+        "pytorch_model.bin": 312087523
+      }
+    },
+    "en-romance": {
+      "repo": "Xenova/opus-mt-en-ROMANCE",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "source_repo": "Helsinki-NLP/opus-mt-en-ROMANCE",
+      "source_revision": "f8f3a28e8b6272d0ccc0290b832f699e154ae431",
+      "source_license": "apache-2.0",
+      "source_weight_bytes": {
+        "pytorch_model.bin": 312087009
+      }
+    },
+    "whisper-models": {
+      "repo": "ggerganov/whisper.cpp",
+      "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+      "license": "MIT"
+    },
+    "whisper-runtime": {
+      "repo": "ggml-org/whisper.cpp",
+      "version": "v1.9.5",
+      "revision": "d1be6fde11ac6e0407606b4e42fe72d34add8037"
+    },
+    "sentencepiece-runtime": {
+      "repo": "google/sentencepiece",
+      "version": "v0.2.2",
+      "revision": "e0cce7d37b065b5140349dbe12c6bcf6192fdd78"
+    },
+    "espeak-runtime": {
+      "repo": "espeak-ng/espeak-ng",
+      "version": "1.52.0",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "license": "GPL-3.0-or-later"
+    },
+    "piper-voices": {
+      "repo": "rhasspy/piper-voices",
+      "revision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+      "classification": "B: research only; dataset public domain, explicit weight grant needs review"
+    },
+    "piper-runtime": {
+      "repo": "rhasspy/piper",
+      "version": "2023.11.14-2",
+      "revision": "38917ffd8c0e219c6581d73e07b30ef1d572fce1",
+      "license": "MIT; bundled eSpeak NG GPL-3.0-or-later; archived research distribution"
+    }
+  },
+  "artifacts": [
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/README.md",
+      "path": ".local/models/en-es/README.md",
+      "sha256": "5a226bf2ff9f0845d582e074cddbc8e69d6172058126cdcbe3998bb00e033d1a",
+      "bytes": 571
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/config.json",
+      "path": ".local/models/en-es/config.json",
+      "sha256": "499eae1f97eeba63172fc884f92fd727ae803b7ceb79c0f653aa4b011152af2f",
+      "bytes": 1468
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/generation_config.json",
+      "path": ".local/models/en-es/generation_config.json",
+      "sha256": "b743baabb7da4c1a2f19fe558bd6b4c0c7c3b0762fcb5ca7a48fe5a2c2219803",
+      "bytes": 293
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/quantize_config.json",
+      "path": ".local/models/en-es/quantize_config.json",
+      "sha256": "4f649adea8aea61da7527c1da4c71797fac149de24a95172e0e60adf00b35d42",
+      "bytes": 3124
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/source.spm",
+      "path": ".local/models/en-es/source.spm",
+      "sha256": "4dd547c24816a335e7b0b2e63376a8f1b3cbfc671eda5ab808dd44fdadaa8791",
+      "bytes": 801636
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/target.spm",
+      "path": ".local/models/en-es/target.spm",
+      "sha256": "e236ee6d866b635c0142114f8647f39831f9d92534aa2aad75c942f6a78ad0e3",
+      "bytes": 825924
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/vocab.json",
+      "path": ".local/models/en-es/vocab.json",
+      "sha256": "b074b4cca0036ade5a39ea97faabd534e1015482c480fc2cb02c6481983eb163",
+      "bytes": 1720044
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/tokenizer_config.json",
+      "path": ".local/models/en-es/tokenizer_config.json",
+      "sha256": "dfb00189b823fb0f15464e9c4e68dd8594f5e5ef5f8dc497468a37741e73aa1f",
+      "bytes": 282
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/onnx/encoder_model_quantized.onnx",
+      "path": ".local/models/en-es/onnx/encoder_model_quantized.onnx",
+      "sha256": "03434edd1147e6c49e22066e9dc5888235e99cc35a6711d1c4ea5b06455d5da9",
+      "bytes": 52899742
+    },
+    {
+      "group": "en-es",
+      "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-es/resolve/4b002a4c7edd54a7ced58877258b87f7efd3f892/onnx/decoder_model_quantized.onnx",
+      "path": ".local/models/en-es/onnx/decoder_model_quantized.onnx",
+      "sha256": "2b45074cc819f1d901e40510d7bc0781d99327d16c7eca04518c4ee0c3d6ba10",
+      "bytes": 59842102
+    },
+    {
+      "group": "en-es",
+      "revision": "5bc4493d463cf000c1f0b50f8d56886a392ed4ab",
+      "url": "https://huggingface.co/Helsinki-NLP/opus-mt-en-es/resolve/5bc4493d463cf000c1f0b50f8d56886a392ed4ab/README.md",
+      "path": ".local/models/en-es/source-README.md",
+      "sha256": "7831f4fa1eda04c91a5aa7b57006db58355c78337a552c5ff0252d0c049710d8",
+      "bytes": 2401
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/README.md",
+      "path": ".local/models/es-en/README.md",
+      "sha256": "dfd10182d98db755495900a0faeae3cb71b4fdf029265045b7ef463a85adbd4a",
+      "bytes": 571
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/config.json",
+      "path": ".local/models/es-en/config.json",
+      "sha256": "fab3a7f93185bc5aa7b419f6a1e6e74d98c8f2a506c94493d3019bf46da3478d",
+      "bytes": 1433
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/generation_config.json",
+      "path": ".local/models/es-en/generation_config.json",
+      "sha256": "b743baabb7da4c1a2f19fe558bd6b4c0c7c3b0762fcb5ca7a48fe5a2c2219803",
+      "bytes": 293
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/quantize_config.json",
+      "path": ".local/models/es-en/quantize_config.json",
+      "sha256": "32efb50846460e87751a4633d7045ec354da0234b02d8bce8960ba6a69b00ea5",
+      "bytes": 3124
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/source.spm",
+      "path": ".local/models/es-en/source.spm",
+      "sha256": "e236ee6d866b635c0142114f8647f39831f9d92534aa2aad75c942f6a78ad0e3",
+      "bytes": 825924
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/target.spm",
+      "path": ".local/models/es-en/target.spm",
+      "sha256": "4dd547c24816a335e7b0b2e63376a8f1b3cbfc671eda5ab808dd44fdadaa8791",
+      "bytes": 801636
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/vocab.json",
+      "path": ".local/models/es-en/vocab.json",
+      "sha256": "b074b4cca0036ade5a39ea97faabd534e1015482c480fc2cb02c6481983eb163",
+      "bytes": 1720044
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/tokenizer_config.json",
+      "path": ".local/models/es-en/tokenizer_config.json",
+      "sha256": "e1fac15a910169d5b5ec07a13b0374273626a239b5142db10be229ca66cc52a9",
+      "bytes": 282
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/onnx/encoder_model_quantized.onnx",
+      "path": ".local/models/es-en/onnx/encoder_model_quantized.onnx",
+      "sha256": "c01e70f8455efc350831aa2af7ed187b16829241f0018ba07d1ba643a391bc18",
+      "bytes": 52899742
+    },
+    {
+      "group": "es-en",
+      "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+      "url": "https://huggingface.co/Xenova/opus-mt-es-en/resolve/eadfd7c658a9d8929ac3b8e996b68a68e2c7d480/onnx/decoder_model_quantized.onnx",
+      "path": ".local/models/es-en/onnx/decoder_model_quantized.onnx",
+      "sha256": "d518f1f0041b2831f0aeb5a087cf899742cd9d4b574f6b98ad9f816b8c06925b",
+      "bytes": 59842102
+    },
+    {
+      "group": "es-en",
+      "revision": "c96e2c5399ebfae4fc43d9669556b9afa74bb69d",
+      "url": "https://huggingface.co/Helsinki-NLP/opus-mt-es-en/resolve/c96e2c5399ebfae4fc43d9669556b9afa74bb69d/README.md",
+      "path": ".local/models/es-en/source-README.md",
+      "sha256": "d67ee971854b4c166da1cc281b58fbdc8596e0412441ef71fb0d422263230e0a",
+      "bytes": 2427
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/README.md",
+      "path": ".local/models/en-romance/README.md",
+      "sha256": "69af88f5336ce7e2a3c3b1cc0440f67ee8bdf4c15af351973d1b6b007578bdcc",
+      "bytes": 581
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/config.json",
+      "path": ".local/models/en-romance/config.json",
+      "sha256": "dc4f6f9ffbbf1196ff9e8329e5666fe190aef1b1c6806649d86b962b9bde292c",
+      "bytes": 1508
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/generation_config.json",
+      "path": ".local/models/en-romance/generation_config.json",
+      "sha256": "b743baabb7da4c1a2f19fe558bd6b4c0c7c3b0762fcb5ca7a48fe5a2c2219803",
+      "bytes": 293
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/quantize_config.json",
+      "path": ".local/models/en-romance/quantize_config.json",
+      "sha256": "a53575bb872f0e17da77ca33a643b16ba10e91da46c0e287993c2773dd0b79d5",
+      "bytes": 3124
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/source.spm",
+      "path": ".local/models/en-romance/source.spm",
+      "sha256": "b1f89e7b05828846baf19109a61029a36838f1c4f3defc218e6aee0ee2787864",
+      "bytes": 779155
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/target.spm",
+      "path": ".local/models/en-romance/target.spm",
+      "sha256": "5e54632fe5ce5ef4108a827daccc121b7cd4ea589fbb4bd856b8dd06086166b2",
+      "bytes": 799001
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/vocab.json",
+      "path": ".local/models/en-romance/vocab.json",
+      "sha256": "d9c3b6b01d3a9c9403befa60fd17e4a50dc4929698e3d6b9c2e7f066a9d1f041",
+      "bytes": 1587364
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/tokenizer_config.json",
+      "path": ".local/models/en-romance/tokenizer_config.json",
+      "sha256": "666d091bdf094d476aac60b645efd7d18cac468510f5c71b327b7ae937126e05",
+      "bytes": 503
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/onnx/encoder_model_quantized.onnx",
+      "path": ".local/models/en-romance/onnx/encoder_model_quantized.onnx",
+      "sha256": "b4ddfd9338ba3d7c6b9c2d1410ed94fb7e06741226918cef6148031101bbd019",
+      "bytes": 52899742
+    },
+    {
+      "group": "en-romance",
+      "revision": "9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd",
+      "url": "https://huggingface.co/Xenova/opus-mt-en-ROMANCE/resolve/9d2ba69ac80c8e8453c3d9a1e2323a0e7b8ca3cd/onnx/decoder_model_quantized.onnx",
+      "path": ".local/models/en-romance/onnx/decoder_model_quantized.onnx",
+      "sha256": "ec98bfea479f392987bc0eb5696dbf9b042556144c9da249688b54b462a068bc",
+      "bytes": 59842102
+    },
+    {
+      "group": "en-romance",
+      "revision": "f8f3a28e8b6272d0ccc0290b832f699e154ae431",
+      "url": "https://huggingface.co/Helsinki-NLP/opus-mt-en-ROMANCE/resolve/f8f3a28e8b6272d0ccc0290b832f699e154ae431/README.md",
+      "path": ".local/models/en-romance/source-README.md",
+      "sha256": "329ee7a6989c814c82c82c0b4901a247f452674eb31ded4a4f2297b2e321f64a",
+      "bytes": 2259
+    },
+    {
+      "group": "whisper",
+      "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+      "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-tiny-q5_1.bin",
+      "path": ".local/models/whisper/ggml-tiny-q5_1.bin",
+      "sha256": "818710568da3ca15689e31a743197b520007872ff9576237bda97bd1b469c3d7",
+      "bytes": 32152673
+    },
+    {
+      "group": "whisper",
+      "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+      "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/ggml-base-q5_1.bin",
+      "path": ".local/models/whisper/ggml-base-q5_1.bin",
+      "sha256": "422f1ae452ade6f30a004d7e5c6a43195e4433bc370bf23fac9cc591f01a8898",
+      "bytes": 59707625
+    },
+    {
+      "group": "whisper",
+      "revision": "5359861c739e955e79d9a303bcbc70fb988958b1",
+      "url": "https://huggingface.co/ggerganov/whisper.cpp/resolve/5359861c739e955e79d9a303bcbc70fb988958b1/README.md",
+      "path": ".local/models/whisper/README.md",
+      "sha256": "21fd967098804f33fc84e803fb0e5ab7666d71801f4027cf28a65e7af09c1758",
+      "bytes": 3196
+    },
+    {
+      "group": "whisper-source",
+      "revision": "d1be6fde11ac6e0407606b4e42fe72d34add8037",
+      "url": "https://codeload.github.com/ggml-org/whisper.cpp/zip/d1be6fde11ac6e0407606b4e42fe72d34add8037",
+      "path": ".local/offline-sources/whisper.zip",
+      "sha256": "6be93b881acb415c5a25d0ef85bb6a488099de0296e072e22a66d50f20ec40b9",
+      "bytes": 10802365
+    },
+    {
+      "group": "sentencepiece-source",
+      "revision": "e0cce7d37b065b5140349dbe12c6bcf6192fdd78",
+      "url": "https://codeload.github.com/google/sentencepiece/zip/e0cce7d37b065b5140349dbe12c6bcf6192fdd78",
+      "path": ".local/offline-sources/sentencepiece.zip",
+      "sha256": "374d6e1af027345c60245db04ca6284c96f75664402221d559ed08def987c697",
+      "bytes": 14270449
+    },
+    {
+      "group": "espeak-source",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "url": "https://codeload.github.com/espeak-ng/espeak-ng/zip/4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "path": ".local/offline-sources/espeak.zip",
+      "sha256": "096f0915470c3bba4f9e3ba274485e453f26dedccb5c28a33f871a84f5e064a9",
+      "bytes": 19449484
+    },
+    {
+      "group": "espeak",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "url": "https://github.com/espeak-ng/espeak-ng/releases/download/1.52.0/espeak-ng.msi",
+      "path": ".local/offline-tools/espeak-ng.msi",
+      "sha256": "7f673c709ea5dd579d3b5ebb98688cc575328a6ab7438d2bc405b88cedaeafb9",
+      "bytes": 12765862
+    },
+    {
+      "group": "espeak",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "url": "https://github.com/espeak-ng/espeak-ng/releases/download/1.52.0/espeak-1.52.0-signed.apk",
+      "path": ".local/offline-tools/espeak-1.52.0-signed.apk",
+      "sha256": "741b46abf84d843f9b0cce80136f60ffee9b9fe591601b9701aa2a9ff99c9ddf",
+      "bytes": 10446659
+    },
+    {
+      "group": "espeak-license",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "url": "https://raw.githubusercontent.com/espeak-ng/espeak-ng/4870adfa25b1a32b4361592f1be8a40337c58d6c/COPYING",
+      "path": ".local/offline-tools/espeak-provenance/COPYING",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "bytes": 35147
+    },
+    {
+      "group": "espeak-license",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "url": "https://raw.githubusercontent.com/espeak-ng/espeak-ng/4870adfa25b1a32b4361592f1be8a40337c58d6c/docs/voices.md",
+      "path": ".local/offline-tools/espeak-provenance/docs/voices.md",
+      "sha256": "7c599eeda2771a90e4e33fbeeb8f54bfbb5d41dd9fe91226bc3ce2066e10973b",
+      "bytes": 15738
+    },
+    {
+      "group": "espeak-license",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "url": "https://raw.githubusercontent.com/espeak-ng/espeak-ng/4870adfa25b1a32b4361592f1be8a40337c58d6c/espeak-ng-data/lang/gmw/en",
+      "path": ".local/offline-tools/espeak-provenance/espeak-ng-data/lang/gmw/en",
+      "sha256": "4605d5330801de3641c6e366d15f129ea1f5ffbce8722642aba01ace07ab9c83",
+      "bytes": 140
+    },
+    {
+      "group": "espeak-license",
+      "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+      "url": "https://raw.githubusercontent.com/espeak-ng/espeak-ng/4870adfa25b1a32b4361592f1be8a40337c58d6c/espeak-ng-data/lang/roa/es",
+      "path": ".local/offline-tools/espeak-provenance/espeak-ng-data/lang/roa/es",
+      "sha256": "966aa015ea5646d79f0ca4807cf5da7339aabd3782b55cfa5eb0d8c3fc8fc588",
+      "bytes": 63
+    },
+    {
+      "group": "piper-en",
+      "revision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/en/en_US/ljspeech/medium/en_US-ljspeech-medium.onnx",
+      "path": ".local/models/piper-en/en_US-ljspeech-medium.onnx",
+      "sha256": "6f52a751e2349abe7a76735eb09dc1875298c77ea2342ffd2fef79ff81b87f22",
+      "bytes": 63531379
+    },
+    {
+      "group": "piper-en",
+      "revision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/en/en_US/ljspeech/medium/en_US-ljspeech-medium.onnx.json",
+      "path": ".local/models/piper-en/en_US-ljspeech-medium.onnx.json",
+      "sha256": "141d612cc0a95ed7efc1ca936b845c2364967f2e9217c5dbfcf69fc4d6c65860",
+      "bytes": 4972
+    },
+    {
+      "group": "piper-en",
+      "revision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/en/en_US/ljspeech/medium/MODEL_CARD",
+      "path": ".local/models/piper-en/MODEL_CARD",
+      "sha256": "fbee1529c89d36b3fe76d7e9f3f832dce17f44900a52d76a9bda735654766b4d",
+      "bytes": 517
+    },
+    {
+      "group": "piper-es",
+      "revision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/es/es_ES/carlfm/x_low/es_ES-carlfm-x_low.onnx",
+      "path": ".local/models/piper-es/es_ES-carlfm-x_low.onnx",
+      "sha256": "d69677323a907cd4963f42b29c20a98b5d6bfa7f3e64df339915e4650c00d125",
+      "bytes": 28130791
+    },
+    {
+      "group": "piper-es",
+      "revision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/es/es_ES/carlfm/x_low/es_ES-carlfm-x_low.onnx.json",
+      "path": ".local/models/piper-es/es_ES-carlfm-x_low.onnx.json",
+      "sha256": "d9bdfa9ff01eb2bc9e62e7d2593939d1e4c4d8eb7cf75f972731539d12399966",
+      "bytes": 4159
+    },
+    {
+      "group": "piper-es",
+      "revision": "c10ece1aade47bb51c153c893d14e5bf8e5b7117",
+      "url": "https://huggingface.co/rhasspy/piper-voices/resolve/c10ece1aade47bb51c153c893d14e5bf8e5b7117/es/es_ES/carlfm/x_low/MODEL_CARD",
+      "path": ".local/models/piper-es/MODEL_CARD",
+      "sha256": "a6e62a3d36c37c7702d877f784001208b952e2bf4d17c72a6b5da442fbefb4b3",
+      "bytes": 250
+    },
+    {
+      "group": "piper-runtime",
+      "revision": "38917ffd8c0e219c6581d73e07b30ef1d572fce1",
+      "url": "https://github.com/rhasspy/piper/releases/download/2023.11.14-2/piper_windows_amd64.zip",
+      "path": ".local/offline-tools/piper_windows_amd64.zip",
+      "sha256": "f3c58906402b24f3a96d92145f58acba6d86c9b5db896d207f78dc80811efcea",
+      "bytes": 22477236
+    }
+  ]
+}

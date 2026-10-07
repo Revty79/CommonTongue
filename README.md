@@ -2,9 +2,9 @@
 
 Common Tongue is the working name for an Android-first, offline-first conversational translation product. This repository is `common-tongue`. iPhone support is planned later; this pass contains native Android only.
 
-**Translation DOES NOT EXIST YET.** Pass 1 provides a Kotlin/Jetpack Compose foundation screen, architecture boundaries, tests, and build automation. There are no AI interfaces, models, runtimes, speech features, model/language packs, accounts, databases, or cloud services.
+**The production app remains a foundation build.** Pass 1 provides its Kotlin/Jetpack Compose screen, architecture boundaries, tests, and build automation. Pass 2 demonstrates offline speech translation in isolated desktop tooling and a standalone Android research app. Experimental models and runtimes are outside the production app and domain.
 
-The future first language pair is English and Latin-American Spanish, initially emphasizing Mexican/Latin-American Spanish. Once the required future packs are installed, core translation must operate entirely offline. These are requirements, not implemented capabilities.
+The intended first product language pair is English and Latin-American Spanish, initially emphasizing Mexican/Latin-American Spanish. The research proof uses multilingual Whisper, OPUS-MT, and local TTS; regional/domain quality and physical-phone performance still need evaluation. See [Pass 2 findings](docs/feasibility/PASS_2_OFFLINE_FEASIBILITY.md).
 
 ## Toolchain
 
@@ -39,7 +39,7 @@ gradle/                      Version catalog and wrapper
 docs/                        Architecture, privacy, model policy, ADRs, validation
 ```
 
-There are exactly two Gradle modules: `:app` and `:core:domain`. `:app` depends on `:core:domain`; the domain has no Android, Compose, network, or AI dependency. No dependency injection framework is needed for the current screen.
+The root Gradle build has exactly two modules: `:app` and `:core:domain`. `:app` depends on `:core:domain`; the domain has no Android, Compose, network, or AI dependency. The disposable research project at `spikes/offline-feasibility` is a separate Gradle build, invoked with `-p`; it is not configured by normal CI. Desktop tooling is in `tools/offline-feasibility`. No dependency injection framework is needed for the current screen.
 
 ## Build and run
 
@@ -84,10 +84,10 @@ Windows environment note: if unit-test Java reports `Could not find or load main
 
 Run instrumentation locally after starting an emulator or attaching a device. Windows uses `.\gradlew.bat :app:connectedDebugAndroidTest`; macOS/Linux uses `./gradlew :app:connectedDebugAndroidTest`. A skipped device test is not a pass. See [Pass 1 validation](docs/PASS_1_VALIDATION.md) for executed results and environment limits.
 
-The GitHub Actions workflow runs build, unit tests, lint, formatting, manifest verification, debug assembly, and UI-test compilation on push/pull request or manual dispatch. It uses JDK 17, the stable SDK, read-only repository permission, and basic open-source Gradle caching. No custom secrets or paid services are required. Emulator tests remain local/manual in Pass 1. The workflow has not run remotely unless explicitly recorded; this repository is local only.
+The GitHub Actions workflow runs build, unit tests, lint, formatting, manifest verification, debug assembly, UI-test compilation, and lightweight stdlib research tests on push/pull request or manual dispatch. It uses JDK 17, the stable SDK, read-only repository permission, and basic open-source Gradle caching. CI downloads no research models. Emulator/model integration tests remain explicit local research commands. Remote validation status is recorded in the pass reports.
 
 ## Architecture and privacy
 
 Read [ARCHITECTURE.md](docs/ARCHITECTURE.md), [PRIVACY.md](docs/PRIVACY.md), [MODEL_POLICY.md](docs/MODEL_POLICY.md), and the five [architecture decisions](docs/DECISIONS/). Offline translation, ephemeral conversations, replaceable model implementations, low-end phones, and no mandatory account are future product constraints. Pass 1 stores no conversations and makes no network calls.
 
-Stop here for Pass 1. AI interfaces and runtime/model investigation belong to a separately authorized later pass.
+For isolated research reproduction, see [the harness README](tools/offline-feasibility/README.md), [candidate licenses](docs/feasibility/MODEL_CANDIDATES.md), [benchmarks](docs/feasibility/BENCHMARK_RESULTS.md), and [Android evidence](docs/feasibility/ANDROID_RESULTS.md). No model is approved for production. Pass 3 capability architecture has not begun.
