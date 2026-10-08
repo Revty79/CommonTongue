@@ -6,3 +6,5 @@ plugins {
 kotlin { jvmToolchain(17) }
 
 dependencies { testImplementation(libs.junit) }
+
+tasks.named("check") { dependsOn(rootProject.tasks.named("verifyCoreBoundaries")) }

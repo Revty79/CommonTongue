@@ -4,6 +4,8 @@ Common Tongue is the working name for an Android-first, offline-first conversati
 
 **The production app remains a foundation build.** Pass 1 provides its Kotlin/Jetpack Compose screen, architecture boundaries, tests, and build automation. Pass 2 demonstrates offline speech translation in isolated desktop tooling and a standalone Android research app. Experimental models and runtimes are outside the production app and domain.
 
+Pass 3 adds model-neutral capability contracts, structured quality/context/failure values, a cancellable text use case, and a scoped deterministic integer verifier in `:core:translation`. The UI still reports no installed engine. See [translation contracts](docs/TRANSLATION_CONTRACTS.md) and [quality architecture](docs/QUALITY_ARCHITECTURE.md).
+
 The intended first product language pair is English and Latin-American Spanish, initially emphasizing Mexican/Latin-American Spanish. The research proof uses multilingual Whisper, OPUS-MT, and local TTS; regional/domain quality and physical-phone performance still need evaluation. See [Pass 2 findings](docs/feasibility/PASS_2_OFFLINE_FEASIBILITY.md).
 
 ## Toolchain
@@ -33,13 +35,14 @@ app/                         Android application
   src/main/.../ui/           Foundation screen, ViewModel, state, Material 3 theme
   src/test/                  ViewModel unit tests
   src/androidTest/           Compose startup/UI smoke test
-core/domain/                 Pure Kotlin/JVM product concepts and unit test
+core/domain/                 Pure Kotlin/JVM product concepts and unit tests
+core/translation/            Pure Kotlin/JVM capabilities, text use case, scoped verification
 gradle/                      Version catalog and wrapper
 .github/workflows/android.yml
 docs/                        Architecture, privacy, model policy, ADRs, validation
 ```
 
-The root Gradle build has exactly two modules: `:app` and `:core:domain`. `:app` depends on `:core:domain`; the domain has no Android, Compose, network, or AI dependency. The disposable research project at `spikes/offline-feasibility` is a separate Gradle build, invoked with `-p`; it is not configured by normal CI. Desktop tooling is in `tools/offline-feasibility`. No dependency injection framework is needed for the current screen.
+The root has three modules: `:app -> :core:translation -> :core:domain`. Both core modules are pure Kotlin/JVM with no Android, Compose, network or AI runtime dependency. Translation exports domain values and uses the existing coroutines dependency. The separate research build at `spikes/offline-feasibility` is invoked with `-p`, outside normal CI configuration. Desktop research is in `tools/offline-feasibility`. Constructor injection suffices for the text use case; the foundation UI is unchanged.
 
 ## Build and run
 
@@ -48,13 +51,13 @@ Install JDK 17 and a current stable Android Studio compatible with AGP 9.4, or u
 Windows PowerShell:
 
 ```powershell
-.\gradlew.bat clean test lint spotlessCheck :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
+.\gradlew.bat clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
 ```
 
 macOS/Linux:
 
 ```sh
-./gradlew clean test lint spotlessCheck :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
+./gradlew clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
 ```
 
 The first build downloads development dependencies. This does not add network access to the installed application. Later builds can use Gradle's `--offline` option once the required artifacts are cached.
@@ -74,8 +77,9 @@ Windows environment note: if unit-test Java reports `Could not find or load main
 
 ## Checks and tests
 
-- `test`: domain JVM test and debug ViewModel unit tests; no model loading or device needed.
-- `lint`: normal Android lint for the app and pure JVM domain, including dependencies; errors fail the build and warnings remain visible. Version-update advisories for the deliberate SDK/toolchain pins are documented in the validation report.
+- `test`: domain/translation JVM tests and ViewModel unit tests; no models or device needed. New contract/use-case tests include scoped numeric verification, offline preflight, support limitations and coroutine cancellation.
+- `verifyCoreBoundaries`: checks production/test core dependency graphs and imports against neutral JVM allowlists; rejects platform/provider/I/O coupling. Core `check` tasks also run it.
+- `lint`: Android lint for the app and both pure JVM core modules, including dependencies; errors fail the build and warnings remain visible. Version-update advisories for the deliberate SDK/toolchain pins are documented in the validation report.
 - `spotlessCheck`: one consistent Kotlin/Kotlin DSL formatter plus text whitespace checks. Use `spotlessApply` to format.
 - `:app:verifyFoundationManifest`: examines debug/release merged manifests, enforces minSdk 26 / targetSdk 36, and rejects permissions except AndroidX's internal app-scoped signature permission.
 - `assembleDebug`: compiles/packages the development application.
@@ -88,6 +92,6 @@ The GitHub Actions workflow runs build, unit tests, lint, formatting, manifest v
 
 ## Architecture and privacy
 
-Read [ARCHITECTURE.md](docs/ARCHITECTURE.md), [PRIVACY.md](docs/PRIVACY.md), [MODEL_POLICY.md](docs/MODEL_POLICY.md), and the five [architecture decisions](docs/DECISIONS/). Offline translation, ephemeral conversations, replaceable model implementations, low-end phones, and no mandatory account are future product constraints. Pass 1 stores no conversations and makes no network calls.
+Read [ARCHITECTURE.md](docs/ARCHITECTURE.md), [PRIVACY.md](docs/PRIVACY.md), [MODEL_POLICY.md](docs/MODEL_POLICY.md), and the [architecture decisions](docs/DECISIONS/). Offline translation, ephemeral conversations, replaceable model implementations, low-end phones, and no mandatory account are future product constraints. Pass 1 stores no conversations and makes no network calls.
 
-For isolated research reproduction, see [the harness README](tools/offline-feasibility/README.md), [candidate licenses](docs/feasibility/MODEL_CANDIDATES.md), [benchmarks](docs/feasibility/BENCHMARK_RESULTS.md), and [Android evidence](docs/feasibility/ANDROID_RESULTS.md). No model is approved for production. Pass 3 capability architecture has not begun.
+For isolated research reproduction, see [the harness README](tools/offline-feasibility/README.md), [candidate licenses](docs/feasibility/MODEL_CANDIDATES.md), [benchmarks](docs/feasibility/BENCHMARK_RESULTS.md), and [Android evidence](docs/feasibility/ANDROID_RESULTS.md). No model is approved for production. [Pass 3 validation](docs/PASS_3_VALIDATION.md) records local contract/guard tests; the completion report includes the new commit and its remote CI result. No Pass 4 experimentation is implemented.

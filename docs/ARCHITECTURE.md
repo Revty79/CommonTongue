@@ -1,53 +1,47 @@
 # Architecture
 
-Status: Pass 1 native Android foundation. Translation and AI capability interfaces are absent.
+Status: Pass 3 production capability contracts and text orchestration. The Android UI remains the foundation screen with no installed translation engine. Pass 2 inference stays in its independent research build.
 
-## Current boundaries
+## Modules and dependency direction
 
 ```mermaid
 flowchart TD
-    Activity[Android Activity / lifecycle] --> Route[Compose route]
-    Route --> VM[Screen ViewModel]
-    VM --> State[Immutable UI state / StateFlow]
-    State --> Screen[Stateless Compose screen]
-    VM --> Domain[Pure Kotlin product status]
-    Screen --> Domain
+    App[app: Android lifecycle / Compose UI] --> Translation[core:translation: contracts / text use case / scoped verification]
+    Translation --> Domain[core:domain: language / direction / quality profile / readiness]
+    Future[Future platform and inference adapters] -. implement .-> Translation
+    Lab[Separate Pass 2 research build] --> Research[Experimental runtimes / local models]
 ```
 
-`:app` owns Android resources, lifecycle, UI, and later Android adapters. Its `platform` package contains `MainActivity`; `ui/foundation` contains the route, ViewModel, state, and renderer; `ui/theme` contains the Material 3 theme. `:core:domain` owns the provider-independent `TranslationAvailability` product status. It depends only on Kotlin's standard library in production, with JUnit for tests.
+`:app` owns Android resources/lifecycle and the existing foundation route, ViewModel, immutable state and renderer. It depends on `:core:translation`, which exports domain types. No concrete AI adapter, runtime/model or new UI is installed. `FoundationViewModel` still reports `NOT_INSTALLED` through `StateFlow`; the route uses lifecycle-aware collection. ViewModels hold no Context/Activity. The screen does not invoke the new use case yet.
 
-The module dependency direction is `:app -> :core:domain`. Domain code must not import Android, Compose, platform APIs, cloud clients, or model/runtime libraries. No Kotlin Multiplatform or iOS module is added. Keeping concepts free of Android makes later reuse or porting practical without prematurely committing to a sharing technology.
+`:core:domain` owns readiness, canonical `LanguageId`, ordered `TranslationDirection` and product-only `DeviceQualityProfile`. Its production dependencies are Kotlin stdlib/annotations. `:core:translation` owns the seven suspending capability contracts, immutable request/result/context/quality values, `TranslateTextUseCase`, and narrow `ExactIntegerVerifier`. It depends only on domain and the already-pinned coroutines library plus stdlib/annotations. No platform, filesystem, HTTP, database, cloud or model dependency enters either core module.
 
-## UI and state
+The root has three meaningful modules. The standalone `spikes/offline-feasibility` build and desktop `tools/offline-feasibility` remain intact and independent; normal CI does not configure their native build or download weights. Existing UI code was not moved and no speculative store/account/adapter modules were created.
 
-`FoundationViewModel` owns a private `MutableStateFlow` and exposes `StateFlow<FoundationUiState>` through `asStateFlow()`. The state is immutable, and it honestly reports an absent engine. The route observes it with `collectAsStateWithLifecycle`; the stateless screen only renders values/resources. ViewModels must not hold a `Context` or `Activity`.
+## Capability inversion and application flow
 
-The current screen has no user actions or changing capabilities. There is no artificial refresh button, simulated engine, event bus, or repository. When real actions exist, events flow from the UI to its ViewModel/application capability; state flows back to the UI. Business decisions belong below composables. Constructors and normal ViewModel creation are sufficient today; a DI framework is deferred until a concrete need exists.
+`SpeechRecognizer`, `Translator`, `SpeechSynthesizer`, `LanguageDetector`, `CriticalContentAnalyzer`, `TranslationVerifier`, and `TranslationNotesAnalyzer` describe product operations. Future adapters implement them and own platform/runtime details. Domain/UI logic does not select model brands, expose tensors/buffers or initialize runtimes. Constructor injection is sufficient; no DI framework, provider registry or automatic implementation selection exists.
 
-## Required future dependency direction
+The text use case validates input, preflights both selected capabilities, reports/rejects unsupported requirements, translates, validates the candidate, verifies independently and returns `Complete`, `NeedsReview` or `Failed`. Fakes test this flow. No production audio pipeline, notes detector, context persistence or fallback is invoked. Translator-supplied verification is cleared before the selected verifier evaluates the candidate.
 
-```text
-UI -> application/domain capability -> AI capability interface -> replaceable implementation
-```
+Capability support is different from evidence about output correctness. Confidence is unavailable by default. Verification PASS is restricted to performed checks; no grammatical-fluency or supported-policy flag proves preserved meaning. See [contracts](TRANSLATION_CONTRACTS.md) and [quality architecture](QUALITY_ARCHITECTURE.md).
 
-This is a future boundary, not code implemented in Pass 1. Application/domain capabilities describe product needs; model and platform adapters implement them. Models such as a particular translator or speech recognizer must never become fundamental domain types. UI code must not import a model, invoke a runtime, or select a cloud provider directly. Interfaces belong to Pass 2, with implementation/model investigation only as separately authorized.
+## Identity, context and guidance
 
-Inversion around platform/model capabilities allows implementations to be replaced and enables domain/application tests to use small fakes rather than load large models. Future persistence likewise belongs behind abstractions; no database or storage interface is needed today.
+Language identities use strict BCP-47 syntax with a deliberately bounded two/three-letter base, optional script/region/extensions, and canonical equality. Syntax does not prove registry membership, dialect coverage or engine support. A numeric macroregion is not assumed to be a country. Regional target preference is separate; same-base-language locale rewriting is outside the direction type.
 
-## Product constraints
+Conversation context is a defensively copied, unmodifiable in-memory recent-history snapshot with explicit turn/character limits. Default is no context. Overflow is rejected rather than silently dropping text. It has no repository/database behavior. Terminology and extensible domain identifiers supply guidance without specialty packs; only GENERAL is predefined. Required hints reject unsupported engines and become verification expectations. Production contains no hard-coded automotive/construction/ranch glossary.
 
-- After required future language/model packs are installed, core translation must work with no network connection.
-- Offline translation must never transmit user speech/text off-device. Any optional cloud feature must be separate and deliberately selected. Silent cloud fallback is forbidden.
-- Conversation content must be ephemeral by default. A future retention/export feature requires an explicit decision, clear user choice, and storage abstractions.
-- The initial product architecture has no mandatory Common Tongue account. An offline engine must not wait for authentication or a backend to start.
-- Low-end Android phones are a first-class concern. Avoid large startup allocations, mandatory model initialization, or assumptions about CPU/GPU/NPU support.
-- `Lite`, `Standard`, and `Enhanced` are eventual device-quality concepts only. Different phones may use different implementations. No profiling, benchmarking, tier selection, or tier execution exists now.
-- Android is the only platform in this pass. A later native iPhone UI must be able to depend on product concepts without inheriting Android lifecycle types.
+## Offline and cancellation rules
 
-## Enforced foundation guardrails
+`OFFLINE_REQUIRED` defaults every request. Implementations must reject it before potentially network-capable work when local execution is not guaranteed. The text use case checks **both** capabilities before passing text to either, has no fallback, and rejects forbidden/undeclared actual modes. `ONLINE_ALLOWED` explicitly permits the already-selected implementations; it neither forces network use nor implements routing. Overall execution is online if either stage reports online.
 
-Exactly two meaningful modules exist. Dependency versions use one catalog and stable Compose BOM. Debug and unsigned optimized release build types are separate. Android lint and one formatting mechanism run locally and in CI. Unit tests do not initialize Android or models; the Compose smoke test launches the actual Activity on a device.
+These contracts do not sandbox a dishonest adapter. Future implementations need runtime/privacy audits and network-disabled integration tests. Production retains its existing no-Internet manifest. Suspended operations inherit the caller's coroutine context and must release resources cooperatively. The use case checks activity at entry and after each stage; swallowing cancellation cannot trigger the next stage. Expected failures are structured; unexpected programming faults may throw. Coroutine cancellation is not flattened into a normal failure result.
 
-The merged-manifest verification checks both build types, enforces minSdk 26 / targetSdk 36, and allows only AndroidX's app-scoped signature permission for internal receiver protection. No Internet, microphone, camera, analytics, SaaS, accounts, or databases are present. Future permission/dependency changes require an explicitly scoped pass and renewed manifest inspection.
+## Enforced boundaries and remaining product scope
 
-The five [ADRs](DECISIONS/) record the foundational decisions. [Model policy](MODEL_POLICY.md) governs future adoption; no model has been approved.
+`verifyCoreBoundaries` resolves both production/test runtime graphs against explicit allowlists, rejects unresolved/file dependencies and reversed project edges, and checks source/imports for platform/provider/I/O leakage. Core `check` tasks depend on it; Actions runs it with existing checks. This is a practical dependency/import guard, not arbitrary-code security analysis. JVM lint is build tooling, not an Android runtime dependency in core.
+
+The existing version catalog, stable Compose BOM, JVM toolchain 17 and formatting mechanism remain. Manifest checks preserve minSdk 26 / targetSdk 36 and only AndroidX's internal signature permission. No new microphone/camera/network permission, translation input UI, telemetry, conversation storage or account is added. Low-end-phone feasibility remains unproven and quality profiles contain no implementation mapping.
+
+The [ADRs](DECISIONS/), [privacy constraints](PRIVACY.md), [model policy](MODEL_POLICY.md) and preserved [Pass 2 findings](feasibility/PASS_2_OFFLINE_FEASIBILITY.md) guide future work. Pass 4 experimentation has not begun.
