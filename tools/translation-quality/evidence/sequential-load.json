@@ -1,0 +1,187 @@
+{
+  "engine": "q2-q4",
+  "threads": 4,
+  "study": "Uncontended sequential one-direction OPUS then LLM; three process-model reloads per direction; OS file cache warm",
+  "limitations": "RSS is sampled process-tree working set, not Android PSS; gc timing is not a guarantee of OS memory reclamation; no ASR/TTS co-residency measured",
+  "network_canaries": {
+    "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+    "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+  },
+  "socket_attempts_after_tripwire": [],
+  "rows": [
+    {
+      "trial": 0,
+      "case": "en15",
+      "mt_load_ms": 523.6577000468969,
+      "mt_inference_ms": 566.8438000138849,
+      "mt_unload_gc_ms": 43.80049998871982,
+      "mt_resources": {
+        "peak_process_tree_rss_bytes": 405565440,
+        "steady_process_tree_rss_bytes": 405549056,
+        "approx_cpu_seconds": 3.484375,
+        "approx_busy_cpu_cores": 3.1394465220598544
+      },
+      "llm_load": {
+        "context_tokens": 2048,
+        "load_ms": 1304.6048,
+        "parameters": 1942653248,
+        "ready": true,
+        "threads": 4
+      },
+      "llm_resources": {
+        "peak_process_tree_rss_bytes": 2088644608,
+        "steady_process_tree_rss_bytes": 2085638144,
+        "approx_cpu_seconds": 12.828125,
+        "approx_busy_cpu_cores": 3.252991052904521
+      },
+      "llm_inference_ms": 2586.2088,
+      "text": "Pon la jota junto a la rueda, no junto a la orilla del río.",
+      "total_including_reload_shutdown_ms": 5389.938700012863
+    },
+    {
+      "trial": 0,
+      "case": "es11",
+      "mt_load_ms": 469.9787001591176,
+      "mt_inference_ms": 504.65000001713634,
+      "mt_unload_gc_ms": 48.15359995700419,
+      "mt_resources": {
+        "peak_process_tree_rss_bytes": 406806528,
+        "steady_process_tree_rss_bytes": 406777856,
+        "approx_cpu_seconds": 3.046875,
+        "approx_busy_cpu_cores": 3.063541584870157
+      },
+      "llm_load": {
+        "context_tokens": 2048,
+        "load_ms": 1260.9207,
+        "parameters": 1942653248,
+        "ready": true,
+        "threads": 4
+      },
+      "llm_resources": {
+        "peak_process_tree_rss_bytes": 2089529344,
+        "steady_process_tree_rss_bytes": 2089455616,
+        "approx_cpu_seconds": 10.140625,
+        "approx_busy_cpu_cores": 3.030906375630732
+      },
+      "llm_inference_ms": 2037.1749,
+      "text": "You have to let the concrete cure before removing the formwork.",
+      "total_including_reload_shutdown_ms": 4660.920300055295
+    },
+    {
+      "trial": 1,
+      "case": "en15",
+      "mt_load_ms": 527.114300057292,
+      "mt_inference_ms": 580.9314001817256,
+      "mt_unload_gc_ms": 37.67979983240366,
+      "mt_resources": {
+        "peak_process_tree_rss_bytes": 409255936,
+        "steady_process_tree_rss_bytes": 409227264,
+        "approx_cpu_seconds": 3.453125,
+        "approx_busy_cpu_cores": 3.0312506854444834
+      },
+      "llm_load": {
+        "context_tokens": 2048,
+        "load_ms": 1279.1221,
+        "parameters": 1942653248,
+        "ready": true,
+        "threads": 4
+      },
+      "llm_resources": {
+        "peak_process_tree_rss_bytes": 2090242048,
+        "steady_process_tree_rss_bytes": 2090168320,
+        "approx_cpu_seconds": 11.953125,
+        "approx_busy_cpu_cores": 3.252627224841297
+      },
+      "llm_inference_ms": 2354.0255,
+      "text": "Pon la jota junto a la rueda, no junto a la orilla del río.",
+      "total_including_reload_shutdown_ms": 5122.961200075224
+    },
+    {
+      "trial": 1,
+      "case": "es11",
+      "mt_load_ms": 501.04199978522956,
+      "mt_inference_ms": 469.24200002104044,
+      "mt_unload_gc_ms": 40.7171999104321,
+      "mt_resources": {
+        "peak_process_tree_rss_bytes": 407920640,
+        "steady_process_tree_rss_bytes": 407891968,
+        "approx_cpu_seconds": 3.046875,
+        "approx_busy_cpu_cores": 3.082751132931014
+      },
+      "llm_load": {
+        "context_tokens": 2048,
+        "load_ms": 1223.6567,
+        "parameters": 1942653248,
+        "ready": true,
+        "threads": 4
+      },
+      "llm_resources": {
+        "peak_process_tree_rss_bytes": 2094034944,
+        "steady_process_tree_rss_bytes": 2091028480,
+        "approx_cpu_seconds": 10.03125,
+        "approx_busy_cpu_cores": 3.1085211581374685
+      },
+      "llm_inference_ms": 1959.8412,
+      "text": "You have to let the concrete cure before removing the formwork.",
+      "total_including_reload_shutdown_ms": 4522.683900082484
+    },
+    {
+      "trial": 2,
+      "case": "en15",
+      "mt_load_ms": 455.11390012688935,
+      "mt_inference_ms": 572.0148000400513,
+      "mt_unload_gc_ms": 36.3264000043273,
+      "mt_resources": {
+        "peak_process_tree_rss_bytes": 409513984,
+        "steady_process_tree_rss_bytes": 409485312,
+        "approx_cpu_seconds": 3.375,
+        "approx_busy_cpu_cores": 3.2292896088010434
+      },
+      "llm_load": {
+        "context_tokens": 2048,
+        "load_ms": 1233.6712,
+        "parameters": 1942653248,
+        "ready": true,
+        "threads": 4
+      },
+      "llm_resources": {
+        "peak_process_tree_rss_bytes": 2093940736,
+        "steady_process_tree_rss_bytes": 2093867008,
+        "approx_cpu_seconds": 11.453125,
+        "approx_busy_cpu_cores": 3.1248529229608386
+      },
+      "llm_inference_ms": 2381.4213,
+      "text": "Pon la jota junto a la rueda, no junto a la orilla del río.",
+      "total_including_reload_shutdown_ms": 5015.1417998131365
+    },
+    {
+      "trial": 2,
+      "case": "es11",
+      "mt_load_ms": 463.165300199762,
+      "mt_inference_ms": 468.84180000051856,
+      "mt_unload_gc_ms": 45.69419985637069,
+      "mt_resources": {
+        "peak_process_tree_rss_bytes": 408567808,
+        "steady_process_tree_rss_bytes": 408539136,
+        "approx_cpu_seconds": 3.0625,
+        "approx_busy_cpu_cores": 3.217495442665952
+      },
+      "llm_load": {
+        "context_tokens": 2048,
+        "load_ms": 1273.0389,
+        "parameters": 1942653248,
+        "ready": true,
+        "threads": 4
+      },
+      "llm_resources": {
+        "peak_process_tree_rss_bytes": 2094661632,
+        "steady_process_tree_rss_bytes": 2091655168,
+        "approx_cpu_seconds": 10.109375,
+        "approx_busy_cpu_cores": 3.0805171422031927
+      },
+      "llm_inference_ms": 1962.7845,
+      "text": "You have to let the concrete cure before removing the formwork.",
+      "total_including_reload_shutdown_ms": 4550.5043000448495
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "reason": "Candle quantized matrix barrier pool reads CANDLE_NUM_THREADS separately from Rayon. Initial full sweep requested Rayon=4, barrier pool defaulted to six physical cores; final helper sets both=4.",
+  "old_full_sweep_config_requested_threads": 4,
+  "old_observed_busy_cpu_cores": 6.13,
+  "corrected_reviewed_panel_count": 68,
+  "byte_identical_outputs_to_initial": 68,
+  "corrected_panel_metadata": {
+    "run": "madlad-four-thread-panel",
+    "engine": "madlad",
+    "architecture": "dedicated",
+    "template": "concise",
+    "threads": 4,
+    "python": "3.14.7",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "corpus_sha256": "b2e6f8ee9a856571261a58868121ef5ef82b4561ff179d5deb11f55bdfade3ff",
+    "prompts_sha256": "b0d59dd37a2918d46781184b570780c63990035a73a8ebb3ba5ce5dce5a90374",
+    "network_canaries": {
+      "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+      "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+    },
+    "native_network_block": "Restricted OS process sandbox; CPU worker has no networking or downloader",
+    "decoding": "Greedy LLM, max 128 tokens; recurrent/KV state reset for every request; M2M beam 5; historical OPUS greedy no KV cache",
+    "loads": [
+      {
+        "engine": "madlad",
+        "barrier_threads": "4",
+        "context_tokens": 512,
+        "load_ms": 1217.6576,
+        "quantization": "Q4_K",
+        "ready": true,
+        "threads": "4",
+        "peak_process_tree_rss_bytes": 2905001984,
+        "steady_process_tree_rss_bytes": 2798784512,
+        "approx_cpu_seconds": 2.359375,
+        "approx_busy_cpu_cores": 1.198050620826721
+      }
+    ],
+    "runner_sha256": "b6b06622a81ee3f59b83d3872879a369a60c3cc9e9fae943d8cfe0be20b4e8e8",
+    "performance_note": "Quality sweep may overlap free-tool preparation; use the separate uncontended finalist resource replay for selection.",
+    "case_ids": [
+      "en01",
+      "en02",
+      "en03",
+      "en04",
+      "en05",
+      "en06",
+      "en07",
+      "en08",
+      "en09",
+      "en10",
+      "en11",
+      "en12",
+      "en13",
+      "en14",
+      "en15",
+      "en16",
+      "es01",
+      "es02",
+      "es03",
+      "es04",
+      "es05",
+      "es06",
+      "es07",
+      "es08",
+      "es09",
+      "es10",
+      "es11",
+      "es12",
+      "es13",
+      "es14",
+      "es15",
+      "es16",
+      "q001-en-es",
+      "q001-es-en",
+      "q005-en-es",
+      "q005-es-en",
+      "q010-en-es",
+      "q010-es-en",
+      "q013-en-es",
+      "q013-es-en",
+      "q017-en-es",
+      "q017-es-en",
+      "q020-en-es",
+      "q020-es-en",
+      "q023-en-es",
+      "q023-es-en",
+      "q027-en-es",
+      "q027-es-en",
+      "q029-en-es",
+      "q029-es-en",
+      "q030-en-es",
+      "q030-es-en",
+      "q041-en-es",
+      "q041-es-en",
+      "q044-en-es",
+      "q044-es-en",
+      "q045-en-es",
+      "q045-es-en",
+      "q049-en-es",
+      "q049-es-en",
+      "q068-en-es",
+      "q068-es-en",
+      "q075-en-es",
+      "q075-es-en",
+      "q076-en-es",
+      "q076-es-en",
+      "q078-en-es",
+      "q078-es-en"
+    ],
+    "socket_attempts_after_tripwire": []
+  },
+  "corrected_binary_sha256": "14c30ba23d0cde36006fadd132a0bc652ad204445da593b3e5c789153ba1682f",
+  "outputs": [
+    {
+      "case": "en01",
+      "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+      "completed": true
+    },
+    {
+      "case": "en02",
+      "text": "Esa reparación me costó un brazo y una pierna, y ahora estoy bastante arruinado.",
+      "completed": true
+    },
+    {
+      "case": "en03",
+      "text": "Llamemos a un día y terminemos la cerca mañana.",
+      "completed": true
+    },
+    {
+      "case": "en04",
+      "text": "No arranque el motor hasta que no haya quitado los cables de puente.",
+      "completed": true
+    },
+    {
+      "case": "en05",
+      "text": "El total es de 127 dólares y 50 centavos, no 175 dólares.",
+      "completed": true
+    },
+    {
+      "case": "en06",
+      "text": "La entrega es el 12 de octubre a las 3:30 de la tarde.",
+      "completed": true
+    },
+    {
+      "case": "en07",
+      "text": "Corta dos tablas, cada una de 45 pulgadas de largo, y deja un espacio de un cuarto de pulgada.",
+      "completed": true
+    },
+    {
+      "case": "en08",
+      "text": "El camión gira pero no arranca, y la luz de control del motor está encendida.",
+      "completed": true
+    },
+    {
+      "case": "en09",
+      "text": "El pedal del freno se siente suave después de reemplazar el cilindro maestro.",
+      "completed": true
+    },
+    {
+      "case": "en10",
+      "text": "Apague el interruptor antes de reemplazar ese tomacorriente.",
+      "completed": true
+    },
+    {
+      "case": "en11",
+      "text": "El hormigón necesita curar antes de retirar los moldes.",
+      "completed": true
+    },
+    {
+      "case": "en12",
+      "text": "Mueve a los terneros al pasto norte y revisa el bebedero.",
+      "completed": true
+    },
+    {
+      "case": "en13",
+      "text": "La bomba de riego perdió su mejor momento, por lo que el campo no está recibiendo agua.",
+      "completed": true
+    },
+    {
+      "case": "en14",
+      "text": "Si la manguera sigue teniendo fugas, tal vez solo... espera, cierra la válvula primero.",
+      "completed": true
+    },
+    {
+      "case": "en15",
+      "text": "Coloca el gato al lado del neumático, no en la orilla del río.",
+      "completed": true
+    },
+    {
+      "case": "en16",
+      "text": "No dije que él robó las herramientas; dije que nadie lo vio devolverlas.",
+      "completed": true
+    },
+    {
+      "case": "es01",
+      "text": "I can take you after work, but I can't stay for dinner today.",
+      "completed": true
+    },
+    {
+      "case": "es02",
+      "text": "I don't bring fair right now; I'll pay you on Friday.",
+      "completed": true
+    },
+    {
+      "case": "es03",
+      "text": "Are you kidding me or did you really break down again?",
+      "completed": true
+    },
+    {
+      "case": "es04",
+      "text": "Do not start the engine until you remove the wires to pass the power.",
+      "completed": true
+    },
+    {
+      "case": "es05",
+      "text": "It's one hundred twenty-seven dollars and fifty cents, not one hundred seventy-five.",
+      "completed": true
+    },
+    {
+      "case": "es06",
+      "text": "The delivery is on the 12th of October at 3:30 p.m.",
+      "completed": true
+    },
+    {
+      "case": "es07",
+      "text": "I need three liters of oil and a two-meter hose.",
+      "completed": true
+    },
+    {
+      "case": "es08",
+      "text": "The truck starts, but it doesn't start and the engine light is on.",
+      "completed": true
+    },
+    {
+      "case": "es09",
+      "text": "The brake pedal feels fluffy since we changed the brake pump.",
+      "completed": true
+    },
+    {
+      "case": "es10",
+      "text": "Turn the switch down before changing that contact.",
+      "completed": true
+    },
+    {
+      "case": "es11",
+      "text": "Let the concrete cure before removing the sill.",
+      "completed": true
+    },
+    {
+      "case": "es12",
+      "text": "Take the calves to the northern stall and check the waterhole.",
+      "completed": true
+    },
+    {
+      "case": "es13",
+      "text": "The irrigation pump has lost the primer and no water is coming to the crop.",
+      "completed": true
+    },
+    {
+      "case": "es14",
+      "text": "If the hose is still leaking, better... no, wait, close the valve first.",
+      "completed": true
+    },
+    {
+      "case": "es15",
+      "text": "Leave the cat by the rim; I’m talking about the tool, not the animal.",
+      "completed": true
+    },
+    {
+      "case": "es16",
+      "text": "I didn't say he stole the tools; I said no one saw him return them.",
+      "completed": true
+    },
+    {
+      "case": "q001-en-es",
+      "text": "Está muerto, pero el interruptor todavía funciona.",
+      "completed": true
+    },
+    {
+      "case": "q001-es-en",
+      "text": "It no longer works, but the switch does.",
+      "completed": true
+    },
+    {
+      "case": "q005-en-es",
+      "text": "Se vuelve ahora, pero todavía no se inicia.",
+      "completed": true
+    },
+    {
+      "case": "q005-es-en",
+      "text": "Now it does go, but it doesn't start yet.",
+      "completed": true
+    },
+    {
+      "case": "q010-en-es",
+      "text": "Eso está frío; por favor caliéntelo de nuevo.",
+      "completed": true
+    },
+    {
+      "case": "q010-es-en",
+      "text": "It's cold; please warm it up again.",
+      "completed": true
+    },
+    {
+      "case": "q013-en-es",
+      "text": "No ese contacto; el que está al lado del fregadero.",
+      "completed": true
+    },
+    {
+      "case": "q013-es-en",
+      "text": "Not that contact; the one next to the sink.",
+      "completed": true
+    },
+    {
+      "case": "q017-en-es",
+      "text": "Lleve cables de conexión; la batería está descargada.",
+      "completed": true
+    },
+    {
+      "case": "q017-es-en",
+      "text": "Bring wires to pass power; the battery is discharged.",
+      "completed": true
+    },
+    {
+      "case": "q020-en-es",
+      "text": "Mantenga el encofrado en su lugar hasta que el concreto se cure.",
+      "completed": true
+    },
+    {
+      "case": "q020-es-en",
+      "text": "Leave the frame in place until the concrete cures.",
+      "completed": true
+    },
+    {
+      "case": "q023-en-es",
+      "text": "Cepe la bomba antes de abrir la válvula de riego.",
+      "completed": true
+    },
+    {
+      "case": "q023-es-en",
+      "text": "Primer the pump before opening the irrigation valve.",
+      "completed": true
+    },
+    {
+      "case": "q027-en-es",
+      "text": "El embrague se desliza bajo carga, pero no arrastra.",
+      "completed": true
+    },
+    {
+      "case": "q027-es-en",
+      "text": "The clutch slips with load, but does not stay in place.",
+      "completed": true
+    },
+    {
+      "case": "q029-en-es",
+      "text": "El banco aprobó nuestro préstamo, no tiene nada que ver con el río.",
+      "completed": true
+    },
+    {
+      "case": "q029-es-en",
+      "text": "The bank approved our loan; it has nothing to do with the river.",
+      "completed": true
+    },
+    {
+      "case": "q030-en-es",
+      "text": "Jack es nuestro nuevo camarero; no es una herramienta de elevación.",
+      "completed": true
+    },
+    {
+      "case": "q030-es-en",
+      "text": "Jack is our new waiter; he's not a cart lifting tool.",
+      "completed": true
+    },
+    {
+      "case": "q041-en-es",
+      "text": "Esta maldita manguera está goteando otra vez; no toques esa maldita válvula.",
+      "completed": true
+    },
+    {
+      "case": "q041-es-en",
+      "text": "This damn hose is leaking again; don't touch that pinch valve.",
+      "completed": true
+    },
+    {
+      "case": "q044-en-es",
+      "text": "No voy a trabajar hoy; me siento pésimo.",
+      "completed": true
+    },
+    {
+      "case": "q044-es-en",
+      "text": "Today I am not going to the chamba; I sit from the scrub.",
+      "completed": true
+    },
+    {
+      "case": "q045-en-es",
+      "text": "¿Puedes hacerme un favor y darme un paseo?",
+      "completed": true
+    },
+    {
+      "case": "q045-es-en",
+      "text": "Will you stop me and give me a ride?",
+      "completed": true
+    },
+    {
+      "case": "q049-en-es",
+      "text": "Vamos en autobús; no tenemos coche.",
+      "completed": true
+    },
+    {
+      "case": "q049-es-en",
+      "text": "We go by bus; we don’t have a car.",
+      "completed": true
+    },
+    {
+      "case": "q068-en-es",
+      "text": "He pagado por la habitación, pero no por el desayuno, y todavía necesito un recibo.",
+      "completed": true
+    },
+    {
+      "case": "q068-es-en",
+      "text": "I paid for the room, but not for breakfast, and still need a receipt.",
+      "completed": true
+    },
+    {
+      "case": "q075-en-es",
+      "text": "Responde honestamente: ¿muvisteis el camión?",
+      "completed": true
+    },
+    {
+      "case": "q075-es-en",
+      "text": "Answer me honestly: did you move the truck?",
+      "completed": true
+    },
+    {
+      "case": "q076-en-es",
+      "text": "Dígale: \"Elimina el archivo\", pero no lo elimines tú mismo.",
+      "completed": true
+    },
+    {
+      "case": "q076-es-en",
+      "text": "Tell him, 'Delete the file,' but don't delete it yourself.",
+      "completed": true
+    },
+    {
+      "case": "q078-en-es",
+      "text": "¿Qué significa \"no entrar\"? No me den un ejemplo.",
+      "completed": true
+    },
+    {
+      "case": "q078-es-en",
+      "text": "What does 'Not Enter' mean? Don't give me an example.",
+      "completed": true
+    }
+  ]
+}

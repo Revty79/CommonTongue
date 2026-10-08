@@ -1,0 +1,11 @@
+{
+  "executed_early_corpus_sha256": "1e096507538defa63b92f55ebd6a261fd62d6f65999b089684f9a1a3ed26cba8",
+  "assessment_corpus_sha256": "5148cb04018112cb89c376b41b9d314e11e014c6406ab9d818d51b7bd607c8f5",
+  "changed_fields": [
+    "important_terms",
+    "critical"
+  ],
+  "translation_and_verification_prompts_identical_for_all_196_cases_both_templates_both_chat_families_all_ablations": true,
+  "note": "Descriptive critical/term annotations enriched after early inference. No source/context/hint/expectation edits or generated translations used as gold; original run hashes retained.",
+  "canonical_repository_line_endings": "LF; formatting only, decoded records unchanged"
+}

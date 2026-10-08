@@ -1,0 +1,296 @@
+{
+  "schema_version": 1,
+  "classification_rule": "A is provisionally commercially shippable under declared grants; B research-only; C blocked. No candidate legally approved for production.",
+  "candidates": [
+    {
+      "id": "opus-pair",
+      "publisher": "Helsinki-NLP; ONNX conversion published by Xenova",
+      "repositories": [
+        {
+          "repository": "Xenova/opus-mt-en-es",
+          "revision": "4b002a4c7edd54a7ced58877258b87f7efd3f892",
+          "role": "tested ONNX conversion"
+        },
+        {
+          "repository": "Xenova/opus-mt-es-en",
+          "revision": "eadfd7c658a9d8929ac3b8e996b68a68e2c7d480",
+          "role": "tested ONNX conversion"
+        },
+        {
+          "repository": "Helsinki-NLP/opus-mt-en-es",
+          "revision": "5bc4493d463cf000c1f0b50f8d56886a392ed4ab",
+          "role": "upstream model/license snapshot"
+        },
+        {
+          "repository": "Helsinki-NLP/opus-mt-es-en",
+          "revision": "c96e2c5399ebfae4fc43d9669556b9afa74bb69d",
+          "role": "upstream model/license snapshot"
+        }
+      ],
+      "source_provenance": "Unchanged Pass 2 published Marian pair; see preserved candidate records",
+      "model_license": "Apache-2.0",
+      "tokenizer_license": "SentencePiece Apache-2.0; model tokenizer files under upstream Apache declaration",
+      "runtime_license": "ONNX Runtime MIT; SentencePiece Apache-2.0",
+      "conversion_provenance": "Published Xenova ONNX artifacts, byte-identical to Pass 2",
+      "classification": "A",
+      "commercial_use": "Provisionally permitted under declared upstream licenses; not legal or production approval",
+      "redistribution": "Provisionally permitted with license/notice retention and provenance review",
+      "derivative_obligations": "Retain copyright/license/NOTICE where present; identify changes; Apache patent/notice provisions where applicable; no production distribution in this pass",
+      "ambiguities": [
+        "Conversion source/tool version and exact correspondence to upstream snapshots remain the documented Pass 2 provenance caveats"
+      ],
+      "quantization": "int8 ONNX, separate encoder/decoder, historical greedy no KV cache",
+      "runtime": "ONNX Runtime 1.30.0, SentencePiece 0.2.2; CPU four threads",
+      "artifacts": [
+        ".local/models/en-es/README.md",
+        ".local/models/en-es/config.json",
+        ".local/models/en-es/generation_config.json",
+        ".local/models/en-es/quantize_config.json",
+        ".local/models/en-es/source.spm",
+        ".local/models/en-es/target.spm",
+        ".local/models/en-es/vocab.json",
+        ".local/models/en-es/tokenizer_config.json",
+        ".local/models/en-es/onnx/encoder_model_quantized.onnx",
+        ".local/models/en-es/onnx/decoder_model_quantized.onnx",
+        ".local/models/en-es/source-README.md",
+        ".local/models/es-en/README.md",
+        ".local/models/es-en/config.json",
+        ".local/models/es-en/generation_config.json",
+        ".local/models/es-en/quantize_config.json",
+        ".local/models/es-en/source.spm",
+        ".local/models/es-en/target.spm",
+        ".local/models/es-en/vocab.json",
+        ".local/models/es-en/tokenizer_config.json",
+        ".local/models/es-en/onnx/encoder_model_quantized.onnx",
+        ".local/models/es-en/onnx/decoder_model_quantized.onnx",
+        ".local/models/es-en/source-README.md"
+      ]
+    },
+    {
+      "id": "m2m100-int8",
+      "publisher": "Meta / facebook",
+      "repositories": [
+        {
+          "repository": "facebook/m2m100_418M",
+          "revision": "55c2e61bbf05dfb8d7abccdc3fae6fc8512fd636",
+          "role": "exact local conversion input"
+        }
+      ],
+      "source_provenance": "Official publisher checkpoint with pinned weight/tokenizer hashes",
+      "model_license": "MIT",
+      "tokenizer_license": "Model tokenizer under repository MIT declaration; SentencePiece Apache-2.0",
+      "runtime_license": "CTranslate2 MIT; Transformers Apache-2.0; PyTorch BSD-3-Clause; SentencePiece Apache-2.0",
+      "conversion_provenance": "Local TransformersConverter int8 conversion; full hashed output receipt included; original special-token map preserved",
+      "classification": "A",
+      "commercial_use": "Provisionally permitted under declared upstream licenses; not legal or production approval",
+      "redistribution": "Provisionally permitted with license/notice retention and provenance review",
+      "derivative_obligations": "Retain copyright/license/NOTICE where present; identify changes; Apache patent/notice provisions where applicable; no production distribution in this pass",
+      "ambiguities": [
+        "Model card MIT is a provisional grant, not a training-data/legal review"
+      ],
+      "quantization": "CTranslate2 int8 weights / int8 CPU compute",
+      "runtime": "CTranslate2 4.8.2; Transformers 4.57.6; PyTorch 2.14.1+cpu",
+      "artifacts": [
+        ".local/quality/models/facebook--m2m100_418M/pytorch_model.bin",
+        ".local/quality/models/facebook--m2m100_418M/config.json",
+        ".local/quality/models/facebook--m2m100_418M/generation_config.json",
+        ".local/quality/models/facebook--m2m100_418M/sentencepiece.bpe.model",
+        ".local/quality/models/facebook--m2m100_418M/tokenizer_config.json",
+        ".local/quality/models/facebook--m2m100_418M/vocab.json",
+        ".local/quality/models/facebook--m2m100_418M/README.md",
+        ".local/quality/models/facebook--m2m100_418M/special_tokens_map.json",
+        ".local/quality/models/m2m100-ct2-int8/config.json",
+        ".local/quality/models/m2m100-ct2-int8/model.bin",
+        ".local/quality/models/m2m100-ct2-int8/shared_vocabulary.json"
+      ]
+    },
+    {
+      "id": "qwen35-0.8b-q4_k_m",
+      "publisher": "Alibaba/Qwen; quantization published by bartowski",
+      "repositories": [
+        {
+          "repository": "bartowski/Qwen_Qwen3.5-0.8B-GGUF",
+          "revision": "f36b1ea49a332ede8fe5f389bbf5b3575ef71f48",
+          "role": "exact tested GGUF artifact"
+        },
+        {
+          "repository": "Qwen/Qwen3.5-0.8B",
+          "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "role": "upstream license/tokenizer snapshot; not claimed as quantizer input revision"
+        }
+      ],
+      "source_provenance": "Quantizer identifies Qwen3.5 base model; pinned upstream snapshot records licensing and template, not proof of exact base weights used",
+      "model_license": "Apache-2.0 declared by upstream and quantizer",
+      "tokenizer_license": "Tokenizer embedded in GGUF; upstream tokenizer snapshot Apache-2.0 declaration",
+      "runtime_license": "llama.cpp MIT; vendored nlohmann JSON MIT",
+      "conversion_provenance": "Publisher card states llama.cpp b9222 imatrix conversion and links calibration gist; original quantized bytes used unchanged",
+      "classification": "A",
+      "commercial_use": "Provisionally permitted under declared upstream licenses; not legal or production approval",
+      "redistribution": "Provisionally permitted with license/notice retention and provenance review",
+      "derivative_obligations": "Retain copyright/license/NOTICE where present; identify changes; Apache patent/notice provisions where applicable; no production distribution in this pass",
+      "ambiguities": [
+        "Exact upstream weight revision used by quantizer is not disclosed",
+        "Calibration-text licensing/source completeness needs downstream review; artifact publisher declares Apache-2.0",
+        "Greedy/non-thinking research settings differ from publisher stochastic recommendations; conclusions are configuration-specific"
+      ],
+      "quantization": "Q4_K_M",
+      "runtime": "llama.cpp v0.6.0 source 8345f333951c661d166b00e6f9362e553768f292; CPU-only custom stdio worker",
+      "artifacts": [
+        ".local/quality/models/bartowski--Qwen_Qwen3.5-0.8B-GGUF/Qwen_Qwen3.5-0.8B-Q4_K_M.gguf",
+        ".local/quality/models/bartowski--Qwen_Qwen3.5-0.8B-GGUF/README.md",
+        ".local/quality/cards/Qwen--Qwen3.5-0.8B/LICENSE",
+        ".local/quality/cards/Qwen--Qwen3.5-0.8B/README.md",
+        ".local/quality/cards/Qwen--Qwen3.5-0.8B/tokenizer_config.json"
+      ]
+    },
+    {
+      "id": "qwen35-0.8b-q5_k_m",
+      "publisher": "Alibaba/Qwen; quantization published by bartowski",
+      "repositories": [
+        {
+          "repository": "bartowski/Qwen_Qwen3.5-0.8B-GGUF",
+          "revision": "f36b1ea49a332ede8fe5f389bbf5b3575ef71f48",
+          "role": "exact tested GGUF artifact"
+        },
+        {
+          "repository": "Qwen/Qwen3.5-0.8B",
+          "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+          "role": "upstream license/tokenizer snapshot; not claimed as quantizer input revision"
+        }
+      ],
+      "source_provenance": "Quantizer identifies Qwen3.5 base model; pinned upstream snapshot records licensing and template, not proof of exact base weights used",
+      "model_license": "Apache-2.0 declared by upstream and quantizer",
+      "tokenizer_license": "Tokenizer embedded in GGUF; upstream tokenizer snapshot Apache-2.0 declaration",
+      "runtime_license": "llama.cpp MIT; vendored nlohmann JSON MIT",
+      "conversion_provenance": "Publisher card states llama.cpp b9222 imatrix conversion and links calibration gist; original quantized bytes used unchanged",
+      "classification": "A",
+      "commercial_use": "Provisionally permitted under declared upstream licenses; not legal or production approval",
+      "redistribution": "Provisionally permitted with license/notice retention and provenance review",
+      "derivative_obligations": "Retain copyright/license/NOTICE where present; identify changes; Apache patent/notice provisions where applicable; no production distribution in this pass",
+      "ambiguities": [
+        "Exact upstream weight revision used by quantizer is not disclosed",
+        "Calibration-text licensing/source completeness needs downstream review; artifact publisher declares Apache-2.0",
+        "Greedy/non-thinking research settings differ from publisher stochastic recommendations; conclusions are configuration-specific"
+      ],
+      "quantization": "Q5_K_M",
+      "runtime": "llama.cpp v0.6.0 source 8345f333951c661d166b00e6f9362e553768f292; CPU-only custom stdio worker",
+      "artifacts": [
+        ".local/quality/models/bartowski--Qwen_Qwen3.5-0.8B-GGUF/Qwen_Qwen3.5-0.8B-Q5_K_M.gguf",
+        ".local/quality/models/bartowski--Qwen_Qwen3.5-0.8B-GGUF/README.md",
+        ".local/quality/cards/Qwen--Qwen3.5-0.8B/LICENSE",
+        ".local/quality/cards/Qwen--Qwen3.5-0.8B/README.md",
+        ".local/quality/cards/Qwen--Qwen3.5-0.8B/tokenizer_config.json"
+      ]
+    },
+    {
+      "id": "qwen35-2b-q4_k_m",
+      "publisher": "Alibaba/Qwen; quantization published by bartowski",
+      "repositories": [
+        {
+          "repository": "bartowski/Qwen_Qwen3.5-2B-GGUF",
+          "revision": "7d26695454df6de5fbcce2e58681e62dae06ce43",
+          "role": "exact tested GGUF artifact"
+        },
+        {
+          "repository": "Qwen/Qwen3.5-2B",
+          "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+          "role": "upstream license/tokenizer snapshot; not claimed as quantizer input revision"
+        }
+      ],
+      "source_provenance": "Quantizer identifies Qwen3.5 base model; pinned upstream snapshot records licensing and template, not proof of exact base weights used",
+      "model_license": "Apache-2.0 declared by upstream and quantizer",
+      "tokenizer_license": "Tokenizer embedded in GGUF; upstream tokenizer snapshot Apache-2.0 declaration",
+      "runtime_license": "llama.cpp MIT; vendored nlohmann JSON MIT",
+      "conversion_provenance": "Publisher card states llama.cpp b9222 imatrix conversion and links calibration gist; original quantized bytes used unchanged",
+      "classification": "A",
+      "commercial_use": "Provisionally permitted under declared upstream licenses; not legal or production approval",
+      "redistribution": "Provisionally permitted with license/notice retention and provenance review",
+      "derivative_obligations": "Retain copyright/license/NOTICE where present; identify changes; Apache patent/notice provisions where applicable; no production distribution in this pass",
+      "ambiguities": [
+        "Exact upstream weight revision used by quantizer is not disclosed",
+        "Calibration-text licensing/source completeness needs downstream review; artifact publisher declares Apache-2.0",
+        "Greedy/non-thinking research settings differ from publisher stochastic recommendations; conclusions are configuration-specific"
+      ],
+      "quantization": "Q4_K_M",
+      "runtime": "llama.cpp v0.6.0 source 8345f333951c661d166b00e6f9362e553768f292; CPU-only custom stdio worker",
+      "artifacts": [
+        ".local/quality/models/bartowski--Qwen_Qwen3.5-2B-GGUF/Qwen_Qwen3.5-2B-Q4_K_M.gguf",
+        ".local/quality/models/bartowski--Qwen_Qwen3.5-2B-GGUF/README.md",
+        ".local/quality/cards/Qwen--Qwen3.5-2B/LICENSE",
+        ".local/quality/cards/Qwen--Qwen3.5-2B/README.md",
+        ".local/quality/cards/Qwen--Qwen3.5-2B/tokenizer_config.json"
+      ]
+    },
+    {
+      "id": "madlad400-3b-q4k",
+      "publisher": "Google model repository; original Torch conversion credited to Juarez Bochi",
+      "repositories": [
+        {
+          "repository": "google/madlad400-3b-mt",
+          "revision": "fa184c675da0b5c9e1c8694fccd4e12e2d422094",
+          "role": "tested GGUF plus publisher config/tokenizer snapshot"
+        }
+      ],
+      "source_provenance": "Model card links original Google MADLAD checkpoints/paper and credits the HF conversion maintainer; published GGUF is in the same pinned Google repository",
+      "model_license": "Apache-2.0",
+      "tokenizer_license": "Repository tokenizer declaration Apache-2.0; SentencePiece Apache-2.0",
+      "runtime_license": "Candle MIT OR Apache-2.0; tokenizer library Apache-2.0",
+      "conversion_provenance": "Published quantized T5 tensor-only GGUF; consumed with Candle, not llama.cpp; file SHA fixed",
+      "classification": "A",
+      "commercial_use": "Provisionally permitted under declared upstream licenses; not legal or production approval",
+      "redistribution": "Provisionally permitted with license/notice retention and provenance review",
+      "derivative_obligations": "Retain copyright/license/NOTICE where present; identify changes; Apache patent/notice provisions where applicable; no production distribution in this pass",
+      "ambiguities": [
+        "The original Torch/quantization converter command and exact converter commit are not stated",
+        "Training-data rights and final model/derived-artifact grant require legal review; no production approval"
+      ],
+      "quantization": "Published Candle GGUF Q4_K",
+      "runtime": "Candle 0.11.0 source 31f35b147389700ed2a178ee66a91c3cc25cc80d; CPU-only Rust stdio worker",
+      "artifacts": [
+        ".local/quality/models/google--madlad400-3b-mt/model-q4k.gguf",
+        ".local/quality/models/google--madlad400-3b-mt/README.md",
+        ".local/quality/models/google--madlad400-3b-mt/config.json",
+        ".local/quality/models/google--madlad400-3b-mt/tokenizer.json",
+        ".local/quality/models/google--madlad400-3b-mt/tokenizer_config.json",
+        ".local/quality/models/google--madlad400-3b-mt/spiece.model"
+      ]
+    },
+    {
+      "id": "qwen25-15-q4",
+      "publisher": "Qwen (official GGUF)",
+      "repositories": [
+        {
+          "repository": "Qwen/Qwen2.5-1.5B-Instruct-GGUF",
+          "revision": "91cad51170dc346986eccefdc2dd33a9da36ead9",
+          "role": "tested official GGUF"
+        },
+        {
+          "repository": "Qwen/Qwen2.5-1.5B-Instruct",
+          "revision": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306",
+          "role": "upstream license/template snapshot"
+        }
+      ],
+      "source_provenance": "Official Qwen quantized publication; upstream base snapshot recorded separately, exact base conversion SHA not disclosed",
+      "model_license": "Apache-2.0",
+      "tokenizer_license": "Embedded GGUF tokenizer under upstream Apache-2.0",
+      "runtime_license": "llama.cpp MIT; nlohmann/json MIT",
+      "conversion_provenance": "Publisher Q4_K_M GGUF. Card documents conversion/quantization commands but not the exact tool commit or source weight SHA.",
+      "classification": "A",
+      "commercial_use": "Provisionally permitted by declared Apache-2.0; no legal or production approval",
+      "redistribution": "Retain licenses/notices, document modifications and provenance",
+      "derivative_obligations": "Apache patent, attribution and NOTICE provisions where applicable; no production distribution in this pass",
+      "ambiguities": [
+        "Exact quantizer commit and base weight revision are not identified in the official quantization publication"
+      ],
+      "quantization": "Q4_K_M, official published GGUF, greedy 128 output tokens",
+      "runtime": "llama.cpp 8345f333951c661d166b00e6f9362e553768f292 CPU four threads",
+      "artifacts": [
+        ".local/quality/models/Qwen--Qwen2.5-1.5B-Instruct-GGUF/README.md",
+        ".local/quality/models/Qwen--Qwen2.5-1.5B-Instruct-GGUF/qwen2.5-1.5b-instruct-q4_k_m.gguf",
+        ".local/quality/models/Qwen--Qwen2.5-1.5B-Instruct/README.md",
+        ".local/quality/models/Qwen--Qwen2.5-1.5B-Instruct/LICENSE",
+        ".local/quality/models/Qwen--Qwen2.5-1.5B-Instruct/tokenizer_config.json"
+      ]
+    }
+  ]
+}

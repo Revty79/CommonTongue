@@ -1,0 +1,184 @@
+[
+  {
+    "id": "en01",
+    "source": "I can pick you up after work, but I cannot stay for dinner.",
+    "direction": "en-es",
+    "context": [],
+    "semantic_facts": [
+      "Pickup after work",
+      "dinner refusal",
+      "negation."
+    ],
+    "forbidden_meaning_changes": [
+      "Do not contradict, omit or invent any stated semantic fact."
+    ],
+    "translations": [
+      {
+        "label": "A",
+        "text": "\"Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.\""
+      },
+      {
+        "label": "B",
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar."
+      },
+      {
+        "label": "C",
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar."
+      },
+      {
+        "label": "D",
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme para la cena."
+      },
+      {
+        "label": "E",
+        "text": "Pued recogerte después de la jornada, pero no puedo quedarme para cenar."
+      },
+      {
+        "label": "F",
+        "text": "Te puedo recoger después del trabajo, pero no puedo quedarme para cenar."
+      },
+      {
+        "label": "G",
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar."
+      },
+      {
+        "label": "H",
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar."
+      },
+      {
+        "label": "I",
+        "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar."
+      },
+      {
+        "label": "J",
+        "text": "Puedo llevarte después del trabajo, pero no puedo quedarme para la cena."
+      }
+    ],
+    "review": {
+      "reviewer": null,
+      "qualification": null,
+      "status": "UNREVIEWED"
+    }
+  },
+  {
+    "id": "en02",
+    "source": "That repair cost an arm and a leg. I am pretty broke now.",
+    "direction": "en-es",
+    "context": [],
+    "semantic_facts": [
+      "Very expensive repair",
+      "little money",
+      "not literal limbs."
+    ],
+    "forbidden_meaning_changes": [
+      "Do not contradict, omit or invent any stated semantic fact."
+    ],
+    "translations": [
+      {
+        "label": "A",
+        "text": "Esta reparación cuesta un brazo y una pierna. estoy bastante roto ahora."
+      },
+      {
+        "label": "B",
+        "text": "Esa reparación cost un brazo y un pie. Estoy bastante quebrado ahora."
+      },
+      {
+        "label": "C",
+        "text": "Esa reparación costó un brazo y una pierna. Estoy muy pobre ahora."
+      },
+      {
+        "label": "D",
+        "text": "Esa reparación me costó un brazo y una pierna, y ahora estoy bastante arruinado."
+      },
+      {
+        "label": "E",
+        "text": "Esa reparación costó un brazo y una pierna."
+      },
+      {
+        "label": "F",
+        "text": "Esa reparación costó un brazo y una pierna."
+      },
+      {
+        "label": "G",
+        "text": "Esa reparación costó una fortuna. Ahora estoy bastante quebrado."
+      },
+      {
+        "label": "H",
+        "text": "El costo de reparación fue un brazo y una pierna. Estoy muy pobre ahora."
+      },
+      {
+        "label": "I",
+        "text": "Esa reparación costó un brazo y una mano. Ahora estoy bastante endeudado."
+      },
+      {
+        "label": "J",
+        "text": "Esa reparación costó un brazo y una pierna. Estoy bastante quebrado ahora."
+      }
+    ],
+    "review": {
+      "reviewer": null,
+      "qualification": null,
+      "status": "UNREVIEWED"
+    }
+  },
+  {
+    "id": "en03",
+    "source": "Let's call it a day and finish the fence tomorrow.",
+    "direction": "en-es",
+    "context": [],
+    "semantic_facts": [
+      "Stop work today",
+      "finish fence tomorrow."
+    ],
+    "forbidden_meaning_changes": [
+      "Do not contradict, omit or invent any stated semantic fact."
+    ],
+    "translations": [
+      {
+        "label": "A",
+        "text": "Vamos a llamarlo un día y terminar el cierre mañana."
+      },
+      {
+        "label": "B",
+        "text": "Hagamos un día y terminemos el muro mañana."
+      },
+      {
+        "label": "C",
+        "text": "Hagamos hoy y terminemos la valla mañana."
+      },
+      {
+        "label": "D",
+        "text": "Terminemos mañana con la valla."
+      },
+      {
+        "label": "E",
+        "text": "Terminemos mañana con la valla."
+      },
+      {
+        "label": "F",
+        "text": "Hablemos de un día y terminar la pared el próximo día."
+      },
+      {
+        "label": "G",
+        "text": "¡Hagamos una pausa y terminemos la cerca mañana!"
+      },
+      {
+        "label": "H",
+        "text": "Hagamos mañana con la valla."
+      },
+      {
+        "label": "I",
+        "text": "Llamemos a un día y terminemos la cerca mañana."
+      },
+      {
+        "label": "J",
+        "text": "\"Terminemos mañana con la valla.\""
+      }
+    ],
+    "review": {
+      "reviewer": null,
+      "qualification": null,
+      "status": "UNREVIEWED"
+    }
+  }
+]

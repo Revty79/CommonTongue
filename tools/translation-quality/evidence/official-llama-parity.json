@@ -1,0 +1,7 @@
+{
+  "case": "en04",
+  "official_output": "No empuje el motor hasta que me desolve los cables de paraguas.",
+  "worker_output": "No empuje el motor hasta que me desolve los cables de paraguas.",
+  "same": true,
+  "official_returncode": 0
+}

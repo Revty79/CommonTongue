@@ -1,0 +1,11 @@
+{
+  "cases": 68,
+  "verdict_FAIL": 27,
+  "retries": 27,
+  "incomplete_verifier": 28,
+  "PASS_on_major_or_critical": 10,
+  "FAIL_on_none_or_minor": 14,
+  "repaired_text_identical_to_draft": 9,
+  "verdict_REVIEW": 5,
+  "verdict_PASS": 36
+}

@@ -1,0 +1,145 @@
+{
+  "context": {
+    "q080-direct": {
+      "counts": {
+        "UNCHANGED": 21,
+        "IMPROVED": 6,
+        "WORSENED": 5
+      },
+      "flags": {},
+      "identical": 12,
+      "reviewed": 32
+    },
+    "q2-direct": {
+      "counts": {
+        "UNCHANGED": 21,
+        "IMPROVED": 6,
+        "WORSENED": 5
+      },
+      "flags": {},
+      "identical": 15,
+      "reviewed": 32
+    },
+    "q25-direct": {
+      "counts": {
+        "UNCHANGED": 23,
+        "WORSENED": 5,
+        "IMPROVED": 4
+      },
+      "flags": {},
+      "identical": 10,
+      "reviewed": 32
+    },
+    "q080-hybrid": {
+      "counts": {
+        "UNCHANGED": 26,
+        "WORSENED": 4,
+        "IMPROVED": 2
+      },
+      "flags": {},
+      "identical": 21,
+      "reviewed": 32
+    },
+    "q2-hybrid": {
+      "counts": {
+        "UNCHANGED": 27,
+        "WORSENED": 1,
+        "IMPROVED": 4
+      },
+      "flags": {},
+      "identical": 18,
+      "reviewed": 32
+    },
+    "q25-hybrid": {
+      "counts": {
+        "UNCHANGED": 30,
+        "IMPROVED": 2
+      },
+      "flags": {},
+      "identical": 24,
+      "reviewed": 32
+    }
+  },
+  "terminology": {
+    "q080-direct": {
+      "counts": {
+        "WORSENED": 5,
+        "UNCHANGED": 13,
+        "IMPROVED": 10
+      },
+      "flags": {
+        "IGNORED": 14,
+        "AWKWARD": 9
+      },
+      "identical": 6,
+      "reviewed": 28
+    },
+    "q2-direct": {
+      "counts": {
+        "WORSENED": 4,
+        "IMPROVED": 14,
+        "UNCHANGED": 10
+      },
+      "flags": {
+        "AWKWARD": 5,
+        "IGNORED": 1
+      },
+      "identical": 7,
+      "reviewed": 28
+    },
+    "q25-direct": {
+      "counts": {
+        "UNCHANGED": 12,
+        "IMPROVED": 10,
+        "WORSENED": 6
+      },
+      "flags": {
+        "IGNORED": 7,
+        "AWKWARD": 11,
+        "UNRELATED_OVERRIDE": 2
+      },
+      "identical": 6,
+      "reviewed": 28
+    },
+    "q080-hybrid": {
+      "counts": {
+        "UNCHANGED": 20,
+        "IMPROVED": 5,
+        "WORSENED": 3
+      },
+      "flags": {
+        "AWKWARD": 5,
+        "IGNORED": 12
+      },
+      "identical": 15,
+      "reviewed": 28
+    },
+    "q2-hybrid": {
+      "counts": {
+        "IMPROVED": 16,
+        "UNCHANGED": 10,
+        "WORSENED": 2
+      },
+      "flags": {
+        "AWKWARD": 5,
+        "IGNORED": 1,
+        "UNRELATED_OVERRIDE": 1
+      },
+      "identical": 9,
+      "reviewed": 28
+    },
+    "q25-hybrid": {
+      "counts": {
+        "UNCHANGED": 19,
+        "IMPROVED": 8,
+        "WORSENED": 1
+      },
+      "flags": {
+        "IGNORED": 8,
+        "AWKWARD": 5
+      },
+      "identical": 14,
+      "reviewed": 28
+    }
+  }
+}

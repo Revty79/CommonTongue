@@ -1,0 +1,751 @@
+{
+  "opus-baseline": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "NONE": 35,
+      "CRITICAL": 6,
+      "MAJOR": 22,
+      "MINOR": 5
+    },
+    "critical_rate_reviewed": 0.08823529411764706,
+    "major_rate_reviewed": 0.3235294117647059,
+    "omission_count_reviewed": 3,
+    "material_omission_count_reviewed": 3,
+    "invention_count_reviewed": 1,
+    "material_invention_count_reviewed": 1,
+    "mean_quality_reviewed": 82.99003692386046,
+    "mean_risk_weighted_reviewed": 69.10552478567185,
+    "median_ms": 401.93379996344447,
+    "p95_ms": 593.7415999360383,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 159,
+      "CHECKED_MATCH": 8,
+      "NEEDS_REVIEW": 29
+    },
+    "heuristic_signal_counts": {
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "m2m-int8": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "MINOR": 10,
+      "MAJOR": 31,
+      "CRITICAL": 14,
+      "NONE": 13
+    },
+    "critical_rate_reviewed": 0.20588235294117646,
+    "major_rate_reviewed": 0.45588235294117646,
+    "omission_count_reviewed": 3,
+    "material_omission_count_reviewed": 3,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": 71.9666730328495,
+    "mean_risk_weighted_reviewed": 48.64639037433155,
+    "median_ms": 465.4295501532033,
+    "p95_ms": 663.1923001259565,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 159,
+      "CHECKED_MATCH": 7,
+      "NEEDS_REVIEW": 30
+    },
+    "heuristic_signal_counts": {
+      "COMMENTARY_PREFIX": 1,
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "madlad-q4k": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "NONE": 35,
+      "MINOR": 14,
+      "MAJOR": 18,
+      "CRITICAL": 1
+    },
+    "critical_rate_reviewed": 0.014705882352941176,
+    "major_rate_reviewed": 0.2647058823529412,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 1,
+    "material_invention_count_reviewed": 1,
+    "mean_quality_reviewed": 87.39229214413038,
+    "mean_risk_weighted_reviewed": 78.90489718614718,
+    "median_ms": 2292.5297500332817,
+    "p95_ms": 4973.515999969095,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 159,
+      "CHECKED_MATCH": 8,
+      "NEEDS_REVIEW": 29
+    },
+    "heuristic_signal_counts": {
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "q080-direct": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "MINOR": 14,
+      "MAJOR": 24,
+      "CRITICAL": 18,
+      "NONE": 12
+    },
+    "critical_rate_reviewed": 0.2647058823529412,
+    "major_rate_reviewed": 0.35294117647058826,
+    "omission_count_reviewed": 5,
+    "material_omission_count_reviewed": 5,
+    "invention_count_reviewed": 2,
+    "material_invention_count_reviewed": 2,
+    "mean_quality_reviewed": 72.02672735760972,
+    "mean_risk_weighted_reviewed": 47.46347402597403,
+    "median_ms": 887.5165999634191,
+    "p95_ms": 3767.0583999715745,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 158,
+      "CHECKED_MATCH": 6,
+      "NEEDS_REVIEW": 32
+    },
+    "heuristic_signal_counts": {
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "q080-direct-no-context": {
+    "outputs": 32,
+    "reviewed": 0,
+    "unreviewed": 32,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 638.7827500002459,
+    "p95_ms": 757.3777998331934,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 31,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q080-direct-no-terms": {
+    "outputs": 28,
+    "reviewed": 0,
+    "unreviewed": 28,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 857.7703001210466,
+    "p95_ms": 4772.95480016619,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 27,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q2-direct": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "NONE": 22,
+      "MAJOR": 17,
+      "CRITICAL": 10,
+      "MINOR": 19
+    },
+    "critical_rate_reviewed": 0.14705882352941177,
+    "major_rate_reviewed": 0.25,
+    "omission_count_reviewed": 2,
+    "material_omission_count_reviewed": 1,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": 83.58971808420338,
+    "mean_risk_weighted_reviewed": 67.23430470673118,
+    "median_ms": 3043.6367000220343,
+    "p95_ms": 4776.257599936798,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 160,
+      "CHECKED_MATCH": 7,
+      "NEEDS_REVIEW": 29
+    },
+    "heuristic_signal_counts": {
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "q2-direct-no-context": {
+    "outputs": 32,
+    "reviewed": 0,
+    "unreviewed": 32,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 1503.6172500113025,
+    "p95_ms": 2426.96059984155,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 31,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {
+      "COMMENTARY_PREFIX": 1
+    }
+  },
+  "q2-direct-no-terms": {
+    "outputs": 28,
+    "reviewed": 0,
+    "unreviewed": 28,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 3118.826799909584,
+    "p95_ms": 3919.4155998993665,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 27,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q25-direct": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "NONE": 20,
+      "MAJOR": 19,
+      "MINOR": 13,
+      "CRITICAL": 16
+    },
+    "critical_rate_reviewed": 0.23529411764705882,
+    "major_rate_reviewed": 0.27941176470588236,
+    "omission_count_reviewed": 7,
+    "material_omission_count_reviewed": 7,
+    "invention_count_reviewed": 6,
+    "material_invention_count_reviewed": 4,
+    "mean_quality_reviewed": 76.01742212036329,
+    "mean_risk_weighted_reviewed": 56.036945081062726,
+    "median_ms": 2068.305999855511,
+    "p95_ms": 3225.33809999004,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 158,
+      "CHECKED_MATCH": 7,
+      "NEEDS_REVIEW": 31
+    },
+    "heuristic_signal_counts": {
+      "POSSIBLE_SHORT_OUTPUT_OMISSION": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Jack": 1,
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "q25-direct-no-context": {
+    "outputs": 32,
+    "reviewed": 0,
+    "unreviewed": 32,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 1588.4290999965742,
+    "p95_ms": 2243.4005001559854,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 31,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q25-direct-no-terms": {
+    "outputs": 28,
+    "reviewed": 0,
+    "unreviewed": 28,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 1730.1769000478089,
+    "p95_ms": 1993.5479999985546,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 27,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q080-hybrid": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "NONE": 34,
+      "MINOR": 6,
+      "MAJOR": 23,
+      "CRITICAL": 5
+    },
+    "critical_rate_reviewed": 0.07352941176470588,
+    "major_rate_reviewed": 0.3382352941176471,
+    "omission_count_reviewed": 2,
+    "material_omission_count_reviewed": 2,
+    "invention_count_reviewed": 1,
+    "material_invention_count_reviewed": 1,
+    "mean_quality_reviewed": 83.1594171759613,
+    "mean_risk_weighted_reviewed": 69.55881026653086,
+    "median_ms": 1966.0005499608815,
+    "p95_ms": 2876.4158999547362,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 159,
+      "CHECKED_MATCH": 8,
+      "NEEDS_REVIEW": 29
+    },
+    "heuristic_signal_counts": {
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "q080-hybrid-no-context": {
+    "outputs": 32,
+    "reviewed": 0,
+    "unreviewed": 32,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 1490.3952999738976,
+    "p95_ms": 1807.0231000892818,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 31,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q080-hybrid-no-terms": {
+    "outputs": 28,
+    "reviewed": 0,
+    "unreviewed": 28,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 1862.598649924621,
+    "p95_ms": 2220.8765998948365,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 27,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q2-hybrid": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "NONE": 34,
+      "MINOR": 12,
+      "MAJOR": 19,
+      "CRITICAL": 3
+    },
+    "critical_rate_reviewed": 0.04411764705882353,
+    "major_rate_reviewed": 0.27941176470588236,
+    "omission_count_reviewed": 1,
+    "material_omission_count_reviewed": 1,
+    "invention_count_reviewed": 1,
+    "material_invention_count_reviewed": 1,
+    "mean_quality_reviewed": 86.00532637297343,
+    "mean_risk_weighted_reviewed": 75.80341227400051,
+    "median_ms": 3381.381449988112,
+    "p95_ms": 4887.690699892119,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 159,
+      "CHECKED_MATCH": 8,
+      "NEEDS_REVIEW": 29
+    },
+    "heuristic_signal_counts": {
+      "POSSIBLE_SHORT_OUTPUT_OMISSION": 1,
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "q2-hybrid-no-context": {
+    "outputs": 32,
+    "reviewed": 0,
+    "unreviewed": 32,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 2751.1659499723464,
+    "p95_ms": 3334.277000045404,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 31,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q2-hybrid-no-terms": {
+    "outputs": 28,
+    "reviewed": 0,
+    "unreviewed": 28,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 3501.1618500575423,
+    "p95_ms": 4561.5290000569075,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 27,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q25-hybrid": {
+    "outputs": 196,
+    "reviewed": 68,
+    "unreviewed": 128,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "NONE": 30,
+      "CRITICAL": 8,
+      "MAJOR": 20,
+      "MINOR": 10
+    },
+    "critical_rate_reviewed": 0.11764705882352941,
+    "major_rate_reviewed": 0.29411764705882354,
+    "omission_count_reviewed": 6,
+    "material_omission_count_reviewed": 6,
+    "invention_count_reviewed": 1,
+    "material_invention_count_reviewed": 1,
+    "mean_quality_reviewed": 81.72194635429929,
+    "mean_risk_weighted_reviewed": 67.18967511246923,
+    "median_ms": 2940.107899950817,
+    "p95_ms": 3878.166199894622,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 159,
+      "CHECKED_MATCH": 8,
+      "NEEDS_REVIEW": 29
+    },
+    "heuristic_signal_counts": {
+      "POSSIBLE_SHORT_OUTPUT_OMISSION": 1,
+      "NAME_LITERAL_NEEDS_REVIEW:Mar\u00c3\u00ada P\u00c3\u00a9rez": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:\u00c3\u201cscar": 2,
+      "NAME_LITERAL_NEEDS_REVIEW:Las Palmas Caf\u00c3\u00a9": 2
+    }
+  },
+  "q25-hybrid-no-context": {
+    "outputs": 32,
+    "reviewed": 0,
+    "unreviewed": 32,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 2227.7039998443797,
+    "p95_ms": 2824.7649997938424,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 31,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q25-hybrid-no-terms": {
+    "outputs": 28,
+    "reviewed": 0,
+    "unreviewed": 28,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {},
+    "critical_rate_reviewed": null,
+    "major_rate_reviewed": null,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": null,
+    "mean_risk_weighted_reviewed": null,
+    "median_ms": 2703.4146500518546,
+    "p95_ms": 3039.634899934754,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 27,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q2-verify-retry": {
+    "outputs": 68,
+    "reviewed": 68,
+    "unreviewed": 0,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "NONE": 37,
+      "MAJOR": 19,
+      "MINOR": 7,
+      "CRITICAL": 5
+    },
+    "critical_rate_reviewed": 0.07352941176470588,
+    "major_rate_reviewed": 0.27941176470588236,
+    "omission_count_reviewed": 2,
+    "material_omission_count_reviewed": 2,
+    "invention_count_reviewed": 1,
+    "material_invention_count_reviewed": 1,
+    "mean_quality_reviewed": 85.16294775485952,
+    "mean_risk_weighted_reviewed": 73.59665457091928,
+    "median_ms": 1949.3460999801755,
+    "p95_ms": 10775.24510002695,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 57,
+      "CHECKED_MATCH": 2,
+      "NEEDS_REVIEW": 9
+    },
+    "heuristic_signal_counts": {}
+  },
+  "q080-q5-precision": {
+    "outputs": 16,
+    "reviewed": 16,
+    "unreviewed": 0,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "CRITICAL": 4,
+      "MAJOR": 6,
+      "MINOR": 3,
+      "NONE": 3
+    },
+    "critical_rate_reviewed": 0.25,
+    "major_rate_reviewed": 0.375,
+    "omission_count_reviewed": 3,
+    "material_omission_count_reviewed": 3,
+    "invention_count_reviewed": 2,
+    "material_invention_count_reviewed": 2,
+    "mean_quality_reviewed": 69.79104662698413,
+    "mean_risk_weighted_reviewed": 46.631324404761905,
+    "median_ms": 973.5724999336526,
+    "p95_ms": 1173.2059000059962,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 15,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "pilot-q080-q4-concise": {
+    "outputs": 16,
+    "reviewed": 16,
+    "unreviewed": 0,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "CRITICAL": 4,
+      "MAJOR": 6,
+      "MINOR": 3,
+      "NONE": 3
+    },
+    "critical_rate_reviewed": 0.25,
+    "major_rate_reviewed": 0.375,
+    "omission_count_reviewed": 2,
+    "material_omission_count_reviewed": 2,
+    "invention_count_reviewed": 1,
+    "material_invention_count_reviewed": 1,
+    "mean_quality_reviewed": 71.83965773809524,
+    "mean_risk_weighted_reviewed": 48.36743551587302,
+    "median_ms": 901.9582000328228,
+    "p95_ms": 1143.3033000212163,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 15,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "pilot-q080-q4-structured": {
+    "outputs": 16,
+    "reviewed": 16,
+    "unreviewed": 0,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "CRITICAL": 4,
+      "MAJOR": 8,
+      "NONE": 3,
+      "MINOR": 1
+    },
+    "critical_rate_reviewed": 0.25,
+    "major_rate_reviewed": 0.5,
+    "omission_count_reviewed": 3,
+    "material_omission_count_reviewed": 3,
+    "invention_count_reviewed": 1,
+    "material_invention_count_reviewed": 1,
+    "mean_quality_reviewed": 67.63392857142857,
+    "mean_risk_weighted_reviewed": 41.279761904761905,
+    "median_ms": 1035.0463499780744,
+    "p95_ms": 1212.9412000067532,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 15,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "pilot-q2-q4-concise": {
+    "outputs": 16,
+    "reviewed": 16,
+    "unreviewed": 0,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "CRITICAL": 4,
+      "MAJOR": 3,
+      "NONE": 4,
+      "MINOR": 5
+    },
+    "critical_rate_reviewed": 0.25,
+    "major_rate_reviewed": 0.1875,
+    "omission_count_reviewed": 0,
+    "material_omission_count_reviewed": 0,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": 84.55295138888889,
+    "mean_risk_weighted_reviewed": 62.122395833333336,
+    "median_ms": 1791.281099896878,
+    "p95_ms": 2132.8589997719973,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 15,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  },
+  "pilot-q2-q4-structured": {
+    "outputs": 16,
+    "reviewed": 16,
+    "unreviewed": 0,
+    "review_type": "model-assisted Codex assessment; not native/fluent-human review",
+    "severity_counts": {
+      "CRITICAL": 3,
+      "MAJOR": 5,
+      "NONE": 3,
+      "MINOR": 5
+    },
+    "critical_rate_reviewed": 0.1875,
+    "major_rate_reviewed": 0.3125,
+    "omission_count_reviewed": 1,
+    "material_omission_count_reviewed": 1,
+    "invention_count_reviewed": 0,
+    "material_invention_count_reviewed": 0,
+    "mean_quality_reviewed": 79.13628472222223,
+    "mean_risk_weighted_reviewed": 58.650173611111114,
+    "median_ms": 2181.792250019498,
+    "p95_ms": 2568.813799880445,
+    "incomplete": 0,
+    "integer_states": {
+      "NOT_APPLICABLE": 15,
+      "NEEDS_REVIEW": 1
+    },
+    "heuristic_signal_counts": {}
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "artifacts": 57,
+  "all_sizes_and_sha256_verified": true,
+  "lock_sha256": "06947d2e47ec1cb3ba5333986464489e1e77d6d8854b2958ad4759635ce2030a",
+  "note": "Explicit local verification after all downloads and local conversion; weights remain ignored.",
+  "canonical_repository_line_endings": "LF; formatting only, decoded records unchanged"
+}

@@ -1,0 +1,9 @@
+{
+  "native_binary_sha256": "74a0f1239587052e5d3ecc4a1409e3418e6d25beebf1288fa3ccb0a0f4e1a84d",
+  "candle_binary_sha256": "bcbdf86ad10c2c4ce300569b3db0c57ec422bf1fd1c27d26c5d172edc382f316",
+  "llama_source_revision": "8345f333951c661d166b00e6f9362e553768f292",
+  "candle_source_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+  "compiler": "MSVC 14.44.35207; Rust 1.91.0; CMake 3.22.1",
+  "settings": "CPU; llama GGML_NATIVE/GPU/RPC/server/common disabled; Candle CPU x86-64-v3, no CUDA/Metal/MKL features",
+  "limitations": "Archive identity is authoritative; upstream build git metadata can observe surrounding project checkout. MSVC emitted duplicate source object-name warning; build/parity ran successfully."
+}

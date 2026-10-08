@@ -58,4 +58,6 @@ jobs:
         run: ./gradlew --no-daemon --console=plain --warning-mode=all clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
       - name: Check research harness without models
         run: python3 -m unittest discover -s tools/offline-feasibility/tests -v
+      - name: Check translation benchmark without models
+        run: python3 -m unittest discover -s tools/translation-quality/tests -v
       # Instrumentation remains local/manual in Pass 1; see README.md.

@@ -1,0 +1,36 @@
+{
+  "run": "opus-baseline",
+  "engine": "opus",
+  "architecture": "dedicated",
+  "template": "concise",
+  "threads": 4,
+  "python": "3.13.2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "corpus_sha256": "1e096507538defa63b92f55ebd6a261fd62d6f65999b089684f9a1a3ed26cba8",
+  "prompts_sha256": "3d66554cffe7023ae1ef9072e5d441dc40444fc24449462e7dea9232b44a7820",
+  "network_canaries": {
+    "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+    "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+  },
+  "native_network_block": "Restricted OS process sandbox; CPU worker has no networking or downloader",
+  "decoding": "Greedy LLM, max 128 tokens; recurrent/KV state reset for every request; M2M beam 5; historical OPUS greedy no KV cache",
+  "loads": [
+    {
+      "engine": "opus-en-es",
+      "load_ms": 771.6410998255014,
+      "peak_process_tree_rss_bytes": 251097088,
+      "steady_process_tree_rss_bytes": 251088896,
+      "approx_cpu_seconds": 0.71875,
+      "approx_busy_cpu_cores": 0.9118244506496616
+    },
+    {
+      "engine": "opus-es-en",
+      "load_ms": 511.35249994695187,
+      "peak_process_tree_rss_bytes": 430612480,
+      "steady_process_tree_rss_bytes": 430587904,
+      "approx_cpu_seconds": 0.75,
+      "approx_busy_cpu_cores": 1.4172097252204694
+    }
+  ],
+  "socket_attempts_after_tripwire": []
+}

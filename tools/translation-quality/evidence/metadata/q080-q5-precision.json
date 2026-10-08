@@ -1,0 +1,52 @@
+{
+  "run": "q080-q5-precision",
+  "engine": "q080-q5",
+  "architecture": "direct",
+  "template": "concise",
+  "threads": 4,
+  "python": "3.14.7",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "corpus_sha256": "b2e6f8ee9a856571261a58868121ef5ef82b4561ff179d5deb11f55bdfade3ff",
+  "prompts_sha256": "b0d59dd37a2918d46781184b570780c63990035a73a8ebb3ba5ce5dce5a90374",
+  "network_canaries": {
+    "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+    "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+  },
+  "native_network_block": "Restricted OS process sandbox; CPU worker has no networking or downloader",
+  "decoding": "Greedy LLM, max 128 tokens; recurrent/KV state reset for every request; M2M beam 5; historical OPUS greedy no KV cache",
+  "loads": [
+    {
+      "engine": "q080-q5",
+      "context_tokens": 2048,
+      "load_ms": 590.5857,
+      "parameters": 772845888,
+      "ready": true,
+      "threads": 4,
+      "peak_process_tree_rss_bytes": 184692736,
+      "steady_process_tree_rss_bytes": 184664064,
+      "approx_cpu_seconds": 0.859375,
+      "approx_busy_cpu_cores": 1.2271663170006062
+    }
+  ],
+  "runner_sha256": "b6b06622a81ee3f59b83d3872879a369a60c3cc9e9fae943d8cfe0be20b4e8e8",
+  "performance_note": "Quality sweep may overlap free-tool preparation; use the separate uncontended finalist resource replay for selection.",
+  "case_ids": [
+    "en04",
+    "en15",
+    "es02",
+    "es11",
+    "q001-en-es",
+    "q001-es-en",
+    "q005-en-es",
+    "q005-es-en",
+    "q029-en-es",
+    "q029-es-en",
+    "q041-en-es",
+    "q041-es-en",
+    "q076-en-es",
+    "q076-es-en",
+    "q078-en-es",
+    "q078-es-en"
+  ],
+  "socket_attempts_after_tripwire": []
+}

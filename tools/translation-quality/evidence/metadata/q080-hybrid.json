@@ -1,0 +1,50 @@
+{
+  "run": "q080-hybrid",
+  "engine": "q080-q4",
+  "architecture": "hybrid",
+  "template": "concise",
+  "threads": 4,
+  "python": "3.14.7",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "corpus_sha256": "1e096507538defa63b92f55ebd6a261fd62d6f65999b089684f9a1a3ed26cba8",
+  "prompts_sha256": "b0d59dd37a2918d46781184b570780c63990035a73a8ebb3ba5ce5dce5a90374",
+  "network_canaries": {
+    "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+    "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+  },
+  "native_network_block": "Restricted OS process sandbox; CPU worker has no networking or downloader",
+  "decoding": "Greedy LLM, max 128 tokens; recurrent/KV state reset for every request; M2M beam 5; historical OPUS greedy no KV cache",
+  "loads": [
+    {
+      "engine": "opus-en-es",
+      "load_ms": 1189.6826000884175,
+      "peak_process_tree_rss_bytes": 252461056,
+      "steady_process_tree_rss_bytes": 252444672,
+      "approx_cpu_seconds": 1.1875,
+      "approx_busy_cpu_cores": 0.9763401737376745
+    },
+    {
+      "engine": "opus-es-en",
+      "load_ms": 1186.33639998734,
+      "peak_process_tree_rss_bytes": 432144384,
+      "steady_process_tree_rss_bytes": 432115712,
+      "approx_cpu_seconds": 1.234375,
+      "approx_busy_cpu_cores": 1.0012614982073265
+    },
+    {
+      "engine": "q080-q4",
+      "context_tokens": 2048,
+      "load_ms": 1136.6857,
+      "parameters": 772845888,
+      "ready": true,
+      "threads": 4,
+      "peak_process_tree_rss_bytes": 916828160,
+      "steady_process_tree_rss_bytes": 916799488,
+      "approx_cpu_seconds": 1.734375,
+      "approx_busy_cpu_cores": 1.3996917633104595
+    }
+  ],
+  "runner_sha256": "dc1d88700821a068c3f22636d76a853fef1d58d1e6fb5567c25b0f8c4946bee3",
+  "performance_note": "Quality sweep may overlap free-tool preparation; use the separate uncontended finalist resource replay for selection.",
+  "socket_attempts_after_tripwire": []
+}
