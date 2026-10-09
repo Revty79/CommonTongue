@@ -7,6 +7,15 @@ plugins {
     alias(libs.plugins.kotlin.compose)
 }
 
+val speechSourceRevision =
+    providers
+        .exec {
+            commandLine("git", "rev-parse", "HEAD")
+        }
+        .standardOutput
+        .asText
+        .map { it.trim() }
+
 android {
     namespace = "com.commontongue.prototype"
     compileSdk = 36
@@ -16,8 +25,9 @@ android {
         applicationId = "com.commontongue.prototype"
         minSdk = 26
         targetSdk = 36
-        versionCode = 1
-        versionName = "0.1.0"
+        versionCode = 6
+        versionName = "0.6.0-pass6"
+        buildConfigField("String", "SPEECH_SOURCE_REVISION", "\"${speechSourceRevision.get()}\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -34,7 +44,10 @@ android {
         }
     }
 
-    buildFeatures { compose = true }
+    buildFeatures {
+        compose = true
+        buildConfig = true
+    }
 
     // Allow repeated local install/test runs on API 26 as well as newer Android.
     installation { installOptions.add("-r") }
@@ -54,6 +67,7 @@ kotlin { jvmToolchain(17) }
 
 dependencies {
     implementation(project(":core:translation"))
+    implementation(project(":platform:android-speech"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
@@ -115,6 +129,21 @@ androidComponents {
                     }
                     check(manifest.getElementsByTagName("uses-permission-sdk-23").length == 0) {
                         "SDK-conditional permissions are outside Pass 1."
+                    }
+                    val queryActions = manifest.getElementsByTagName("queries")
+                    check(queryActions.length == 1) { "Offline TTS engine discovery is required." }
+                    val queries = queryActions.item(0) as org.w3c.dom.Element
+                    val actions = queries.getElementsByTagName("action")
+                    check(
+                        (0 until actions.length).any {
+                            actions
+                                .item(it)
+                                .attributes
+                                .getNamedItemNS(androidNamespace, "name")
+                                ?.nodeValue == "android.intent.action.TTS_SERVICE"
+                        }
+                    ) {
+                        "TTS service discovery query is missing."
                     }
                     val sdk = manifest.getElementsByTagName("uses-sdk").item(0).attributes
                     check(sdk.getNamedItemNS(androidNamespace, "minSdkVersion").nodeValue == "26")

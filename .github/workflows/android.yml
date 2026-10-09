@@ -62,4 +62,18 @@ jobs:
         run: python3 -m unittest discover -s tools/translation-quality/tests -v
       - name: Check physical trial tooling without devices or models
         run: python3 -m unittest discover -s tools/device-trial/tests -v
+      - name: Verify unchanged translation runtime and package Pass 6 voice check
+        run: |
+          python3 tools/voice-layer/verify-baseline.py
+          python3 tools/voice-layer/package.py
+      - name: Upload Pass 6 voice check and validation reports
+        uses: actions/upload-artifact@v7
+        with:
+          name: CommonTongue-Pass6-Voice-Check-${{ github.sha }}
+          path: |
+            .local/pass6-artifacts/*
+            platform/android-speech/build/reports/tests/
+            platform/android-speech/build/reports/lint-results-debug.html
+          retention-days: 30
+          if-no-files-found: error
       # Instrumentation remains local/manual in Pass 1; see README.md.

@@ -6,6 +6,7 @@ import org.gradle.api.artifacts.result.UnresolvedDependencyResult
 
 plugins {
     alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
     alias(libs.plugins.android.lint) apply false
     alias(libs.plugins.kotlin.jvm) apply false
     alias(libs.plugins.kotlin.compose) apply false
@@ -123,6 +124,7 @@ spotless {
             "app/src/**/*.kt",
             "core/domain/src/**/*.kt",
             "core/translation/src/**/*.kt",
+            "platform/android-speech/src/**/*.kt",
             "spikes/offline-feasibility/src/**/*.kt",
             "spikes/physical-trial/src/**/*.kt",
         )
@@ -134,6 +136,7 @@ spotless {
             "app/*.gradle.kts",
             "core/domain/*.gradle.kts",
             "core/translation/*.gradle.kts",
+            "platform/android-speech/*.gradle.kts",
             "spikes/offline-feasibility/*.gradle.kts",
             "spikes/physical-trial/*.gradle.kts",
         )

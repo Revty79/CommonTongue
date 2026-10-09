@@ -15,6 +15,12 @@ The application collects no user speech/text and sends no user content off-devic
 
 Android backup is disabled for the application. Normal Android package/runtime metadata, build-generated files, and test artifacts are not conversation storage. Developer tools fetch build dependencies, and an emulator's operating system may have its own services; neither is application translation traffic.
 
+## Pass 6 installed offline speech
+
+The production speech module invokes the user's installed offline TTS voices, with explicit network-required rejection and no cloud fallback. Common Tongue retains no INTERNET or microphone permission. Wi-Fi/cellular state does not gate speech. Android's engine process belongs to a separate installed application; voice flags and offline proof are evidence of its local synthesis, not a revocation of vendor/system network permissions.
+
+Speech text is supplied only to the selected installed engine; it never enters diagnostics or app logs. Temporary private PCM WAVs are removed after synthesis and the latest replay audio is retained in memory until replacement/release/close. Abrupt termination may leave a temporary cache file, cleaned on subsequent synthesis when older than an hour. No audio/transcript database or conversation export is added. Debug result exports contain fixed-check outcomes and safe engine/voice/timing/output-type metadata, with no raw speech, paths, Bluetooth addresses or device identifiers. See [voice implementation](voice/PASS_6_OFFLINE_VOICE_LAYER.md) and [vendor provenance](voice/LICENSING_PROVENANCE.md).
+
 ## Long-term requirements
 
 After required packs are installed, offline translation must work without connectivity and must not transmit user speech/text off-device. Conversation content is to be ephemeral by default. Future persistence must have a deliberate product decision, explicit user choice where appropriate, and an abstraction separating storage from domain/application code.

@@ -1,22 +1,24 @@
 # Architecture
 
-Status: Pass 3 production capability contracts and text orchestration. The Android UI remains the foundation screen with no installed translation engine. Pass 2 inference stays in its independent research build.
+Status: Pass 6 adds the installed-offline Android speech adapter. The translation UI remains a foundation with no production ASR/translation runtime. Research inference and the accepted Pass 5 native/model inputs remain independent and unchanged.
 
 ## Modules and dependency direction
 
 ```mermaid
 flowchart TD
     App[app: Android lifecycle / Compose UI] --> Translation[core:translation: contracts / text use case / scoped verification]
+    App --> Speech[platform:android-speech: offline voice / controlled playback]
+    Speech --> Translation
     Translation --> Domain[core:domain: language / direction / quality profile / readiness]
     Future[Future platform and inference adapters] -. implement .-> Translation
     Lab[Separate Pass 2 research build] --> Research[Experimental runtimes / local models]
 ```
 
-`:app` owns Android resources/lifecycle and the existing foundation route, ViewModel, immutable state and renderer. It depends on `:core:translation`, which exports domain types. No concrete AI adapter, runtime/model or new UI is installed. `FoundationViewModel` still reports `NOT_INSTALLED` through `StateFlow`; the route uses lifecycle-aware collection. ViewModels hold no Context/Activity. The screen does not invoke the new use case yet.
+`:app` owns resources/lifecycle and the foundation route. `FoundationViewModel` still reports the translation engine `NOT_INSTALLED`; ViewModels hold no Context/Activity. The debug-only voice trial owns an injected production speech session and its visible/background lifecycle. `:platform:android-speech` implements `SpeechSynthesizer` and the new neutral `SpeechPlayback` interface, using installed offline Android voices, file synthesis and AudioTrack. No ASR/translation runtime or model is installed in production. See [Pass 6](voice/PASS_6_OFFLINE_VOICE_LAYER.md).
 
 `:core:domain` owns readiness, canonical `LanguageId`, ordered `TranslationDirection` and product-only `DeviceQualityProfile`. Its production dependencies are Kotlin stdlib/annotations. `:core:translation` owns the seven suspending capability contracts, immutable request/result/context/quality values, `TranslateTextUseCase`, and narrow `ExactIntegerVerifier`. It depends only on domain and the already-pinned coroutines library plus stdlib/annotations. No platform, filesystem, HTTP, database, cloud or model dependency enters either core module.
 
-The root has three meaningful modules. The standalone `spikes/offline-feasibility` build and desktop `tools/offline-feasibility` remain intact and independent; normal CI does not configure their native build or download weights. Existing UI code was not moved and no speculative store/account/adapter modules were created.
+The root has four modules, including the concrete Android speech adapter. Research builds/tools remain independent; normal CI does not configure native translation or download weights. The speech adapter's Android types and filesystem handling remain outside both pure JVM core modules. Existing foundation UI code was not moved.
 
 ## Capability inversion and application flow
 

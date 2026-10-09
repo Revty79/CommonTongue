@@ -16,4 +16,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "common-tongue"
 
-include(":app", ":core:domain", ":core:translation")
+include(":app", ":core:domain", ":core:translation", ":platform:android-speech")
