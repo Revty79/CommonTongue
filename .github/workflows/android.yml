@@ -69,7 +69,7 @@ jobs:
           bash tools/local-ai/build-native.sh
           python3 tools/local-ai/verify-boundaries.py
       - name: Compile, test, lint, and verify foundation boundaries
-        run: ./gradlew --no-daemon --console=plain --warning-mode=all clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
+        run: ./gradlew --no-daemon --console=plain --warning-mode=all clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest :app:assembleRelease
       - name: Check research harness without models
         run: python3 -m unittest discover -s tools/offline-feasibility/tests -v
       - name: Check translation benchmark without models

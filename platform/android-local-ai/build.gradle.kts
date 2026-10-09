@@ -6,6 +6,7 @@ android {
     ndkVersion = "27.1.12297006"
     defaultConfig {
         minSdk = 26
+        consumerProguardFiles("consumer-rules.pro")
         ndk { abiFilters += "arm64-v8a" }
         externalNativeBuild {
             cmake {

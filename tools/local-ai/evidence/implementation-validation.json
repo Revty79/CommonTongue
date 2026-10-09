@@ -56,7 +56,8 @@
     "verifyCoreBoundaries",
     ":app:verifyFoundationManifest",
     "assembleDebug",
-    ":app:assembleDebugAndroidTest"
+    ":app:assembleDebugAndroidTest",
+    ":app:assembleRelease"
   ],
   "host_control": {
     "scope": "PRODUCTION_JVM_ADAPTERS_WITH_WINDOWS_NATIVE_CONTROL_NOT_ANDROID_NOT_PHYSICAL",
@@ -95,5 +96,7 @@
   "pass5_protected_inputs_verified": 285,
   "pass6_production_speech_sources_unchanged": true,
   "model_assets_or_apk_committed": false,
-  "pass8_begun": false
+  "pass8_begun": false,
+  "unsigned_minified_release_build": "PASS_NOT_PUBLISHED",
+  "jni_names_retained_for_minification": true
 }
