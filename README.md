@@ -2,9 +2,9 @@
 
 Common Tongue is the working name for an Android-first, offline-first conversational translation product. This repository is `common-tongue`. iPhone support is planned later; this pass contains native Android only.
 
-**The translation UI remains a foundation build; Pass 6 adds its production offline speech adapter.** Pass 1 provides the Kotlin/Jetpack Compose foundation, boundaries and automation. Experimental ASR/translation models and runtimes remain outside the production app and domain. The debug-only voice check exercises the production `SpeechSynthesizer` adapter without a model pack.
+**Pass 7 adds production local recognition and translation adapters; the conversational PTT UI remains Pass 8.** The neutral contracts now have the locked Whisper/MADLAD implementations and the accepted offline Android speech adapter. A single debug launcher reaches internal component checks. Models remain separate downloadable resources, never APK/Git assets.
 
-Pass 6's requested S25 phone-speaker proof is complete: English, Spanish and replay pass through the production adapter with installed offline voices and airplane mode off; the tester confirmed audibility. Keep the tested version 7 APK. See [Pass 6 closeout and remaining release concerns](docs/voice/PASS_6_CLOSEOUT.md). Pass 7 has not begun and requires review/authorization.
+Pass 6's S25 English, Spanish and replay proof is complete and its implementation stays unchanged. Pass 7 implementation checks pass; its production-adapter S25 proof remains pending. See [Pass 7 validation and tester setup](docs/PASS_7_VALIDATION.md), [local adapter architecture](docs/LOCAL-AI-ADAPTERS.md), [locked provenance](docs/LOCAL-AI-PROVENANCE.md), and the [canonical roadmap](docs/ROADMAP.md). Pass 8 has not begun.
 
 Pass 3 adds model-neutral capability contracts, structured quality/context/failure values, a cancellable text use case, and a scoped deterministic integer verifier in `:core:translation`. The UI still reports no installed engine. See [translation contracts](docs/TRANSLATION_CONTRACTS.md) and [quality architecture](docs/QUALITY_ARCHITECTURE.md).
 
@@ -40,13 +40,16 @@ app/                         Android application
 core/domain/                 Pure Kotlin/JVM product concepts and unit tests
 core/translation/            Pure Kotlin/JVM capabilities, text use case, scoped verification
 platform/android-speech/     Installed offline TTS adapter and controlled playback
+platform/local-ai/           Production recognition/translation adapters and shared lifecycle
+platform/android-local-ai/   Resource bindings, private worker and checked JNI
+tools/local-ai/              Locked native preparation, component checks and artifact packaging
 tools/voice-layer/            Model-free phone check packaging and baseline verification
 gradle/                      Version catalog and wrapper
 .github/workflows/android.yml
 docs/                        Architecture, privacy, model policy, ADRs, validation
 ```
 
-The root has four modules: app depends on the Android speech adapter and the neutral translation/domain core. Both core modules remain pure Kotlin/JVM with no Android, Compose, network or AI runtime dependency. Translation exports domain values and uses the existing coroutines dependency. Research builds remain separate, outside normal CI configuration. Constructor injection suffices; the foundation route is unchanged. See [Pass 6 implementation and acceptance](docs/voice/PASS_6_OFFLINE_VOICE_LAYER.md) and [installed-voice licensing](docs/voice/LICENSING_PROVENANCE.md).
+The root has six modules. Both core modules remain pure Kotlin/JVM with no Android, Compose, network or AI runtime dependency. Constructor injection supplies neutral capabilities to UI/use cases. Normal CI builds native runtimes and runs model-free tests; it never acquires model weights. Accepted research sources/evidence and production TTS stay unchanged.
 
 ## Build and run
 
@@ -55,12 +58,18 @@ Install JDK 17 and a current stable Android Studio compatible with AGP 9.4, or u
 Windows PowerShell:
 
 ```powershell
+# Prepare native sources/runtime once with Rust 1.91.0 + aarch64-linux-android,
+# NDK 27.1.12297006 and CMake 3.22.1 installed. No models are downloaded here.
+python tools/local-ai/prepare.py
+./tools/local-ai/build-native.ps1
 .\gradlew.bat clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
 ```
 
 macOS/Linux:
 
 ```sh
+python3 tools/local-ai/prepare.py
+bash tools/local-ai/build-native.sh
 ./gradlew clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
 ```
 
@@ -73,7 +82,7 @@ Open the root directory in Android Studio, sync, and run `app` on an Android API
 adb shell am start -n com.commontongue.prototype.debug/com.commontongue.prototype.platform.MainActivity
 ```
 
-The foundation screen displays Common Tongue and the absent translation engine status. The debug APK also provides a **Common Tongue Voice Check** launcher for fixed English/Spanish speech, replay, replacement and results export. It requires installed offline voices, no model pack or microphone. Wi-Fi/cellular may stay enabled. Follow [START-HERE](tools/voice-layer/START-HERE.txt); existing Pass 5 testers retain their separate research installation and data.
+The single launcher retains the foundation screen and a **Pass 7 internal adapter checks** button. Inside that screen, tap **Set up test resources**, then **Run EN + ES adapter checks**. The accepted offline voice checks remain an internal button, with no second launcher. Wi-Fi/cellular may stay enabled. The [published tester APK](docs/PASS_7_VALIDATION.md) is the preferred S25 update and provisions resources without ADB or developer steps.
 
 The debug APK is `app/build/outputs/apk/debug/app-debug.apk`. For an unsigned optimized release APK, run `:app:assembleRelease`. No publishing is configured.
 
@@ -85,7 +94,7 @@ Windows environment note: if unit-test Java reports `Could not find or load main
 - `verifyCoreBoundaries`: checks production/test core dependency graphs and imports against neutral JVM allowlists; rejects platform/provider/I/O coupling. Core `check` tasks also run it.
 - `lint`: Android lint for the app and both pure JVM core modules, including dependencies; errors fail the build and warnings remain visible. Version-update advisories for the deliberate SDK/toolchain pins are documented in the validation report.
 - `spotlessCheck`: one consistent Kotlin/Kotlin DSL formatter plus text whitespace checks. Use `spotlessApply` to format.
-- `:app:verifyFoundationManifest`: examines debug/release merged manifests, enforces minSdk 26 / targetSdk 36, and rejects permissions except AndroidX's internal app-scoped signature permission.
+- `:app:verifyFoundationManifest`: examines debug/release manifests, enforces SDK 26/36, one launcher, a private inference worker, and approved permissions only. Debug alone permits the pinned test-resource downloader; release has no Internet permission.
 - `assembleDebug`: compiles/packages the development application.
 - `:app:assembleDebugAndroidTest`: compiles/packages the UI test without claiming it ran.
 - `:app:connectedDebugAndroidTest`: runs UI and real installed-voice integration on connected devices. The voice test skips if required voices are absent; a skip is not acceptance. Phone-only voice-check installation/export is available without ADB.

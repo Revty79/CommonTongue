@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <!-- Test acquisition only. No release permission and no networking in inference modules. -->
+  <uses-permission android:name="android.permission.INTERNET" />
   <application>
     <activity android:name="com.commontongue.prototype.platform.VoiceTrialActivity"
-        android:exported="true" android:label="Common Tongue Voice Check">
-      <intent-filter>
-        <action android:name="android.intent.action.MAIN" />
-        <category android:name="android.intent.category.LAUNCHER" />
-      </intent-filter>
-    </activity>
+        android:exported="false" />
+    <activity android:name="com.commontongue.prototype.platform.LocalTrialActivity"
+        android:exported="false" />
   </application>
 </manifest>

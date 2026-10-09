@@ -1,0 +1,99 @@
+{
+  "scope": "PASS7_IMPLEMENTATION_VALIDATION_PHYSICAL_S25_PENDING",
+  "pass6_prerequisite_commit": "3a2f3357f7ef3567d754943f6822fd06bdb1966f",
+  "pass6_prerequisite_successful_run": 37873843483,
+  "jvm_tests": {
+    "app": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core/domain": {
+      "tests": 10,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "core/translation": {
+      "tests": 89,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "platform/android-speech": {
+      "tests": 37,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "platform/local-ai": {
+      "tests": 32,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "platform/android-local-ai": {
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "jvm_total": 177,
+  "python_tests": {
+    "feasibility": 6,
+    "quality": 42,
+    "device_tooling": 65
+  },
+  "native_ownership_tests": 4,
+  "clean_gradle_validation": "PASS",
+  "commands": [
+    "clean",
+    "test",
+    "lint",
+    "spotlessCheck",
+    "verifyCoreBoundaries",
+    ":app:verifyFoundationManifest",
+    "assembleDebug",
+    ":app:assembleDebugAndroidTest"
+  ],
+  "host_control": {
+    "scope": "PRODUCTION_JVM_ADAPTERS_WITH_WINDOWS_NATIVE_CONTROL_NOT_ANDROID_NOT_PHYSICAL",
+    "network_tripwire": true,
+    "checks": [
+      {
+        "check": "ASR_EN",
+        "status": "PASS",
+        "milliseconds": 4343
+      },
+      {
+        "check": "MT_EN",
+        "status": "PASS",
+        "milliseconds": 9416
+      },
+      {
+        "check": "ASR_ES",
+        "status": "PASS",
+        "milliseconds": 1003
+      },
+      {
+        "check": "MT_ES",
+        "status": "PASS",
+        "milliseconds": 10414
+      }
+    ]
+  },
+  "host_runtime": "New production Rust wrapper/C ABI with unchanged accepted inference source; locked whisper.cpp desktop CLI",
+  "asr_spanish_fixture_quality": "POOR_SYNTHETIC_TRANSCRIPT_HOST_STABILITY_ONLY_NOT_ACCURACY_PROOF",
+  "physical_s25": "PENDING_PRODUCTION_ADAPTER_EXPORT",
+  "native_source_hashes": {
+    "src/lib.rs": "692cb210c9433d213443e33ae5b92cc3928e80bee8f78f7d80f4fd2d9b7624ae",
+    "src/handles.rs": "bf597b3b64b1138e2628249e3d002c5b0659d8a6e03bc3fec0861403c0c40ca5",
+    "Cargo.lock": "aa93f8651c771f8d4bc4dfe6444727ecda7f3fc4b7877449e1bce7ebbda6dc4b"
+  },
+  "pass5_protected_inputs_verified": 285,
+  "pass6_production_speech_sources_unchanged": true,
+  "model_assets_or_apk_committed": false,
+  "pass8_begun": false
+}

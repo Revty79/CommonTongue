@@ -15,12 +15,13 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - name: Check out source
         uses: actions/checkout@v7
         with:
           persist-credentials: false
+          fetch-depth: 0 # Accepted-source guard compares the immutable Pass 6 baseline.
       - name: Set up JDK 17
         uses: actions/setup-java@v6
         with:
@@ -54,6 +55,19 @@ jobs:
             fi
             "$sdkmanager_path" --sdk_root="$ANDROID_HOME" "platforms;android-36" "build-tools;36.0.0"
           fi
+      - name: Prepare locked production native runtime without models
+        run: |
+          sdkmanager_path="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -x "$sdkmanager_path" ]; then
+            sdkmanager_path="$(find "$ANDROID_HOME/cmdline-tools" -path '*/bin/sdkmanager' -type f | head -n 1)"
+          fi
+          test -x "$sdkmanager_path"
+          "$sdkmanager_path" --sdk_root="$ANDROID_HOME" "ndk;27.1.12297006" "cmake;3.22.1"
+          rustup toolchain install 1.91.0 --profile minimal
+          rustup target add aarch64-linux-android --toolchain 1.91.0
+          python3 tools/local-ai/prepare.py
+          bash tools/local-ai/build-native.sh
+          python3 tools/local-ai/verify-boundaries.py
       - name: Compile, test, lint, and verify foundation boundaries
         run: ./gradlew --no-daemon --console=plain --warning-mode=all clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest
       - name: Check research harness without models
@@ -62,16 +76,18 @@ jobs:
         run: python3 -m unittest discover -s tools/translation-quality/tests -v
       - name: Check physical trial tooling without devices or models
         run: python3 -m unittest discover -s tools/device-trial/tests -v
-      - name: Verify unchanged translation runtime and package Pass 6 voice check
+      - name: Verify accepted research baseline and package Pass 7 adapter check
         run: |
           python3 tools/voice-layer/verify-baseline.py
-          python3 tools/voice-layer/package.py
-      - name: Upload Pass 6 voice check and validation reports
+          python3 tools/local-ai/package.py
+      - name: Upload Pass 7 adapter check and validation reports
         uses: actions/upload-artifact@v7
         with:
-          name: CommonTongue-Pass6-Voice-Check-${{ github.sha }}
+          name: CommonTongue-Pass7-Adapter-Check-${{ github.sha }}
           path: |
-            .local/pass6-artifacts/*
+            .local/pass7-artifacts/*
+            platform/local-ai/build/reports/tests/
+            platform/android-local-ai/build/reports/tests/
             platform/android-speech/build/reports/tests/
             platform/android-speech/build/reports/lint-results-debug.html
           retention-days: 30

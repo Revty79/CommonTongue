@@ -1,0 +1,16 @@
+[
+  {
+    "language": "en",
+    "source": "I can pick you up after work, but I cannot stay for dinner.",
+    "expected_translation": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+    "audio_token": "control_en",
+    "expected_asr": "I can pick you up after work, but I cannot stay for dinner."
+  },
+  {
+    "language": "es",
+    "source": "Te puedo llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+    "expected_translation": "I can take you after work, but I can't stay for dinner today.",
+    "audio_token": "control_es",
+    "expected_asr": "de pueno y válvales de trabajo, pero hoy no me pueden o que me haga ser algo."
+  }
+]

@@ -125,6 +125,8 @@ spotless {
             "core/domain/src/**/*.kt",
             "core/translation/src/**/*.kt",
             "platform/android-speech/src/**/*.kt",
+            "platform/local-ai/src/**/*.kt",
+            "platform/android-local-ai/src/**/*.kt",
             "spikes/offline-feasibility/src/**/*.kt",
             "spikes/physical-trial/src/**/*.kt",
         )
@@ -137,6 +139,8 @@ spotless {
             "core/domain/*.gradle.kts",
             "core/translation/*.gradle.kts",
             "platform/android-speech/*.gradle.kts",
+            "platform/local-ai/*.gradle.kts",
+            "platform/android-local-ai/*.gradle.kts",
             "spikes/offline-feasibility/*.gradle.kts",
             "spikes/physical-trial/*.gradle.kts",
         )

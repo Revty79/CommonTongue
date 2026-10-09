@@ -1,0 +1,42 @@
+{
+  "version": "offline-core-en-es-v1",
+  "files": {
+    "recognizer": {
+      "bytes": 59707625,
+      "sha256": "422f1ae452ade6f30a004d7e5c6a43195e4433bc370bf23fac9cc591f01a8898"
+    },
+    "translator": {
+      "bytes": 1654597280,
+      "sha256": "ea6e5531a3e95213c7f0635988d119e078a655c09306e47851e15d4c0c3f9c37"
+    },
+    "tokenizer": {
+      "bytes": 16629031,
+      "sha256": "a2799ccc696b752ba00c34f58726bfe253a04921ceb6cfc620400f560474790b"
+    },
+    "configuration": {
+      "bytes": 749,
+      "sha256": "cad399cab799b99409a6ec2d90d72552257c2bb752861261d2016691e0643e7c"
+    },
+    "control_en": {
+      "bytes": 127008,
+      "sha256": "bd239fab5c5939389a4617bc6587327b1de4c94cde0fd41e894716249676fd42"
+    },
+    "control_es": {
+      "bytes": 159092,
+      "sha256": "5d7c2de5f0e5647824fbe4400481c6022f9dba3d0ceffa599ab51e79633760ab"
+    }
+  },
+  "archive_bytes": 1731226095,
+  "archive_sha256": "0d0e4ea8df6286549fabb9daf66974d86f4b46fc7576c0af4ae4718ee2803412",
+  "url": "https://github.com/Revty79/CommonTongue/releases/download/pass7-adapter-check-v8/CommonTongue-Pass7-Test-Resources.zip",
+  "metadata": {
+    "manifest.json": {
+      "bytes": 720,
+      "sha256": "8f98b427bbb06281889c30f35a2cf2329d593d28044ee11727a2a1aa0be660b5"
+    },
+    "NOTICES.txt": {
+      "bytes": 3788,
+      "sha256": "ed1b89f7d8a6a6abba39ff96b6aef5a7d45ce7b944ed284e9cb5f558ba3138bd"
+    }
+  }
+}

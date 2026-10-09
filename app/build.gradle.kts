@@ -25,8 +25,9 @@ android {
         applicationId = "com.commontongue.prototype"
         minSdk = 26
         targetSdk = 36
-        versionCode = 7
-        versionName = "0.6.1-pass6"
+        ndk { abiFilters += "arm64-v8a" }
+        versionCode = 8
+        versionName = "0.7.0-pass7"
         buildConfigField("String", "SPEECH_SOURCE_REVISION", "\"${speechSourceRevision.get()}\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -68,6 +69,7 @@ kotlin { jvmToolchain(17) }
 dependencies {
     implementation(project(":core:translation"))
     implementation(project(":platform:android-speech"))
+    implementation(project(":platform:android-local-ai"))
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
@@ -124,11 +126,45 @@ androidComponents {
                         }
                     val signaturePermission =
                         "${variantApplicationId.get()}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-                    check(permissions.all { it == signaturePermission }) {
-                        "Unexpected Pass 1 permissions: $permissions"
+                    val allowed =
+                        if (variant.name == "debug")
+                            setOf(signaturePermission, "android.permission.INTERNET")
+                        else setOf(signaturePermission)
+                    check(
+                        permissions.all { it in allowed } &&
+                            (variant.name != "debug" ||
+                                "android.permission.INTERNET" in permissions)
+                    ) {
+                        "Unexpected application permissions: $permissions"
                     }
                     check(manifest.getElementsByTagName("uses-permission-sdk-23").length == 0) {
-                        "SDK-conditional permissions are outside Pass 1."
+                        "SDK-conditional permissions are not approved."
+                    }
+                    val launchers = manifest.getElementsByTagName("category")
+                    check(
+                        (0 until launchers.length).count {
+                            launchers
+                                .item(it)
+                                .attributes
+                                .getNamedItemNS(androidNamespace, "name")
+                                ?.nodeValue == "android.intent.category.LAUNCHER"
+                        } == 1
+                    ) {
+                        "Exactly one Common Tongue launcher is required."
+                    }
+                    val services = manifest.getElementsByTagName("service")
+                    val worker =
+                        (0 until services.length)
+                            .map { services.item(it) as org.w3c.dom.Element }
+                            .single {
+                                it.getAttributeNS(androidNamespace, "name") ==
+                                    "com.commontongue.local.android.LocalInferenceService"
+                            }
+                    check(
+                        worker.getAttributeNS(androidNamespace, "exported") == "false" &&
+                            worker.getAttributeNS(androidNamespace, "process") == ":local_ai"
+                    ) {
+                        "Inference must use a private application worker."
                     }
                     val queryActions = manifest.getElementsByTagName("queries")
                     check(queryActions.length == 1) { "Offline TTS engine discovery is required." }

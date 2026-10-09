@@ -21,6 +21,14 @@ The production speech module invokes the user's installed offline TTS voices, wi
 
 Speech text is supplied only to the selected installed engine; it never enters diagnostics or app logs. Temporary private PCM WAVs are removed after synthesis and the latest replay audio is retained in memory until replacement/release/close. Abrupt termination may leave a temporary cache file, cleaned on subsequent synthesis when older than an hour. No audio/transcript database or conversation export is added. Debug result exports contain fixed-check outcomes and safe engine/voice/timing/output-type metadata, with no raw speech, paths, Bluetooth addresses or device identifiers. See [voice implementation](voice/PASS_6_OFFLINE_VOICE_LAYER.md) and [vendor provenance](voice/LICENSING_PROVENANCE.md).
 
+## Pass 7 local inference and debug acquisition
+
+Production recognition and translation execute in a private application worker with no network clients, cloud SDKs or fallback. Release retains no Internet permission. The debug APK has Internet permission solely for its temporary one-action acquisition of one hash-pinned test resource pack; that helper accepts no speech/text and is not called by inference. The network separation is enforced by source/dependency guards, not an OS network sandbox, because the debug application's worker shares its UID.
+
+Resources are installed in private storage, stream-verified before model loading and committed atomically after every extracted hash matches. Interrupted/corrupt setup does not mark a partial state ready. The source archive and staging files are removed. No model assets are in the APK or Git. The component screen uses fixed synthetic controls, no microphone or conversation persistence. Normal local execution is independent of radio state.
+
+Worker messages carry content privately within the same installed application; exported diagnostics carry only finite stages/failure codes, bounded timings/memory/exit reason values and static test outcomes. Native logging and panic output are suppressed. No raw transcript, translation, prompt, path, exception message, native/model/request ID or device identifier is exported. Background, close, failure and cancellation reclaim the model owner by worker termination. See [ownership and boundaries](LOCAL-AI-ADAPTERS.md).
+
 ## Long-term requirements
 
 After required packs are installed, offline translation must work without connectivity and must not transmit user speech/text off-device. Conversation content is to be ephemeral by default. Future persistence must have a deliberate product decision, explicit user choice where appropriate, and an abstraction separating storage from domain/application code.

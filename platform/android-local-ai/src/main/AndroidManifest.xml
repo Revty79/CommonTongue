@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  <application>
+    <service android:name="com.commontongue.local.android.LocalInferenceService"
+        android:process=":local_ai" android:exported="false" android:stopWithTask="true" />
+  </application>
+</manifest>

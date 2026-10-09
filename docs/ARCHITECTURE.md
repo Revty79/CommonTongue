@@ -1,6 +1,6 @@
 # Architecture
 
-Status: Pass 6 adds the installed-offline Android speech adapter. The translation UI remains a foundation with no production ASR/translation runtime. Research inference and the accepted Pass 5 native/model inputs remain independent and unchanged.
+Status: Pass 7 adds production local recognition/translation adapters. Pass 6 installed-offline speech stays unchanged. The debug component screen validates these capabilities; the real conversational PTT application remains Pass 8. Pass 7 stays open pending its physical S25 results.
 
 ## Modules and dependency direction
 
@@ -8,17 +8,19 @@ Status: Pass 6 adds the installed-offline Android speech adapter. The translatio
 flowchart TD
     App[app: Android lifecycle / Compose UI] --> Translation[core:translation: contracts / text use case / scoped verification]
     App --> Speech[platform:android-speech: offline voice / controlled playback]
+    App --> LocalAndroid[platform:android-local-ai: resources / private worker / JNI]
+    LocalAndroid --> Local[platform:local-ai: capability adapters / serialized lifecycle]
+    Local --> Translation
     Speech --> Translation
     Translation --> Domain[core:domain: language / direction / quality profile / readiness]
-    Future[Future platform and inference adapters] -. implement .-> Translation
     Lab[Separate Pass 2 research build] --> Research[Experimental runtimes / local models]
 ```
 
-`:app` owns resources/lifecycle and the foundation route. `FoundationViewModel` still reports the translation engine `NOT_INSTALLED`; ViewModels hold no Context/Activity. The debug-only voice trial owns an injected production speech session and its visible/background lifecycle. `:platform:android-speech` implements `SpeechSynthesizer` and the new neutral `SpeechPlayback` interface, using installed offline Android voices, file synthesis and AudioTrack. No ASR/translation runtime or model is installed in production. See [Pass 6](voice/PASS_6_OFFLINE_VOICE_LAYER.md).
+`:app` owns lifecycle and the foundation route. Its single debug launcher reaches internal adapter checks and the unchanged internal voice checks. `LocalCapabilities` supplies neutral recognizer/translator interfaces through constructor composition; the UI never constructs Whisper/MADLAD or calls JNI. The unchanged `:platform:android-speech` implements `SpeechSynthesizer` and `SpeechPlayback`, using installed offline voices, file synthesis and AudioTrack. See [Pass 6](voice/PASS_6_OFFLINE_VOICE_LAYER.md).
 
 `:core:domain` owns readiness, canonical `LanguageId`, ordered `TranslationDirection` and product-only `DeviceQualityProfile`. Its production dependencies are Kotlin stdlib/annotations. `:core:translation` owns the seven suspending capability contracts, immutable request/result/context/quality values, `TranslateTextUseCase`, and narrow `ExactIntegerVerifier`. It depends only on domain and the already-pinned coroutines library plus stdlib/annotations. No platform, filesystem, HTTP, database, cloud or model dependency enters either core module.
 
-The root has four modules, including the concrete Android speech adapter. Research builds/tools remain independent; normal CI does not configure native translation or download weights. The speech adapter's Android types and filesystem handling remain outside both pure JVM core modules. Existing foundation UI code was not moved.
+The root has six modules. Normal CI compiles the pinned native runtimes but never downloads/loads weights. Research sources/evidence remain frozen. Both platform adapters keep Android types, JNI, physical files and runtime specifics outside the two pure JVM core modules. See [local resource ownership](LOCAL-AI-ADAPTERS.md) and [locked provenance](LOCAL-AI-PROVENANCE.md).
 
 ## Capability inversion and application flow
 
@@ -38,12 +40,12 @@ Conversation context is a defensively copied, unmodifiable in-memory recent-hist
 
 `OFFLINE_REQUIRED` defaults every request. Implementations must reject it before potentially network-capable work when local execution is not guaranteed. The text use case checks **both** capabilities before passing text to either, has no fallback, and rejects forbidden/undeclared actual modes. `ONLINE_ALLOWED` explicitly permits the already-selected implementations; it neither forces network use nor implements routing. Overall execution is online if either stage reports online.
 
-These contracts do not sandbox a dishonest adapter. Future implementations need runtime/privacy audits and network-disabled integration tests. Production retains its existing no-Internet manifest. Suspended operations inherit the caller's coroutine context and must release resources cooperatively. The use case checks activity at entry and after each stage; swallowing cancellation cannot trigger the next stage. Expected failures are structured; unexpected programming faults may throw. Coroutine cancellation is not flattened into a normal failure result.
+These contracts do not sandbox a dishonest adapter. Release has no Internet permission; the temporary debug downloader alone acquires one pinned resource pack. Inference modules have no network client/fallback and are guarded separately. Suspended operations inherit coroutine cancellation. Blocking native work is reclaimed by terminating the private worker and confirming binder death before admitting another owner. The use case checks activity after each stage; cancellation cannot trigger the next stage. Expected failures are structured, and cancellation remains cancellation.
 
 ## Enforced boundaries and remaining product scope
 
 `verifyCoreBoundaries` resolves both production/test runtime graphs against explicit allowlists, rejects unresolved/file dependencies and reversed project edges, and checks source/imports for platform/provider/I/O leakage. Core `check` tasks depend on it; Actions runs it with existing checks. This is a practical dependency/import guard, not arbitrary-code security analysis. JVM lint is build tooling, not an Android runtime dependency in core.
 
-The existing version catalog, stable Compose BOM, JVM toolchain 17 and formatting mechanism remain. Manifest checks preserve minSdk 26 / targetSdk 36 and only AndroidX's internal signature permission. No new microphone/camera/network permission, translation input UI, telemetry, conversation storage or account is added. Low-end-phone feasibility remains unproven and quality profiles contain no implementation mapping.
+The existing version catalog, Compose BOM, JVM toolchain 17 and formatting mechanism remain. Manifest checks preserve minSdk 26 / targetSdk 36, one launcher, private inference worker and only the approved debug acquisition permission plus AndroidX's internal signature permission. Release has no microphone/camera/network permission. No conversation controller, telemetry, storage or account is added. Low-end-device feasibility remains unproven; profiles do not change this pass's fixed CPU4 configuration.
 
-The [ADRs](DECISIONS/), [privacy constraints](PRIVACY.md), [model policy](MODEL_POLICY.md) and preserved [Pass 2 findings](feasibility/PASS_2_OFFLINE_FEASIBILITY.md) guide future work. Pass 4 experimentation has not begun.
+The [ADRs](DECISIONS/), [privacy constraints](PRIVACY.md), [model policy](MODEL_POLICY.md), historical research receipts and canonical [roadmap](ROADMAP.md) guide future work. Pass 8 has not begun.
