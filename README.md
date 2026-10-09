@@ -2,7 +2,7 @@
 
 Common Tongue is the working name for an Android-first, offline-first conversational translation product. This repository is `common-tongue`. iPhone support is planned later; this pass contains native Android only.
 
-**Pass 8 integrates the real one-device PTT translator.** Hold English or Espa?ol, speak and release: microphone ? accepted production recognition ? translation ? offline system voice ? controlled playback/replay. Four selectable appearances share one functional screen. Models stay in private storage, separate from APK/Git.
+**Pass 8 integrates the real one-device PTT translator.** Hold English or Español, speak and release. Real microphone audio passes through the accepted production recognizer, translator and offline system voice into controlled playback/replay. Four selectable appearances share one functional screen. Models stay in private storage, separate from APK/Git.
 
 Pass 7 is physically accepted on the S25 at `d22b8fa513b79da29857e620affc6485993b4742` ([closeout](docs/PASS_7_CLOSEOUT.md)). Pass 6's voice implementation is unchanged. Pass 8's own real-product physical acceptance remains pending. See [product ownership, pack reuse and phone checklist](docs/PASS_8_PRODUCT.md), [validation](docs/PASS_8_VALIDATION.md), [locked provenance](docs/LOCAL-AI-PROVENANCE.md) and [roadmap](docs/ROADMAP.md). No Pass 9 work is included.
 
@@ -80,7 +80,7 @@ Open the root directory in Android Studio, sync, and run `app` on an Android API
 adb shell am start -n com.commontongue.prototype.debug/com.commontongue.prototype.platform.MainActivity
 ```
 
-The single launcher opens the translator. Settings ? Appearance ? Theme selects a locally remembered style. Settings also contains internal adapter/voice checks and narrow resource setup in debug builds. Existing validated Pass 7 resources are reused without a download. Wi-Fi/cellular may stay enabled. The [signed tester update and physical checklist](docs/PASS_8_VALIDATION.md) provide a phone-only installation path; no ADB, uninstall or data clear is needed.
+The single launcher opens the translator. Settings → Appearance → Theme selects a locally remembered style. Settings also contains internal adapter/voice checks and narrow resource setup in debug builds. Existing validated Pass 7 resources are reused without a download. Wi-Fi/cellular may stay enabled. The [signed tester update and physical checklist](docs/PASS_8_VALIDATION.md) provide a phone-only installation path; no ADB, uninstall or data clear is needed.
 
 The debug APK is `app/build/outputs/apk/debug/app-debug.apk`. For an unsigned optimized release APK, run `:app:assembleRelease`. No publishing is configured.
 
