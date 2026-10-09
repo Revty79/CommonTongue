@@ -1,0 +1,656 @@
+{
+  "scope": "AUTHORED_RESEARCH_FIXTURES_NO_USER_CONVERSATIONS",
+  "baseline_commit": "8f37267f318839e696537a4e3ebe7b8fed9b1297",
+  "model_hashes": {
+    "model-q4k.gguf": "ea6e5531a3e95213c7f0635988d119e078a655c09306e47851e15d4c0c3f9c37",
+    "tokenizer.json": "a2799ccc696b752ba00c34f58726bfe253a04921ceb6cfc620400f560474790b",
+    "config.json": "cad399cab799b99409a6ec2d90d72552257c2bb752861261d2016691e0643e7c"
+  },
+  "library_sha256": "a66656e88badac63dd41211f9b887bde6b59e7d29940109b830beefbba1751fa",
+  "probes": [
+    {
+      "case_id": "fair",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "Meet me at the fair at eight.",
+      "context": "We're going to the county fair tonight.",
+      "effective_source": "Meet me at the fair at eight.",
+      "batch": "initial-pilot",
+      "probe_id": "p001"
+    },
+    {
+      "case_id": "fair",
+      "strategy": "numbered",
+      "direction": "en-es",
+      "current": "Meet me at the fair at eight.",
+      "context": "We're going to the county fair tonight.",
+      "effective_source": "1. We're going to the county fair tonight.\n2. Meet me at the fair at eight.",
+      "batch": "initial-pilot",
+      "probe_id": "p002"
+    },
+    {
+      "case_id": "fair",
+      "strategy": "sentinel",
+      "direction": "en-es",
+      "current": "Meet me at the fair at eight.",
+      "context": "We're going to the county fair tonight.",
+      "effective_source": "We're going to the county fair tonight. [CTBOUNDARY76321] Meet me at the fair at eight.",
+      "batch": "initial-pilot",
+      "probe_id": "p003"
+    },
+    {
+      "case_id": "fair",
+      "strategy": "numeric",
+      "direction": "en-es",
+      "current": "Meet me at the fair at eight.",
+      "context": "We're going to the county fair tonight.",
+      "effective_source": "We're going to the county fair tonight. 76321984: Meet me at the fair at eight.",
+      "batch": "initial-pilot",
+      "probe_id": "p004"
+    },
+    {
+      "case_id": "fair",
+      "strategy": "paragraph",
+      "direction": "en-es",
+      "current": "Meet me at the fair at eight.",
+      "context": "We're going to the county fair tonight.",
+      "effective_source": "We're going to the county fair tonight.\n\nMeet me at the fair at eight.",
+      "batch": "initial-pilot",
+      "probe_id": "p005"
+    },
+    {
+      "case_id": "bank",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "I left it by the bank.",
+      "context": "We were fishing beside the river.",
+      "effective_source": "I left it by the bank.",
+      "batch": "initial-pilot",
+      "probe_id": "p006"
+    },
+    {
+      "case_id": "bank",
+      "strategy": "numbered",
+      "direction": "en-es",
+      "current": "I left it by the bank.",
+      "context": "We were fishing beside the river.",
+      "effective_source": "1. We were fishing beside the river.\n2. I left it by the bank.",
+      "batch": "initial-pilot",
+      "probe_id": "p007"
+    },
+    {
+      "case_id": "bank",
+      "strategy": "sentinel",
+      "direction": "en-es",
+      "current": "I left it by the bank.",
+      "context": "We were fishing beside the river.",
+      "effective_source": "We were fishing beside the river. [CTBOUNDARY76321] I left it by the bank.",
+      "batch": "initial-pilot",
+      "probe_id": "p008"
+    },
+    {
+      "case_id": "bank",
+      "strategy": "numeric",
+      "direction": "en-es",
+      "current": "I left it by the bank.",
+      "context": "We were fishing beside the river.",
+      "effective_source": "We were fishing beside the river. 76321984: I left it by the bank.",
+      "batch": "initial-pilot",
+      "probe_id": "p009"
+    },
+    {
+      "case_id": "bank",
+      "strategy": "paragraph",
+      "direction": "en-es",
+      "current": "I left it by the bank.",
+      "context": "We were fishing beside the river.",
+      "effective_source": "We were fishing beside the river.\n\nI left it by the bank.",
+      "batch": "initial-pilot",
+      "probe_id": "p010"
+    },
+    {
+      "case_id": "clear",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "I deposited my paycheck at the bank, not by the river.",
+      "context": "We were fishing beside the river.",
+      "effective_source": "I deposited my paycheck at the bank, not by the river.",
+      "batch": "initial-pilot",
+      "probe_id": "p011"
+    },
+    {
+      "case_id": "clear",
+      "strategy": "numbered",
+      "direction": "en-es",
+      "current": "I deposited my paycheck at the bank, not by the river.",
+      "context": "We were fishing beside the river.",
+      "effective_source": "1. We were fishing beside the river.\n2. I deposited my paycheck at the bank, not by the river.",
+      "batch": "initial-pilot",
+      "probe_id": "p012"
+    },
+    {
+      "case_id": "formwork",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "Keep the formwork in place until the concrete cures.",
+      "effective_source": "Keep the formwork in place until the concrete cures.",
+      "batch": "focused",
+      "probe_id": "p013"
+    },
+    {
+      "case_id": "formwork",
+      "strategy": "protected-term",
+      "direction": "en-es",
+      "current": "Keep the formwork in place until the concrete cures.",
+      "effective_source": "Keep the [CTTERM76321] in place until the concrete cures.",
+      "target_term": "cimbra",
+      "batch": "focused",
+      "probe_id": "p014"
+    },
+    {
+      "case_id": "cimbra",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "Deja la cimbra puesta hasta que cure el concreto.",
+      "effective_source": "Deja la cimbra puesta hasta que cure el concreto.",
+      "batch": "focused",
+      "probe_id": "p015"
+    },
+    {
+      "case_id": "cimbra",
+      "strategy": "protected-term",
+      "direction": "es-en",
+      "current": "Deja la cimbra puesta hasta que cure el concreto.",
+      "effective_source": "Deja la [CTTERM76321] puesta hasta que cure el concreto.",
+      "target_term": "formwork",
+      "batch": "focused",
+      "probe_id": "p016"
+    },
+    {
+      "case_id": "jumper",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "Bring jumper cables; the battery is flat.",
+      "effective_source": "Bring jumper cables; the battery is flat.",
+      "batch": "focused",
+      "probe_id": "p017"
+    },
+    {
+      "case_id": "jumper",
+      "strategy": "protected-term",
+      "direction": "en-es",
+      "current": "Bring jumper cables; the battery is flat.",
+      "effective_source": "Bring [CTTERM76321]; the battery is flat.",
+      "target_term": "cables para pasar corriente",
+      "batch": "focused",
+      "probe_id": "p018"
+    },
+    {
+      "case_id": "cables",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "Trae cables para pasar corriente; la batería está descargada.",
+      "effective_source": "Trae cables para pasar corriente; la batería está descargada.",
+      "batch": "focused",
+      "probe_id": "p019"
+    },
+    {
+      "case_id": "cables",
+      "strategy": "protected-term",
+      "direction": "es-en",
+      "current": "Trae cables para pasar corriente; la batería está descargada.",
+      "effective_source": "Trae [CTTERM76321]; la batería está descargada.",
+      "target_term": "jumper cables",
+      "batch": "focused",
+      "probe_id": "p020"
+    },
+    {
+      "case_id": "repeat",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "Move the formwork, then inspect the formwork.",
+      "effective_source": "Move the formwork, then inspect the formwork.",
+      "batch": "focused",
+      "probe_id": "p021"
+    },
+    {
+      "case_id": "repeat",
+      "strategy": "protected-term",
+      "direction": "en-es",
+      "current": "Move the formwork, then inspect the formwork.",
+      "effective_source": "Move the [CTTERM76321], then inspect the [CTTERM76321].",
+      "target_term": "cimbra",
+      "batch": "focused",
+      "probe_id": "p022"
+    },
+    {
+      "case_id": "clear-price",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "That price is fair.",
+      "effective_source": "That price is fair.",
+      "batch": "focused",
+      "probe_id": "p023"
+    },
+    {
+      "case_id": "clear-price",
+      "strategy": "protected-term",
+      "direction": "en-es",
+      "current": "That price is fair.",
+      "effective_source": "That price is [CTTERM76321].",
+      "target_term": "feria",
+      "batch": "focused",
+      "probe_id": "p024"
+    },
+    {
+      "case_id": "clear",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "I deposited my paycheck at the bank, not by the river.",
+      "effective_source": "I deposited my paycheck at the bank, not by the river.",
+      "batch": "focused",
+      "probe_id": "p025"
+    },
+    {
+      "case_id": "clear",
+      "strategy": "sentinel",
+      "direction": "en-es",
+      "current": "I deposited my paycheck at the bank, not by the river.",
+      "effective_source": "We were fishing beside the river. [CTBOUNDARY76321] I deposited my paycheck at the bank, not by the river.",
+      "batch": "focused",
+      "probe_id": "p026"
+    },
+    {
+      "case_id": "gato",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "Trae el gato.",
+      "effective_source": "Trae el gato.",
+      "batch": "focused",
+      "probe_id": "p027"
+    },
+    {
+      "case_id": "gato",
+      "strategy": "sentinel",
+      "direction": "es-en",
+      "current": "Trae el gato.",
+      "effective_source": "Tenemos una llanta ponchada y debemos levantar el coche. [CTBOUNDARY76321] Trae el gato.",
+      "batch": "focused",
+      "probe_id": "p028"
+    },
+    {
+      "case_id": "clear-es",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+      "effective_source": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+      "batch": "focused",
+      "probe_id": "p029"
+    },
+    {
+      "case_id": "clear-es",
+      "strategy": "sentinel",
+      "direction": "es-en",
+      "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+      "effective_source": "Estamos hablando del coche. [CTBOUNDARY76321] Mi gato se escapó al jardín; no me refiero a una herramienta.",
+      "batch": "focused",
+      "probe_id": "p030"
+    },
+    {
+      "case_id": "vela",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "Trae la vela.",
+      "effective_source": "Trae la vela.",
+      "batch": "focused",
+      "probe_id": "p031"
+    },
+    {
+      "case_id": "vela",
+      "strategy": "sentinel",
+      "direction": "es-en",
+      "current": "Trae la vela.",
+      "effective_source": "La luz se fue y necesitamos iluminar el cuarto. [CTBOUNDARY76321] Trae la vela.",
+      "batch": "focused",
+      "probe_id": "p032"
+    },
+    {
+      "case_id": "banco",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "Busca el banco junto a la puerta.",
+      "effective_source": "Busca el banco junto a la puerta.",
+      "batch": "focused",
+      "probe_id": "p033"
+    },
+    {
+      "case_id": "banco",
+      "strategy": "sentinel",
+      "direction": "es-en",
+      "current": "Busca el banco junto a la puerta.",
+      "effective_source": "Estamos esperando afuera de la escuela; no hay donde sentarse. [CTBOUNDARY76321] Busca el banco junto a la puerta.",
+      "batch": "focused",
+      "probe_id": "p034"
+    },
+    {
+      "case_id": "q005-en-es",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "It turns over now, but it still won't start.",
+      "effective_source": "It turns over now, but it still won't start.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q005-en-es",
+      "probe_id": "p035"
+    },
+    {
+      "case_id": "q005-en-es",
+      "strategy": "sentinel",
+      "direction": "en-es",
+      "current": "It turns over now, but it still won't start.",
+      "effective_source": "The truck's starter wouldn't turn yesterday. [CTBOUNDARY76321] It turns over now, but it still won't start.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q005-en-es",
+      "probe_id": "p036"
+    },
+    {
+      "case_id": "q005-es-en",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "Ahora sí da marcha, pero todavía no arranca.",
+      "effective_source": "Ahora sí da marcha, pero todavía no arranca.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q005-es-en",
+      "probe_id": "p037"
+    },
+    {
+      "case_id": "q005-es-en",
+      "strategy": "sentinel",
+      "direction": "es-en",
+      "current": "Ahora sí da marcha, pero todavía no arranca.",
+      "effective_source": "Ayer el motor de arranque de la camioneta no giraba. [CTBOUNDARY76321] Ahora sí da marcha, pero todavía no arranca.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q005-es-en",
+      "probe_id": "p038"
+    },
+    {
+      "case_id": "q010-en-es",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "That's cold; please heat it again.",
+      "effective_source": "That's cold; please heat it again.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q010-en-es",
+      "probe_id": "p039"
+    },
+    {
+      "case_id": "q010-en-es",
+      "strategy": "sentinel",
+      "direction": "en-es",
+      "current": "That's cold; please heat it again.",
+      "effective_source": "That remark was cold. Anyway, here is your soup. [CTBOUNDARY76321] That's cold; please heat it again.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q010-en-es",
+      "probe_id": "p040"
+    },
+    {
+      "case_id": "q010-es-en",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "Está frío; por favor caliéntalo otra vez.",
+      "effective_source": "Está frío; por favor caliéntalo otra vez.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q010-es-en",
+      "probe_id": "p041"
+    },
+    {
+      "case_id": "q010-es-en",
+      "strategy": "sentinel",
+      "direction": "es-en",
+      "current": "Está frío; por favor caliéntalo otra vez.",
+      "effective_source": "Ese comentario fue frío. En fin, aquí está tu sopa. [CTBOUNDARY76321] Está frío; por favor caliéntalo otra vez.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q010-es-en",
+      "probe_id": "p042"
+    },
+    {
+      "case_id": "q013-en-es",
+      "strategy": "baseline",
+      "direction": "en-es",
+      "current": "Not that contact; the one by the sink.",
+      "effective_source": "Not that contact; the one by the sink.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q013-en-es",
+      "probe_id": "p043"
+    },
+    {
+      "case_id": "q013-en-es",
+      "strategy": "sentinel",
+      "direction": "en-es",
+      "current": "Not that contact; the one by the sink.",
+      "effective_source": "We are replacing the electrical outlets in the kitchen. [CTBOUNDARY76321] Not that contact; the one by the sink.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q013-en-es",
+      "probe_id": "p044"
+    },
+    {
+      "case_id": "q013-es-en",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "current": "No ese contacto; el que está junto al fregadero.",
+      "effective_source": "No ese contacto; el que está junto al fregadero.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q013-es-en",
+      "probe_id": "p045"
+    },
+    {
+      "case_id": "q013-es-en",
+      "strategy": "sentinel",
+      "direction": "es-en",
+      "current": "No ese contacto; el que está junto al fregadero.",
+      "effective_source": "Estamos cambiando los contactos eléctricos de la cocina. [CTBOUNDARY76321] No ese contacto; el que está junto al fregadero.",
+      "batch": "focused",
+      "authored_source": "tools/translation-quality/corpus.json#q013-es-en",
+      "probe_id": "p046"
+    },
+    {
+      "case_id": "bank",
+      "strategy": "context-suffix",
+      "direction": "en-es",
+      "context": "We were fishing beside the river.",
+      "current": "I left it by the bank.",
+      "effective_source": "I left it by the bank. [CTBOUNDARY76321] We were fishing beside the river.",
+      "batch": "suffix",
+      "probe_id": "p047"
+    },
+    {
+      "case_id": "clear",
+      "strategy": "context-suffix",
+      "direction": "en-es",
+      "context": "We were fishing beside the river.",
+      "current": "I deposited my paycheck at the bank, not by the river.",
+      "effective_source": "I deposited my paycheck at the bank, not by the river. [CTBOUNDARY76321] We were fishing beside the river.",
+      "batch": "suffix",
+      "probe_id": "p048"
+    },
+    {
+      "case_id": "gato",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "Tenemos una llanta ponchada y debemos levantar el coche.",
+      "current": "Trae el gato.",
+      "effective_source": "Trae el gato. [CTBOUNDARY76321] Tenemos una llanta ponchada y debemos levantar el coche.",
+      "batch": "suffix",
+      "probe_id": "p049"
+    },
+    {
+      "case_id": "clear-es",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "Estamos hablando del coche.",
+      "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+      "effective_source": "Mi gato se escapó al jardín; no me refiero a una herramienta. [CTBOUNDARY76321] Estamos hablando del coche.",
+      "batch": "suffix",
+      "probe_id": "p050"
+    },
+    {
+      "case_id": "vela",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "La luz se fue y necesitamos iluminar el cuarto.",
+      "current": "Trae la vela.",
+      "effective_source": "Trae la vela. [CTBOUNDARY76321] La luz se fue y necesitamos iluminar el cuarto.",
+      "batch": "suffix",
+      "probe_id": "p051"
+    },
+    {
+      "case_id": "banco",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "Estamos esperando afuera de la escuela; no hay donde sentarse.",
+      "current": "Busca el banco junto a la puerta.",
+      "effective_source": "Busca el banco junto a la puerta. [CTBOUNDARY76321] Estamos esperando afuera de la escuela; no hay donde sentarse.",
+      "batch": "suffix",
+      "probe_id": "p052"
+    },
+    {
+      "case_id": "wooden-bench",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "context": "El banco de madera está enfrente de la escuela.",
+      "current": "Me quedé en el banco.",
+      "effective_source": "Me quedé en el banco.",
+      "batch": "suffix",
+      "probe_id": "p053"
+    },
+    {
+      "case_id": "wooden-bench",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "El banco de madera está enfrente de la escuela.",
+      "current": "Me quedé en el banco.",
+      "effective_source": "Me quedé en el banco. [CTBOUNDARY76321] El banco de madera está enfrente de la escuela.",
+      "batch": "suffix",
+      "probe_id": "p054"
+    },
+    {
+      "case_id": "degree",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "context": "Estoy estudiando ingeniería en la universidad.",
+      "current": "Termino la carrera este año.",
+      "effective_source": "Termino la carrera este año.",
+      "batch": "suffix",
+      "probe_id": "p055"
+    },
+    {
+      "case_id": "degree",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "Estoy estudiando ingeniería en la universidad.",
+      "current": "Termino la carrera este año.",
+      "effective_source": "Termino la carrera este año. [CTBOUNDARY76321] Estoy estudiando ingeniería en la universidad.",
+      "batch": "suffix",
+      "probe_id": "p056"
+    },
+    {
+      "case_id": "sail",
+      "strategy": "baseline",
+      "direction": "es-en",
+      "context": "El barco necesita avanzar con la fuerza del viento.",
+      "current": "Revisa la vela.",
+      "effective_source": "Revisa la vela.",
+      "batch": "suffix",
+      "probe_id": "p057"
+    },
+    {
+      "case_id": "sail",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "El barco necesita avanzar con la fuerza del viento.",
+      "current": "Revisa la vela.",
+      "effective_source": "Revisa la vela. [CTBOUNDARY76321] El barco necesita avanzar con la fuerza del viento.",
+      "batch": "suffix",
+      "probe_id": "p058"
+    },
+    {
+      "case_id": "bank-18467",
+      "strategy": "context-suffix",
+      "direction": "en-es",
+      "context": "We were fishing beside the river.",
+      "current": "I left it by the bank.",
+      "effective_source": "I left it by the bank. [CTBOUNDARY18467] We were fishing beside the river.",
+      "batch": "nonce",
+      "probe_id": "p059"
+    },
+    {
+      "case_id": "bank-90542",
+      "strategy": "context-suffix",
+      "direction": "en-es",
+      "context": "We were fishing beside the river.",
+      "current": "I left it by the bank.",
+      "effective_source": "I left it by the bank. [CTBOUNDARY90542] We were fishing beside the river.",
+      "batch": "nonce",
+      "probe_id": "p060"
+    },
+    {
+      "case_id": "clear-18467",
+      "strategy": "context-suffix",
+      "direction": "en-es",
+      "context": "We were fishing beside the river.",
+      "current": "I deposited my paycheck at the bank, not by the river.",
+      "effective_source": "I deposited my paycheck at the bank, not by the river. [CTBOUNDARY18467] We were fishing beside the river.",
+      "batch": "nonce",
+      "probe_id": "p061"
+    },
+    {
+      "case_id": "clear-90542",
+      "strategy": "context-suffix",
+      "direction": "en-es",
+      "context": "We were fishing beside the river.",
+      "current": "I deposited my paycheck at the bank, not by the river.",
+      "effective_source": "I deposited my paycheck at the bank, not by the river. [CTBOUNDARY90542] We were fishing beside the river.",
+      "batch": "nonce",
+      "probe_id": "p062"
+    },
+    {
+      "case_id": "clear-es-18467",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "Estamos hablando del coche.",
+      "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+      "effective_source": "Mi gato se escapó al jardín; no me refiero a una herramienta. [CTBOUNDARY18467] Estamos hablando del coche.",
+      "batch": "nonce",
+      "probe_id": "p063"
+    },
+    {
+      "case_id": "clear-es-90542",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "Estamos hablando del coche.",
+      "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+      "effective_source": "Mi gato se escapó al jardín; no me refiero a una herramienta. [CTBOUNDARY90542] Estamos hablando del coche.",
+      "batch": "nonce",
+      "probe_id": "p064"
+    },
+    {
+      "case_id": "sail-18467",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "El barco necesita avanzar con la fuerza del viento.",
+      "current": "Revisa la vela.",
+      "effective_source": "Revisa la vela. [CTBOUNDARY18467] El barco necesita avanzar con la fuerza del viento.",
+      "batch": "nonce",
+      "probe_id": "p065"
+    },
+    {
+      "case_id": "sail-90542",
+      "strategy": "context-suffix",
+      "direction": "es-en",
+      "context": "El barco necesita avanzar con la fuerza del viento.",
+      "current": "Revisa la vela.",
+      "effective_source": "Revisa la vela. [CTBOUNDARY90542] El barco necesita avanzar con la fuerza del viento.",
+      "batch": "nonce",
+      "probe_id": "p066"
+    }
+  ]
+}

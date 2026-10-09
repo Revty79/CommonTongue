@@ -74,6 +74,10 @@ jobs:
         run: python3 -m unittest discover -s tools/offline-feasibility/tests -v
       - name: Check translation benchmark without models
         run: python3 -m unittest discover -s tools/translation-quality/tests -v
+      - name: Verify Pass 9 failed guidance study without models
+        run: |
+          python3 -m unittest discover -s tools/conversation-guidance/tests -v
+          python3 tools/conversation-guidance/probe.py
       - name: Check physical trial tooling without devices or models
         run: python3 -m unittest discover -s tools/device-trial/tests -v
       - name: Verify accepted research baseline and package Pass 8 translator

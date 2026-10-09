@@ -1,0 +1,1783 @@
+{
+  "scope": "WINDOWS_PRODUCTION_C_ABI_TEXT_CONTROLS_NOT_ANDROID_NOT_PHYSICAL_NOT_PRODUCTION_GUIDANCE",
+  "date": "2026-10-09",
+  "baseline_commit": "8f37267f318839e696537a4e3ebe7b8fed9b1297",
+  "model_hashes": {
+    "model-q4k.gguf": "ea6e5531a3e95213c7f0635988d119e078a655c09306e47851e15d4c0c3f9c37",
+    "tokenizer.json": "a2799ccc696b752ba00c34f58726bfe253a04921ceb6cfc620400f560474790b",
+    "config.json": "cad399cab799b99409a6ec2d90d72552257c2bb752861261d2016691e0643e7c"
+  },
+  "model_bytes": {
+    "model-q4k.gguf": 1654597280,
+    "tokenizer.json": 16629031,
+    "config.json": 749
+  },
+  "library_sha256": "a66656e88badac63dd41211f9b887bde6b59e7d29940109b830beefbba1751fa",
+  "runtime": {
+    "candle": "0.11.0",
+    "candle_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+    "rust": "1.91.0",
+    "cpu_threads": 4,
+    "input_limit_tokens": 512,
+    "output_limit_tokens": 128,
+    "greedy_seed": 404,
+    "cache": true,
+    "clear_cache_each_request": true
+  },
+  "production_ready": false,
+  "decision": "STOP_FOR_GUIDANCE_REVIEW",
+  "new_model_assets_added": false,
+  "model_pack_unchanged": true,
+  "python_network_events": [],
+  "network_probes": {
+    "github.com": "BLOCKED_WINERROR_10013",
+    "huggingface.co": "BLOCKED_WINERROR_10013"
+  },
+  "interrupted_pilot_note": "After completed p001-p012, the known-failing numbered/paragraph layouts were retired. The next in-flight call was interrupted and is not included or counted. Every retained row completed its native C ABI call; completed=false means the unchanged 128-token limit was reached.",
+  "results": [
+    {
+      "probe": {
+        "case_id": "fair",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "Meet me at the fair at eight.",
+        "context": "We're going to the county fair tonight.",
+        "effective_source": "Meet me at the fair at eight.",
+        "batch": "initial-pilot",
+        "probe_id": "p001"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 4326.8381,
+        "ms": 5644.8739000000005,
+        "prefill_ms": 1318.0001,
+        "prompt_tokens": 12,
+        "text": "Encuéntrame en la feria a las ocho.",
+        "threads": 4,
+        "tokens": 13
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Encuéntrame en la feria a las ocho."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "fair",
+        "strategy": "numbered",
+        "direction": "en-es",
+        "current": "Meet me at the fair at eight.",
+        "context": "We're going to the county fair tonight.",
+        "effective_source": "1. We're going to the county fair tonight.\n2. Meet me at the fair at eight.",
+        "batch": "initial-pilot",
+        "probe_id": "p002"
+      },
+      "result": {
+        "completed": false,
+        "execution_abi": "desktop-control",
+        "generation_ms": 68845.3667,
+        "ms": 71943.02949999999,
+        "prefill_ms": 3097.648,
+        "prompt_tokens": 29,
+        "text": "2. I'm going to the county fair tonight. 3. I'm going to the county fair tonight. 4. I'm going to the county fair tonight. 5. I'm going to the county fair tonight. 6. I'm going to the county fair tonight. 7. I'm going to the county fair tonight. 8. I'm going to the county fair tonight. 9. I'm going to the county fair tonight. 10. I'm going to the county fair tonight. 1",
+        "threads": 4,
+        "tokens": 128
+      },
+      "recovery": {
+        "status": "INCOMPLETE_OR_NATIVE_FAILURE"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "fair",
+        "strategy": "sentinel",
+        "direction": "en-es",
+        "current": "Meet me at the fair at eight.",
+        "context": "We're going to the county fair tonight.",
+        "effective_source": "We're going to the county fair tonight. [CTBOUNDARY76321] Meet me at the fair at eight.",
+        "batch": "initial-pilot",
+        "probe_id": "p003"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 22531.4179,
+        "ms": 26207.103499999997,
+        "prefill_ms": 3675.6616,
+        "prompt_tokens": 34,
+        "text": "Vamos a la feria del condado esta noche. [CTBOUNDARY76321] Encuéntrame en la feria a las ocho.",
+        "threads": 4,
+        "tokens": 37
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Encuéntrame en la feria a las ocho."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "fair",
+        "strategy": "numeric",
+        "direction": "en-es",
+        "current": "Meet me at the fair at eight.",
+        "context": "We're going to the county fair tonight.",
+        "effective_source": "We're going to the county fair tonight. 76321984: Meet me at the fair at eight.",
+        "batch": "initial-pilot",
+        "probe_id": "p004"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 13300.173900000002,
+        "ms": 16915.5246,
+        "prefill_ms": 3615.3345,
+        "prompt_tokens": 33,
+        "text": "76321984: Nos vemos en la feria a las ocho.",
+        "threads": 4,
+        "tokens": 22
+      },
+      "recovery": {
+        "status": "SEGMENT_MISSING"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "fair",
+        "strategy": "paragraph",
+        "direction": "en-es",
+        "current": "Meet me at the fair at eight.",
+        "context": "We're going to the county fair tonight.",
+        "effective_source": "We're going to the county fair tonight.\n\nMeet me at the fair at eight.",
+        "batch": "initial-pilot",
+        "probe_id": "p005"
+      },
+      "result": {
+        "completed": false,
+        "execution_abi": "desktop-control",
+        "generation_ms": 61725.3002,
+        "ms": 64401.42539999999,
+        "prefill_ms": 2676.1102,
+        "prompt_tokens": 25,
+        "text": "'m going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair tonight.We're going to the county fair",
+        "threads": 4,
+        "tokens": 128
+      },
+      "recovery": {
+        "status": "INCOMPLETE_OR_NATIVE_FAILURE"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "bank",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "I left it by the bank.",
+        "context": "We were fishing beside the river.",
+        "effective_source": "I left it by the bank.",
+        "batch": "initial-pilot",
+        "probe_id": "p006"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 2245.2198000000003,
+        "ms": 3321.1751999999997,
+        "prefill_ms": 1075.9380999999998,
+        "prompt_tokens": 10,
+        "text": "Lo dejé en el banco.",
+        "threads": 4,
+        "tokens": 7
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Lo dejé en el banco."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "bank",
+        "strategy": "numbered",
+        "direction": "en-es",
+        "current": "I left it by the bank.",
+        "context": "We were fishing beside the river.",
+        "effective_source": "1. We were fishing beside the river.\n2. I left it by the bank.",
+        "batch": "initial-pilot",
+        "probe_id": "p007"
+      },
+      "result": {
+        "completed": false,
+        "execution_abi": "desktop-control",
+        "generation_ms": 61750.6161,
+        "ms": 64429.5611,
+        "prefill_ms": 2678.929,
+        "prompt_tokens": 25,
+        "text": "2. I was fishing in the river. 3. I was fishing in the river. 4. I was fishing in the river. 5. I was fishing in the river. 6. I was fishing in the river. 7. I was fishing in the river. 8. I was fishing in the river. 9. I was fishing in the river. 10. I was fishing in the river. 11. I was fishing in the river. 12. I was fishing in the river. 13. I",
+        "threads": 4,
+        "tokens": 128
+      },
+      "recovery": {
+        "status": "INCOMPLETE_OR_NATIVE_FAILURE"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "bank",
+        "strategy": "sentinel",
+        "direction": "en-es",
+        "current": "I left it by the bank.",
+        "context": "We were fishing beside the river.",
+        "effective_source": "We were fishing beside the river. [CTBOUNDARY76321] I left it by the bank.",
+        "batch": "initial-pilot",
+        "probe_id": "p008"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 15710.2279,
+        "ms": 18938.732600000003,
+        "prefill_ms": 3228.4503999999997,
+        "prompt_tokens": 30,
+        "text": "Estábamos pescando junto al río. [CTBOUNDARY76321] Lo dejé en la orilla.",
+        "threads": 4,
+        "tokens": 28
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Lo dejé en la orilla."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "bank",
+        "strategy": "numeric",
+        "direction": "en-es",
+        "current": "I left it by the bank.",
+        "context": "We were fishing beside the river.",
+        "effective_source": "We were fishing beside the river. 76321984: I left it by the bank.",
+        "batch": "initial-pilot",
+        "probe_id": "p009"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 14677.1421,
+        "ms": 17776.6555,
+        "prefill_ms": 3099.4972000000002,
+        "prompt_tokens": 29,
+        "text": "Estábamos pescando junto al río. 76321984: Lo dejé a la orilla.",
+        "threads": 4,
+        "tokens": 27
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Lo dejé a la orilla."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "bank",
+        "strategy": "paragraph",
+        "direction": "en-es",
+        "current": "I left it by the bank.",
+        "context": "We were fishing beside the river.",
+        "effective_source": "We were fishing beside the river.\n\nI left it by the bank.",
+        "batch": "initial-pilot",
+        "probe_id": "p010"
+      },
+      "result": {
+        "completed": false,
+        "execution_abi": "desktop-control",
+        "generation_ms": 54438.5483,
+        "ms": 56675.1948,
+        "prefill_ms": 2236.6298,
+        "prompt_tokens": 21,
+        "text": "I left it by the bank.I left it by the bank.I left it by the bank.I left it by the bank.I left it by the bank.I left it by the bank.I left it by the bank.I left it by the bank.I left it by the bank.I left it by the bank.I left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI left itI",
+        "threads": 4,
+        "tokens": 128
+      },
+      "recovery": {
+        "status": "INCOMPLETE_OR_NATIVE_FAILURE"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "I deposited my paycheck at the bank, not by the river.",
+        "context": "We were fishing beside the river.",
+        "effective_source": "I deposited my paycheck at the bank, not by the river.",
+        "batch": "initial-pilot",
+        "probe_id": "p011"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 6075.2087,
+        "ms": 7987.9097,
+        "prefill_ms": 1912.6862999999998,
+        "prompt_tokens": 18,
+        "text": "Deposité mi cheque de pago en el banco, no en el río.",
+        "threads": 4,
+        "tokens": 15
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Deposité mi cheque de pago en el banco, no en el río."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear",
+        "strategy": "numbered",
+        "direction": "en-es",
+        "current": "I deposited my paycheck at the bank, not by the river.",
+        "context": "We were fishing beside the river.",
+        "effective_source": "1. We were fishing beside the river.\n2. I deposited my paycheck at the bank, not by the river.",
+        "batch": "initial-pilot",
+        "probe_id": "p012"
+      },
+      "result": {
+        "completed": false,
+        "execution_abi": "desktop-control",
+        "generation_ms": 73858.1627,
+        "ms": 77375.9657,
+        "prefill_ms": 3517.7871999999998,
+        "prompt_tokens": 33,
+        "text": "2. I was not in the river. 3. I was not in the river. 4. I was not in the river. 5. I was not in the river. 6. I was not in the river. 7. I was not in the river. 8. I was not in the river. 9. I was not in the river. 10. I was not in the river. 11. I was not in the river. 12. I was not in the river. 13. I was not in the river. 14. I",
+        "threads": 4,
+        "tokens": 128
+      },
+      "recovery": {
+        "status": "INCOMPLETE_OR_NATIVE_FAILURE"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "formwork",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "Keep the formwork in place until the concrete cures.",
+        "effective_source": "Keep the formwork in place until the concrete cures.",
+        "batch": "focused",
+        "probe_id": "p013"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 6810.3174,
+        "ms": 8408.7675,
+        "prefill_ms": 1598.4228,
+        "prompt_tokens": 16,
+        "text": "Mantenga el encofrado en su lugar hasta que el concreto se cure.",
+        "threads": 4,
+        "tokens": 18
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Mantenga el encofrado en su lugar hasta que el concreto se cure."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "formwork",
+        "strategy": "protected-term",
+        "direction": "en-es",
+        "current": "Keep the formwork in place until the concrete cures.",
+        "effective_source": "Keep the [CTTERM76321] in place until the concrete cures.",
+        "target_term": "cimbra",
+        "batch": "focused",
+        "probe_id": "p014"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 11434.881300000001,
+        "ms": 13988.4202,
+        "prefill_ms": 2553.5239,
+        "prompt_tokens": 24,
+        "text": "Mantenga el [CTTERM76321] en su lugar hasta que el concreto se cure.",
+        "threads": 4,
+        "tokens": 24
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Mantenga el cimbra en su lugar hasta que el concreto se cure."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "cimbra",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "Deja la cimbra puesta hasta que cure el concreto.",
+        "effective_source": "Deja la cimbra puesta hasta que cure el concreto.",
+        "batch": "focused",
+        "probe_id": "p015"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 4412.6215999999995,
+        "ms": 6223.3269,
+        "prefill_ms": 1810.6903,
+        "prompt_tokens": 17,
+        "text": "Leave the frame in place until the concrete cures.",
+        "threads": 4,
+        "tokens": 11
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Leave the frame in place until the concrete cures."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "cimbra",
+        "strategy": "protected-term",
+        "direction": "es-en",
+        "current": "Deja la cimbra puesta hasta que cure el concreto.",
+        "effective_source": "Deja la [CTTERM76321] puesta hasta que cure el concreto.",
+        "target_term": "formwork",
+        "batch": "focused",
+        "probe_id": "p016"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 9412.3437,
+        "ms": 12074.0787,
+        "prefill_ms": 2661.7199,
+        "prompt_tokens": 25,
+        "text": "Leave the [CTTERM76321] on until the concrete cures.",
+        "threads": 4,
+        "tokens": 19
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Leave the formwork on until the concrete cures."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "jumper",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "Bring jumper cables; the battery is flat.",
+        "effective_source": "Bring jumper cables; the battery is flat.",
+        "batch": "focused",
+        "probe_id": "p017"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 4774.4604,
+        "ms": 6367.9303,
+        "prefill_ms": 1593.4545,
+        "prompt_tokens": 15,
+        "text": "Lleve cables de conexión; la batería está descargada.",
+        "threads": 4,
+        "tokens": 13
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Lleve cables de conexión; la batería está descargada."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "jumper",
+        "strategy": "protected-term",
+        "direction": "en-es",
+        "current": "Bring jumper cables; the battery is flat.",
+        "effective_source": "Bring [CTTERM76321]; the battery is flat.",
+        "target_term": "cables para pasar corriente",
+        "batch": "focused",
+        "probe_id": "p018"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 8382.346,
+        "ms": 10619.348199999999,
+        "prefill_ms": 2236.9869,
+        "prompt_tokens": 21,
+        "text": "Lleve [CTTERM76321]; la batería está descargada.",
+        "threads": 4,
+        "tokens": 19
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Lleve cables para pasar corriente; la batería está descargada."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "cables",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "Trae cables para pasar corriente; la batería está descargada.",
+        "effective_source": "Trae cables para pasar corriente; la batería está descargada.",
+        "batch": "focused",
+        "probe_id": "p019"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 5882.6751,
+        "ms": 7698.696500000001,
+        "prefill_ms": 1816.0061999999998,
+        "prompt_tokens": 17,
+        "text": "Bring wires to pass power; the battery is discharged.",
+        "threads": 4,
+        "tokens": 15
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Bring wires to pass power; the battery is discharged."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "cables",
+        "strategy": "protected-term",
+        "direction": "es-en",
+        "current": "Trae cables para pasar corriente; la batería está descargada.",
+        "effective_source": "Trae [CTTERM76321]; la batería está descargada.",
+        "target_term": "jumper cables",
+        "batch": "focused",
+        "probe_id": "p020"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 9507.980800000001,
+        "ms": 11854.1183,
+        "prefill_ms": 2346.1231,
+        "prompt_tokens": 22,
+        "text": "It brings [CTTERM76321]; the battery is discharged.",
+        "threads": 4,
+        "tokens": 21
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "It brings jumper cables; the battery is discharged."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "repeat",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "Move the formwork, then inspect the formwork.",
+        "effective_source": "Move the formwork, then inspect the formwork.",
+        "batch": "focused",
+        "probe_id": "p021"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 6752.2287,
+        "ms": 8454.3741,
+        "prefill_ms": 1702.1318,
+        "prompt_tokens": 16,
+        "text": "Mueva el encofrado, después inspeccione el encofrado.",
+        "threads": 4,
+        "tokens": 18
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Mueva el encofrado, después inspeccione el encofrado."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "repeat",
+        "strategy": "protected-term",
+        "direction": "en-es",
+        "current": "Move the formwork, then inspect the formwork.",
+        "effective_source": "Move the [CTTERM76321], then inspect the [CTTERM76321].",
+        "target_term": "cimbra",
+        "batch": "focused",
+        "probe_id": "p022"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 16435.0448,
+        "ms": 19735.9298,
+        "prefill_ms": 3300.8698999999997,
+        "prompt_tokens": 31,
+        "text": "Mueva el [CTTERM76321], luego inspeccione el [CTTERM76321].",
+        "threads": 4,
+        "tokens": 29
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Mueva el cimbra, luego inspeccione el cimbra."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-price",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "That price is fair.",
+        "effective_source": "That price is fair.",
+        "batch": "focused",
+        "probe_id": "p023"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 1506.9857,
+        "ms": 2356.4089,
+        "prefill_ms": 849.4087999999999,
+        "prompt_tokens": 8,
+        "text": "Ese precio es justo.",
+        "threads": 4,
+        "tokens": 5
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Ese precio es justo."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-price",
+        "strategy": "protected-term",
+        "direction": "en-es",
+        "current": "That price is fair.",
+        "effective_source": "That price is [CTTERM76321].",
+        "target_term": "feria",
+        "batch": "focused",
+        "probe_id": "p024"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 5515.0032,
+        "ms": 7326.7859,
+        "prefill_ms": 1811.768,
+        "prompt_tokens": 17,
+        "text": "Ese precio es [CTTERM76321].",
+        "threads": 4,
+        "tokens": 14
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Ese precio es feria."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "I deposited my paycheck at the bank, not by the river.",
+        "effective_source": "I deposited my paycheck at the bank, not by the river.",
+        "batch": "focused",
+        "probe_id": "p025"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 6104.9125,
+        "ms": 8020.927699999999,
+        "prefill_ms": 1915.998,
+        "prompt_tokens": 18,
+        "text": "Deposité mi cheque de pago en el banco, no en el río.",
+        "threads": 4,
+        "tokens": 15
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Deposité mi cheque de pago en el banco, no en el río."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear",
+        "strategy": "sentinel",
+        "direction": "en-es",
+        "current": "I deposited my paycheck at the bank, not by the river.",
+        "effective_source": "We were fishing beside the river. [CTBOUNDARY76321] I deposited my paycheck at the bank, not by the river.",
+        "batch": "focused",
+        "probe_id": "p026"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 28055.0239,
+        "ms": 32111.7725,
+        "prefill_ms": 4056.7348,
+        "prompt_tokens": 38,
+        "text": "[CTBOUNDARY76321] Yo deposité mi cheque de pago en el banco, no junto al río, sino en el banco, y no en el río, sino en el banco.",
+        "threads": 4,
+        "tokens": 43
+      },
+      "recovery": {
+        "status": "SEGMENT_MISSING"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "gato",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "Trae el gato.",
+        "effective_source": "Trae el gato.",
+        "batch": "focused",
+        "probe_id": "p027"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 1582.587,
+        "ms": 2538.1757000000002,
+        "prefill_ms": 955.5744000000001,
+        "prompt_tokens": 9,
+        "text": "Bring the cat.",
+        "threads": 4,
+        "tokens": 5
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Bring the cat."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "gato",
+        "strategy": "sentinel",
+        "direction": "es-en",
+        "current": "Trae el gato.",
+        "effective_source": "Tenemos una llanta ponchada y debemos levantar el coche. [CTBOUNDARY76321] Trae el gato.",
+        "batch": "focused",
+        "probe_id": "p028"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 18960.4064,
+        "ms": 22807.7055,
+        "prefill_ms": 3847.2854,
+        "prompt_tokens": 36,
+        "text": "We have a punctured tire and we need to lift the car. [CTBOUNDARY76321] Get the cat.",
+        "threads": 4,
+        "tokens": 30
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Get the cat."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-es",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+        "effective_source": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+        "batch": "focused",
+        "probe_id": "p029"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 7343.8909,
+        "ms": 9684.4631,
+        "prefill_ms": 2340.5576,
+        "prompt_tokens": 22,
+        "text": "My cat escaped into the garden; I don’t mean a tool.",
+        "threads": 4,
+        "tokens": 16
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "My cat escaped into the garden; I don’t mean a tool."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-es",
+        "strategy": "sentinel",
+        "direction": "es-en",
+        "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+        "effective_source": "Estamos hablando del coche. [CTBOUNDARY76321] Mi gato se escapó al jardín; no me refiero a una herramienta.",
+        "batch": "focused",
+        "probe_id": "p030"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 24551.982500000002,
+        "ms": 28824.7571,
+        "prefill_ms": 4272.7616,
+        "prompt_tokens": 40,
+        "text": "[CTBOUNDARY76321] My cat escaped into the garden; I'm not talking about a tool, I'm talking about the car.",
+        "threads": 4,
+        "tokens": 36
+      },
+      "recovery": {
+        "status": "SEGMENT_MISSING"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "vela",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "Trae la vela.",
+        "effective_source": "Trae la vela.",
+        "batch": "focused",
+        "probe_id": "p031"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 1505.9839,
+        "ms": 2358.7745999999997,
+        "prefill_ms": 852.7765,
+        "prompt_tokens": 8,
+        "text": "Bring the candle.",
+        "threads": 4,
+        "tokens": 5
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Bring the candle."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "vela",
+        "strategy": "sentinel",
+        "direction": "es-en",
+        "current": "Trae la vela.",
+        "effective_source": "La luz se fue y necesitamos iluminar el cuarto. [CTBOUNDARY76321] Trae la vela.",
+        "batch": "focused",
+        "probe_id": "p032"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 15975.4417,
+        "ms": 19401.5279,
+        "prefill_ms": 3426.0698,
+        "prompt_tokens": 32,
+        "text": "The light is gone and we need to light the room. [CTBOUNDARY76321] Get the candle.",
+        "threads": 4,
+        "tokens": 27
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Get the candle."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "banco",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "Busca el banco junto a la puerta.",
+        "effective_source": "Busca el banco junto a la puerta.",
+        "batch": "focused",
+        "probe_id": "p033"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 3065.2343,
+        "ms": 4361.1793,
+        "prefill_ms": 1295.9296,
+        "prompt_tokens": 12,
+        "text": "Look for the bench next to the door.",
+        "threads": 4,
+        "tokens": 9
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Look for the bench next to the door."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "banco",
+        "strategy": "sentinel",
+        "direction": "es-en",
+        "current": "Busca el banco junto a la puerta.",
+        "effective_source": "Estamos esperando afuera de la escuela; no hay donde sentarse. [CTBOUNDARY76321] Busca el banco junto a la puerta.",
+        "batch": "focused",
+        "probe_id": "p034"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 36875.6304,
+        "ms": 41093.7627,
+        "prefill_ms": 4218.119299999999,
+        "prompt_tokens": 39,
+        "text": "We're waiting outside the school; there's nowhere to sit. [CTBOUNDARY76321] Look for the bench by the door. [CTBOUNDARY76322] Look for the bench by the door.",
+        "threads": 4,
+        "tokens": 54
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q005-en-es",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "It turns over now, but it still won't start.",
+        "effective_source": "It turns over now, but it still won't start.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q005-en-es",
+        "probe_id": "p035"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 5207.840700000001,
+        "ms": 7031.49,
+        "prefill_ms": 1823.6354000000001,
+        "prompt_tokens": 17,
+        "text": "Se vuelve ahora, pero todavía no se inicia.",
+        "threads": 4,
+        "tokens": 13
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Se vuelve ahora, pero todavía no se inicia."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q005-en-es",
+        "strategy": "sentinel",
+        "direction": "en-es",
+        "current": "It turns over now, but it still won't start.",
+        "effective_source": "The truck's starter wouldn't turn yesterday. [CTBOUNDARY76321] It turns over now, but it still won't start.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q005-en-es",
+        "probe_id": "p036"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 48931.1985,
+        "ms": 53373.0843,
+        "prefill_ms": 4441.8715999999995,
+        "prompt_tokens": 41,
+        "text": "[CTBOUNDARY76321] El motor de arranque del camión no arrancaba ayer. [CTBOUNDARY76321] Se vuelve ahora, pero aún no arranca. [CTBOUNDARY76321] El motor de arranque del camión no arranca.",
+        "threads": 4,
+        "tokens": 70
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q005-es-en",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "Ahora sí da marcha, pero todavía no arranca.",
+        "effective_source": "Ahora sí da marcha, pero todavía no arranca.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q005-es-en",
+        "probe_id": "p037"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 5213.639,
+        "ms": 7047.8874,
+        "prefill_ms": 1834.2344,
+        "prompt_tokens": 17,
+        "text": "Now it does go, but it doesn't start yet.",
+        "threads": 4,
+        "tokens": 13
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Now it does go, but it doesn't start yet."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q005-es-en",
+        "strategy": "sentinel",
+        "direction": "es-en",
+        "current": "Ahora sí da marcha, pero todavía no arranca.",
+        "effective_source": "Ayer el motor de arranque de la camioneta no giraba. [CTBOUNDARY76321] Ahora sí da marcha, pero todavía no arranca.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q005-es-en",
+        "probe_id": "p038"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 23785.000799999998,
+        "ms": 28327.1319,
+        "prefill_ms": 4542.1182,
+        "prompt_tokens": 42,
+        "text": "[CTBOUNDARY76321] Now it does start, but it still doesn't start.There is a problem with the starter.",
+        "threads": 4,
+        "tokens": 33
+      },
+      "recovery": {
+        "status": "SEGMENT_MISSING"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q010-en-es",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "That's cold; please heat it again.",
+        "effective_source": "That's cold; please heat it again.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q010-en-es",
+        "probe_id": "p039"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 4856.9601,
+        "ms": 6472.5544,
+        "prefill_ms": 1615.58,
+        "prompt_tokens": 15,
+        "text": "Eso está frío; por favor caliéntelo de nuevo.",
+        "threads": 4,
+        "tokens": 13
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Eso está frío; por favor caliéntelo de nuevo."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q010-en-es",
+        "strategy": "sentinel",
+        "direction": "en-es",
+        "current": "That's cold; please heat it again.",
+        "effective_source": "That remark was cold. Anyway, here is your soup. [CTBOUNDARY76321] That's cold; please heat it again.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q010-en-es",
+        "probe_id": "p040"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 30349.8743,
+        "ms": 34782.7198,
+        "prefill_ms": 4432.8313,
+        "prompt_tokens": 41,
+        "text": "Esa observación fue fría. De todos modos, aquí tienes tu sopa. [CTBOUNDARY76321] Eso es frío; por favor caliéntalo de nuevo.",
+        "threads": 4,
+        "tokens": 43
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Eso es frío; por favor caliéntalo de nuevo."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q010-es-en",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "Está frío; por favor caliéntalo otra vez.",
+        "effective_source": "Está frío; por favor caliéntalo otra vez.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q010-es-en",
+        "probe_id": "p041"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 4677.4698,
+        "ms": 6397.7131,
+        "prefill_ms": 1720.2287000000001,
+        "prompt_tokens": 16,
+        "text": "It's cold; please warm it up again.",
+        "threads": 4,
+        "tokens": 12
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "It's cold; please warm it up again."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q010-es-en",
+        "strategy": "sentinel",
+        "direction": "es-en",
+        "current": "Está frío; por favor caliéntalo otra vez.",
+        "effective_source": "Ese comentario fue frío. En fin, aquí está tu sopa. [CTBOUNDARY76321] Está frío; por favor caliéntalo otra vez.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q010-es-en",
+        "probe_id": "p042"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 44223.175599999995,
+        "ms": 48763.895300000004,
+        "prefill_ms": 4540.706700000001,
+        "prompt_tokens": 42,
+        "text": "That comment was cold. Anyway, here's your soup. [CTBOUNDARY76321] It's cold; please warm it up again. [CTBOUNDARY76322] It's cold; please warm it up again.",
+        "threads": 4,
+        "tokens": 62
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q013-en-es",
+        "strategy": "baseline",
+        "direction": "en-es",
+        "current": "Not that contact; the one by the sink.",
+        "effective_source": "Not that contact; the one by the sink.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q013-en-es",
+        "probe_id": "p043"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 4771.494900000001,
+        "ms": 6168.5966,
+        "prefill_ms": 1397.0879,
+        "prompt_tokens": 13,
+        "text": "No ese contacto; el que está al lado del fregadero.",
+        "threads": 4,
+        "tokens": 14
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "No ese contacto; el que está al lado del fregadero."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q013-en-es",
+        "strategy": "sentinel",
+        "direction": "en-es",
+        "current": "Not that contact; the one by the sink.",
+        "effective_source": "We are replacing the electrical outlets in the kitchen. [CTBOUNDARY76321] Not that contact; the one by the sink.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q013-en-es",
+        "probe_id": "p044"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 24142.9348,
+        "ms": 28148.034,
+        "prefill_ms": 4005.0840000000003,
+        "prompt_tokens": 37,
+        "text": "Estamos reemplazando los enchufes de la cocina. [CTBOUNDARY76321] No ese contacto. El que está al lado del fregadero.",
+        "threads": 4,
+        "tokens": 37
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "No ese contacto. El que está al lado del fregadero."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q013-es-en",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "current": "No ese contacto; el que está junto al fregadero.",
+        "effective_source": "No ese contacto; el que está junto al fregadero.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q013-es-en",
+        "probe_id": "p045"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 4315.4287,
+        "ms": 6060.4208,
+        "prefill_ms": 1744.9778999999999,
+        "prompt_tokens": 16,
+        "text": "Not that contact; the one next to the sink.",
+        "threads": 4,
+        "tokens": 11
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Not that contact; the one next to the sink."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "q013-es-en",
+        "strategy": "sentinel",
+        "direction": "es-en",
+        "current": "No ese contacto; el que está junto al fregadero.",
+        "effective_source": "Estamos cambiando los contactos eléctricos de la cocina. [CTBOUNDARY76321] No ese contacto; el que está junto al fregadero.",
+        "batch": "focused",
+        "authored_source": "tools/translation-quality/corpus.json#q013-es-en",
+        "probe_id": "p046"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 22343.1508,
+        "ms": 26567.09,
+        "prefill_ms": 4223.9249,
+        "prompt_tokens": 39,
+        "text": "We are changing the electrical contacts in the kitchen. [CTBOUNDARY76321] Not that contact. The one next to the sink.",
+        "threads": 4,
+        "tokens": 33
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Not that contact. The one next to the sink."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "bank",
+        "strategy": "context-suffix",
+        "direction": "en-es",
+        "context": "We were fishing beside the river.",
+        "current": "I left it by the bank.",
+        "effective_source": "I left it by the bank. [CTBOUNDARY76321] We were fishing beside the river.",
+        "batch": "suffix",
+        "probe_id": "p047"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 14997.392100000001,
+        "ms": 18031.6967,
+        "prefill_ms": 3034.2749,
+        "prompt_tokens": 30,
+        "text": "Lo dejé en la orilla. [CTBOUNDARY76321] Estábamos pescando junto al río.",
+        "threads": 4,
+        "tokens": 28
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Lo dejé en la orilla."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear",
+        "strategy": "context-suffix",
+        "direction": "en-es",
+        "context": "We were fishing beside the river.",
+        "current": "I deposited my paycheck at the bank, not by the river.",
+        "effective_source": "I deposited my paycheck at the bank, not by the river. [CTBOUNDARY76321] We were fishing beside the river.",
+        "batch": "suffix",
+        "probe_id": "p048"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 28898.3487,
+        "ms": 32969.306000000004,
+        "prefill_ms": 4070.9428000000003,
+        "prompt_tokens": 38,
+        "text": "Deposité mi cheque de pago en el banco, no junto al río. [CTBOUNDARY76321] Estábamos pescando junto al río. [CTBOUNDARY76321]",
+        "threads": 4,
+        "tokens": 46
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "gato",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "Tenemos una llanta ponchada y debemos levantar el coche.",
+        "current": "Trae el gato.",
+        "effective_source": "Trae el gato. [CTBOUNDARY76321] Tenemos una llanta ponchada y debemos levantar el coche.",
+        "batch": "suffix",
+        "probe_id": "p049"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 32735.620400000003,
+        "ms": 36583.739,
+        "prefill_ms": 3848.1036,
+        "prompt_tokens": 36,
+        "text": "[CTBOUNDARY76321] We have a punctured tire and we need to lift the car. [CTBOUNDARY76322] We have a punctured tire and we need to lift the car.",
+        "threads": 4,
+        "tokens": 52
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-es",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "Estamos hablando del coche.",
+        "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+        "effective_source": "Mi gato se escapó al jardín; no me refiero a una herramienta. [CTBOUNDARY76321] Estamos hablando del coche.",
+        "batch": "suffix",
+        "probe_id": "p050"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 32629.215600000003,
+        "ms": 36951.386399999996,
+        "prefill_ms": 4322.1563,
+        "prompt_tokens": 40,
+        "text": "My cat escaped into the garden; I'm not talking about a tool. [CTBOUNDARY76321] We're talking about the car. [CTBOUNDARY76321]",
+        "threads": 4,
+        "tokens": 47
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "vela",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "La luz se fue y necesitamos iluminar el cuarto.",
+        "current": "Trae la vela.",
+        "effective_source": "Trae la vela. [CTBOUNDARY76321] La luz se fue y necesitamos iluminar el cuarto.",
+        "batch": "suffix",
+        "probe_id": "p051"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 12367.975100000001,
+        "ms": 15901.6337,
+        "prefill_ms": 3533.6281,
+        "prompt_tokens": 32,
+        "text": "[CTBOUNDARY76321] The light is gone and we need to light up the room.",
+        "threads": 4,
+        "tokens": 24
+      },
+      "recovery": {
+        "status": "SEGMENT_MISSING"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "banco",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "Estamos esperando afuera de la escuela; no hay donde sentarse.",
+        "current": "Busca el banco junto a la puerta.",
+        "effective_source": "Busca el banco junto a la puerta. [CTBOUNDARY76321] Estamos esperando afuera de la escuela; no hay donde sentarse.",
+        "batch": "suffix",
+        "probe_id": "p052"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 37183.909999999996,
+        "ms": 40197.6418,
+        "prefill_ms": 3013.7173000000003,
+        "prompt_tokens": 39,
+        "text": "[CTBOUNDARY76321] We are waiting outside the school; there is nowhere to sit. [CTBOUNDARY76322] We are waiting outside the school; there is nowhere to sit. [CTBOUNDARY76323] We are waiting outside the school; there is nowhere to sit.",
+        "threads": 4,
+        "tokens": 75
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "wooden-bench",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "context": "El banco de madera está enfrente de la escuela.",
+        "current": "Me quedé en el banco.",
+        "effective_source": "Me quedé en el banco.",
+        "batch": "suffix",
+        "probe_id": "p053"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 1807.1822,
+        "ms": 2481.8199,
+        "prefill_ms": 674.6232,
+        "prompt_tokens": 10,
+        "text": "I stayed on the bench.",
+        "threads": 4,
+        "tokens": 7
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "I stayed on the bench."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "wooden-bench",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "El banco de madera está enfrente de la escuela.",
+        "current": "Me quedé en el banco.",
+        "effective_source": "Me quedé en el banco. [CTBOUNDARY76321] El banco de madera está enfrente de la escuela.",
+        "batch": "suffix",
+        "probe_id": "p054"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 12620.419,
+        "ms": 14931.215999999999,
+        "prefill_ms": 2310.7736,
+        "prompt_tokens": 33,
+        "text": "[CTBOUNDARY76321] The wooden bench is in front of the school, and I stayed on it.",
+        "threads": 4,
+        "tokens": 28
+      },
+      "recovery": {
+        "status": "SEGMENT_MISSING"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "degree",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "context": "Estoy estudiando ingeniería en la universidad.",
+        "current": "Termino la carrera este año.",
+        "effective_source": "Termino la carrera este año.",
+        "batch": "suffix",
+        "probe_id": "p055"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 1801.1947,
+        "ms": 2498.3681,
+        "prefill_ms": 697.1566,
+        "prompt_tokens": 10,
+        "text": "I finish the course this year.",
+        "threads": 4,
+        "tokens": 7
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "I finish the course this year."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "degree",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "Estoy estudiando ingeniería en la universidad.",
+        "current": "Termino la carrera este año.",
+        "effective_source": "Termino la carrera este año. [CTBOUNDARY76321] Estoy estudiando ingeniería en la universidad.",
+        "batch": "suffix",
+        "probe_id": "p056"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 12446.8257,
+        "ms": 14475.955600000001,
+        "prefill_ms": 2029.1157000000003,
+        "prompt_tokens": 31,
+        "text": "I am finishing my degree this year. [CTBOUNDARY76321] I am studying engineering at university.",
+        "threads": 4,
+        "tokens": 28
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "I am finishing my degree this year."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "sail",
+        "strategy": "baseline",
+        "direction": "es-en",
+        "context": "El barco necesita avanzar con la fuerza del viento.",
+        "current": "Revisa la vela.",
+        "effective_source": "Revisa la vela.",
+        "batch": "suffix",
+        "probe_id": "p057"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 1012.1901,
+        "ms": 1566.9178000000002,
+        "prefill_ms": 554.7128,
+        "prompt_tokens": 8,
+        "text": "Check the candle.",
+        "threads": 4,
+        "tokens": 4
+      },
+      "recovery": {
+        "status": "BASIC",
+        "text": "Check the candle."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "sail",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "El barco necesita avanzar con la fuerza del viento.",
+        "current": "Revisa la vela.",
+        "effective_source": "Revisa la vela. [CTBOUNDARY76321] El barco necesita avanzar con la fuerza del viento.",
+        "batch": "suffix",
+        "probe_id": "p058"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 12830.2983,
+        "ms": 14933.3535,
+        "prefill_ms": 2103.0416,
+        "prompt_tokens": 31,
+        "text": "Check the sail. [CTBOUNDARY76321] The boat needs to move forward with the force of the wind.",
+        "threads": 4,
+        "tokens": 29
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Check the sail."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "bank-18467",
+        "strategy": "context-suffix",
+        "direction": "en-es",
+        "context": "We were fishing beside the river.",
+        "current": "I left it by the bank.",
+        "effective_source": "I left it by the bank. [CTBOUNDARY18467] We were fishing beside the river.",
+        "batch": "nonce",
+        "probe_id": "p059"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 11039.2863,
+        "ms": 13003.621799999999,
+        "prefill_ms": 1964.3083,
+        "prompt_tokens": 30,
+        "text": "Lo dejé en la orilla. [CTBOUNDARY18467] Estábamos pescando junto al río.",
+        "threads": 4,
+        "tokens": 28
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Lo dejé en la orilla."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "bank-90542",
+        "strategy": "context-suffix",
+        "direction": "en-es",
+        "context": "We were fishing beside the river.",
+        "current": "I left it by the bank.",
+        "effective_source": "I left it by the bank. [CTBOUNDARY90542] We were fishing beside the river.",
+        "batch": "nonce",
+        "probe_id": "p060"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 11129.5653,
+        "ms": 13134.1031,
+        "prefill_ms": 2004.5237,
+        "prompt_tokens": 30,
+        "text": "Lo dejé en la orilla. [CTBOUNDARY90542] Estábamos pescando junto al río.",
+        "threads": 4,
+        "tokens": 28
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Lo dejé en la orilla."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-18467",
+        "strategy": "context-suffix",
+        "direction": "en-es",
+        "context": "We were fishing beside the river.",
+        "current": "I deposited my paycheck at the bank, not by the river.",
+        "effective_source": "I deposited my paycheck at the bank, not by the river. [CTBOUNDARY18467] We were fishing beside the river.",
+        "batch": "nonce",
+        "probe_id": "p061"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 21171.9899,
+        "ms": 23749.9958,
+        "prefill_ms": 2577.9907,
+        "prompt_tokens": 38,
+        "text": "Deposité mi cheque de pago en el banco, no junto al río. [CTBOUNDARY18467] Estábamos pescando junto al río. [CTBOUNDARY18467]",
+        "threads": 4,
+        "tokens": 46
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-90542",
+        "strategy": "context-suffix",
+        "direction": "en-es",
+        "context": "We were fishing beside the river.",
+        "current": "I deposited my paycheck at the bank, not by the river.",
+        "effective_source": "I deposited my paycheck at the bank, not by the river. [CTBOUNDARY90542] We were fishing beside the river.",
+        "batch": "nonce",
+        "probe_id": "p062"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 21326.0678,
+        "ms": 23916.0548,
+        "prefill_ms": 2589.9729,
+        "prompt_tokens": 38,
+        "text": "Deposité mi cheque de pago en el banco, no junto al río. [CTBOUNDARY90542] Estábamos pescando junto al río. [CTBOUNDARY90542]",
+        "threads": 4,
+        "tokens": 46
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-es-18467",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "Estamos hablando del coche.",
+        "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+        "effective_source": "Mi gato se escapó al jardín; no me refiero a una herramienta. [CTBOUNDARY18467] Estamos hablando del coche.",
+        "batch": "nonce",
+        "probe_id": "p063"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 22992.9479,
+        "ms": 25674.493,
+        "prefill_ms": 2681.5306,
+        "prompt_tokens": 40,
+        "text": "My cat escaped into the garden; I'm not talking about a tool. [CTBOUNDARY18467] We're talking about the car. [CTBOUNDARY18467]",
+        "threads": 4,
+        "tokens": 47
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "clear-es-90542",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "Estamos hablando del coche.",
+        "current": "Mi gato se escapó al jardín; no me refiero a una herramienta.",
+        "effective_source": "Mi gato se escapó al jardín; no me refiero a una herramienta. [CTBOUNDARY90542] Estamos hablando del coche.",
+        "batch": "nonce",
+        "probe_id": "p064"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 22241.9225,
+        "ms": 24926.1347,
+        "prefill_ms": 2684.1978,
+        "prompt_tokens": 40,
+        "text": "My cat escaped into the garden; I'm not talking about a tool. [CTBOUNDARY90542] We're talking about the car. [CTBOUNDARY90542]",
+        "threads": 4,
+        "tokens": 47
+      },
+      "recovery": {
+        "status": "MARKER_COUNT_MISMATCH"
+      }
+    },
+    {
+      "probe": {
+        "case_id": "sail-18467",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "El barco necesita avanzar con la fuerza del viento.",
+        "current": "Revisa la vela.",
+        "effective_source": "Revisa la vela. [CTBOUNDARY18467] El barco necesita avanzar con la fuerza del viento.",
+        "batch": "nonce",
+        "probe_id": "p065"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 11838.5753,
+        "ms": 13928.786,
+        "prefill_ms": 2090.1962,
+        "prompt_tokens": 31,
+        "text": "Check the sail. [CTBOUNDARY18467] The boat needs to move forward with the force of the wind.",
+        "threads": 4,
+        "tokens": 29
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Check the sail."
+      }
+    },
+    {
+      "probe": {
+        "case_id": "sail-90542",
+        "strategy": "context-suffix",
+        "direction": "es-en",
+        "context": "El barco necesita avanzar con la fuerza del viento.",
+        "current": "Revisa la vela.",
+        "effective_source": "Revisa la vela. [CTBOUNDARY90542] El barco necesita avanzar con la fuerza del viento.",
+        "batch": "nonce",
+        "probe_id": "p066"
+      },
+      "result": {
+        "completed": true,
+        "execution_abi": "desktop-control",
+        "generation_ms": 11688.9969,
+        "ms": 13809.6803,
+        "prefill_ms": 2120.6695999999997,
+        "prompt_tokens": 31,
+        "text": "Check the sail. [CTBOUNDARY90542] The boat needs to move forward with the force of the wind.",
+        "threads": 4,
+        "tokens": 29
+      },
+      "recovery": {
+        "status": "RECOVERED_NOT_MEANING_VERIFIED",
+        "text": "Check the sail."
+      }
+    }
+  ]
+}

@@ -2,6 +2,8 @@
 
 Status: implementation/test handoff; **physical S25 product acceptance pending**. Pass 7 is separately COMPLETE at `d22b8fa513b79da29857e620affc6485993b4742`, [CI 37879242025](https://github.com/Revty79/CommonTongue/actions/runs/37879242025), with the user-confirmed physical closeout in [PASS_7_CLOSEOUT.md](PASS_7_CLOSEOUT.md). No Pass 9 work.
 
+Subsequent Pass 9 authorization on 2026-10-09: the user confirmed the basic S25 real microphone/recognition/translation/spoken-output/product-interaction path works. The quiet-output incident was phone media volume. Exact Pass 8 source `8f37267f318839e696537a4e3ebe7b8fed9b1297` passed [CI 37885718318, attempt 2](https://github.com/Revty79/CommonTongue/actions/runs/37885718318). Extended checks below remain unclaimed where not explicitly reported; this is not full physical-checklist closeout. Pass 9 is separately authorized in the [current roadmap](ROADMAP.md).
+
 ## Automated checks
 
 | Check | Result |
