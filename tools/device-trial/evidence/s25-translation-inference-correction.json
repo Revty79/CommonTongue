@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "scope": "PASS5_S25_TRANSLATION_INFERENCE_CORRECTION_NOT_PHYSICAL_ACCEPTANCE",
+  "source_baseline": "c0ca3d8b013749556cade59037344b133f05b0f9",
+  "received_v5_on_device_result": {
+    "source_file": "CommonTongue-Pass5-Research-Results (2) (1).json",
+    "source_sha256": "5b85948db1a3ba78bdc3a91b5b9448a2265402ad1eed854724a70acecbf2af3f",
+    "evidence_type": "ON_DEVICE_EXPORT_PROVIDED_BY_TESTER",
+    "app_version": "0.0.5-pass5-research",
+    "device_label": "device-high-01",
+    "component_checks": [
+      {
+        "asr_ms": 1475.844687,
+        "mode": "WHISPER_ONLY",
+        "result": "PASS"
+      },
+      {
+        "mode": "MADLAD_ONLY",
+        "result": "WORKER_EXIT"
+      },
+      {
+        "mode": "FULL_PIPELINE",
+        "result": "WORKER_EXIT"
+      }
+    ],
+    "matched_full_pipeline_exit": {
+      "reason_code": 5,
+      "reason": "CRASH_NATIVE",
+      "status": 11,
+      "importance": 100,
+      "pss_kb": 0,
+      "rss_kb": 0,
+      "age_ms": 513,
+      "low_memory_kill_report_supported": true,
+      "signal": "SIGSEGV",
+      "availability": "AVAILABLE",
+      "correlation": "MATCHED_WORKER",
+      "process_checkpoint": {
+        "stage": "TRANSLATION_START",
+        "mode": "FULL_PIPELINE",
+        "source_kind": "prerecorded_fixture",
+        "direction": "en-es",
+        "turn_index": 1,
+        "elapsed_ms": 849854471,
+        "sample_count": 63482,
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "mode": "FULL_PIPELINE",
+      "last_pipeline_stage": "TRANSLATION_START",
+      "lookup_attempt": 1,
+      "disconnect_elapsed_ms": 849855444,
+      "worker_alive_at_disconnect": false,
+      "cleanup_requested_after_disconnect": true
+    },
+    "last_pipeline_checkpoint": {
+      "stage": "TRANSLATION_START",
+      "mode": "FULL_PIPELINE",
+      "source_kind": "prerecorded_fixture",
+      "direction": "en-es",
+      "turn_index": 1,
+      "elapsed_ms": 849854471,
+      "sample_count": 63482,
+      "sample_rate_hz": 16000,
+      "channels": 1
+    },
+    "matched_madlad_only_exit": {
+      "reason_code": 4,
+      "reason": "CRASH",
+      "status": 0,
+      "importance": 100,
+      "pss_kb": 0,
+      "rss_kb": 0,
+      "age_ms": 181,
+      "low_memory_kill_report_supported": true,
+      "availability": "AVAILABLE",
+      "correlation": "MATCHED_WORKER",
+      "mode": "MADLAD_ONLY",
+      "last_pipeline_stage": "TRANSLATION_START",
+      "lookup_attempt": 1,
+      "disconnect_elapsed_ms": 849838106,
+      "worker_alive_at_disconnect": true,
+      "cleanup_requested_after_disconnect": true
+    },
+    "full_pipeline_stages_observed": [
+      "AUDIO_CAPTURE_COMPLETE",
+      "AUDIO_DECODE_START",
+      "AUDIO_DECODE_COMPLETE",
+      "ASR_START",
+      "ASR_COMPLETE",
+      "TRANSLATION_START"
+    ],
+    "pack_hashes_verified": true,
+    "pack_persistence_and_required_sizes_confirmed": true,
+    "raw_export_committed": false,
+    "human_audio_or_text_included": false,
+    "device_pointer_or_tombstone_available": false
+  },
+  "translation_correction": {
+    "defect": "Unsigned raw Box<Model> address was serialized as a JSON number, coerced through Android Double/getLong, then unsafely dereferenced",
+    "local_defect_reproduced": true,
+    "s25_attribution": "INFERENCE_CONSISTENT_WITH_V5_BOUNDARY_PENDING_V6_PHONE_CONFIRMATION",
+    "fix": "Rust retains boxed models in a mutex-protected registry; monotonically allocated opaque u32-range IDs cross JSON/JNI; unknown/closed IDs fail without pointer casts",
+    "kotlin_contract": "opaque-id-v1 plus strict Int/Long type and 1..2^32-1 range",
+    "ffi_widths": "C uint64_t / Rust u64; synchronous int32_t progress callback with uint32_t stage only",
+    "ownership": "Registry lock retains model and serializes close for the entire generation; no raw model pointer transported or dereferenced",
+    "backing_inspection": "Pinned Candle GGUF loader owns CPU tensor storage through network Arcs; no mmap backing borrowed; encoder/input/tokenizer buffers stay owned",
+    "changed_native_libraries": [
+      "libtrial_t5.so",
+      "libdevice_trial.so"
+    ],
+    "unchanged": [
+      "model pack and model files",
+      "Whisper capture and inference path",
+      "Candle/Whisper/ONNX/SentencePiece dependencies and revisions",
+      "ARM64 tensor kernels",
+      "four-thread settings",
+      "greedy decoding/prefix/cache reset/token limits",
+      "permissions and privacy policy"
+    ],
+    "added_stages": [
+      "TOKENIZE_START",
+      "TOKENIZE_COMPLETE",
+      "ENCODER_START",
+      "ENCODER_COMPLETE",
+      "DECODER_START",
+      "FIRST_TOKEN"
+    ],
+    "checkpoint_delivery": "Synchronous Rust -> JNI -> worker; same fsynced atomic journal, optional Android process summary and UI notification",
+    "failed_checkpoint": "Aborts before subsequent tensor work; pending Java exception preserved; Rust return string freed",
+    "tokens_addresses_or_human_text_in_checkpoints": false,
+    "pointer_tagging_disabled": false,
+    "diagnostic_wall_time_includes_callback_and_fsync_overhead": true
+  },
+  "local_validation": {
+    "research_gradle": "BUILD_SUCCESSFUL: testDebugUnitTest assembleDebug verifyResearchManifest lint",
+    "research_jvm_tests": 35,
+    "research_host_tests": 61,
+    "rust_registry_tests": 4,
+    "total_tests": 100,
+    "failures": 0,
+    "aosp_json_parser_host_reproduction": {
+      "scope": "AOSP_JSON_HOST_REPRODUCTION_SYNTHETIC_POINTER_NOT_S25_TRACE",
+      "source_base": "https://android.googlesource.com/platform/libcore/+/refs/heads/main/json/src/main/java/org/json/",
+      "source_sha256": {
+        "JSONTokener.java": "744c9ffb50c2472d7269c8d64a7d8331ea1a1691fb6536619ac9590e9ebbbd4b",
+        "JSONObject.java": "b7770e43fdad8415e8f5c37a7dc06a7c1ffb3a16c557887ded1479f3116c868f",
+        "JSONArray.java": "24f10dbe57a9228b8aec8a891355c26285e7fc4e070a2f826a080300e3ca4180",
+        "JSON.java": "a2cc5e4bf64bfe3edd73c6a14409f3200640454051d9947ee79f16a2396a19b1",
+        "JSONException.java": "26e10aae9c209dabbc8f15b4156fe9fdc87f5d9d2cb2d2f078b475a61ba0df7d",
+        "JSONStringer.java": "8772ac80610cd62e906330152b09864c471a0921f199f4b9d670d98050e3d86c"
+      },
+      "pointer_numeric_transport_reproduced": true,
+      "parsed_type": "Double",
+      "converted_long": "Long.MAX_VALUE",
+      "opaque_u32_ids_roundtrip_exact": true,
+      "private_device_pointer_read": false
+    },
+    "real_model_host_c_abi_smoke": {
+      "scope": "Windows_C_ABI_port_control_NOT_ANDROID_NOT_PHYSICAL",
+      "runtime_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+      "rust_version": "1.91.0",
+      "target_cpu": "default_portable_x86_64; Pass4 used x86-64-v3",
+      "profile": "release_thin_lto",
+      "library_sha256": "82643c5346ab036546011705025a66f21eafe1df686e73ac86f88e556f0cc596",
+      "offline_observations": {
+        "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+        "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+      },
+      "post_tripwire_events": [],
+      "results": [
+        {
+          "case_id": "text-en01",
+          "text": "Puedo recogerte despuÃ©s del trabajo, pero no puedo quedarme a cenar.",
+          "completed": true,
+          "matches_pass4": true,
+          "translation_checkpoints": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "case_id": "text-es01",
+          "text": "I can take you after work, but I can't stay for dinner today.",
+          "completed": true,
+          "matches_pass4": true,
+          "translation_checkpoints": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ]
+        }
+      ],
+      "opaque_handle_kind": "opaque-id-v1",
+      "invalid_handles_rejected": true,
+      "closed_handle_rejected": true,
+      "checkpoint_failure_aborts_inference": true
+    },
+    "native_packaging": "PASS: actual ARM64, dependency/export closure, API26 strong imports, 16 KiB ELF/ZIP alignment",
+    "update_identity_and_signer": "VERIFIED: same app ID/certificate, versionCode 6",
+    "model_pack_contract": "PASS: byte-identical to v5, metadata verified; no weights changed or redownloaded",
+    "root_spotless_check": "PASS",
+    "git_diff_check": "PASS",
+    "physical_v6_translation_full_pipeline_human_and_offline_proof": "AWAITING_S25_RUN",
+    "final_pass5_commit_and_remote_ci": "PENDING_AVAILABLE_PHYSICAL_HUMAN_TRIALS",
+    "jni_descriptors": "VERIFIED: t5Run(J,String,TranslationProgress)->String and callback onStage(I)->V match native declarations"
+  },
+  "apk": {
+    "file": "CommonTongue-Pass5-S25-Translation-Fix-Update.apk",
+    "bytes": 45137682,
+    "sha256": "ec31949f289f7756abcd2995030a2788f6e2cc2edf5b40fc0e13b091c74f7039",
+    "application_id": "com.commontongue.spike.device",
+    "version_code": 6,
+    "version_name": "0.0.6-pass5-research"
+  },
+  "update_compatibility": {
+    "previous_apk_sha256": "6c4f1d60589eb6d842ba5f98f12e8fe2b2bc5458578e1d4a1fd0051563130229",
+    "signing_certificate_sha256": "129bb8734d002798d508b78621270cf6fdb3b0c91e0f4759bf70ccf8798001fb",
+    "same_signer_as_previous_apk": true,
+    "pack_contract_byte_identical": true,
+    "native_libraries_byte_identical": false,
+    "install_as_update": true,
+    "uninstall_or_clear_data_required": false,
+    "pack_download_or_import_required_for_existing_tester": false,
+    "native_libraries_byte_identical_by_name": {
+      "libdevice_trial.so": false,
+      "libonnxruntime.so": true,
+      "libonnxruntime4j_jni.so": true,
+      "libtrial_t5.so": false
+    }
+  },
+  "requirements": {
+    "android_api": 26,
+    "abi": "arm64-v8a",
+    "translator": "MADLAD400-3B-MT Q4_K",
+    "candle_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+    "asr": "Whisper Base Q5_1",
+    "runtimes": {
+      "candle": "0.11.0; CPU; four threads",
+      "whisper_cpp": "v1.9.5; d1be6fde11ac6e0407606b4e42fe72d34add8037; CPU; four threads",
+      "onnx_runtime_android": "1.30.0; OPUS control only",
+      "sentencepiece": "0.2.2; e0cce7d37b065b5140349dbe12c6bcf6192fdd78",
+      "tts": "Installed Android default engine; EN/ES voices must report requires_network=false. Optional separate eSpeak NG 1.52.0, 4870adfa25b1a32b4361592f1be8a40337c58d6c"
+    },
+    "model_assets_bytes": 1995269155,
+    "no_model_weights_in_apk": true
+  },
+  "existing_test_pack": {
+    "file": "CommonTongue-Pass5-Test-Pack.zip",
+    "bytes": 1997338704,
+    "sha256": "11965738b6441df79122d214f164f7f3dbe9c9a6680e8ac65a22a44cba7a6a23",
+    "pack_id": "common-tongue-pass5-v1",
+    "manifest_sha256": "8b4af0bbac8ac897dd8442ba6a4d99b3efe1c33b8460a4383906f7cb1c452318",
+    "download_url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/CommonTongue-Pass5-Test-Pack.zip"
+  },
+  "apk_audit": {
+    "schema_version": 2,
+    "apk_bytes": 45137682,
+    "apk_sha256": "ec31949f289f7756abcd2995030a2788f6e2cc2edf5b40fc0e13b091c74f7039",
+    "permissions": [
+      "android.permission.RECORD_AUDIO"
+    ],
+    "packaged_model_weights": false,
+    "abi": "arm64-v8a",
+    "dependency_closure_verified": true,
+    "jni_and_rust_exports_verified": true,
+    "native_libraries": [
+      {
+        "file": "lib/arm64-v8a/libdevice_trial.so",
+        "bytes": 4622120,
+        "sha256": "a6b67da7a64898ea203dd8bee396faa0f6c3662ca8904a3ef8ea4b48cc0f8f0b",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libtrial_t5.so",
+          "libandroid.so",
+          "liblog.so",
+          "libm.so",
+          "libdl.so",
+          "libc.so"
+        ],
+        "soname": "libdevice_trial.so",
+        "required_exports_verified": [
+          "Java_com_commontongue_spike_device_Native_asrClose",
+          "Java_com_commontongue_spike_device_Native_asrCreate",
+          "Java_com_commontongue_spike_device_Native_asrRun",
+          "Java_com_commontongue_spike_device_Native_buildInfo",
+          "Java_com_commontongue_spike_device_Native_decode",
+          "Java_com_commontongue_spike_device_Native_encode",
+          "Java_com_commontongue_spike_device_Native_t5Close",
+          "Java_com_commontongue_spike_device_Native_t5Load",
+          "Java_com_commontongue_spike_device_Native_t5Run",
+          "Java_com_commontongue_spike_device_Native_tokenizerClose",
+          "Java_com_commontongue_spike_device_Native_tokenizerCreate"
+        ]
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime.so",
+        "bytes": 32990472,
+        "sha256": "f325094bdf70c81198747e391d830fcf39dd881a6e916e3d6dd32506b6f9d1e8",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libdl.so",
+          "liblog.so",
+          "libandroid.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libonnxruntime.so",
+        "required_exports_verified": []
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime4j_jni.so",
+        "bytes": 83224,
+        "sha256": "401daceca368835065ca6f3eeada2e9a659b5068adad981db600de527e7c6dd7",
+        "elf_load_alignments": [
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libonnxruntime.so",
+          "libm.so",
+          "libdl.so",
+          "libc.so"
+        ],
+        "soname": null,
+        "required_exports_verified": []
+      },
+      {
+        "file": "lib/arm64-v8a/libtrial_t5.so",
+        "bytes": 5710792,
+        "sha256": "d1b9e7ef518089346e694931ee566e7c2f32e799396989041422f63fbf32e137",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libdl.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libtrial_t5.so",
+        "required_exports_verified": [
+          "trial_t5_close",
+          "trial_t5_load",
+          "trial_t5_run",
+          "trial_t5_string_free"
+        ]
+      }
+    ]
+  },
+  "compatibility_audit": {
+    "pack_contract_byte_identical_to_v5": true,
+    "native_libraries_byte_identical_to_v5": {
+      "libdevice_trial.so": false,
+      "libonnxruntime.so": true,
+      "libonnxruntime4j_jni.so": true,
+      "libtrial_t5.so": false
+    },
+    "research_jvm_tests": {
+      "tests": 35,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "strong_imports_against_packaged_libraries_and_api26_ndk": [
+      {
+        "library": "libdevice_trial.so",
+        "strong_imports": 249,
+        "unresolved_strong_imports": 0
+      },
+      {
+        "library": "libonnxruntime.so",
+        "strong_imports": 267,
+        "unresolved_strong_imports": 0
+      },
+      {
+        "library": "libonnxruntime4j_jni.so",
+        "strong_imports": 13,
+        "unresolved_strong_imports": 0
+      },
+      {
+        "library": "libtrial_t5.so",
+        "strong_imports": 67,
+        "unresolved_strong_imports": 0
+      }
+    ]
+  },
+  "publication": {
+    "release_url": "https://github.com/Revty79/CommonTongue/releases/tag/pass5-s25-translation-fix-2026-10-08",
+    "tag": "pass5-s25-translation-fix-2026-10-08",
+    "draft": false,
+    "research_prerelease": true,
+    "make_latest_false_requested": true,
+    "published_at": "2026-10-08T23:36:30Z",
+    "github_asset_digests_and_bytes_match": true,
+    "anonymous_apk_download_status": 200,
+    "anonymous_apk_download_bytes": 45137682,
+    "anonymous_apk_download_sha256": "ec31949f289f7756abcd2995030a2788f6e2cc2edf5b40fc0e13b091c74f7039",
+    "model_pack_uploaded_or_changed": false,
+    "apk_models_or_source_zip_committed": false
+  },
+  "pending_physical_evidence": [
+    "v6 MADLAD-only successful translation",
+    "v6 full prerecorded ASR/translation/TTS",
+    "microphone/offline proof",
+    "human bilingual conversation/sustained/lifecycle trials"
+  ],
+  "final_pass5_commit_and_remote_ci": "PENDING_AVAILABLE_PHYSICAL_HUMAN_TRIALS",
+  "published_assets": [
+    {
+      "file": "APK-audit.json",
+      "bytes": 3075,
+      "sha256": "9a879e35b77d234ea919d5ba73f5c127291e1e9cc9a245361296c3b4a8ecdc5c",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-translation-fix-2026-10-08/APK-audit.json"
+    },
+    {
+      "file": "CommonTongue-Pass5-S25-Translation-Fix-Update.apk",
+      "bytes": 45137682,
+      "sha256": "ec31949f289f7756abcd2995030a2788f6e2cc2edf5b40fc0e13b091c74f7039",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-translation-fix-2026-10-08/CommonTongue-Pass5-S25-Translation-Fix-Update.apk"
+    },
+    {
+      "file": "Compatibility-audit.json",
+      "bytes": 866,
+      "sha256": "ca106e6c0e7e8ce25724d013c156caaec8dd57e5fafd55b8a920b52e76b397df",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-translation-fix-2026-10-08/Compatibility-audit.json"
+    },
+    {
+      "file": "S25-Translation-Fix-Details.json",
+      "bytes": 11306,
+      "sha256": "2db6cce0c40159b8984ae15b8471d75ed3b18ccff39eb67068cf66d953956cee",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-translation-fix-2026-10-08/S25-Translation-Fix-Details.json"
+    },
+    {
+      "file": "SHA256SUMS.txt",
+      "bytes": 468,
+      "sha256": "adb77200770c5cc685d1ade22af8a7f8646f6d7ca4e9dda91b6370ef0fd0be12",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-translation-fix-2026-10-08/SHA256SUMS.txt"
+    },
+    {
+      "file": "START-HERE.txt",
+      "bytes": 1435,
+      "sha256": "ba9fc1c1f46fb3e51ba84226e5a3e9cd9587cc4b9028c1ca120020e6db28b9ad",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-translation-fix-2026-10-08/START-HERE.txt"
+    }
+  ]
+}

@@ -2,3 +2,11 @@
 *.bat text eol=crlf
 *.jar binary
 *.png binary
+
+# Preserve copied notices/model cards and pinned asset inventories verbatim.
+spikes/physical-trial/src/main/assets/third-party/** -text -whitespace
+tools/device-trial/pack-notices/** -text -whitespace
+tools/device-trial/evidence/** -text whitespace=trailing-space,space-before-tab,cr-at-eol
+
+# Retain the tested research manifest, including its harmless final blank line.
+tools/device-trial/t5/Cargo.toml whitespace=-blank-at-eof

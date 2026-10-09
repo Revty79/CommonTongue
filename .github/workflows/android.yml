@@ -60,4 +60,6 @@ jobs:
         run: python3 -m unittest discover -s tools/offline-feasibility/tests -v
       - name: Check translation benchmark without models
         run: python3 -m unittest discover -s tools/translation-quality/tests -v
+      - name: Check physical trial tooling without devices or models
+        run: python3 -m unittest discover -s tools/device-trial/tests -v
       # Instrumentation remains local/manual in Pass 1; see README.md.

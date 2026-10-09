@@ -1,0 +1,148 @@
+{
+  "scope": "LOCAL_PREPARATION_NOT_PHYSICAL_NOT_FINAL_PUBLISHED_ARTIFACT",
+  "source_baseline": "c0ca3d8b013749556cade59037344b133f05b0f9",
+  "pass5_worktree_committed": false,
+  "validation": {
+    "foundation_gradle_tasks": [
+      "clean",
+      "test",
+      "lint",
+      "spotlessCheck",
+      "verifyCoreBoundaries",
+      ":app:verifyFoundationManifest",
+      "assembleDebug",
+      ":app:assembleDebugAndroidTest"
+    ],
+    "foundation_gradle_result": "BUILD_SUCCESSFUL",
+    "jvm_tests": 101,
+    "pass2_research_tests": 6,
+    "pass4_research_tests": 42,
+    "pass5_research_tests": 39,
+    "test_failures": 0,
+    "research_gradle_tasks": [
+      "testDebugUnitTest",
+      "assembleDebug",
+      "verifyResearchManifest",
+      "lint"
+    ],
+    "research_gradle_result": "BUILD_SUCCESSFUL",
+    "windows_setup_argument_and_path_smoke": "PASS_NO_DEVICE_OR_DOWNLOAD",
+    "actionlint_version": "1.7.12",
+    "workflow_syntax": "PASS; ShellCheck unavailable and disabled",
+    "physical_device_tests": "NOT_STARTED",
+    "human_trials": "NOT_STARTED",
+    "remote_actions_result": "NOT_RUN",
+    "local_import_jvm_tests": 13,
+    "total_tests": 201
+  },
+  "prepared_artifacts": {
+    "apk": {
+      "file": "CommonTongue-Pass5-Research.apk",
+      "bytes": 45082137,
+      "sha256": "528ab2bc4c537dbdbff40f2fb2b4e057e87881e1acc0e9d8a8ee6cd02f6907c5"
+    },
+    "setup_zip": {
+      "file": "CommonTongue-Pass5-Test-Setup.zip",
+      "bytes": 20127447,
+      "sha256": "f840118b400e2465b6fa77b894d9b2fe71843271f636c53c5988ad2299b6ab2e"
+    },
+    "test_pack": {
+      "file": "CommonTongue-Pass5-Test-Pack.zip",
+      "bytes": 1997338704,
+      "sha256": "11965738b6441df79122d214f164f7f3dbe9c9a6680e8ac65a22a44cba7a6a23",
+      "pack_id": "common-tongue-pass5-v1"
+    },
+    "requirements": {
+      "android_api": 26,
+      "abi": "arm64-v8a",
+      "translator": "MADLAD400-3B-MT Q4_K",
+      "candle_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+      "asr": "Whisper Base Q5_1",
+      "runtimes": {
+        "candle": "0.11.0; CPU; four threads",
+        "whisper_cpp": "v1.9.5; d1be6fde11ac6e0407606b4e42fe72d34add8037; CPU; four threads",
+        "onnx_runtime_android": "1.30.0; OPUS control only",
+        "sentencepiece": "0.2.2; e0cce7d37b065b5140349dbe12c6bcf6192fdd78",
+        "tts": "Installed Android default engine; EN/ES voices must report requires_network=false. Optional separate eSpeak NG 1.52.0, 4870adfa25b1a32b4361592f1be8a40337c58d6c"
+      },
+      "no_model_weights_in_apk_or_zip": true,
+      "model_assets_bytes": 1995269155
+    }
+  },
+  "apk_audit": {
+    "schema_version": 1,
+    "apk_bytes": 45082137,
+    "apk_sha256": "528ab2bc4c537dbdbff40f2fb2b4e057e87881e1acc0e9d8a8ee6cd02f6907c5",
+    "permissions": [
+      "android.permission.RECORD_AUDIO"
+    ],
+    "packaged_model_weights": false,
+    "abi": "arm64-v8a",
+    "native_libraries": [
+      {
+        "file": "lib/arm64-v8a/libdevice_trial.so",
+        "bytes": 4621184,
+        "sha256": "658bc55a6d95ee8ff763ddab224ebdda0ebb1a6fb85bd8935eb35e9d188b5039",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime.so",
+        "bytes": 32990472,
+        "sha256": "f325094bdf70c81198747e391d830fcf39dd881a6e916e3d6dd32506b6f9d1e8",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime4j_jni.so",
+        "bytes": 83224,
+        "sha256": "401daceca368835065ca6f3eeada2e9a659b5068adad981db600de527e7c6dd7",
+        "elf_load_alignments": [
+          16384,
+          16384
+        ],
+        "zip_compressed": false
+      },
+      {
+        "file": "lib/arm64-v8a/libtrial_t5.so",
+        "bytes": 5698816,
+        "sha256": "42065d90b0638790e7e2d99669be2003a74aa8e124092ff010c01d98fbbfec5d",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false
+      }
+    ]
+  },
+  "setup_zip_audit": {
+    "model_weights_in_zip": false,
+    "cache_in_zip": false,
+    "synthetic_wav_count": 14,
+    "fixture_hashes_verified": true
+  },
+  "desktop_port_control": {
+    "completed_cases": 14,
+    "exact_pass4_matches": 13,
+    "divergence_case": "text-es04",
+    "scope": "Windows_C_ABI_port_control_NOT_ANDROID_NOT_PHYSICAL"
+  },
+  "local_import_pack_audit": {
+    "file": "CommonTongue-Pass5-Test-Pack.zip",
+    "bytes": 1997338704,
+    "sha256": "11965738b6441df79122d214f164f7f3dbe9c9a6680e8ac65a22a44cba7a6a23",
+    "all_payload_hashes_verified": true,
+    "one_file_below_github_2_gib": true,
+    "physical_import_result": "NOT_TESTED"
+  }
+}

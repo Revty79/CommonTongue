@@ -1,0 +1,74 @@
+name: Pass 5 research APK and tester setup
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  research-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Set up JDK 17
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Set up Gradle and validate wrapper
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-provider: basic
+      - name: Prepare pinned native source archives and connection tools
+        run: python3 tools/device-trial/prepare-build.py
+      - name: Install free Android build tools
+        run: |
+          sdkmanager_path="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          if [ ! -x "$sdkmanager_path" ]; then
+            sdkmanager_path="$(find "$ANDROID_HOME/cmdline-tools" -path '*/bin/sdkmanager' -type f | sort | head -n 1)"
+          fi
+          test -x "$sdkmanager_path"
+          "$sdkmanager_path" --sdk_root="$ANDROID_HOME" "platforms;android-36" "build-tools;36.0.0" "ndk;27.1.12297006" "cmake;3.22.1"
+          rustup toolchain install 1.91.0 --profile minimal --target aarch64-linux-android
+      - name: Compile pinned Candle CPU runtime for ARM64
+        run: |
+          ndk_bin="$ANDROID_HOME/ndk/27.1.12297006/toolchains/llvm/prebuilt/linux-x86_64/bin"
+          export CARGO_TARGET_DIR="$GITHUB_WORKSPACE/.local/device/t5-build"
+          export CARGO_TARGET_AARCH64_LINUX_ANDROID_LINKER="$ndk_bin/aarch64-linux-android26-clang"
+          export CC_aarch64_linux_android="$ndk_bin/aarch64-linux-android26-clang"
+          export AR_aarch64_linux_android="$ndk_bin/llvm-ar"
+          export RUSTFLAGS='-C link-arg=-Wl,-soname,libtrial_t5.so -C link-arg=-Wl,-z,max-page-size=16384 -C link-arg=-Wl,-z,common-page-size=16384'
+          cargo +1.91.0 fetch --locked --manifest-path tools/device-trial/t5/Cargo.toml --target aarch64-linux-android
+          cargo +1.91.0 build --offline --locked --release --manifest-path tools/device-trial/t5/Cargo.toml --target aarch64-linux-android
+          mkdir -p .local/device/native/arm64-v8a
+          cp .local/device/t5-build/aarch64-linux-android/release/libtrial_t5.so .local/device/native/arm64-v8a/
+      - name: Build and inspect research APK
+        run: |
+          ./gradlew -p spikes/physical-trial --no-daemon --console=plain testDebugUnitTest assembleDebug verifyResearchManifest lint
+          python3 tools/device-trial/verify-apk.py --apk spikes/physical-trial/build/outputs/apk/debug/physical-device-trial-debug.apk --merged-manifest spikes/physical-trial/build/intermediates/merged_manifest/debug/processDebugMainManifest/AndroidManifest.xml --output .local/device/apk-audit.json
+      - name: Package one-click Windows setup without model weights
+        run: |
+          python3 -m unittest discover -s tools/device-trial/tests -v
+          python3 tools/device-trial/test-pack.py --verify-contract
+          python3 tools/device-trial/package.py --apk spikes/physical-trial/build/outputs/apk/debug/physical-device-trial-debug.apk --platform-tools-archive .local/device/setup-assets/platform-tools-windows.zip --output .local/device/artifacts
+          cp .local/device/apk-audit.json .local/device/artifacts/
+          git rev-parse HEAD > .local/device/artifacts/COMMIT.txt
+      - name: Upload research APK, setup ZIP and checksums
+        uses: actions/upload-artifact@v7
+        with:
+          name: CommonTongue-Pass5-Research-${{ github.sha }}
+          path: |
+            .local/device/artifacts/CommonTongue-Pass5-Research.apk
+            .local/device/artifacts/CommonTongue-Pass5-Test-Setup.zip
+            .local/device/artifacts/build-artifacts.json
+            .local/device/artifacts/test-pack-details.json
+            .local/device/artifacts/PHONE-SETUP.md
+            .local/device/artifacts/apk-audit.json
+            .local/device/artifacts/COMMIT.txt
+          retention-days: 30
+          if-no-files-found: error

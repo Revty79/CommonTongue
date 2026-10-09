@@ -1,0 +1,21 @@
+[package]
+name = "common-tongue-device-t5"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "trial_t5"
+crate-type = ["cdylib"]
+
+[dependencies]
+anyhow = "1"
+serde_json = "1"
+tokenizers = { version = "=0.22.2", default-features = false, features = ["onig"] }
+candle = { package = "candle-core", path = "../../../.local/quality/candle-runtime-source/candle-31f35b147389700ed2a178ee66a91c3cc25cc80d/candle-core" }
+candle-transformers = { path = "../../../.local/quality/candle-runtime-source/candle-31f35b147389700ed2a178ee66a91c3cc25cc80d/candle-transformers" }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+

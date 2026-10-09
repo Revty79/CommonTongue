@@ -1,0 +1,1615 @@
+{
+  "schema_version": 1,
+  "scope": "PASS_5_ACCEPTED_PHYSICAL_S25_V7_PROOF",
+  "acceptance_authority": "USER_EXPLICIT_CLOSEOUT_AND_REVIEWED_V7_EXPORT_SUMMARY",
+  "evidence_provenance": {
+    "kind": "USER_REVIEWED_V7_EXPORT_SUMMARY",
+    "instruction_document_sha256": "cb68424f24610592e4d436e4bf1a688a4a63cb6c4132255561950081754424ad",
+    "raw_v7_export_independently_parsed_during_closeout": false,
+    "new_automated_physical_run_performed": false,
+    "older_raw_v3_v6_exports_not_reattributed_to_v7": true,
+    "human_audio_or_text_or_private_identifiers_included": false
+  },
+  "app_version": "0.0.7-pass5-research",
+  "device_label": "device-high-01",
+  "physical_configuration": {
+    "device": "Galaxy S25",
+    "android_version": 16,
+    "api": 36,
+    "execution_abi": "arm64-v8a",
+    "translator": "MADLAD400-3B-MT Q4_K",
+    "asr": "Whisper Base Q5_1",
+    "tts_engine": "com.google.android.tts",
+    "tts_engine_hard_coded": false,
+    "locales": [
+      "en-US",
+      "es-US"
+    ],
+    "selected_voice_ids": null,
+    "engine_version": null,
+    "requires_network": false,
+    "voice_assets_bundled_copied_or_redistributed": false,
+    "speech_output_route": "synthesize-to-file -> PCM16 WAV -> AudioTrack",
+    "radio_states_in_reviewed_summary": "NOT_SUPPLIED; no separate airplane-mode run inferred"
+  },
+  "accepted_checks": {
+    "private_pack_intact_and_persistent": true,
+    "whisper_load_and_inference": "PASS",
+    "madlad_load_and_inference": "PASS",
+    "tts_initialization": "PASS",
+    "english_direct_speech": "PASS",
+    "spanish_direct_speech": "PASS",
+    "english_file_synthesis_playback": "PASS",
+    "spanish_file_synthesis_playback": "PASS",
+    "microphone_en_es": "TTS_COMPLETE",
+    "microphone_es_en": "TTS_COMPLETE",
+    "prerecorded_full_pipeline": "PASS_TTS_COMPLETE",
+    "playback_start_evidence": "ACTUAL_AUDIOTRACK_ADVANCEMENT",
+    "current_tts_failure": "NONE_REPORTED_IN_ACCEPTED_V7_REVIEW",
+    "internet_permission": false
+  },
+  "first_post_load_human_en_es_observation": {
+    "asr_ms_approx": 1758,
+    "translation_ms_approx": 1920,
+    "release_to_playback_evidence_ms_approx": 4665,
+    "source_kind": "human_microphone",
+    "first_after_model_load": true,
+    "observation_count_for_reported_timing": 1,
+    "warm_distribution_or_calibrated_acoustic_measurement": false
+  },
+  "user_voice_assessment": "Somewhat robotic but sufficiently natural; no blinded quality percentage inferred",
+  "apk": {
+    "file": "CommonTongue-Pass5-S25-TTS-Diagnostic-Update.apk",
+    "bytes": 45272440,
+    "sha256": "3eb9bdd9329737666510047c8238007b9a44441424f0fd516aed34a01b2b72d0",
+    "application_id": "com.commontongue.spike.device",
+    "version_code": 7,
+    "version_name": "0.0.7-pass5-research"
+  },
+  "update_compatibility": {
+    "previous_apk_sha256": "ec31949f289f7756abcd2995030a2788f6e2cc2edf5b40fc0e13b091c74f7039",
+    "signing_certificate_sha256": "129bb8734d002798d508b78621270cf6fdb3b0c91e0f4759bf70ccf8798001fb",
+    "same_signer_as_previous_apk": true,
+    "pack_contract_byte_identical": true,
+    "native_libraries_byte_identical": true,
+    "native_libraries_byte_identical_by_name": {
+      "libdevice_trial.so": true,
+      "libonnxruntime.so": true,
+      "libonnxruntime4j_jni.so": true,
+      "libtrial_t5.so": true
+    },
+    "install_as_update": true,
+    "uninstall_or_clear_data_required": false,
+    "pack_download_or_import_required_for_existing_tester": false
+  },
+  "existing_test_pack": {
+    "file": "CommonTongue-Pass5-Test-Pack.zip",
+    "bytes": 1997338704,
+    "sha256": "11965738b6441df79122d214f164f7f3dbe9c9a6680e8ac65a22a44cba7a6a23",
+    "pack_id": "common-tongue-pass5-v1",
+    "manifest_sha256": "8b4af0bbac8ac897dd8442ba6a4d99b3efe1c33b8460a4383906f7cb1c452318",
+    "download_url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/CommonTongue-Pass5-Test-Pack.zip"
+  },
+  "requirements": {
+    "android_api": 26,
+    "abi": "arm64-v8a",
+    "translator": "MADLAD400-3B-MT Q4_K",
+    "candle_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+    "asr": "Whisper Base Q5_1",
+    "runtimes": {
+      "candle": "0.11.0; CPU; four threads",
+      "whisper_cpp": "v1.9.5; d1be6fde11ac6e0407606b4e42fe72d34add8037; CPU; four threads",
+      "onnx_runtime_android": "1.30.0; OPUS control only",
+      "sentencepiece": "0.2.2; e0cce7d37b065b5140349dbe12c6bcf6192fdd78",
+      "tts": "Installed Android default engine; EN/ES voices must report requires_network=false. Optional separate eSpeak NG 1.52.0, 4870adfa25b1a32b4361592f1be8a40337c58d6c"
+    },
+    "model_assets_bytes": 1995269155,
+    "no_model_weights_in_apk": true
+  },
+  "selected_model_files": [
+    {
+      "path": "models/madlad/config.json",
+      "bytes": 749,
+      "sha256": "cad399cab799b99409a6ec2d90d72552257c2bb752861261d2016691e0643e7c",
+      "revision": "fa184c675da0b5c9e1c8694fccd4e12e2d422094"
+    },
+    {
+      "path": "models/madlad/model-q4k.gguf",
+      "bytes": 1654597280,
+      "sha256": "ea6e5531a3e95213c7f0635988d119e078a655c09306e47851e15d4c0c3f9c37",
+      "revision": "fa184c675da0b5c9e1c8694fccd4e12e2d422094"
+    },
+    {
+      "path": "models/madlad/tokenizer.json",
+      "bytes": 16629031,
+      "sha256": "a2799ccc696b752ba00c34f58726bfe253a04921ceb6cfc620400f560474790b",
+      "revision": "fa184c675da0b5c9e1c8694fccd4e12e2d422094"
+    },
+    {
+      "path": "models/whisper/ggml-base-q5_1.bin",
+      "bytes": 59707625,
+      "sha256": "422f1ae452ade6f30a004d7e5c6a43195e4433bc370bf23fac9cc591f01a8898",
+      "revision": "5359861c739e955e79d9a303bcbc70fb988958b1"
+    }
+  ],
+  "apk_audit": {
+    "schema_version": 2,
+    "apk_bytes": 45272440,
+    "apk_sha256": "3eb9bdd9329737666510047c8238007b9a44441424f0fd516aed34a01b2b72d0",
+    "permissions": [
+      "android.permission.RECORD_AUDIO"
+    ],
+    "packaged_model_weights": false,
+    "abi": "arm64-v8a",
+    "dependency_closure_verified": true,
+    "jni_and_rust_exports_verified": true,
+    "native_libraries": [
+      {
+        "file": "lib/arm64-v8a/libdevice_trial.so",
+        "bytes": 4622120,
+        "sha256": "a6b67da7a64898ea203dd8bee396faa0f6c3662ca8904a3ef8ea4b48cc0f8f0b",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libtrial_t5.so",
+          "libandroid.so",
+          "liblog.so",
+          "libm.so",
+          "libdl.so",
+          "libc.so"
+        ],
+        "soname": "libdevice_trial.so",
+        "required_exports_verified": [
+          "Java_com_commontongue_spike_device_Native_asrClose",
+          "Java_com_commontongue_spike_device_Native_asrCreate",
+          "Java_com_commontongue_spike_device_Native_asrRun",
+          "Java_com_commontongue_spike_device_Native_buildInfo",
+          "Java_com_commontongue_spike_device_Native_decode",
+          "Java_com_commontongue_spike_device_Native_encode",
+          "Java_com_commontongue_spike_device_Native_t5Close",
+          "Java_com_commontongue_spike_device_Native_t5Load",
+          "Java_com_commontongue_spike_device_Native_t5Run",
+          "Java_com_commontongue_spike_device_Native_tokenizerClose",
+          "Java_com_commontongue_spike_device_Native_tokenizerCreate"
+        ]
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime.so",
+        "bytes": 32990472,
+        "sha256": "f325094bdf70c81198747e391d830fcf39dd881a6e916e3d6dd32506b6f9d1e8",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libdl.so",
+          "liblog.so",
+          "libandroid.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libonnxruntime.so",
+        "required_exports_verified": []
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime4j_jni.so",
+        "bytes": 83224,
+        "sha256": "401daceca368835065ca6f3eeada2e9a659b5068adad981db600de527e7c6dd7",
+        "elf_load_alignments": [
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libonnxruntime.so",
+          "libm.so",
+          "libdl.so",
+          "libc.so"
+        ],
+        "soname": null,
+        "required_exports_verified": []
+      },
+      {
+        "file": "lib/arm64-v8a/libtrial_t5.so",
+        "bytes": 5710792,
+        "sha256": "d1b9e7ef518089346e694931ee566e7c2f32e799396989041422f63fbf32e137",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libdl.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libtrial_t5.so",
+        "required_exports_verified": [
+          "trial_t5_close",
+          "trial_t5_load",
+          "trial_t5_run",
+          "trial_t5_string_free"
+        ]
+      }
+    ]
+  },
+  "accepted_artifact_location": {
+    "release_url": "https://github.com/Revty79/CommonTongue/releases/tag/pass5-s25-tts-diagnostic-2026-10-08",
+    "apk_url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-tts-diagnostic-2026-10-08/CommonTongue-Pass5-S25-TTS-Diagnostic-Update.apk",
+    "github_asset_bytes_and_digest_match": true,
+    "existing_prerelease_retained": true,
+    "new_pass5_apk_built_for_closeout": false,
+    "prior_anonymous_full_download_verification": {
+      "release_url": "https://github.com/Revty79/CommonTongue/releases/tag/pass5-s25-tts-diagnostic-2026-10-08",
+      "tag": "pass5-s25-tts-diagnostic-2026-10-08",
+      "draft": false,
+      "research_prerelease": true,
+      "make_latest_false_requested": true,
+      "published_at": "2026-10-09T00:08:34Z",
+      "github_asset_digests_and_bytes_match": true,
+      "anonymous_apk_download_status": 200,
+      "anonymous_apk_download_bytes": 45272440,
+      "anonymous_apk_download_sha256": "3eb9bdd9329737666510047c8238007b9a44441424f0fd516aed34a01b2b72d0",
+      "model_pack_uploaded_or_changed": false,
+      "apk_models_or_source_zip_committed": false
+    }
+  },
+  "preserved_runtime_sources": [
+    {
+      "path": "app/build.gradle.kts",
+      "sha256": "13e2900738484f7b77a643818bf849bcb49c2c6c0132a9792f8d698095676d18"
+    },
+    {
+      "path": "app/src/androidTest/kotlin/com/commontongue/prototype/ui/foundation/FoundationScreenTest.kt",
+      "sha256": "8eadf075449ca58472e78b4f2c7232b6d9469a874cff1fed256e7996ba815b43"
+    },
+    {
+      "path": "app/src/debug/res/values/strings.xml",
+      "sha256": "887c3e7fcea353badaddcfc40f1112adcf9db9cc84241656d6085df3b6da35fb"
+    },
+    {
+      "path": "app/src/main/AndroidManifest.xml",
+      "sha256": "9f9a526fba102bede4d978f20c1b44083c5b753742cae40c04f0ced5dc913b4e"
+    },
+    {
+      "path": "app/src/main/kotlin/com/commontongue/prototype/platform/MainActivity.kt",
+      "sha256": "a0f1f4e5679441cef2202392f2789be169114db7b7eca8537ccff3f6d4aff932"
+    },
+    {
+      "path": "app/src/main/kotlin/com/commontongue/prototype/ui/foundation/FoundationScreen.kt",
+      "sha256": "bcc06de53e57d11830c266b2201c7387048b4ce2162cd0e7bf312f71c3c093cc"
+    },
+    {
+      "path": "app/src/main/kotlin/com/commontongue/prototype/ui/foundation/FoundationUiState.kt",
+      "sha256": "9316707ef53716113f843b3d99d0db1adce6aeb14a0e2f419b3b67dfb367c189"
+    },
+    {
+      "path": "app/src/main/kotlin/com/commontongue/prototype/ui/foundation/FoundationViewModel.kt",
+      "sha256": "1002511586bd8351c5f044a640eeaa14be7d23d4e76760f1a8fa164e38b678bb"
+    },
+    {
+      "path": "app/src/main/kotlin/com/commontongue/prototype/ui/theme/AppTheme.kt",
+      "sha256": "0bf17a53c2f7f3006eb5b2b36ff9e4f959acee63a901efb35b70be86964106f0"
+    },
+    {
+      "path": "app/src/main/res/values/strings.xml",
+      "sha256": "2adf6fd37d78549062fb21211a636ccef6d4c6cc2d4fb0d77e906c94dceb78e5"
+    },
+    {
+      "path": "app/src/main/res/values/themes.xml",
+      "sha256": "4345d86e5fcbde8d1ac6267c05c940b705ab25e27252842777b5bc94e64639eb"
+    },
+    {
+      "path": "app/src/main/res/values-night/themes.xml",
+      "sha256": "6b3f44c1f541b0eadf387ca87b24d6a0a24b8db7252504f275be8f5e0930c995"
+    },
+    {
+      "path": "app/src/main/res/xml/data_extraction_rules.xml",
+      "sha256": "88b6e2cc012edef4c9ee75932b042c96f431c4bb88f0fd52b7295d9fa2149707"
+    },
+    {
+      "path": "app/src/test/kotlin/com/commontongue/prototype/ui/foundation/FoundationViewModelTest.kt",
+      "sha256": "962c730041ffbcfb82b5f0f8f0a362fe60b858b7d8856f662a46dc65f7d99938"
+    },
+    {
+      "path": "core/domain/build.gradle.kts",
+      "sha256": "0ac9e8d0e43f688184880b2cc73d73662e4f35010a01a8a54a883243ac2a4a95"
+    },
+    {
+      "path": "core/domain/src/main/kotlin/com/commontongue/domain/DeviceQualityProfile.kt",
+      "sha256": "743924fa5c2179f1145db839ab7b173ce79f7009f2ea4b2c697b64c14a8c6ca8"
+    },
+    {
+      "path": "core/domain/src/main/kotlin/com/commontongue/domain/LanguageId.kt",
+      "sha256": "83fc81911fb1e9c43865b0cfd1b99893a6f3fb251c6fe37784c12923b6498e6f"
+    },
+    {
+      "path": "core/domain/src/main/kotlin/com/commontongue/domain/TranslationAvailability.kt",
+      "sha256": "814e3b720ef8acfa9b12a6a370ddb200a5c5310a82c927fbfe8362a2aff3f33a"
+    },
+    {
+      "path": "core/domain/src/main/kotlin/com/commontongue/domain/TranslationDirection.kt",
+      "sha256": "c7b8697cae1264b134e8049701327fa0a34a0a6eea342f3cabf959271215aa0a"
+    },
+    {
+      "path": "core/domain/src/test/kotlin/com/commontongue/domain/LanguageIdentityTest.kt",
+      "sha256": "cd5797f298fa92af699eda74a498524cda36cab52e6d697d0fe7a2f2fb7e3749"
+    },
+    {
+      "path": "core/domain/src/test/kotlin/com/commontongue/domain/TranslationAvailabilityTest.kt",
+      "sha256": "12bd8413a902a7b9a7e1eb09f9e807752356f0a61f00d5af0260f50154eb047a"
+    },
+    {
+      "path": "core/translation/build.gradle.kts",
+      "sha256": "f583b24387ffaabf0d5d11c98409589ea74b9319c192ec554ddf763961a34d32"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/AudioAndLanguage.kt",
+      "sha256": "0822ee8580a04db6a818d705aa7cccc41af8228af473238e3131bc68ac1e56f8"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/Capabilities.kt",
+      "sha256": "7ce500aede709131652a586ad22decfca43209f9272630af637ed231f8ecf77d"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/Context.kt",
+      "sha256": "e613c529f224345bb48cd4d700a58d763e95edcfbc5412f820e2a64c959e3d5e"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/ExactIntegerVerifier.kt",
+      "sha256": "16181612a23643cae1fc9de38753a2ec247cac67c7e76239e66510fcd7985267"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/Execution.kt",
+      "sha256": "74cc6187d7e4abc43fddbf2acef8cca0a8e01c62b0377a544a69d606b1279d7b"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/Results.kt",
+      "sha256": "01d15475030d3b60286d79e26ee1dbd76463c88d7f15d6d901cefcf456f4ac2c"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/Snapshots.kt",
+      "sha256": "d9914b1a3540b130b2a7b0bacdcafa53ea3ab05d5a65e1140c0cdc19173e3c53"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/TranslateTextUseCase.kt",
+      "sha256": "107b636453b2c2ebb95464fe37ac636f1122bfe2c166f0e60ed2b2cd7479d598"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/Translation.kt",
+      "sha256": "51cfa1cca21948bfd5e7da75bd5bd9e18ebe8d92748e3d32a662a00c77604104"
+    },
+    {
+      "path": "core/translation/src/main/kotlin/com/commontongue/translation/Verification.kt",
+      "sha256": "be585b0f1e4bb7e904a403891303218ccd8740c1b61f6ad2b0068a0fc9d962c8"
+    },
+    {
+      "path": "core/translation/src/test/kotlin/com/commontongue/translation/CancellationTest.kt",
+      "sha256": "9418e2b4405b2bbe61b97a38bd6edcd54c0516fcc9c114c8d56e70eb80c0e5e0"
+    },
+    {
+      "path": "core/translation/src/test/kotlin/com/commontongue/translation/ContractTypesTest.kt",
+      "sha256": "c9f11f73f46dcfba4012b98123274abafa032750566189f615c55e3b512615d3"
+    },
+    {
+      "path": "core/translation/src/test/kotlin/com/commontongue/translation/ExactIntegerVerifierTest.kt",
+      "sha256": "51fce9b71be076d4e65dec5754e6df60dbb364f5faa690d784844e3b5234b582"
+    },
+    {
+      "path": "core/translation/src/test/kotlin/com/commontongue/translation/Fixtures.kt",
+      "sha256": "803b72abcf687a4c77fb2cb9c25ce0a99dd20a81bbc9d766f86a60a526957b9a"
+    },
+    {
+      "path": "core/translation/src/test/kotlin/com/commontongue/translation/OfflineExecutionTest.kt",
+      "sha256": "40ed37e3c4c826cca18fc7f251a2bb889adc8d0d5574eb5057147d0fd87c26a0"
+    },
+    {
+      "path": "core/translation/src/test/kotlin/com/commontongue/translation/OtherCapabilitiesTest.kt",
+      "sha256": "edf91796edf1b6363eaff9e171cdd7c0f497581d0f294ef01a1f20704a65bc83"
+    },
+    {
+      "path": "core/translation/src/test/kotlin/com/commontongue/translation/RequestAndContextTest.kt",
+      "sha256": "1c919efe5d87a7ae988bb1f9e4f3ad06b58f7e76d0934f1ad120d74d6cbbb719"
+    },
+    {
+      "path": "core/translation/src/test/kotlin/com/commontongue/translation/TranslateTextUseCaseTest.kt",
+      "sha256": "9887eaad41a7d744a3af54598632b4659c5a2de00c4697e2c8fb180836199620"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/AndroidManifest.xml",
+      "sha256": "a21a99ccf72f7fe2d1291421c5705f6d4a682a6bb7bff687d514eaf775192205"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/test-pack-contract.json",
+      "sha256": "641dea222c83f68164c8c1eae647dc435a6caf34784b446a703a67bf97ae240e"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/Abseil-LICENSE.txt",
+      "sha256": "c79a7fea0e3cac04cd43f20e7b648e5a0ff8fa5344e644b0ee09ca1162b62747"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/Candle-LICENSE-APACHE.txt",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/Candle-LICENSE-MIT.txt",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/NOTICE-INVENTORY.json",
+      "sha256": "f60d204102db1227f7be3a0bc45d7b08c5b0373150a234481e4b5b7abfb155b0"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/ONNX-NOTICE-SOURCES.json",
+      "sha256": "c5ec5d3b89db073d6dd909a504f690e6360f6f09c977a63bc26209a2a4d6f637"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/ONNX-Runtime-LICENSE.txt",
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/ONNX-Runtime-ThirdPartyNotices.txt",
+      "sha256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/ahash-0.8.12/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/ahash-0.8.12/LICENSE-MIT",
+      "sha256": "0444c6991eead6822f7b9102e654448d51624431119546492e8b231db42c48bb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/aho-corasick-1.1.5/COPYING",
+      "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/aho-corasick-1.1.5/LICENSE-MIT",
+      "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/allocator-api2-0.2.21/LICENSE-APACHE",
+      "sha256": "20fe7b00e904ed690e3b9fd6073784d3fc428141dbd10b81c01fd143d0797f58"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/allocator-api2-0.2.21/LICENSE-MIT",
+      "sha256": "36516aefdc84c5d5a1e7485425913a22dbda69eb1930c5e84d6ae4972b5194b9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/anyhow-1.0.104/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/anyhow-1.0.104/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/autocfg-1.5.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/autocfg-1.5.1/LICENSE-MIT",
+      "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/base64-0.13.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/base64-0.13.1/LICENSE-MIT",
+      "sha256": "0dd882e53de11566d50f8e8e2d5a651bcf3fabee4987d70f306233cf39094ba7"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bit-set-0.8.0/LICENSE-APACHE",
+      "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bit-set-0.8.0/LICENSE-MIT",
+      "sha256": "f51ac2c59a222f7476ce507ca879960e2b64ea64bb2786eefdbeb7b0b538d1b7"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bit-vec-0.8.0/LICENSE-APACHE",
+      "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bit-vec-0.8.0/LICENSE-MIT",
+      "sha256": "f51ac2c59a222f7476ce507ca879960e2b64ea64bb2786eefdbeb7b0b538d1b7"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bitflags-2.13.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bitflags-2.13.2/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bytemuck-1.25.2/LICENSE-APACHE",
+      "sha256": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bytemuck-1.25.2/LICENSE-MIT",
+      "sha256": "9df9ba60a11af705f2e451b53762686e615d86f76b169cf075c3237730dbd7e2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bytemuck-1.25.2/LICENSE-ZLIB",
+      "sha256": "84b34dd7608f7fb9b17bd588a6bf392bf7de504e2716f024a77d89f1b145a151"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bytemuck_derive-1.12.1/LICENSE-APACHE",
+      "sha256": "e3ba223bb1423f0aad8c3dfce0fe3148db48926d41e6fbc3afbbf5ff9e1c89cb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bytemuck_derive-1.12.1/LICENSE-MIT",
+      "sha256": "9df9ba60a11af705f2e451b53762686e615d86f76b169cf075c3237730dbd7e2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/bytemuck_derive-1.12.1/LICENSE-ZLIB",
+      "sha256": "84b34dd7608f7fb9b17bd588a6bf392bf7de504e2716f024a77d89f1b145a151"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/byteorder-1.5.0/COPYING",
+      "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/byteorder-1.5.0/LICENSE-MIT",
+      "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/castaway-0.2.4/LICENSE",
+      "sha256": "f98e09091d5ae02b2f2ec1ead4f7f28c4c44d1cb98b078739ba67091637e170c"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/cc-1.6.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/cc-1.6.0/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/cfg-if-1.0.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/cfg-if-1.0.5/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/compact_str-0.9.1/LICENSE",
+      "sha256": "0d52feec79589df30138dad3800323fe5686b764b73347330a2dfef8ac83efe8"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/crc32fast-1.5.2/LICENSE-APACHE",
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/crc32fast-1.5.2/LICENSE-MIT",
+      "sha256": "61d383b05b87d78f94d2937e2580cce47226d17823c0430fbcad09596537efcf"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/crossbeam-deque-0.8.8/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/crossbeam-deque-0.8.8/LICENSE-MIT",
+      "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/crossbeam-epoch-0.9.21/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/crossbeam-epoch-0.9.21/LICENSE-MIT",
+      "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/crossbeam-utils-0.8.23/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/crossbeam-utils-0.8.23/LICENSE-MIT",
+      "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/darling-0.20.11/LICENSE",
+      "sha256": "8ea93490d74a5a1b1af3ff71d786271b3f1e5f0bea79ac16e02ec533cef040d6"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/darling_core-0.20.11/LICENSE",
+      "sha256": "8ea93490d74a5a1b1af3ff71d786271b3f1e5f0bea79ac16e02ec533cef040d6"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/darling_macro-0.20.11/LICENSE",
+      "sha256": "8ea93490d74a5a1b1af3ff71d786271b3f1e5f0bea79ac16e02ec533cef040d6"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/dary_heap-0.3.9/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/dary_heap-0.3.9/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/derive_builder-0.20.2/LICENSE-APACHE",
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/derive_builder-0.20.2/LICENSE-MIT",
+      "sha256": "8c9612877aacfa1b42f5e80b679e6c3c93a7ba2bb99dfaf6e87e200dca4b4e6c"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/derive_builder_core-0.20.2/LICENSE-APACHE",
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/derive_builder_core-0.20.2/LICENSE-MIT",
+      "sha256": "8c9612877aacfa1b42f5e80b679e6c3c93a7ba2bb99dfaf6e87e200dca4b4e6c"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/derive_builder_macro-0.20.2/LICENSE-APACHE",
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/derive_builder_macro-0.20.2/LICENSE-MIT",
+      "sha256": "8c9612877aacfa1b42f5e80b679e6c3c93a7ba2bb99dfaf6e87e200dca4b4e6c"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/dyn-stack-0.13.2/LICENSE",
+      "sha256": "bf5a93d1014429b43e01c57d45bea928748fbf37d059306145a1a0a91aec2014"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/dyn-stack-macros-0.1.3/LICENSE",
+      "sha256": "4263a9907c8e8d799f714d5cf2ec18663772f09e7eef3eeaaab074ea29ee1358"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/either-1.19.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/either-1.19.0/LICENSE-MIT",
+      "sha256": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/equivalent-1.0.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/equivalent-1.0.2/LICENSE-MIT",
+      "sha256": "7365cc8878a1d7ce155a58c4ca09c3d7a6be413efa5334a80ea842912b669349"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/errno-0.3.14/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/errno-0.3.14/LICENSE-MIT",
+      "sha256": "8764a597675778ddfd4e25f81b08a05dbcf089ac05662df7613fe67f150e3aa2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/esaxx-rs-0.1.10/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/fancy-regex-0.18.0/LICENSE",
+      "sha256": "3bc70e239e91272782006c638fc0452a714d384224f11f0923036b7be07cf9b5"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/fastrand-2.5.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/fastrand-2.5.0/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/find-msvc-tools-0.1.14/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/find-msvc-tools-0.1.14/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/float8-0.7.0/LICENSE",
+      "sha256": "b40bb09c7b3b6f697a8920cf9d2cb3ff8cfcf77a0fcb6d264a92842b43c4dcae"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/fnv-1.0.7/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/fnv-1.0.7/LICENSE-MIT",
+      "sha256": "65fdb6c76cd61612070c066eec9ecdb30ee74fb27859d0d9af58b9f499fd0c3e"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/foldhash-0.2.0/LICENSE",
+      "sha256": "b1181a40b2a7b25cf66fd01481713bc1005df082c53ef73e851e55071b102744"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/gemm-0.19.0/LICENSE",
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/gemm-c32-0.19.0/LICENSE",
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/gemm-c64-0.19.0/LICENSE",
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/gemm-common-0.19.0/LICENSE",
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/gemm-f16-0.19.0/LICENSE",
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/gemm-f32-0.19.0/LICENSE",
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/gemm-f64-0.19.0/LICENSE",
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/getrandom-0.3.4/LICENSE-APACHE",
+      "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/getrandom-0.3.4/LICENSE-MIT",
+      "sha256": "29e9fe5074bd27e0e5d5d110394fbbcd841baee2651a3c4b4560a632702cede4"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/getrandom-0.4.3/LICENSE-APACHE",
+      "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/getrandom-0.4.3/LICENSE-MIT",
+      "sha256": "523a42c25d245dde9c015f882cec7f4555aad883382a6cf19b4b7d9b2cd5419b"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/half-2.7.1/LICENSE-APACHE",
+      "sha256": "a6cba85bc92e0cff7a450b1d873c0eaa2e9fc96bf472df0247a26bec77bf3ff9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/half-2.7.1/LICENSE-MIT",
+      "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/hashbrown-0.16.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/hashbrown-0.16.1/LICENSE-MIT",
+      "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/hashbrown-0.17.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/hashbrown-0.17.1/LICENSE-MIT",
+      "sha256": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/ident_case-1.0.1/LICENSE",
+      "sha256": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/indexmap-2.14.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/indexmap-2.14.2/LICENSE-MIT",
+      "sha256": "ecc269ef87fd38a1d98e30bfac9ba964a9dbd9315c3770fed98d4d7cb5882055"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/itertools-0.14.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/itertools-0.14.0/LICENSE-MIT",
+      "sha256": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/itoa-1.0.18/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/itoa-1.0.18/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/libc-0.2.190/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/libc-0.2.190/LICENSE-MIT",
+      "sha256": "123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/libm-0.2.16/LICENSE.txt",
+      "sha256": "3823dda7cf046602f4b4e77ec8e227863dc4736037cc85bb33d9f19febe16bb7"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/linux-raw-sys-0.12.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/linux-raw-sys-0.12.1/LICENSE-Apache-2.0_WITH_LLVM-exception",
+      "sha256": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/linux-raw-sys-0.12.1/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/log-0.4.34/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/log-0.4.34/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/macro_rules_attribute-0.2.3/LICENSE-APACHE",
+      "sha256": "388e98b08de12ba8a9d4575883c8b0386c747cea188ed459380fc58d60da15c9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/macro_rules_attribute-0.2.3/LICENSE-MIT",
+      "sha256": "603fb27ef3266ea516872eefd9ae587746b8c34614a35c0fb24e4e9e0c17e137"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/macro_rules_attribute-0.2.3/LICENSE-ZLIB",
+      "sha256": "1c41c0e19caa2c20b0adfeb8219b606b21b7c63914aa3ae74ae3e091d7ce09ca"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/macro_rules_attribute-proc_macro-0.2.3/LICENSE-APACHE",
+      "sha256": "388e98b08de12ba8a9d4575883c8b0386c747cea188ed459380fc58d60da15c9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/macro_rules_attribute-proc_macro-0.2.3/LICENSE-MIT",
+      "sha256": "603fb27ef3266ea516872eefd9ae587746b8c34614a35c0fb24e4e9e0c17e137"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/macro_rules_attribute-proc_macro-0.2.3/LICENSE-ZLIB",
+      "sha256": "1c41c0e19caa2c20b0adfeb8219b606b21b7c63914aa3ae74ae3e091d7ce09ca"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/memchr-2.8.3/COPYING",
+      "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/memchr-2.8.3/LICENSE-MIT",
+      "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/memmap2-0.9.11/LICENSE-APACHE",
+      "sha256": "04ea4849dba9dcae07113850c6f1b1a69052c625210639914eee352023f750ad"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/memmap2-0.9.11/LICENSE-MIT",
+      "sha256": "0d25d03b5ab49576178ad0cae7a2648d12c17ad0452fe49c07e55e4b59aa5257"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/minimal-lexical-0.2.1/LICENSE-APACHE",
+      "sha256": "8173d5c29b4f956d532781d2b86e4e30f83e6b7878dce18c919451d6ba707c90"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/minimal-lexical-0.2.1/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/minimal-lexical-0.2.1/LICENSE.md",
+      "sha256": "dbe1fff0fb1314b6af94f161511406275cf01c5a32441fbf24528a57a051d599"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/monostate-0.1.18/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/monostate-0.1.18/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/monostate-impl-0.1.18/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/monostate-impl-0.1.18/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/nom-7.1.3/LICENSE",
+      "sha256": "4dbda04344456f09a7a588140455413a9ac59b6b26a1ef7cdf9c800c012d87f0"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/num-complex-0.4.6/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/num-complex-0.4.6/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/num-traits-0.2.19/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/num-traits-0.2.19/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/num_cpus-1.17.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/num_cpus-1.17.0/LICENSE-MIT",
+      "sha256": "391a5396cec6230bfabd4ef4eb2350eb895bc5efce377a2218f5702ed020d3e3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/once_cell-1.21.4/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/once_cell-1.21.4/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/onig-6.5.3/LICENSE.md",
+      "sha256": "e9c1238c5beb73c6cc130160418968058b21d486a7a445f0ceff27d51fbfdc44"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/onig_sys-69.9.3/LICENSE.md",
+      "sha256": "71f321038b088358004bee991635ac09e4c703bec467d3c30c06992c0595f189"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/onig_sys-69.9.3/oniguruma/COPYING",
+      "sha256": "70ba5469ea0bab6e18a32d7009068f996503168d27be57747e08da34337ff26f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/paste-1.0.15/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/paste-1.0.15/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/pastey-0.2.3/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/pastey-0.2.3/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/pin-project-lite-0.2.17/LICENSE-APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/pin-project-lite-0.2.17/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/pkg-config-0.3.34/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/pkg-config-0.3.34/LICENSE-MIT",
+      "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/ppv-lite86-0.2.21/LICENSE-APACHE",
+      "sha256": "0218327e7a480793ffdd4eb792379a9709e5c135c7ba267f709d6f6d4d70af0a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/ppv-lite86-0.2.21/LICENSE-MIT",
+      "sha256": "4cada0bd02ea3692eee6f16400d86c6508bbd3bafb2b65fed0419f36d4f83e8f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/proc-macro2-1.0.107/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/proc-macro2-1.0.107/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/pulp-0.22.3/LICENSE",
+      "sha256": "d64f878c89bd5f1e5ada7e4aad57690b122727cf5229b7b87ea1980c188da1d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/quote-1.0.47/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/quote-1.0.47/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rand-0.9.5/LICENSE-APACHE",
+      "sha256": "35242e7a83f69875e6edeff02291e688c97caafe2f8902e4e19b49d3e78b4cab"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rand-0.9.5/LICENSE-MIT",
+      "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rand_chacha-0.9.0/LICENSE-APACHE",
+      "sha256": "35242e7a83f69875e6edeff02291e688c97caafe2f8902e4e19b49d3e78b4cab"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rand_chacha-0.9.0/LICENSE-MIT",
+      "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rand_core-0.9.5/LICENSE-APACHE",
+      "sha256": "6df43f6f4b5d4587f3d8d71e45532c688fd168afa5fe89d571cb32fa09c4ef51"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rand_core-0.9.5/LICENSE-MIT",
+      "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rand_distr-0.5.1/LICENSE-APACHE",
+      "sha256": "6df43f6f4b5d4587f3d8d71e45532c688fd168afa5fe89d571cb32fa09c4ef51"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rand_distr-0.5.1/LICENSE-MIT",
+      "sha256": "a771e4354f6b3ad4c92da1a5c9a239b6c291527db869632ecea4f20e24ca1135"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/raw-cpuid-11.6.0/LICENSE.md",
+      "sha256": "cdd45f4d0c552c3a51725728215919e0dedb1e1af250f130e7c2d60eef6721fe"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rayon-1.12.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rayon-1.12.0/LICENSE-MIT",
+      "sha256": "0621878e61f0d0fda054bcbe02df75192c28bde1ecc8289cbd86aeba2dd72720"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rayon-cond-0.4.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rayon-cond-0.4.0/LICENSE-MIT",
+      "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rayon-core-1.13.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rayon-core-1.13.0/LICENSE-MIT",
+      "sha256": "0621878e61f0d0fda054bcbe02df75192c28bde1ecc8289cbd86aeba2dd72720"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/reborrow-0.5.5/LICENSE",
+      "sha256": "bf5a93d1014429b43e01c57d45bea928748fbf37d059306145a1a0a91aec2014"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/regex-1.13.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/regex-1.13.1/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/regex-automata-0.4.18/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/regex-automata-0.4.18/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/regex-syntax-0.8.11/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/regex-syntax-0.8.11/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/regex-syntax-0.8.11/src/unicode_tables/LICENSE-UNICODE",
+      "sha256": "74db5baf44a41b1000312c673544b3374e4198af5605c7f9080a402cec42cfa3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rustix-1.1.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rustix-1.1.5/LICENSE-Apache-2.0_WITH_LLVM-exception",
+      "sha256": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rustix-1.1.5/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rustversion-1.0.23/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/rustversion-1.0.23/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/ryu-1.0.23/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/ryu-1.0.23/LICENSE-BOOST",
+      "sha256": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/safetensors-0.8.0/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/seq-macro-0.3.6/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/seq-macro-0.3.6/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde-1.0.229/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde-1.0.229/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde_core-1.0.229/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde_core-1.0.229/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde_derive-1.0.229/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde_derive-1.0.229/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde_json-1.0.151/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde_json-1.0.151/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde_plain-1.0.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/serde_plain-1.0.2/LICENSE-MIT",
+      "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/shlex-2.0.1/LICENSE-APACHE",
+      "sha256": "553fffcd9b1cb158bc3e9edc35da85ca5c3b3d7d2e61c883ebcfa8a65814b583"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/shlex-2.0.1/LICENSE-MIT",
+      "sha256": "4455bf75a91154108304cb283e0fea9948c14f13e20d60887cf2552449dea3b1"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/smallvec-1.16.2/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/smallvec-1.16.2/LICENSE-MIT",
+      "sha256": "0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/spm_precompiled-0.1.4/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/stable_deref_trait-1.2.1/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/stable_deref_trait-1.2.1/LICENSE-MIT",
+      "sha256": "5e05b024f653a5ce199e77cbbbd42fb5553562ec714b819421ed0c3e552a75d7"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/static_assertions-1.1.0/LICENSE-APACHE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/static_assertions-1.1.0/LICENSE-MIT",
+      "sha256": "ea084a2373ebc1f0902c09266e7bf25a05ab3814c1805bb017ffa7308f90c061"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/strsim-0.11.1/LICENSE",
+      "sha256": "1e697ce8d21401fbf1bddd9b5c3fd4c4c79ae1e3bdf51f81761c85e11d5a89cd"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/syn-2.0.119/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/syn-2.0.119/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/syn-3.0.6/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/syn-3.0.6/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/synstructure-0.14.0/LICENSE",
+      "sha256": "219920e865eee70b7dcfc948a86b099e7f4fe2de01bcca2ca9a20c0a033f2b59"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/tempfile-3.27.0/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/tempfile-3.27.0/LICENSE-MIT",
+      "sha256": "8b427f5bc501764575e52ba4f9d95673cf8f6d80a86d0d06599852e1a9a20a36"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/thiserror-2.0.21/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/thiserror-2.0.21/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/thiserror-impl-2.0.21/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/thiserror-impl-2.0.21/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/tokenizers-0.22.2/LICENSE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/tracing-0.1.44/LICENSE",
+      "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/tracing-attributes-0.1.31/LICENSE",
+      "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/tracing-core-0.1.36/LICENSE",
+      "sha256": "898b1ae9821e98daf8964c8d6c7f61641f5f5aa78ad500020771c0939ee0dea1"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/tracing-core-0.1.36/src/spin/LICENSE",
+      "sha256": "58545fed1565e42d687aecec6897d35c6d37ccb71479a137c0deb2203e125c79"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/typed-path-0.12.3/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/typed-path-0.12.3/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode-ident-1.0.26/LICENSE-APACHE",
+      "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode-ident-1.0.26/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode-ident-1.0.26/LICENSE-UNICODE",
+      "sha256": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode-normalization-alignments-0.1.12/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode-normalization-alignments-0.1.12/LICENSE-MIT",
+      "sha256": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode-segmentation-1.13.3/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode-segmentation-1.13.3/LICENSE-MIT",
+      "sha256": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode_categories-0.1.1/LICENSE-APACHE",
+      "sha256": "c6596eb7be8581c18be736c846fb9173b69eccf6ef94c5135893ec56bd92ba08"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/unicode_categories-0.1.1/LICENSE-MIT",
+      "sha256": "98a817e7b85e5fe4e79d165c656a4a139793b8b643d0f3d9cbcc3538ef82ec82"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/version_check-0.9.5/LICENSE-APACHE",
+      "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/version_check-0.9.5/LICENSE-MIT",
+      "sha256": "b7e650f3fce5c53249d1cdc608b54df156a97edd636cf9d23498d0cfe7aec63e"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/yoke-0.8.3/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/yoke-derive-0.8.4/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zerocopy-0.8.61/LICENSE-APACHE",
+      "sha256": "9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zerocopy-0.8.61/LICENSE-BSD",
+      "sha256": "83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zerocopy-0.8.61/LICENSE-MIT",
+      "sha256": "1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zerocopy-derive-0.8.61/LICENSE-APACHE",
+      "sha256": "9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zerocopy-derive-0.8.61/LICENSE-BSD",
+      "sha256": "83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zerocopy-derive-0.8.61/LICENSE-MIT",
+      "sha256": "1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zerofrom-0.1.8/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zerofrom-derive-0.1.8/LICENSE",
+      "sha256": "f367c1b8e1aa262435251e442901da4607b4650e0e63a026f5044473ecfb90f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zip-8.6.0/LICENSE",
+      "sha256": "58545fed1565e42d687aecec6897d35c6d37ccb71479a137c0deb2203e125c79"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/rust/zmij-1.0.23/LICENSE-MIT",
+      "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/SentencePiece-LICENSE.txt",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/assets/third-party/Whisper-LICENSE.txt",
+      "sha256": "94f29bbed6a22c35b992c5c6ebf0e7c92f13b836b90f36f461c9cf2f0f1d010d"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/cpp/CMakeLists.txt",
+      "sha256": "ef90fd65758d6c7eab57174673d0168b1c8dd741dcaecbaf9bdf1a745d076d8d"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/cpp/native.cpp",
+      "sha256": "7ba23b5cb74cc4e28d1a85554b4a1639e571de4d262e96eeb3fa7215aa3c0625"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/Audio.kt",
+      "sha256": "8e4b9ee8e87e559dc817561469e4508ac4bcdc08cf8839035cae787628ceff68"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/DiagnosticState.kt",
+      "sha256": "a09789fec4123358fbe9f511c76eca3466c66f8a4e22b15de5fe0423879628b9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/InferenceService.kt",
+      "sha256": "24ebcdb3bcdcf53f7cce9117f6c83313832131daa9529a962462ff6ee2109219"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/Marian.kt",
+      "sha256": "7aba1a1c9710252fc888a6c4447ce5b4cb4ef788f6f447645e21a25c2096f401"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/Measurements.kt",
+      "sha256": "5f03629d42f62eb5f234be80db5fe06e9e7b82531013bc0678700f5a5c656058"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/ModelPaths.kt",
+      "sha256": "d1c5238bb5fe8ec04bd7bc26c734a5b681baf4bdb145e5094b872fbf291e2d37"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/Native.kt",
+      "sha256": "cfe4618912de205a3fb16971bbade0290408ec9d36dcf37f0695ae77a9f79db9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/NativeLinkDiagnostic.kt",
+      "sha256": "11f74f807d31afee92bea0b96923096982ea9d8418b31174aa17ae4375ecbcf7"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/OfflineSpeech.kt",
+      "sha256": "fdca9cb9824703471bede15dac812a80bc258bfa3d1d7f6fcfb51640f07750d9"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/PackStore.kt",
+      "sha256": "ce128c05139105abc24988a3b207116444a045e52c9f06765e569d29639b5e2e"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/PcmWav.kt",
+      "sha256": "47421d0b3546cb10394357dde89b83666cb6d300df150d802cbefba761b461d4"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/ResearchExport.kt",
+      "sha256": "6d1bf4b76b3841473005af7ff460fe1b9a7ae58cb5c9c3efa8ce3bc216c965f0"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/ResearchFiles.kt",
+      "sha256": "386566bf1161d80db919c368f46ea7abe8d2a6ab84551c6ecaa79bc7f99cd26e"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/ResearchSession.kt",
+      "sha256": "a2beaae315137d38535f70f93d2a4fb22dc97cff557e6be6abb213678ff65a00"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/TranslationDiagnostics.kt",
+      "sha256": "4095a44a47d328fa32a6100ec2636b244d0b8d3705bc571e00e6c6b0a87aa591"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/TrialActivity.kt",
+      "sha256": "ff92bd823044136d2d638ecbaac1c39ab8ef7cc3e3caeabe96ce4e6719bf6872"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/TtsDiagnostic.kt",
+      "sha256": "207c41c4b9ad76f7c123b164a34a45d79070d3055be51f215621669d1438fbbc"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/TtsWav.kt",
+      "sha256": "c27c87f9989abdd8e3b01a50acd640404ab7e5021a509cc285e522eab90fb59f"
+    },
+    {
+      "path": "spikes/physical-trial/src/main/kotlin/com/commontongue/spike/device/WorkerExitDiagnostics.kt",
+      "sha256": "5d217b848994546f2877774ce5e689728f3b665dd8c161f3180c5af35555cee2"
+    },
+    {
+      "path": "spikes/physical-trial/src/test/kotlin/com/commontongue/spike/device/DiagnosticStateTest.kt",
+      "sha256": "402aeae30039fb56c10fb28ee8c97262d80df381a28d78f5d6ce10f868b2d948"
+    },
+    {
+      "path": "spikes/physical-trial/src/test/kotlin/com/commontongue/spike/device/NativeLinkDiagnosticTest.kt",
+      "sha256": "1dddabe294063c7d8b0888dbce6face2f7843e074585962b21cddaf08702150b"
+    },
+    {
+      "path": "spikes/physical-trial/src/test/kotlin/com/commontongue/spike/device/PackStoreTest.kt",
+      "sha256": "395fb04d66479e1177ad20ae1887091726999c81ee611b790f5796ea55da69b3"
+    },
+    {
+      "path": "spikes/physical-trial/src/test/kotlin/com/commontongue/spike/device/PcmWavTest.kt",
+      "sha256": "a6c8c91c71fd9461a86824aefba34fe3b3e611bee043f9816d965c979a373891"
+    },
+    {
+      "path": "spikes/physical-trial/src/test/kotlin/com/commontongue/spike/device/ResearchSessionTest.kt",
+      "sha256": "f653c61e08e5a7d84f033a24b081e089096e67d96782354310d204c44098980e"
+    },
+    {
+      "path": "spikes/physical-trial/src/test/kotlin/com/commontongue/spike/device/TranslationDiagnosticsTest.kt",
+      "sha256": "b2c42f011b9d944aba435301d413072200d5b5ef66b88d8aa88c0985f41cb8f2"
+    },
+    {
+      "path": "spikes/physical-trial/src/test/kotlin/com/commontongue/spike/device/TtsDiagnosticTest.kt",
+      "sha256": "7c599b80c79a17ee1e639dde8cc347f1a31b764b85fcfe90151e5567d637c1cf"
+    },
+    {
+      "path": "tools/device-trial/t5/Cargo.lock",
+      "sha256": "aa93f8651c771f8d4bc4dfe6444727ecda7f3fc4b7877449e1bce7ebbda6dc4b"
+    },
+    {
+      "path": "tools/device-trial/t5/Cargo.toml",
+      "sha256": "4c333a5893ef4d0b07874d158b4251179b8e9b1754a4c93f17226fad22703d78"
+    },
+    {
+      "path": "tools/device-trial/t5/src/handles.rs",
+      "sha256": "bf597b3b64b1138e2628249e3d002c5b0659d8a6e03bc3fec0861403c0c40ca5"
+    },
+    {
+      "path": "tools/device-trial/t5/src/lib.rs",
+      "sha256": "692cb210c9433d213443e33ae5b92cc3928e80bee8f78f7d80f4fd2d9b7624ae"
+    },
+    {
+      "path": "spikes/physical-trial/build.gradle.kts",
+      "sha256": "6022155f3a20cd7dd837f6ee80d4776ab606351aa319dbf28a961b25bbe287bc"
+    },
+    {
+      "path": "spikes/physical-trial/gradle.properties",
+      "sha256": "a20da78b0094571acd2071415473df1ed813710c4512288cf8525f6ce01643c2"
+    },
+    {
+      "path": "spikes/physical-trial/settings.gradle.kts",
+      "sha256": "111881c0146cab20f94781cdc02aac04a2af105b4650306c8e130abc6a028d03"
+    }
+  ],
+  "history_policy": "Preserve cumulative old crashes and publication-time receipts; do not classify as new v7 failures",
+  "follow_up_validation_not_blocking_closure": [
+    "older-device breadth",
+    "larger fluent-human/scripted conversations and ratings",
+    "sustained thermal/battery/memory sessions",
+    "noisy environments",
+    "comprehensive replay/cancel/audio-route/lifecycle coverage",
+    "additional hardware characterization",
+    "separately documented radio-off proof flags"
+  ],
+  "production_unchanged": true,
+  "pass6_implementation_included": false,
+  "next_pass": "Installed offline Android TTS adapter behind SpeechSynthesizer; preserve WAV/AudioTrack baseline, no Whisper/MADLAD change; first-party licensing investigation separate",
+  "validation_at_source_commit": {
+    "foundation_tasks": [
+      "clean",
+      "test",
+      "lint",
+      "spotlessCheck",
+      "verifyCoreBoundaries",
+      ":app:verifyFoundationManifest",
+      "assembleDebug",
+      ":app:assembleDebugAndroidTest"
+    ],
+    "foundation_result": "BUILD_SUCCESSFUL",
+    "foundation_jvm_tests": 101,
+    "research_tasks": [
+      "testDebugUnitTest",
+      "verifyResearchManifest",
+      "lint"
+    ],
+    "research_result": "BUILD_SUCCESSFUL",
+    "research_jvm_tests": 40,
+    "pass2_host_tests": 6,
+    "pass4_host_tests": 42,
+    "pass5_host_tests": 65,
+    "rust_registry_tests": 4,
+    "total_tests": 258,
+    "failures": 0,
+    "actionlint": "PASS; v1.7.12; ShellCheck disabled/unavailable",
+    "windows_setup_argument_path_smoke": "PASS; no device/model/network",
+    "test_pack_metadata_contract": "PASS; no weights read",
+    "git_diff_check": "PASS",
+    "accepted_runtime_hashes_preserved": 325,
+    "accepted_apk_rebuilt": false,
+    "production_app_core_changed": false,
+    "remote_ci": "PENDING_POST_PUSH; actual commit/run/result reported in repository-associated closeout receipt and final handoff"
+  }
+}

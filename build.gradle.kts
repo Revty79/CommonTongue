@@ -124,6 +124,7 @@ spotless {
             "core/domain/src/**/*.kt",
             "core/translation/src/**/*.kt",
             "spikes/offline-feasibility/src/**/*.kt",
+            "spikes/physical-trial/src/**/*.kt",
         )
         ktfmt(libs.versions.ktfmt.get()).kotlinlangStyle()
     }
@@ -134,6 +135,7 @@ spotless {
             "core/domain/*.gradle.kts",
             "core/translation/*.gradle.kts",
             "spikes/offline-feasibility/*.gradle.kts",
+            "spikes/physical-trial/*.gradle.kts",
         )
         ktfmt(libs.versions.ktfmt.get()).kotlinlangStyle()
     }

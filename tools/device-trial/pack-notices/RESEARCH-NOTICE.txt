@@ -1,0 +1,10 @@
+COMMON TONGUE PASS 5 RESEARCH TEST PACK
+
+Exact unchanged pinned models and synthetic controls. No human recordings.
+MADLAD400-3B-MT Q4_K and OPUS publications declare Apache-2.0.
+Whisper Base/Tiny Q5_1 publications declare MIT; retain the included model cards and upstream notices.
+Candle/Whisper/ONNX/SentencePiece runtimes are in the separate research APK, not this data pack.
+Android system voices are never redistributed; only installed voices declaring no network requirement are used.
+The optional eSpeak NG 1.52.0 engine remains a separate GPL-3.0-or-later research application.
+No model, runtime or voice receives production approval. Pass 4 provenance gaps and quality findings remain unchanged.
+Full exact source revisions and hashes are in pack-manifest.json and the repository artifact locks.

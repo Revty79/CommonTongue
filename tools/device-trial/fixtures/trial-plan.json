@@ -1,0 +1,420 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "wav-en01",
+      "direction": "en-es",
+      "file": "fixture-en01.wav"
+    },
+    {
+      "case_id": "text-en01",
+      "direction": "en-es",
+      "text": "I can pick you up after work, but I cannot stay for dinner."
+    },
+    {
+      "case_id": "wav-es01",
+      "direction": "es-en",
+      "file": "fixture-es01.wav"
+    },
+    {
+      "case_id": "text-es01",
+      "direction": "es-en",
+      "text": "Te puedo llevar después del trabajo, pero hoy no me puedo quedar a cenar."
+    },
+    {
+      "case_id": "wav-en04",
+      "direction": "en-es",
+      "file": "fixture-en04.wav"
+    },
+    {
+      "case_id": "text-en04",
+      "direction": "en-es",
+      "text": "Do not start the engine until I remove the jumper cables."
+    },
+    {
+      "case_id": "wav-es04",
+      "direction": "es-en",
+      "file": "fixture-es04.wav"
+    },
+    {
+      "case_id": "text-es04",
+      "direction": "es-en",
+      "text": "No prendas el motor hasta que quite los cables para pasar corriente."
+    },
+    {
+      "case_id": "wav-en05",
+      "direction": "en-es",
+      "file": "fixture-en05.wav"
+    },
+    {
+      "case_id": "text-en05",
+      "direction": "en-es",
+      "text": "The total is 127 dollars and 50 cents, not 175 dollars."
+    },
+    {
+      "case_id": "wav-es05",
+      "direction": "es-en",
+      "file": "fixture-es05.wav"
+    },
+    {
+      "case_id": "text-es05",
+      "direction": "es-en",
+      "text": "Son ciento veintisiete dólares con cincuenta centavos, no ciento setenta y cinco."
+    },
+    {
+      "case_id": "wav-en08",
+      "direction": "en-es",
+      "file": "fixture-en08.wav"
+    },
+    {
+      "case_id": "text-en08",
+      "direction": "en-es",
+      "text": "The truck cranks but won't start, and the check-engine light is on."
+    },
+    {
+      "case_id": "wav-es08",
+      "direction": "es-en",
+      "file": "fixture-es08.wav"
+    },
+    {
+      "case_id": "text-es08",
+      "direction": "es-en",
+      "text": "La camioneta da marcha, pero no arranca y está prendida la luz del motor."
+    },
+    {
+      "case_id": "wav-en11",
+      "direction": "en-es",
+      "file": "fixture-en11.wav"
+    },
+    {
+      "case_id": "text-en11",
+      "direction": "en-es",
+      "text": "The concrete needs to cure before we remove the forms."
+    },
+    {
+      "case_id": "wav-es11",
+      "direction": "es-en",
+      "file": "fixture-es11.wav"
+    },
+    {
+      "case_id": "text-es11",
+      "direction": "es-en",
+      "text": "Hay que dejar curar el concreto antes de quitar la cimbra."
+    },
+    {
+      "case_id": "wav-en12",
+      "direction": "en-es",
+      "file": "fixture-en12.wav"
+    },
+    {
+      "case_id": "text-en12",
+      "direction": "en-es",
+      "text": "Move the calves to the north pasture and check the water trough."
+    },
+    {
+      "case_id": "wav-es12",
+      "direction": "es-en",
+      "file": "fixture-es12.wav"
+    },
+    {
+      "case_id": "text-es12",
+      "direction": "es-en",
+      "text": "Lleva los becerros al potrero del norte y revisa el bebedero."
+    },
+    {
+      "case_id": "wav-en02",
+      "direction": "en-es",
+      "file": "fixture-en02.wav"
+    },
+    {
+      "case_id": "text-en02",
+      "direction": "en-es",
+      "text": "That repair cost an arm and a leg. I am pretty broke now."
+    },
+    {
+      "case_id": "wav-es02",
+      "direction": "es-en",
+      "file": "fixture-es02.wav"
+    },
+    {
+      "case_id": "text-es02",
+      "direction": "es-en",
+      "text": "Ahorita no traigo feria; te pago el viernes."
+    }
+  ],
+  "audio_artifacts": [
+    {
+      "file": "fixture-en01.wav",
+      "bytes": 127008,
+      "sha256": "bd239fab5c5939389a4617bc6587327b1de4c94cde0fd41e894716249676fd42",
+      "source_id": "en01",
+      "source": "I can pick you up after work, but I cannot stay for dinner.",
+      "direction": "en-es",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 3.967625,
+      "voice": "en"
+    },
+    {
+      "file": "fixture-es01.wav",
+      "bytes": 159092,
+      "sha256": "5d7c2de5f0e5647824fbe4400481c6022f9dba3d0ceffa599ab51e79633760ab",
+      "source_id": "es01",
+      "source": "Te puedo llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+      "direction": "es-en",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 4.97025,
+      "voice": "es"
+    },
+    {
+      "file": "fixture-en04.wav",
+      "bytes": 118766,
+      "sha256": "78457e60cc7eb004ce6d59f60176a8e2603b60339ac2a4cb0384d9e3df0227bb",
+      "source_id": "en04",
+      "source": "Do not start the engine until I remove the jumper cables.",
+      "direction": "en-es",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 3.7100625,
+      "voice": "en"
+    },
+    {
+      "file": "fixture-es04.wav",
+      "bytes": 140328,
+      "sha256": "5b359789840001bf5fdfe144676b8cbe80888b9c1f4c6fe004a5bdab51982a0a",
+      "source_id": "es04",
+      "source": "No prendas el motor hasta que quite los cables para pasar corriente.",
+      "direction": "es-en",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 4.383875,
+      "voice": "es"
+    },
+    {
+      "file": "fixture-en05.wav",
+      "bytes": 228870,
+      "sha256": "a25990d810ca324f1d714b357e5278cca8fc5746094b712bbb4778645332f0fc",
+      "source_id": "en05",
+      "source": "The total is 127 dollars and 50 cents, not 175 dollars.",
+      "direction": "en-es",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 7.1508125,
+      "voice": "en"
+    },
+    {
+      "file": "fixture-es05.wav",
+      "bytes": 187744,
+      "sha256": "b1b3c9c67e98227b45caf8d2c61c8d4f217584cdf996da6bb2722c714dbe2025",
+      "source_id": "es05",
+      "source": "Son ciento veintisiete dólares con cincuenta centavos, no ciento setenta y cinco.",
+      "direction": "es-en",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 5.865625,
+      "voice": "es"
+    },
+    {
+      "file": "fixture-en08.wav",
+      "bytes": 147956,
+      "sha256": "69ea850f6ed9eb6dc11b13573e8fab0b5c9e1ee32af9e5ef14d1c687022cbf8e",
+      "source_id": "en08",
+      "source": "The truck cranks but won't start, and the check-engine light is on.",
+      "direction": "en-es",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 4.62225,
+      "voice": "en"
+    },
+    {
+      "file": "fixture-es08.wav",
+      "bytes": 157038,
+      "sha256": "7be2d9f579df7a59d70efe3c852358ae8daea60731f5f8d4f0da6fbca0a14c19",
+      "source_id": "es08",
+      "source": "La camioneta da marcha, pero no arranca y está prendida la luz del motor.",
+      "direction": "es-en",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 4.9060625,
+      "voice": "es"
+    },
+    {
+      "file": "fixture-en11.wav",
+      "bytes": 119318,
+      "sha256": "1bff796b9505a462378beb3ade253a5aa5e16135ea9fc8d7f398d45b85f18250",
+      "source_id": "en11",
+      "source": "The concrete needs to cure before we remove the forms.",
+      "direction": "en-es",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 3.7273125,
+      "voice": "en"
+    },
+    {
+      "file": "fixture-es11.wav",
+      "bytes": 123156,
+      "sha256": "619cbe865cb8562b764736bfad11d1e987243bf6c4d19cd78b5aadef51911349",
+      "source_id": "es11",
+      "source": "Hay que dejar curar el concreto antes de quitar la cimbra.",
+      "direction": "es-en",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 3.84725,
+      "voice": "es"
+    },
+    {
+      "file": "fixture-en12.wav",
+      "bytes": 130422,
+      "sha256": "202951e45ccd45bdf81bed467ccb2b2f336c0daca5c9be26c723b1d64ba598a3",
+      "source_id": "en12",
+      "source": "Move the calves to the north pasture and check the water trough.",
+      "direction": "en-es",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 4.0743125,
+      "voice": "en"
+    },
+    {
+      "file": "fixture-es12.wav",
+      "bytes": 127564,
+      "sha256": "c3c6bdb8ea6b4c6488a4f484ec45fcc0d21108969c5aa5c836742588a4359472",
+      "source_id": "es12",
+      "source": "Lleva los becerros al potrero del norte y revisa el bebedero.",
+      "direction": "es-en",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 3.985,
+      "voice": "es"
+    },
+    {
+      "file": "fixture-en02.wav",
+      "bytes": 137854,
+      "sha256": "81b977e28fcceb0cbfafabd0cb1cdde8d397fe3be937f4d9520113a9d50ecaef",
+      "source_id": "en02",
+      "source": "That repair cost an arm and a leg. I am pretty broke now.",
+      "direction": "en-es",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 4.3065625,
+      "voice": "en"
+    },
+    {
+      "file": "fixture-es02.wav",
+      "bytes": 104318,
+      "sha256": "8bdec9858444c82873662898b737e7336c116abaa5b16d60f61191c267c52c2e",
+      "source_id": "es02",
+      "source": "Ahorita no traigo feria; te pago el viernes.",
+      "direction": "es-en",
+      "provenance": "synthetic_eSpeak_NG_1.52.0_fixed_control",
+      "sample_rate": 16000,
+      "duration_seconds": 3.2585625,
+      "voice": "es"
+    }
+  ],
+  "text_controls": [
+    {
+      "case_id": "text-en01",
+      "source": "I can pick you up after work, but I cannot stay for dinner.",
+      "direction": "en-es",
+      "expected_pass4_translation": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-es01",
+      "source": "Te puedo llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+      "direction": "es-en",
+      "expected_pass4_translation": "I can take you after work, but I can't stay for dinner today.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-en04",
+      "source": "Do not start the engine until I remove the jumper cables.",
+      "direction": "en-es",
+      "expected_pass4_translation": "No arranque el motor hasta que no haya quitado los cables de puente.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-es04",
+      "source": "No prendas el motor hasta que quite los cables para pasar corriente.",
+      "direction": "es-en",
+      "expected_pass4_translation": "Do not start the engine until you remove the wires to pass the power.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-en05",
+      "source": "The total is 127 dollars and 50 cents, not 175 dollars.",
+      "direction": "en-es",
+      "expected_pass4_translation": "El total es de 127 dólares y 50 centavos, no 175 dólares.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-es05",
+      "source": "Son ciento veintisiete dólares con cincuenta centavos, no ciento setenta y cinco.",
+      "direction": "es-en",
+      "expected_pass4_translation": "It's one hundred twenty-seven dollars and fifty cents, not one hundred seventy-five.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-en08",
+      "source": "The truck cranks but won't start, and the check-engine light is on.",
+      "direction": "en-es",
+      "expected_pass4_translation": "El camión gira pero no arranca, y la luz de control del motor está encendida.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-es08",
+      "source": "La camioneta da marcha, pero no arranca y está prendida la luz del motor.",
+      "direction": "es-en",
+      "expected_pass4_translation": "The truck starts, but it doesn't start and the engine light is on.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-en11",
+      "source": "The concrete needs to cure before we remove the forms.",
+      "direction": "en-es",
+      "expected_pass4_translation": "El hormigón necesita curar antes de retirar los moldes.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-es11",
+      "source": "Hay que dejar curar el concreto antes de quitar la cimbra.",
+      "direction": "es-en",
+      "expected_pass4_translation": "Let the concrete cure before removing the sill.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-en12",
+      "source": "Move the calves to the north pasture and check the water trough.",
+      "direction": "en-es",
+      "expected_pass4_translation": "Mueve a los terneros al pasto norte y revisa el bebedero.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-es12",
+      "source": "Lleva los becerros al potrero del norte y revisa el bebedero.",
+      "direction": "es-en",
+      "expected_pass4_translation": "Take the calves to the northern stall and check the waterhole.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-en02",
+      "source": "That repair cost an arm and a leg. I am pretty broke now.",
+      "direction": "en-es",
+      "expected_pass4_translation": "Esa reparación me costó un brazo y una pierna, y ahora estoy bastante arruinado.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    },
+    {
+      "case_id": "text-es02",
+      "source": "Ahorita no traigo feria; te pago el viernes.",
+      "direction": "es-en",
+      "expected_pass4_translation": "I don't bring fair right now; I'll pay you on Friday.",
+      "expectation": "deterministic_desktop_parity_not_gold"
+    }
+  ],
+  "offline_observations": {
+    "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+    "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+  },
+  "post_tripwire_events": []
+}

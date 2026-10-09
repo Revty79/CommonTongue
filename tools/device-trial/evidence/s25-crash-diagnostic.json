@@ -1,0 +1,356 @@
+{
+  "schema_version": 1,
+  "scope": "PASS5_S25_POST_CAPTURE_WORKER_EXIT_DIAGNOSTICS_NOT_PHYSICAL_ACCEPTANCE",
+  "source_baseline": "c0ca3d8b013749556cade59037344b133f05b0f9",
+  "received_v4_on_device_result": {
+    "schema_version": 1,
+    "source_file": "CommonTongue-Pass5-Research-Results (1).json",
+    "source_sha256": "6b4254f75654bf5624e009b3c1e3f23c79f22d7c1ce0285d1117bac5223434ef",
+    "app_version": "0.0.4-pass5-research",
+    "device_label": "device-high-01",
+    "evidence_type": "ON_DEVICE_EXPORT_PROVIDED_BY_TESTER",
+    "native_runtime_verified": true,
+    "translation_model_loaded": true,
+    "asr_model_loaded": true,
+    "pack_hashes_verified": true,
+    "installed_state_persists": true,
+    "trials": [
+      {
+        "trial_index": 1,
+        "translation_load_ms": 3516.38203,
+        "asr_load_ms": 122.29724,
+        "ready_worker_memory": {
+          "process_pss_kb": 2899419,
+          "process_rss_kb": 2973368,
+          "native_heap_bytes": 3445454304,
+          "system_available_ram_bytes": 2675838976,
+          "system_low_memory": false,
+          "execution_abi": "arm64-v8a"
+        },
+        "speech_seconds": 1.98,
+        "release_to_disconnect_ms": 2978,
+        "disconnect_reason": "unexpected_process_exit_or_disconnect",
+        "last_observed_load_stage": "READY"
+      },
+      {
+        "trial_index": 2,
+        "translation_load_ms": 3228.762916,
+        "asr_load_ms": 95.686875,
+        "ready_worker_memory": {
+          "process_pss_kb": 2901862,
+          "process_rss_kb": 2974648,
+          "native_heap_bytes": 3445454432,
+          "system_available_ram_bytes": 3270823936,
+          "system_low_memory": false,
+          "execution_abi": "arm64-v8a"
+        },
+        "speech_seconds": 4.1,
+        "release_to_disconnect_ms": 2877,
+        "disconnect_reason": "unexpected_process_exit_or_disconnect",
+        "last_observed_load_stage": "READY"
+      },
+      {
+        "trial_index": 3,
+        "translation_load_ms": 3013.467135,
+        "asr_load_ms": 86.505104,
+        "ready_worker_memory": {
+          "process_pss_kb": 2902300,
+          "process_rss_kb": 2975712,
+          "native_heap_bytes": 3445450112,
+          "system_available_ram_bytes": 3426578432,
+          "system_low_memory": false,
+          "execution_abi": "arm64-v8a"
+        },
+        "speech_seconds": 1.98,
+        "release_to_disconnect_ms": 1988,
+        "disconnect_reason": "unexpected_process_exit_or_disconnect",
+        "last_observed_load_stage": "READY"
+      }
+    ],
+    "android_exit_reason_in_v4_export": null,
+    "inference_crash_boundary_in_v4_export": null,
+    "no_oom_or_native_crash_cause_assumed": true,
+    "earlier_native_link_error_events_are_preserved_history_not_new_v4_failures": true,
+    "human_audio_or_transcript_included": false,
+    "raw_export_committed": false
+  },
+  "diagnostic_implementation": {
+    "stages": [
+      "AUDIO_CAPTURE_COMPLETE",
+      "AUDIO_DECODE_START",
+      "AUDIO_DECODE_COMPLETE",
+      "ASR_START",
+      "ASR_COMPLETE",
+      "TRANSLATION_START",
+      "TRANSLATION_COMPLETE",
+      "TTS_START",
+      "TTS_COMPLETE"
+    ],
+    "native_boundary_checkpoint": "fsynced and atomically replaced in app-private storage before each call; recovered after disconnect even if IPC stage was lost",
+    "android_exit_info": "Own-package worker PID and creation time matched internally; up to four metadata queries over five seconds; availability explicitly reported; PID/name/description/trace are not exported",
+    "history": "Latest eight own-worker exit records, explicitly UNASSIGNED_HISTORY; not automatically attributed to any turn",
+    "cleanup_observation": "Worker liveness at disconnect and subsequent cleanup are recorded to distinguish an already-dead worker from cleanup following a connection failure",
+    "oom_assumption": false,
+    "tts_complete": "Observed AudioTrack playback head reaches the synthesized frame count; playback-start callback is separate",
+    "component_checks": [
+      {
+        "mode": "WHISPER_ONLY",
+        "action": "1. Check speech recognition only",
+        "model_allocations": "Whisper Base Q5_1 only; no MADLAD load",
+        "input": "Existing installed synthetic audio/fixture-en01.wav",
+        "translation_and_tts": false
+      },
+      {
+        "mode": "MADLAD_ONLY",
+        "action": "2. Check translation only",
+        "model_allocations": "MADLAD only; no Whisper load",
+        "input": "Fixed English text from the existing en01 regression",
+        "asr_and_tts": false
+      },
+      {
+        "mode": "FULL_PIPELINE",
+        "action": "3. Check the full recorded-sample pipeline",
+        "model_allocations": "MADLAD + Whisper Base Q5_1",
+        "input": "Existing installed synthetic audio/fixture-en01.wav",
+        "output": "ASR -> translation -> installed offline TTS"
+      }
+    ],
+    "automatic_inference_retries": false,
+    "human_audio_or_text_exported": false,
+    "models_native_libraries_runtime_versions_algorithms_and_pack_unchanged": true
+  },
+  "update_compatibility": {
+    "previous_apk_sha256": "4433987d060b4f829075a90b8ab80e43b18c85daed65983e8a5d5997cf732dc2",
+    "signing_certificate_sha256": "129bb8734d002798d508b78621270cf6fdb3b0c91e0f4759bf70ccf8798001fb",
+    "same_signer_as_previous_apk": true,
+    "pack_contract_byte_identical": true,
+    "native_libraries_byte_identical": true,
+    "install_as_update": true,
+    "uninstall_or_clear_data_required": false,
+    "pack_download_or_import_required_for_existing_tester": false
+  },
+  "existing_test_pack": {
+    "file": "CommonTongue-Pass5-Test-Pack.zip",
+    "bytes": 1997338704,
+    "sha256": "11965738b6441df79122d214f164f7f3dbe9c9a6680e8ac65a22a44cba7a6a23",
+    "pack_id": "common-tongue-pass5-v1",
+    "manifest_sha256": "8b4af0bbac8ac897dd8442ba6a4d99b3efe1c33b8460a4383906f7cb1c452318",
+    "download_url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/CommonTongue-Pass5-Test-Pack.zip"
+  },
+  "exact_requirements": {
+    "android_api": 26,
+    "abi": "arm64-v8a",
+    "translator": "MADLAD400-3B-MT Q4_K",
+    "candle_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+    "asr": "Whisper Base Q5_1",
+    "runtimes": {
+      "candle": "0.11.0; CPU; four threads",
+      "whisper_cpp": "v1.9.5; d1be6fde11ac6e0407606b4e42fe72d34add8037; CPU; four threads",
+      "onnx_runtime_android": "1.30.0; OPUS control only",
+      "sentencepiece": "0.2.2; e0cce7d37b065b5140349dbe12c6bcf6192fdd78",
+      "tts": "Installed Android default engine; EN/ES voices must report requires_network=false. Optional separate eSpeak NG 1.52.0, 4870adfa25b1a32b4361592f1be8a40337c58d6c"
+    },
+    "model_assets_bytes": 1995269155,
+    "no_model_weights_in_apk": true
+  },
+  "apk": {
+    "file": "CommonTongue-Pass5-S25-Crash-Diagnostic-Update.apk",
+    "bytes": 45228957,
+    "sha256": "6c4f1d60589eb6d842ba5f98f12e8fe2b2bc5458578e1d4a1fd0051563130229",
+    "application_id": "com.commontongue.spike.device",
+    "version_code": 5,
+    "version_name": "0.0.5-pass5-research"
+  },
+  "native_apk_audit": {
+    "schema_version": 2,
+    "apk_bytes": 45228957,
+    "apk_sha256": "6c4f1d60589eb6d842ba5f98f12e8fe2b2bc5458578e1d4a1fd0051563130229",
+    "permissions": [
+      "android.permission.RECORD_AUDIO"
+    ],
+    "packaged_model_weights": false,
+    "abi": "arm64-v8a",
+    "dependency_closure_verified": true,
+    "jni_and_rust_exports_verified": true,
+    "native_libraries": [
+      {
+        "file": "lib/arm64-v8a/libdevice_trial.so",
+        "bytes": 4621104,
+        "sha256": "922829bd5f729700b33930cbad05baf5b17793ded7280d3adeec519fb34313c7",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libtrial_t5.so",
+          "libandroid.so",
+          "liblog.so",
+          "libm.so",
+          "libdl.so",
+          "libc.so"
+        ],
+        "soname": "libdevice_trial.so",
+        "required_exports_verified": [
+          "Java_com_commontongue_spike_device_Native_asrClose",
+          "Java_com_commontongue_spike_device_Native_asrCreate",
+          "Java_com_commontongue_spike_device_Native_asrRun",
+          "Java_com_commontongue_spike_device_Native_buildInfo",
+          "Java_com_commontongue_spike_device_Native_decode",
+          "Java_com_commontongue_spike_device_Native_encode",
+          "Java_com_commontongue_spike_device_Native_t5Close",
+          "Java_com_commontongue_spike_device_Native_t5Load",
+          "Java_com_commontongue_spike_device_Native_t5Run",
+          "Java_com_commontongue_spike_device_Native_tokenizerClose",
+          "Java_com_commontongue_spike_device_Native_tokenizerCreate"
+        ]
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime.so",
+        "bytes": 32990472,
+        "sha256": "f325094bdf70c81198747e391d830fcf39dd881a6e916e3d6dd32506b6f9d1e8",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libdl.so",
+          "liblog.so",
+          "libandroid.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libonnxruntime.so",
+        "required_exports_verified": []
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime4j_jni.so",
+        "bytes": 83224,
+        "sha256": "401daceca368835065ca6f3eeada2e9a659b5068adad981db600de527e7c6dd7",
+        "elf_load_alignments": [
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libonnxruntime.so",
+          "libm.so",
+          "libdl.so",
+          "libc.so"
+        ],
+        "soname": null,
+        "required_exports_verified": []
+      },
+      {
+        "file": "lib/arm64-v8a/libtrial_t5.so",
+        "bytes": 5698880,
+        "sha256": "6f6f78150acb860920d6bcc260bec8d820e77d9171f67b3acf08c10c56de2fa7",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libdl.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libtrial_t5.so",
+        "required_exports_verified": [
+          "trial_t5_close",
+          "trial_t5_load",
+          "trial_t5_run",
+          "trial_t5_string_free"
+        ]
+      }
+    ]
+  },
+  "compatibility_audit": {
+    "native_libraries_byte_identical_to_v4": true,
+    "pack_contract_byte_identical_to_v4": true,
+    "research_jvm_tests": {
+      "tests": 32,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "local_validation": {
+    "research_gradle": "BUILD_SUCCESSFUL: testDebugUnitTest assembleDebug verifyResearchManifest lint",
+    "research_jvm_tests": 32,
+    "research_host_tests": 60,
+    "failures": 0,
+    "pack_contract_metadata_check": "PASS; byte-identical to v4 APK",
+    "native_libraries": "All four byte-identical to v4; dependency closure/JNI/Rust exports and 16 KiB ELF/ZIP audit pass",
+    "permissions": "RECORD_AUDIO only; no Internet/provider; debug and release manifest guards pass",
+    "same_signer_and_update_identity": "VERIFIED",
+    "physical_v5_component_checks_exit_reason_and_full_pipeline": "AWAITING_S25_DIAGNOSTIC_RUN",
+    "final_pass5_commit_and_remote_ci": "PENDING_AVAILABLE_PHYSICAL_HUMAN_TRIALS",
+    "root_spotless_check": "PASS",
+    "git_diff_check": "PASS"
+  },
+  "release": {
+    "url": "https://github.com/Revty79/CommonTongue/releases/tag/pass5-s25-crash-diagnostic-2026-10-08",
+    "tag": "pass5-s25-crash-diagnostic-2026-10-08",
+    "published_at": "2026-10-08T22:56:29Z",
+    "draft": false,
+    "prerelease": true,
+    "requested_make_latest": false,
+    "all_uploaded_sizes_and_github_sha256_match_local": true,
+    "anonymous_apk_download_status": 200,
+    "anonymous_apk_download_bytes": 45228957
+  },
+  "assets": [
+    {
+      "file": "APK-audit.json",
+      "bytes": 3075,
+      "sha256": "8a04a725acec2502578d7c5e7261658f97d28cb47f1814bb7539bdb02cf51519",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-crash-diagnostic-2026-10-08/APK-audit.json"
+    },
+    {
+      "file": "CommonTongue-Pass5-S25-Crash-Diagnostic-Update.apk",
+      "bytes": 45228957,
+      "sha256": "6c4f1d60589eb6d842ba5f98f12e8fe2b2bc5458578e1d4a1fd0051563130229",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-crash-diagnostic-2026-10-08/CommonTongue-Pass5-S25-Crash-Diagnostic-Update.apk"
+    },
+    {
+      "file": "Compatibility-audit.json",
+      "bytes": 209,
+      "sha256": "b9678260a0f2e9e4b781ce07fb7aeeda25f8fb3c580624734ac0a7d2da8199ba",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-crash-diagnostic-2026-10-08/Compatibility-audit.json"
+    },
+    {
+      "file": "S25-Crash-Diagnostic-Details.json",
+      "bytes": 8275,
+      "sha256": "f3726fb84dc0984b4b79a79cfd3df3d13ad0f7218662126704411a9e6885c79f",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-crash-diagnostic-2026-10-08/S25-Crash-Diagnostic-Details.json"
+    },
+    {
+      "file": "SHA256SUMS.txt",
+      "bytes": 470,
+      "sha256": "373bb8cc91337af984b264d5096343430bec6719ef90c43133b6f1fcd782e626",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-crash-diagnostic-2026-10-08/SHA256SUMS.txt"
+    },
+    {
+      "file": "START-HERE.txt",
+      "bytes": 1645,
+      "sha256": "1d3280f9b3f2fddbbd491c80bf32ae4765ed8ea99691c78659729fc2b4de530e",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-crash-diagnostic-2026-10-08/START-HERE.txt"
+    }
+  ],
+  "pending_physical_evidence": [
+    "Whisper-only prerecorded sample outcome",
+    "MADLAD-only fixed-text outcome",
+    "Full prerecorded pipeline outcome",
+    "Durable last inference boundary on S25 disconnect",
+    "Matched Android worker exit reason/status/capability",
+    "Successful microphone and offline-proof translation",
+    "Human conversation and sustained/cancellation trials"
+  ],
+  "final_pass5_commit_and_remote_ci": "PENDING_AVAILABLE_PHYSICAL_HUMAN_TRIALS"
+}

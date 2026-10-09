@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "scope": "RESEARCH_INSTALLATION_PREVIEW_NOT_PHYSICAL_ACCEPTANCE",
+  "source_baseline": "c0ca3d8b013749556cade59037344b133f05b0f9",
+  "source_provenance": "Preparation APK built from locally validated, uncommitted Pass 5 working source. Release tag source archives identify the approved Pass 4 baseline; final Pass 5 source commit awaits available physical/human trials.",
+  "release": {
+    "url": "https://github.com/Revty79/CommonTongue/releases/tag/pass5-research-preview-2026-10-08",
+    "tag": "pass5-research-preview-2026-10-08",
+    "published_at": "2026-10-08T15:58:40Z",
+    "prerelease": true,
+    "draft": false,
+    "requested_make_latest": false
+  },
+  "validation": {
+    "all_upload_sizes_and_sha256_match_local": true,
+    "remote_verification": "GitHub release asset SHA-256 digests and byte sizes; local whole-pack and per-payload audit in preparation-build.json.",
+    "anonymous_download_header_checks": [
+      {
+        "file": "CommonTongue-Pass5-Research.apk",
+        "status": 200,
+        "bytes": 45082137
+      },
+      {
+        "file": "CommonTongue-Pass5-Test-Pack.zip",
+        "status": 200,
+        "bytes": 1997338704
+      }
+    ]
+  },
+  "assets": [
+    {
+      "file": "apk-audit.json",
+      "bytes": 1421,
+      "sha256": "15672caa89ef63df33db6480e4b72d831bf8cdec8880fea3cf9fd8bf85ee306e",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/apk-audit.json"
+    },
+    {
+      "file": "build-artifacts.json",
+      "bytes": 1326,
+      "sha256": "c5ad453d2fc7fdd0e33dd0fbb453956e3b5914b11f936be4a0b3134339889f3c",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/build-artifacts.json"
+    },
+    {
+      "file": "CommonTongue-Pass5-Research.apk",
+      "bytes": 45082137,
+      "sha256": "528ab2bc4c537dbdbff40f2fb2b4e057e87881e1acc0e9d8a8ee6cd02f6907c5",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/CommonTongue-Pass5-Research.apk"
+    },
+    {
+      "file": "CommonTongue-Pass5-Test-Pack.zip",
+      "bytes": 1997338704,
+      "sha256": "11965738b6441df79122d214f164f7f3dbe9c9a6680e8ac65a22a44cba7a6a23",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/CommonTongue-Pass5-Test-Pack.zip"
+    },
+    {
+      "file": "CommonTongue-Pass5-Test-Setup.zip",
+      "bytes": 20127447,
+      "sha256": "f840118b400e2465b6fa77b894d9b2fe71843271f636c53c5988ad2299b6ab2e",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/CommonTongue-Pass5-Test-Setup.zip"
+    },
+    {
+      "file": "PHONE-SETUP.md",
+      "bytes": 4472,
+      "sha256": "ed2ff2a757ba2a30a8540ba7275dc7d3512ecacc1c38e8272d5a1ee64566d81b",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/PHONE-SETUP.md"
+    },
+    {
+      "file": "SHA256SUMS.txt",
+      "bytes": 716,
+      "sha256": "3363dc8fbd72882f0d35a07f0a9e7a238fe39d407adb0271d3d300dbb69c4e61",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/SHA256SUMS.txt"
+    },
+    {
+      "file": "START-HERE.txt",
+      "bytes": 1036,
+      "sha256": "b0667613d2c90ecae216c9e49e816a553f51c409e7e946b4e25b1c5cbea6d5ee",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/START-HERE.txt"
+    },
+    {
+      "file": "test-pack-details.json",
+      "bytes": 9899,
+      "sha256": "641dea222c83f68164c8c1eae647dc435a6caf34784b446a703a67bf97ae240e",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/test-pack-details.json"
+    }
+  ],
+  "acceptance": {
+    "physical_s25": "NOT_TESTED",
+    "human_conversation": "NOT_TESTED",
+    "final_pass5_commit": "PENDING",
+    "remote_pass5_ci": "NOT_RUN",
+    "adb_required": false
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "scope": "PASS5_S25_UI_CORRECTION_AND_MODEL_LOAD_DIAGNOSTIC_NOT_PHYSICAL_ACCEPTANCE",
+  "source_baseline": "c0ca3d8b013749556cade59037344b133f05b0f9",
+  "user_report": {
+    "device_label": "device-high-01",
+    "device": "Galaxy S25",
+    "apk_installed": true,
+    "test_pack_imported": true,
+    "offline_voices_set_up": true,
+    "microphone_prompt_seen": false,
+    "error": "Error: Load models and wait for the current turn",
+    "evidence_type": "USER_REPORTED"
+  },
+  "established_source_findings": [
+    "Language buttons were enabled before worker model readiness.",
+    "Radio checks could reject loading/capture/inference/TTS.",
+    "The reported UI guard precedes the microphone permission request.",
+    "A microphone permission dialog could pause/unload a model worker; the update requests permission before constructing it."
+  ],
+  "correction": {
+    "version_code": 3,
+    "version_name": "0.0.3-pass5-research",
+    "radio_settings": "Status and explicit offline-proof condition only; no operational gate.",
+    "state_sequence": [
+      "Pack Installed",
+      "Loading Models",
+      "Ready to Speak"
+    ],
+    "speech_controls_require_worker_ready": true,
+    "diagnostic_stages": [
+      "WORKER_BIND",
+      "PACK_STATE",
+      "PACK_HASHES",
+      "NATIVE_RUNTIME",
+      "TRANSLATION_MODEL",
+      "ASR_MODEL",
+      "READY"
+    ],
+    "same_signing_certificate_sha256": "129bb8734d002798d508b78621270cf6fdb3b0c91e0f4759bf70ccf8798001fb",
+    "existing_pack_contract_byte_identical": true,
+    "native_libraries_byte_identical": true,
+    "uninstall_or_clear_data_required": false,
+    "existing_tester_pack_download_required": false,
+    "pack_sha256": "11965738b6441df79122d214f164f7f3dbe9c9a6680e8ac65a22a44cba7a6a23",
+    "permissions": [
+      "android.permission.RECORD_AUDIO"
+    ]
+  },
+  "local_validation": {
+    "research_gradle_tasks": [
+      "testDebugUnitTest",
+      "assembleDebug",
+      "verifyResearchManifest",
+      "lint"
+    ],
+    "research_gradle_result": "BUILD_SUCCESSFUL",
+    "research_jvm_tests": 20,
+    "research_host_tests": 42,
+    "foundation_gradle_result": "BUILD_SUCCESSFUL: clean test lint spotlessCheck verifyCoreBoundaries :app:verifyFoundationManifest assembleDebug :app:assembleDebugAndroidTest",
+    "foundation_jvm_tests": 101,
+    "failures": 0,
+    "pack_contract_metadata_check": "PASS; no models read",
+    "apk_manifest_and_16kib_alignment": "PASS"
+  },
+  "release": {
+    "url": "https://github.com/Revty79/CommonTongue/releases/tag/pass5-s25-correction-2026-10-08",
+    "tag": "pass5-s25-correction-2026-10-08",
+    "published_at": "2026-10-08T21:57:06Z",
+    "draft": false,
+    "prerelease": true,
+    "requested_make_latest": false,
+    "all_sizes_and_github_sha256_match_local": true,
+    "anonymous_download_header_check": {
+      "anonymous_download_status": 200,
+      "bytes": 45109322
+    }
+  },
+  "assets": [
+    {
+      "file": "CommonTongue-Pass5-S25-Update.apk",
+      "bytes": 45109322,
+      "sha256": "c8023d9aca109e6a83b9428f82136723ed656fe3d456402d5955536730a43fc7",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-correction-2026-10-08/CommonTongue-Pass5-S25-Update.apk"
+    },
+    {
+      "file": "S25-Update-Details.json",
+      "bytes": 3428,
+      "sha256": "a4227c72fa34a2cb127a393256a101e9fba36f8ad3043e83d6655bb329d8beb9",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-correction-2026-10-08/S25-Update-Details.json"
+    },
+    {
+      "file": "SHA256SUMS.txt",
+      "bytes": 271,
+      "sha256": "5482a3256fb816ce185b41f92507ecbb39218b2edda982df2508d9ea3362db53",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-correction-2026-10-08/SHA256SUMS.txt"
+    },
+    {
+      "file": "START-HERE.txt",
+      "bytes": 920,
+      "sha256": "eee40a62a5f47ad5679a2b6d61b89fea9c3022a7cb4de5362531c349dbc8897b",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-correction-2026-10-08/START-HERE.txt"
+    }
+  ],
+  "pending_physical_evidence": [
+    "S25 installed-state snapshot after updating/restarting",
+    "ARM64 native runtime probe on the S25",
+    "Successful MADLAD and Whisper loading",
+    "Actual microphone permission prompt/capture",
+    "Local translation with radios on",
+    "Explicit radios-off offline proof",
+    "Human bilingual conversation and sustained/cancellation trials"
+  ],
+  "final_pass5_commit_and_remote_ci": "PENDING_AVAILABLE_PHYSICAL_HUMAN_TRIALS"
+}

@@ -1,0 +1,416 @@
+{
+  "schema_version": 1,
+  "scope": "PASS5_S25_TTS_DIAGNOSTICS_NOT_PHYSICAL_ACCEPTANCE",
+  "source_baseline": "c0ca3d8b013749556cade59037344b133f05b0f9",
+  "received_v6_on_device_result": {
+    "app_version": "0.0.6-pass5-research",
+    "physical_device": "S25 / Android 16 / API 36 / arm64-v8a",
+    "pack_hashes_verified": true,
+    "latest_observations": [
+      {
+        "source_kind": "prerecorded_fixture",
+        "direction": "en-es",
+        "sample_count": 63482,
+        "speech_seconds": 3.967625,
+        "asr_checkpoint_ms": 1691,
+        "translation_checkpoint_ms": 2923,
+        "tts_start_to_error_ms": 65,
+        "stages": [
+          "AUDIO_DECODE_START",
+          "AUDIO_DECODE_COMPLETE",
+          "ASR_START",
+          "ASR_COMPLETE",
+          "TRANSLATION_START",
+          "TOKENIZE_START",
+          "TOKENIZE_COMPLETE",
+          "ENCODER_START",
+          "ENCODER_COMPLETE",
+          "DECODER_START",
+          "FIRST_TOKEN",
+          "TRANSLATION_COMPLETE",
+          "TTS_START"
+        ],
+        "outcome": "FAILED_AT_TTS",
+        "diagnostic_code": "",
+        "error_type": ""
+      },
+      {
+        "source_kind": "human_microphone",
+        "direction": "en-es",
+        "sample_count": 20480,
+        "speech_seconds": 1.28,
+        "asr_checkpoint_ms": 1871,
+        "translation_checkpoint_ms": 1166,
+        "tts_start_to_error_ms": 152,
+        "stages": [
+          "AUDIO_CAPTURE_COMPLETE",
+          "AUDIO_DECODE_START",
+          "AUDIO_DECODE_COMPLETE",
+          "ASR_START",
+          "ASR_COMPLETE",
+          "TRANSLATION_START",
+          "TOKENIZE_START",
+          "TOKENIZE_COMPLETE",
+          "ENCODER_START",
+          "ENCODER_COMPLETE",
+          "DECODER_START",
+          "FIRST_TOKEN",
+          "TRANSLATION_COMPLETE",
+          "TTS_START"
+        ],
+        "outcome": "FAILED_AT_TTS",
+        "diagnostic_code": "",
+        "error_type": ""
+      },
+      {
+        "source_kind": "human_microphone",
+        "direction": "en-es",
+        "sample_count": 90240,
+        "speech_seconds": 5.64,
+        "asr_checkpoint_ms": 1578,
+        "translation_checkpoint_ms": 1219,
+        "tts_start_to_error_ms": 115,
+        "stages": [
+          "AUDIO_CAPTURE_COMPLETE",
+          "AUDIO_DECODE_START",
+          "AUDIO_DECODE_COMPLETE",
+          "ASR_START",
+          "ASR_COMPLETE",
+          "TRANSLATION_START",
+          "TOKENIZE_START",
+          "TOKENIZE_COMPLETE",
+          "ENCODER_START",
+          "ENCODER_COMPLETE",
+          "DECODER_START",
+          "FIRST_TOKEN",
+          "TRANSLATION_COMPLETE",
+          "TTS_START"
+        ],
+        "outcome": "FAILED_AT_TTS",
+        "diagnostic_code": "",
+        "error_type": ""
+      }
+    ],
+    "scope": "LATEST_PRERECORDED_AND_TWO_MICROPHONE_EN_ES_TURNS_NOT_ALL_HISTORY",
+    "older_component_checks_not_reattributed_to_v6": true,
+    "translation_quality_and_audible_pipeline_not_established": true,
+    "human_audio_or_text_included": false,
+    "tts_cause": "UNKNOWN_V6_EXPORT_HAS_BLANK_CODE_AND_TYPE"
+  },
+  "tts_diagnostics": {
+    "operations": [
+      "DIRECT_SPEAK",
+      "SYNTHESIZE_FILE"
+    ],
+    "isolated_check_order": [
+      "DIRECT_SPEAK en",
+      "DIRECT_SPEAK es",
+      "SYNTHESIZE_FILE en",
+      "SYNTHESIZE_FILE es"
+    ],
+    "normal_translator_operation": "SYNTHESIZE_FILE then PCM16 WAV validation and AudioTrack; speak_result null means NOT_CALLED",
+    "recorded": [
+      "engine initialization/result",
+      "selected/active offline voice and locale",
+      "language availability / setLanguage / setVoice / listener registration results",
+      "network flags / active voice match",
+      "actual enqueue result",
+      "listener start/done/error/stop",
+      "Android TTS error code",
+      "synthesis format and byte/chunk metadata only",
+      "WAV format/size",
+      "AudioTrack state/write/request/start/completion",
+      "finite failure code and safe exception type"
+    ],
+    "playback_bases": [
+      "NOT_OBSERVED",
+      "ENGINE_ON_START (engine-reported, not measured acoustic)",
+      "AUDIOTRACK_TIMESTAMP",
+      "AUDIOTRACK_HEAD"
+    ],
+    "no_network_voice_or_uninstalled_voice_enqueue": true,
+    "callback_audio_or_raw_errors_or_paths_or_human_text_or_identifiers_exported": false,
+    "cancelled_or_stale_callbacks_ignored": true,
+    "no_automatic_inference_retries": true,
+    "last_failure_retained_across_restart": true,
+    "unchanged": [
+      "Whisper capture/inference",
+      "MADLAD/translation runtime",
+      "all four native libraries",
+      "model pack and APK contract/assets",
+      "dependency versions and thread/decoding settings",
+      "permissions"
+    ],
+    "physical_tts_cause": "UNKNOWN_PENDING_V7_EXPORT"
+  },
+  "local_validation": {
+    "research_gradle": "BUILD_SUCCESSFUL: testDebugUnitTest assembleDebug verifyResearchManifest lint",
+    "research_jvm_tests": 40,
+    "research_host_tests": 65,
+    "total_tests_run_for_v7": 105,
+    "failures": 0,
+    "rust_registry_tests": "UNCHANGED; four passed in v6, not rerun for TTS-only v7",
+    "root_spotless_check": "PASS",
+    "git_diff_check": "PASS",
+    "native_packaging": "PASS; four byte-identical v6 ARM64 ELFs, dependency/export closure, 16 KiB ELF/ZIP alignment",
+    "pack_contract": "PASS; byte-identical APK assets and exact pinned metadata; no model changes/downloads",
+    "phone_v7_tts_and_full_pipeline": "AWAITING_S25_RUN",
+    "final_pass5_commit_and_remote_ci": "PENDING_AVAILABLE_PHYSICAL_HUMAN_TRIALS"
+  },
+  "apk": {
+    "file": "CommonTongue-Pass5-S25-TTS-Diagnostic-Update.apk",
+    "bytes": 45272440,
+    "sha256": "3eb9bdd9329737666510047c8238007b9a44441424f0fd516aed34a01b2b72d0",
+    "application_id": "com.commontongue.spike.device",
+    "version_code": 7,
+    "version_name": "0.0.7-pass5-research"
+  },
+  "update_compatibility": {
+    "previous_apk_sha256": "ec31949f289f7756abcd2995030a2788f6e2cc2edf5b40fc0e13b091c74f7039",
+    "signing_certificate_sha256": "129bb8734d002798d508b78621270cf6fdb3b0c91e0f4759bf70ccf8798001fb",
+    "same_signer_as_previous_apk": true,
+    "pack_contract_byte_identical": true,
+    "native_libraries_byte_identical": true,
+    "native_libraries_byte_identical_by_name": {
+      "libdevice_trial.so": true,
+      "libonnxruntime.so": true,
+      "libonnxruntime4j_jni.so": true,
+      "libtrial_t5.so": true
+    },
+    "install_as_update": true,
+    "uninstall_or_clear_data_required": false,
+    "pack_download_or_import_required_for_existing_tester": false
+  },
+  "requirements": {
+    "android_api": 26,
+    "abi": "arm64-v8a",
+    "translator": "MADLAD400-3B-MT Q4_K",
+    "candle_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+    "asr": "Whisper Base Q5_1",
+    "runtimes": {
+      "candle": "0.11.0; CPU; four threads",
+      "whisper_cpp": "v1.9.5; d1be6fde11ac6e0407606b4e42fe72d34add8037; CPU; four threads",
+      "onnx_runtime_android": "1.30.0; OPUS control only",
+      "sentencepiece": "0.2.2; e0cce7d37b065b5140349dbe12c6bcf6192fdd78",
+      "tts": "Installed Android default engine; EN/ES voices must report requires_network=false. Optional separate eSpeak NG 1.52.0, 4870adfa25b1a32b4361592f1be8a40337c58d6c"
+    },
+    "model_assets_bytes": 1995269155,
+    "no_model_weights_in_apk": true
+  },
+  "existing_test_pack": {
+    "file": "CommonTongue-Pass5-Test-Pack.zip",
+    "bytes": 1997338704,
+    "sha256": "11965738b6441df79122d214f164f7f3dbe9c9a6680e8ac65a22a44cba7a6a23",
+    "pack_id": "common-tongue-pass5-v1",
+    "manifest_sha256": "8b4af0bbac8ac897dd8442ba6a4d99b3efe1c33b8460a4383906f7cb1c452318",
+    "download_url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-research-preview-2026-10-08/CommonTongue-Pass5-Test-Pack.zip"
+  },
+  "apk_audit": {
+    "schema_version": 2,
+    "apk_bytes": 45272440,
+    "apk_sha256": "3eb9bdd9329737666510047c8238007b9a44441424f0fd516aed34a01b2b72d0",
+    "permissions": [
+      "android.permission.RECORD_AUDIO"
+    ],
+    "packaged_model_weights": false,
+    "abi": "arm64-v8a",
+    "dependency_closure_verified": true,
+    "jni_and_rust_exports_verified": true,
+    "native_libraries": [
+      {
+        "file": "lib/arm64-v8a/libdevice_trial.so",
+        "bytes": 4622120,
+        "sha256": "a6b67da7a64898ea203dd8bee396faa0f6c3662ca8904a3ef8ea4b48cc0f8f0b",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libtrial_t5.so",
+          "libandroid.so",
+          "liblog.so",
+          "libm.so",
+          "libdl.so",
+          "libc.so"
+        ],
+        "soname": "libdevice_trial.so",
+        "required_exports_verified": [
+          "Java_com_commontongue_spike_device_Native_asrClose",
+          "Java_com_commontongue_spike_device_Native_asrCreate",
+          "Java_com_commontongue_spike_device_Native_asrRun",
+          "Java_com_commontongue_spike_device_Native_buildInfo",
+          "Java_com_commontongue_spike_device_Native_decode",
+          "Java_com_commontongue_spike_device_Native_encode",
+          "Java_com_commontongue_spike_device_Native_t5Close",
+          "Java_com_commontongue_spike_device_Native_t5Load",
+          "Java_com_commontongue_spike_device_Native_t5Run",
+          "Java_com_commontongue_spike_device_Native_tokenizerClose",
+          "Java_com_commontongue_spike_device_Native_tokenizerCreate"
+        ]
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime.so",
+        "bytes": 32990472,
+        "sha256": "f325094bdf70c81198747e391d830fcf39dd881a6e916e3d6dd32506b6f9d1e8",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libdl.so",
+          "liblog.so",
+          "libandroid.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libonnxruntime.so",
+        "required_exports_verified": []
+      },
+      {
+        "file": "lib/arm64-v8a/libonnxruntime4j_jni.so",
+        "bytes": 83224,
+        "sha256": "401daceca368835065ca6f3eeada2e9a659b5068adad981db600de527e7c6dd7",
+        "elf_load_alignments": [
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libonnxruntime.so",
+          "libm.so",
+          "libdl.so",
+          "libc.so"
+        ],
+        "soname": null,
+        "required_exports_verified": []
+      },
+      {
+        "file": "lib/arm64-v8a/libtrial_t5.so",
+        "bytes": 5710792,
+        "sha256": "d1b9e7ef518089346e694931ee566e7c2f32e799396989041422f63fbf32e137",
+        "elf_load_alignments": [
+          16384,
+          16384,
+          16384,
+          16384
+        ],
+        "zip_compressed": false,
+        "needed": [
+          "libdl.so",
+          "libm.so",
+          "libc.so"
+        ],
+        "soname": "libtrial_t5.so",
+        "required_exports_verified": [
+          "trial_t5_close",
+          "trial_t5_load",
+          "trial_t5_run",
+          "trial_t5_string_free"
+        ]
+      }
+    ]
+  },
+  "compatibility_audit": {
+    "same_application_id": true,
+    "same_signer_as_v6": true,
+    "version_code_increased_to": 7,
+    "pack_contract_and_all_assets_byte_identical_to_v6": true,
+    "native_libraries_byte_identical_to_v6": {
+      "libdevice_trial.so": true,
+      "libonnxruntime.so": true,
+      "libonnxruntime4j_jni.so": true,
+      "libtrial_t5.so": true
+    },
+    "research_jvm_tests": {
+      "tests": 40,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "v6_native_import_audit_retained_for_identical_elfs": [
+      {
+        "library": "libdevice_trial.so",
+        "strong_imports": 249,
+        "unresolved_strong_imports": 0
+      },
+      {
+        "library": "libonnxruntime.so",
+        "strong_imports": 267,
+        "unresolved_strong_imports": 0
+      },
+      {
+        "library": "libonnxruntime4j_jni.so",
+        "strong_imports": 13,
+        "unresolved_strong_imports": 0
+      },
+      {
+        "library": "libtrial_t5.so",
+        "strong_imports": 67,
+        "unresolved_strong_imports": 0
+      }
+    ]
+  },
+  "publication": {
+    "release_url": "https://github.com/Revty79/CommonTongue/releases/tag/pass5-s25-tts-diagnostic-2026-10-08",
+    "tag": "pass5-s25-tts-diagnostic-2026-10-08",
+    "draft": false,
+    "research_prerelease": true,
+    "make_latest_false_requested": true,
+    "published_at": "2026-10-09T00:08:34Z",
+    "github_asset_digests_and_bytes_match": true,
+    "anonymous_apk_download_status": 200,
+    "anonymous_apk_download_bytes": 45272440,
+    "anonymous_apk_download_sha256": "3eb9bdd9329737666510047c8238007b9a44441424f0fd516aed34a01b2b72d0",
+    "model_pack_uploaded_or_changed": false,
+    "apk_models_or_source_zip_committed": false
+  },
+  "pending_physical_evidence": [
+    "v7 speech-only engine/file results and audible observation",
+    "v7 full prerecorded speech output",
+    "microphone/offline proof",
+    "human bilingual/sustained/lifecycle trials"
+  ],
+  "final_pass5_commit_and_remote_ci": "PENDING_AVAILABLE_PHYSICAL_HUMAN_TRIALS",
+  "published_assets": [
+    {
+      "file": "APK-audit.json",
+      "bytes": 3184,
+      "sha256": "da0caec667a3d5204c9cdc09478c9336b836a645d218fcc0c7a52c7ce4154d68",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-tts-diagnostic-2026-10-08/APK-audit.json"
+    },
+    {
+      "file": "CommonTongue-Pass5-S25-TTS-Diagnostic-Update.apk",
+      "bytes": 45272440,
+      "sha256": "3eb9bdd9329737666510047c8238007b9a44441424f0fd516aed34a01b2b72d0",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-tts-diagnostic-2026-10-08/CommonTongue-Pass5-S25-TTS-Diagnostic-Update.apk"
+    },
+    {
+      "file": "Compatibility-audit.json",
+      "bytes": 1008,
+      "sha256": "e2f2cb232d5a0a83324c38a07ebf41bab174f20d2e1bd9bfb0805f9fbbaa8207",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-tts-diagnostic-2026-10-08/Compatibility-audit.json"
+    },
+    {
+      "file": "S25-TTS-Diagnostic-Details.json",
+      "bytes": 8454,
+      "sha256": "295f239975cb2a1abab3a3eff5b2dc080fa578977883f44a4bee987983c1a8c0",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-tts-diagnostic-2026-10-08/S25-TTS-Diagnostic-Details.json"
+    },
+    {
+      "file": "SHA256SUMS.txt",
+      "bytes": 471,
+      "sha256": "3208456e1c4551a6d7af4b676dd4e25ca52bb235875682ff6b1d56d04eb19783",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-tts-diagnostic-2026-10-08/SHA256SUMS.txt"
+    },
+    {
+      "file": "START-HERE.txt",
+      "bytes": 1682,
+      "sha256": "2cf3e35364f8ae99ed63f1deaa09b4f2af66b89e1a7516bbcbe8b5504c4cd49a",
+      "url": "https://github.com/Revty79/CommonTongue/releases/download/pass5-s25-tts-diagnostic-2026-10-08/START-HERE.txt"
+    }
+  ]
+}

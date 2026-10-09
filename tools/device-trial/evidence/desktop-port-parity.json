@@ -1,0 +1,99 @@
+{
+  "scope": "Windows_C_ABI_port_control_NOT_ANDROID_NOT_PHYSICAL",
+  "runtime_revision": "31f35b147389700ed2a178ee66a91c3cc25cc80d",
+  "rust_version": "1.91.0",
+  "target_cpu": "default_portable_x86_64; Pass4 used x86-64-v3",
+  "profile": "release_thin_lto",
+  "library_sha256": "6df9484d4e796c85632e8f570c0fbf836092e2c820f4aad1421c5203344d16b5",
+  "offline_observations": {
+    "github.com": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions",
+    "huggingface.co": "[WinError 10013] An attempt was made to access a socket in a way forbidden by its access permissions"
+  },
+  "post_tripwire_events": [],
+  "results": [
+    {
+      "case_id": "text-en01",
+      "text": "Puedo recogerte después del trabajo, pero no puedo quedarme a cenar.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-es01",
+      "text": "I can take you after work, but I can't stay for dinner today.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-en04",
+      "text": "No arranque el motor hasta que no haya quitado los cables de puente.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-es04",
+      "text": "Do not start the engine until you remove the power wires.",
+      "completed": true,
+      "matches_pass4": false
+    },
+    {
+      "case_id": "text-en05",
+      "text": "El total es de 127 dólares y 50 centavos, no 175 dólares.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-es05",
+      "text": "It's one hundred twenty-seven dollars and fifty cents, not one hundred seventy-five.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-en08",
+      "text": "El camión gira pero no arranca, y la luz de control del motor está encendida.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-es08",
+      "text": "The truck starts, but it doesn't start and the engine light is on.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-en11",
+      "text": "El hormigón necesita curar antes de retirar los moldes.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-es11",
+      "text": "Let the concrete cure before removing the sill.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-en12",
+      "text": "Mueve a los terneros al pasto norte y revisa el bebedero.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-es12",
+      "text": "Take the calves to the northern stall and check the waterhole.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-en02",
+      "text": "Esa reparación me costó un brazo y una pierna, y ahora estoy bastante arruinado.",
+      "completed": true,
+      "matches_pass4": true
+    },
+    {
+      "case_id": "text-es02",
+      "text": "I don't bring fair right now; I'll pay you on Friday.",
+      "completed": true,
+      "matches_pass4": true
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "windows_platform_tools": {
+    "version": "37.0.1",
+    "url": "https://dl.google.com/android/repository/platform-tools_r37.0.1-win.zip",
+    "bytes": 8044989,
+    "sha256": "45f4d63113e895ebde0c90f194099a4676b6ac653bd28d54314a9e022bbc1a99",
+    "license": "Open-source component terms and notices in the official archive NOTICE.txt; Google SDK terms apply to SDK packaging",
+    "source": "https://developer.android.com/tools/releases/platform-tools"
+  },
+  "abseil_source": {
+    "revision": "5650e9cf76d3be4318d5fa3af38ee483ddfd5e4a",
+    "url": "https://codeload.github.com/abseil/abseil-cpp/zip/5650e9cf76d3be4318d5fa3af38ee483ddfd5e4a",
+    "bytes": 3498085,
+    "sha256": "8793d734bef100448d85d74a1716796c950327d6569fc5e59810d42465cf20c3",
+    "license": "Apache-2.0"
+  },
+  "research_tts": {
+    "package": "com.reecedunn.espeak",
+    "version": "1.52.0",
+    "revision": "4870adfa25b1a32b4361592f1be8a40337c58d6c",
+    "url": "https://github.com/espeak-ng/espeak-ng/releases/download/1.52.0/espeak-1.52.0-signed.apk",
+    "bytes": 10446659,
+    "sha256": "741b46abf84d843f9b0cce80136f60ffee9b9fe591601b9701aa2a9ff99c9ddf",
+    "license": "GPL-3.0-or-later",
+    "classification": "B: external research engine only; not linked into the translator APK or selected for production"
+  }
+}

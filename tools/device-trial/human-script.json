@@ -1,0 +1,452 @@
+{
+  "schema_version": 1,
+  "cases": [
+    {
+      "case_id": "en01",
+      "source": "I can pick you up after work, but I cannot stay for dinner.",
+      "direction": "en-es",
+      "category": "conversation",
+      "intended_meaning": [
+        "Pickup after work",
+        "dinner refusal",
+        "negation."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en02",
+      "source": "That repair cost an arm and a leg. I am pretty broke now.",
+      "direction": "en-es",
+      "category": "slang",
+      "intended_meaning": [
+        "Very expensive repair",
+        "little money",
+        "not literal limbs."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en03",
+      "source": "Let's call it a day and finish the fence tomorrow.",
+      "direction": "en-es",
+      "category": "idiom",
+      "intended_meaning": [
+        "Stop work today",
+        "finish fence tomorrow."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en04",
+      "source": "Do not start the engine until I remove the jumper cables.",
+      "direction": "en-es",
+      "category": "negation",
+      "intended_meaning": [
+        "Prohibition until cables removed",
+        "safety condition."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en05",
+      "source": "The total is 127 dollars and 50 cents, not 175 dollars.",
+      "direction": "en-es",
+      "category": "numbers-money",
+      "intended_meaning": [
+        "127.50 dollars",
+        "reject 175."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en06",
+      "source": "The delivery is on October 12 at 3:30 in the afternoon.",
+      "direction": "en-es",
+      "category": "date-time",
+      "intended_meaning": [
+        "October 12",
+        "15:30",
+        "delivery."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en07",
+      "source": "Cut two boards, each 45 inches long, and leave a quarter-inch gap.",
+      "direction": "en-es",
+      "category": "measurement",
+      "intended_meaning": [
+        "Two boards",
+        "45 inches each",
+        "gap 0.25 inch."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en08",
+      "source": "The truck cranks but won't start, and the check-engine light is on.",
+      "direction": "en-es",
+      "category": "automotive",
+      "intended_meaning": [
+        "Starter turns",
+        "engine will not run",
+        "warning lamp."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en09",
+      "source": "The brake pedal feels soft after we replaced the master cylinder.",
+      "direction": "en-es",
+      "category": "automotive",
+      "intended_meaning": [
+        "Spongy brake pedal",
+        "master cylinder replacement."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en10",
+      "source": "Shut off the breaker before you replace that outlet.",
+      "direction": "en-es",
+      "category": "construction",
+      "intended_meaning": [
+        "Disconnect circuit breaker before electrical outlet work."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en11",
+      "source": "The concrete needs to cure before we remove the forms.",
+      "direction": "en-es",
+      "category": "construction",
+      "intended_meaning": [
+        "Concrete curing",
+        "remove formwork later."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en12",
+      "source": "Move the calves to the north pasture and check the water trough.",
+      "direction": "en-es",
+      "category": "ranch",
+      "intended_meaning": [
+        "Young cattle",
+        "north pasture",
+        "drinking trough inspection."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en13",
+      "source": "The irrigation pump lost its prime, so the field is not getting water.",
+      "direction": "en-es",
+      "category": "agriculture",
+      "intended_meaning": [
+        "Pump priming lost",
+        "field not irrigated."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en14",
+      "source": "If the hose is still leaking, maybe just... wait, close the valve first.",
+      "direction": "en-es",
+      "category": "incomplete",
+      "intended_meaning": [
+        "Interrupted plan",
+        "close valve first",
+        "hose leak condition."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en15",
+      "source": "Put the jack next to the tire, not by the river bank.",
+      "direction": "en-es",
+      "category": "ambiguous",
+      "intended_meaning": [
+        "Vehicle lifting jack",
+        "tire",
+        "river bank negated."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "en16",
+      "source": "I didn't say he stole the tools; I said nobody saw him return them.",
+      "direction": "en-es",
+      "category": "difficult",
+      "intended_meaning": [
+        "No accusation of theft",
+        "nobody witnessed return."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es01",
+      "source": "Te puedo llevar después del trabajo, pero hoy no me puedo quedar a cenar.",
+      "direction": "es-en",
+      "category": "conversation",
+      "intended_meaning": [
+        "Ride after work",
+        "cannot stay for dinner today."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es02",
+      "source": "Ahorita no traigo feria; te pago el viernes.",
+      "direction": "es-en",
+      "category": "regional-slang",
+      "intended_meaning": [
+        "Casual Mexican Spanish: no cash now",
+        "payment Friday."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es03",
+      "source": "Me estás tomando el pelo o de verdad se descompuso otra vez?",
+      "direction": "es-en",
+      "category": "idiom",
+      "intended_meaning": [
+        "Are you teasing me",
+        "did it actually break again?"
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es04",
+      "source": "No prendas el motor hasta que quite los cables para pasar corriente.",
+      "direction": "es-en",
+      "category": "negation",
+      "intended_meaning": [
+        "Do not start until jumper cables removed."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es05",
+      "source": "Son ciento veintisiete dólares con cincuenta centavos, no ciento setenta y cinco.",
+      "direction": "es-en",
+      "category": "numbers-money",
+      "intended_meaning": [
+        "127.50 dollars",
+        "not 175."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es06",
+      "source": "La entrega es el doce de octubre a las tres y media de la tarde.",
+      "direction": "es-en",
+      "category": "date-time",
+      "intended_meaning": [
+        "October 12",
+        "15:30",
+        "delivery."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es07",
+      "source": "Necesito tres litros de aceite y una manguera de dos metros.",
+      "direction": "es-en",
+      "category": "measurement",
+      "intended_meaning": [
+        "Three liters oil",
+        "two-meter hose."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es08",
+      "source": "La camioneta da marcha, pero no arranca y está prendida la luz del motor.",
+      "direction": "es-en",
+      "category": "automotive",
+      "intended_meaning": [
+        "Starter cranks",
+        "no engine start",
+        "engine warning lamp."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es09",
+      "source": "El pedal del freno se siente esponjoso desde que cambiamos la bomba de freno.",
+      "direction": "es-en",
+      "category": "automotive",
+      "intended_meaning": [
+        "Spongy brake pedal",
+        "master cylinder replaced."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es10",
+      "source": "Baja el interruptor antes de cambiar ese contacto.",
+      "direction": "es-en",
+      "category": "construction",
+      "intended_meaning": [
+        "Circuit off before electrical outlet replacement",
+        "regional contacto."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es11",
+      "source": "Hay que dejar curar el concreto antes de quitar la cimbra.",
+      "direction": "es-en",
+      "category": "construction",
+      "intended_meaning": [
+        "Concrete cure first",
+        "regional formwork cimbra."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es12",
+      "source": "Lleva los becerros al potrero del norte y revisa el bebedero.",
+      "direction": "es-en",
+      "category": "ranch",
+      "intended_meaning": [
+        "Calves",
+        "north pasture",
+        "water trough."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es13",
+      "source": "La bomba de riego perdió el cebado y no está llegando agua al cultivo.",
+      "direction": "es-en",
+      "category": "agriculture",
+      "intended_meaning": [
+        "Lost pump prime",
+        "crop not receiving water."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es14",
+      "source": "Si todavía gotea la manguera, mejor... no, espera, cierra primero la válvula.",
+      "direction": "es-en",
+      "category": "incomplete",
+      "intended_meaning": [
+        "Interrupted suggestion",
+        "first close valve",
+        "leaking hose."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es15",
+      "source": "Deja el gato junto a la llanta; estoy hablando de la herramienta, no del animal.",
+      "direction": "es-en",
+      "category": "ambiguous",
+      "intended_meaning": [
+        "Vehicle jack, not cat",
+        "next to tire."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "es16",
+      "source": "No dije que se robó las herramientas; dije que nadie lo vio devolverlas.",
+      "direction": "es-en",
+      "category": "difficult",
+      "intended_meaning": [
+        "No theft accusation",
+        "return not witnessed."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "q029-en-es",
+      "source": "The bank approved our loan; it has nothing to do with the river.",
+      "direction": "en-es",
+      "category": "ambiguity",
+      "intended_meaning": [
+        "A financial bank approved a loan",
+        "the river sense is explicitly excluded."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "q029-es-en",
+      "source": "El banco aprobó nuestro préstamo; no tiene nada que ver con el río.",
+      "direction": "es-en",
+      "category": "ambiguity",
+      "intended_meaning": [
+        "A financial bank approved a loan",
+        "the river sense is explicitly excluded."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "q036-en-es",
+      "source": "I was going to... never mind, just leave it here.",
+      "direction": "en-es",
+      "category": "incomplete",
+      "intended_meaning": [
+        "An initial thought is abandoned",
+        "the final request is to leave the object here."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "q036-es-en",
+      "source": "Iba a... olvídalo, mejor déjalo aquí.",
+      "direction": "es-en",
+      "category": "incomplete",
+      "intended_meaning": [
+        "An initial thought is abandoned",
+        "the final request is to leave the object here."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "q044-en-es",
+      "source": "I'm not going to work today; I'm feeling lousy.",
+      "direction": "en-es",
+      "category": "regional",
+      "intended_meaning": [
+        "Mexican casual speech: no work today because speaker feels unwell."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "q044-es-en",
+      "source": "Hoy no voy a ir a la chamba; me siento de la fregada.",
+      "direction": "es-en",
+      "category": "regional",
+      "intended_meaning": [
+        "Mexican casual speech: no work today because speaker feels unwell."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "q045-en-es",
+      "source": "Can you do me a favor and give me a ride?",
+      "direction": "en-es",
+      "category": "regional",
+      "intended_meaning": [
+        "Mexican casual request for a favor and a ride."
+      ],
+      "context": []
+    },
+    {
+      "case_id": "q045-es-en",
+      "source": "¿Me haces el paro y me das un aventón?",
+      "direction": "es-en",
+      "category": "regional",
+      "intended_meaning": [
+        "Mexican casual request for a favor and a ride."
+      ],
+      "context": []
+    }
+  ],
+  "provenance": "Authored Pass 4 sources; no participant evidence"
+}
