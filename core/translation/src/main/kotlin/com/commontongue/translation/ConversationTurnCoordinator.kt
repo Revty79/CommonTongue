@@ -411,6 +411,7 @@ class ConversationTurnCoordinator(
                 currentCoroutineContext().ensureActive()
             } catch (cancelled: CancellationException) {
                 // Cancel is control flow. A stale operation never publishes an error or result.
+                if (token == generation) publish(state.value.copy(stage = TurnStage.CANCELLED))
                 throw cancelled
             } catch (fault: CaptureFailure) {
                 if (token == generation)

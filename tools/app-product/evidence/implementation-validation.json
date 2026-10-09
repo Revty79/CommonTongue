@@ -4,8 +4,8 @@
   "accepted_pass7_ci": 37879242025,
   "pass7_physical_acceptance": "USER_CONFIRMED_COMPLETE",
   "pass7_airplane_mode_evidence": "USER_CONFIRMATION_NOT_EXPORT_FIELD",
-  "jvm_unique_tests": 208,
-  "new_jvm_tests": 31,
+  "jvm_unique_tests": 209,
+  "new_jvm_tests": 32,
   "jvm_failures_errors_skips": 0,
   "python_regression_tests": 113,
   "emulator_product_checks": {

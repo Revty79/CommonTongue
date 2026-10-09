@@ -18,6 +18,7 @@ class ConversationTurnCoordinatorTest {
         var online = false
         var partial = false
         var ignoredCancellation = false
+        var componentCancels = false
         var delayAt: String? = null
         val blocked = CompletableDeferred<Unit>()
         var discarded = 0
@@ -49,6 +50,7 @@ class ConversationTurnCoordinatorTest {
                     ): CapabilityResult<RecognizedSpeech> {
                         calls += "recognizer"
                         recognition += request
+                        if (componentCancels) throw CancellationException("fixed test cancellation")
                         if (delayAt == "ASR") {
                             if (ignoredCancellation) withContext(NonCancellable) { blocked.await() }
                             else blocked.await()
@@ -468,5 +470,19 @@ class ConversationTurnCoordinatorTest {
         r.coordinator.replay()
         assertEquals(TurnProblem.AUDIO_UNAVAILABLE, r.coordinator.state.value.problem)
         assertTrue(r.recognition.isEmpty())
+    }
+
+    @Test
+    fun componentCancellationEndsTheVisibleProcessingStateAndNextTurnSucceeds() = runTest {
+        val r = Rig(this)
+        r.ready()
+        r.componentCancels = true
+        r.finish(r.start())
+        assertEquals(TurnStage.CANCELLED, r.coordinator.state.value.stage)
+        assertTrue(r.translation.isEmpty())
+        assertFalse(r.events.any { it.stage == TurnStage.ERROR })
+        r.componentCancels = false
+        r.finish(r.start())
+        assertEquals(TurnStage.COMPLETE, r.coordinator.state.value.stage)
     }
 }
