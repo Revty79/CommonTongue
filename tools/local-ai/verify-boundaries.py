@@ -31,8 +31,10 @@ def main():
     for folder in ('app/src/main', 'platform/android-local-ai/src/main', 'platform/local-ai/src/main'):
         for file in (ROOT / folder).rglob('AndroidManifest.xml'):
             manifest = ET.parse(file).getroot()
-            if manifest.findall('uses-permission') or manifest.findall('uses-permission-sdk-23'):
-                raise RuntimeError('A production source manifest gained permissions')
+            permissions = {p.get('{http://schemas.android.com/apk/res/android}name') for p in manifest.findall('uses-permission')}
+            approved = {'android.permission.RECORD_AUDIO'} if file == ROOT / 'app/src/main/AndroidManifest.xml' else set()
+            if permissions != approved or manifest.findall('uses-permission-sdk-23'):
+                raise RuntimeError('Unexpected production source permissions')
     print('Local inference network boundary, neutral UI wiring, locked T5 source and accepted TTS verified.')
 
 

@@ -2,12 +2,10 @@ package com.commontongue.prototype.platform
 
 import android.content.Context
 import android.os.StatFs
-import com.commontongue.local.CoreResourceRole
 import com.commontongue.local.LocalFailure
 import com.commontongue.local.LocalFault
 import com.commontongue.local.ResourceIdentity
 import com.commontongue.local.ResourceIntegrity
-import com.commontongue.local.android.FileCoreResources
 import java.io.File
 import java.net.HttpURLConnection
 import java.net.URI
@@ -26,8 +24,7 @@ internal class TestResources(context: Context) {
     private val root = File(app.filesDir, "local-core")
     private val lock =
         JSONObject(app.assets.open("pass7/resources.json").bufferedReader().use { it.readText() })
-    private val roles = CoreResourceRole.entries.associateWith { it.name.lowercase() }
-    val source = FileCoreResources("debug-core-v1", roles.mapValues { File(root, it.value) })
+    val source = InstalledCoreResources(context).source
 
     fun fixture(token: String): File {
         if (token !in setOf("control_en", "control_es"))

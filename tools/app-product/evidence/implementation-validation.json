@@ -1,0 +1,40 @@
+{
+  "scope": "PASS8_IMPLEMENTATION_HANDOFF_NOT_PHYSICAL_CLOSEOUT",
+  "accepted_pass7_source": "d22b8fa513b79da29857e620affc6485993b4742",
+  "accepted_pass7_ci": 37879242025,
+  "pass7_physical_acceptance": "USER_CONFIRMED_COMPLETE",
+  "pass7_airplane_mode_evidence": "USER_CONFIRMATION_NOT_EXPORT_FIELD",
+  "jvm_unique_tests": 208,
+  "new_jvm_tests": 31,
+  "jvm_failures_errors_skips": 0,
+  "python_regression_tests": 113,
+  "emulator_product_checks": {
+    "api": 36,
+    "product_ui": 4,
+    "existing_pack_binding_reuse": 1,
+    "real_audio_record_pcm_wav_cleanup": 1,
+    "failures_errors_skips": 0,
+    "physical_arm64_inference_proof": false
+  },
+  "required_gradle_checks": [
+    "clean", "test", "lint", "spotlessCheck", "verifyCoreBoundaries",
+    ":app:verifyFoundationManifest", "assembleDebug",
+    ":app:assembleDebugAndroidTest", ":app:assembleRelease"
+  ],
+  "required_gradle_result": "PASS",
+  "frozen_local_ai_native_pack_inputs": 274,
+  "frozen_research_inputs": 285,
+  "accepted_production_speech_unchanged": true,
+  "new_runtime_or_model_dependencies": false,
+  "app_identity": "com.commontongue.prototype.debug",
+  "version_code": 9,
+  "version_name": "0.8.0-pass8-dev",
+  "signing_certificate_sha256": "129bb8734d002798d508b78621270cf6fdb3b0c91e0f4759bf70ccf8798001fb",
+  "pack_version": "offline-core-en-es-v1",
+  "pack_reuse": "ORIGINAL_PRIVATE_DIRECTORY_ROLE_FILES_AND_BINDING_TOKEN",
+  "release_has_internet_permission": false,
+  "recordings_transcripts_translation_history_persisted_by_default": false,
+  "history_supplied_to_translation_as_context": false,
+  "pass8_physical_product_acceptance": "PENDING_S25_HUMAN_EN_ES_REPLAY_ALTERNATING_OFFLINE_UI_TESTS",
+  "pass9_begun": false
+}

@@ -2,13 +2,11 @@
 
 Common Tongue is the working name for an Android-first, offline-first conversational translation product. This repository is `common-tongue`. iPhone support is planned later; this pass contains native Android only.
 
-**Pass 7 adds production local recognition and translation adapters; the conversational PTT UI remains Pass 8.** The neutral contracts now have the locked Whisper/MADLAD implementations and the accepted offline Android speech adapter. A single debug launcher reaches internal component checks. Models remain separate downloadable resources, never APK/Git assets.
+**Pass 8 integrates the real one-device PTT translator.** Hold English or Espa?ol, speak and release: microphone ? accepted production recognition ? translation ? offline system voice ? controlled playback/replay. Four selectable appearances share one functional screen. Models stay in private storage, separate from APK/Git.
 
-Pass 6's S25 English, Spanish and replay proof is complete and its implementation stays unchanged. Pass 7 implementation checks pass; its production-adapter S25 proof remains pending. See [Pass 7 validation and tester setup](docs/PASS_7_VALIDATION.md), [local adapter architecture](docs/LOCAL-AI-ADAPTERS.md), [locked provenance](docs/LOCAL-AI-PROVENANCE.md), and the [canonical roadmap](docs/ROADMAP.md). Pass 8 has not begun.
+Pass 7 is physically accepted on the S25 at `d22b8fa513b79da29857e620affc6485993b4742` ([closeout](docs/PASS_7_CLOSEOUT.md)). Pass 6's voice implementation is unchanged. Pass 8's own real-product physical acceptance remains pending. See [product ownership, pack reuse and phone checklist](docs/PASS_8_PRODUCT.md), [validation](docs/PASS_8_VALIDATION.md), [locked provenance](docs/LOCAL-AI-PROVENANCE.md) and [roadmap](docs/ROADMAP.md). No Pass 9 work is included.
 
-Pass 3 adds model-neutral capability contracts, structured quality/context/failure values, a cancellable text use case, and a scoped deterministic integer verifier in `:core:translation`. The UI still reports no installed engine. See [translation contracts](docs/TRANSLATION_CONTRACTS.md) and [quality architecture](docs/QUALITY_ARCHITECTURE.md).
-
-The intended first product language pair is English and Latin-American Spanish, initially emphasizing Mexican/Latin-American Spanish. The research proof uses multilingual Whisper, OPUS-MT, and local TTS; regional/domain quality and physical-phone performance still need evaluation. See [Pass 2 findings](docs/feasibility/PASS_2_OFFLINE_FEASIBILITY.md).
+The initial pair is English/Spanish, with installed offline regional Spanish voices preferred by the accepted voice policy. Regional/domain translation quality remains unproven. Capability confidence and meaning verification are not fabricated. Core contracts and earlier controlled research evidence are retained.
 
 ## Toolchain
 
@@ -27,18 +25,18 @@ The intended first product language pair is English and Latin-American Spanish, 
 
 Versions are centralized in [gradle/libs.versions.toml](gradle/libs.versions.toml); the wrapper pins Gradle and its distribution checksum. Only stable dependencies are used. See [toolchain notes](docs/TOOLCHAIN.md) for sources and compatibility details.
 
-The application ID **`com.commontongue.prototype` is TEMPORARY** and must be finalized before any Play Store release. Debug uses `com.commontongue.prototype.debug`, the launcher label `Common Tongue (Dev)`, and a `-dev` version suffix. The working product name lives in Android resources. Production signing is not configured; release builds are unsigned.
+The application ID **`com.commontongue.prototype` is TEMPORARY** and must be finalized before any Play Store release. Debug uses `com.commontongue.prototype.debug`, the launcher label `Common Tongue`, and a `-dev` version suffix. The working product name lives in Android resources. Production signing is not configured; release builds are unsigned.
 
 ## Project structure
 
 ```text
 app/                         Android application
   src/main/.../platform/     Activity and Android entry points
-  src/main/.../ui/           Foundation screen, ViewModel, state, Material 3 theme
-  src/test/                  ViewModel unit tests
-  src/androidTest/           Compose startup/UI smoke test
+  src/main/.../ui/           Shared translator screen and four selectable token sets
+  src/test/                  ViewModel, microphone and theme unit tests
+  src/androidTest/           Compose product, touch/theme and voice integration tests
 core/domain/                 Pure Kotlin/JVM product concepts and unit tests
-core/translation/            Pure Kotlin/JVM capabilities, text use case, scoped verification
+core/translation/            Pure Kotlin/JVM capabilities, turn coordinator, text use case, scoped verification
 platform/android-speech/     Installed offline TTS adapter and controlled playback
 platform/local-ai/           Production recognition/translation adapters and shared lifecycle
 platform/android-local-ai/   Resource bindings, private worker and checked JNI
@@ -82,7 +80,7 @@ Open the root directory in Android Studio, sync, and run `app` on an Android API
 adb shell am start -n com.commontongue.prototype.debug/com.commontongue.prototype.platform.MainActivity
 ```
 
-The single launcher retains the foundation screen and a **Pass 7 internal adapter checks** button. Inside that screen, tap **Set up test resources**, then **Run EN + ES adapter checks**. The accepted offline voice checks remain an internal button, with no second launcher. Wi-Fi/cellular may stay enabled. The [published tester APK](docs/PASS_7_VALIDATION.md) is the preferred S25 update and provisions resources without ADB or developer steps.
+The single launcher opens the translator. Settings ? Appearance ? Theme selects a locally remembered style. Settings also contains internal adapter/voice checks and narrow resource setup in debug builds. Existing validated Pass 7 resources are reused without a download. Wi-Fi/cellular may stay enabled. The [signed tester update and physical checklist](docs/PASS_8_VALIDATION.md) provide a phone-only installation path; no ADB, uninstall or data clear is needed.
 
 The debug APK is `app/build/outputs/apk/debug/app-debug.apk`. For an unsigned optimized release APK, run `:app:assembleRelease`. No publishing is configured.
 
@@ -101,7 +99,7 @@ Windows environment note: if unit-test Java reports `Could not find or load main
 
 Run instrumentation locally after starting an emulator or attaching a device. Windows uses `.\gradlew.bat :app:connectedDebugAndroidTest`; macOS/Linux uses `./gradlew :app:connectedDebugAndroidTest`. A skipped device test is not a pass. See [Pass 1 validation](docs/PASS_1_VALIDATION.md) for executed results and environment limits.
 
-GitHub Actions runs build, unit tests, lint, formatting, manifest verification, debug/test APK assembly, research tooling tests and unchanged native/model baseline verification. It uploads the Pass 6 model-free voice-check APK, checksums, requirements and test reports. It uses JDK 17 and read-only repository permission. CI downloads no research models; physical acceptance is recorded separately.
+GitHub Actions runs build, unit tests, lint, formatting, manifest verification, debug/test APK assembly, research tooling tests and unchanged native/model baseline verification. It uploads the Pass 8 translator APK, checksums, requirements and test reports. The direct S25 tester APK uses the existing local signer; an ordinary CI debug signer cannot update that installation. It uses JDK 17 and read-only repository permission. CI downloads no research models; physical acceptance is recorded separately.
 
 ## Architecture and privacy
 

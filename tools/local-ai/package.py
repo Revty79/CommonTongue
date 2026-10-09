@@ -9,14 +9,14 @@ import xml.etree.ElementTree as ET
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
-OUT = ROOT / '.local/pass7-artifacts'
+OUT = ROOT / '.local/pass8-artifacts'
 APK = ROOT / 'app/build/outputs/apk/debug/app-debug.apk'
 A = '{http://schemas.android.com/apk/res/android}'
 
 
 def main():
     manifest = ET.parse(ROOT / 'app/build/intermediates/merged_manifest/debug/processDebugMainManifest/AndroidManifest.xml').getroot()
-    allowed = {'android.permission.INTERNET', 'com.commontongue.prototype.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'}
+    allowed = {'android.permission.RECORD_AUDIO', 'android.permission.INTERNET', 'com.commontongue.prototype.debug.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'}
     permissions = {x.get(A + 'name') for x in manifest.findall('uses-permission')}
     if permissions != allowed or manifest.findall('uses-permission-sdk-23'): raise RuntimeError('Unapproved debug permissions')
     if len([x for x in manifest.findall('.//category') if x.get(A + 'name') == 'android.intent.category.LAUNCHER']) != 1:
@@ -45,17 +45,25 @@ def main():
             dependencies[file.name] = needs
             if file.name == 'libtrial_t5.so' and not re.search(r'\(SONAME\).*?\[libtrial_t5.so\]', text): raise RuntimeError('Nonportable Rust SONAME')
     OUT.mkdir(parents=True, exist_ok=True)
-    name = 'CommonTongue-Pass7-Adapter-Check.apk'
+    name = 'CommonTongue-Pass8-Translator.apk'
     shutil.copyfile(APK, OUT / name)
     sha = hashlib.sha256(APK.read_bytes()).hexdigest()
-    details = {'scope': 'PASS7_DEBUG_COMPONENT_CHECK_NOT_PRODUCTION_RELEASE', 'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+    details = {'scope': 'PASS8_DEBUG_PRODUCT_TEST_NOT_PUBLIC_PRODUCTION_RELEASE', 'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
         'working_tree_dirty': bool(subprocess.check_output(['git', 'status', '--porcelain'], cwd=ROOT)),
         'apk': name, 'bytes': APK.stat().st_size, 'sha256': sha, 'application_id': manifest.get('package'),
         'version_name': manifest.get(A + 'versionName'), 'permissions': sorted(permissions), 'native_dependencies': dependencies,
-        'physical_acceptance': 'PENDING_S25_PRODUCTION_ADAPTER_EXPORT', 'model_files_bundled': False,
-        'download': 'Tap Set up test resources once in the single Common Tongue launcher. About 1.73 GB download and 4 GB free storage.',
+        'physical_acceptance': 'PENDING_S25_REAL_PRODUCT_TEST', 'model_files_bundled': False,
+        'download': 'Update the existing Common Tongue app; validated Pass 7 resources are reused without a download. If missing, Settings has the internal one-action test resource setup.',
         'update_signing': 'The tester download is locally signed with the existing persistent debug key. Ordinary CI uses its own debug key and is not an update for that installation.'}
-    (OUT / 'Adapter-Check-Details.json').write_text(json.dumps(details, indent=2) + '\n', encoding='utf8')
+    lock = json.loads((ROOT / 'app/src/debug/assets/pass7/resources.json').read_text(encoding='utf8'))
+    details['requirements'] = {'min_android_api': 26, 'abi': 'arm64-v8a', 'cpu_threads': 4,
+        'offline_system_voices': ['English', 'Spanish'], 'requires_network_voice': False,
+        'pack_version': lock['version'], 'pack_archive_sha256': lock['archive_sha256'],
+        'reuse_existing_pack': True, 'model_files': {name: lock['files'][name] for name in ('recognizer', 'translator', 'tokenizer', 'configuration')},
+        'recognizer': 'Whisper multilingual Base Q5_1 / whisper.cpp v1.9.5 d1be6fde11ac6e0407606b4e42fe72d34add8037',
+        'translator': 'MADLAD400-3B-MT Q4_K / Candle 0.11.0 31f35b147389700ed2a178ee66a91c3cc25cc80d / Rust 1.91.0',
+        'decoding': 'Unchanged accepted Pass 7 CPU4 configuration; see docs/LOCAL-AI-ADAPTERS.md and LOCAL-AI-PROVENANCE.md'}
+    (OUT / 'Translator-Details.json').write_text(json.dumps(details, indent=2) + '\n', encoding='utf8')
     (OUT / 'SHA256SUMS.txt').write_text(f'{sha}  {name}\n', encoding='utf8')
     print(json.dumps({'apk': name, 'sha256': sha, 'bytes': APK.stat().st_size}))
 

@@ -76,16 +76,19 @@ jobs:
         run: python3 -m unittest discover -s tools/translation-quality/tests -v
       - name: Check physical trial tooling without devices or models
         run: python3 -m unittest discover -s tools/device-trial/tests -v
-      - name: Verify accepted research baseline and package Pass 7 adapter check
+      - name: Verify accepted research baseline and package Pass 8 translator
         run: |
           python3 tools/voice-layer/verify-baseline.py
+          python3 tools/app-product/verify.py
           python3 tools/local-ai/package.py
-      - name: Upload Pass 7 adapter check and validation reports
+      - name: Upload Pass 8 translator and validation reports
         uses: actions/upload-artifact@v7
         with:
-          name: CommonTongue-Pass7-Adapter-Check-${{ github.sha }}
+          name: CommonTongue-Pass8-Translator-${{ github.sha }}
           path: |
-            .local/pass7-artifacts/*
+            .local/pass8-artifacts/*
+            app/build/reports/tests/
+            core/translation/build/reports/tests/
             platform/local-ai/build/reports/tests/
             platform/android-local-ai/build/reports/tests/
             platform/android-speech/build/reports/tests/

@@ -26,8 +26,8 @@ android {
         minSdk = 26
         targetSdk = 36
         ndk { abiFilters += "arm64-v8a" }
-        versionCode = 8
-        versionName = "0.7.0-pass7"
+        versionCode = 9
+        versionName = "0.8.0-pass8"
         buildConfigField("String", "SPEECH_SOURCE_REVISION", "\"${speechSourceRevision.get()}\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -128,10 +128,14 @@ androidComponents {
                         "${variantApplicationId.get()}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
                     val allowed =
                         if (variant.name == "debug")
-                            setOf(signaturePermission, "android.permission.INTERNET")
-                        else setOf(signaturePermission)
+                            setOf(
+                                signaturePermission,
+                                "android.permission.INTERNET",
+                                "android.permission.RECORD_AUDIO",
+                            )
+                        else setOf(signaturePermission, "android.permission.RECORD_AUDIO")
                     check(
-                        permissions.all { it in allowed } &&
+                        permissions.toSet() == allowed &&
                             (variant.name != "debug" ||
                                 "android.permission.INTERNET" in permissions)
                     ) {

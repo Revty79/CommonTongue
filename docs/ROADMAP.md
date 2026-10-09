@@ -1,6 +1,8 @@
 # Common Tongue roadmap
 
-This is the user-approved sequence. Reordering requires explicit approval. Pass 6 is accepted at `3a2f3357f7ef3567d754943f6822fd06bdb1966f`; its exact-commit CI passed. Pass 7 is current. Do not begin Pass 8 before review of the pushed Pass 7 source and CI evidence.
+This is the newly user-approved sequence. Pass 7 is physically accepted at `d22b8fa513b79da29857e620affc6485993b4742`; [closeout](PASS_7_CLOSEOUT.md) records exact CI and user-confirmed S25 evidence. Pass 8 is active and requires its own real-product acceptance. Do not begin Pass 9 before review.
+
+**One phone is enough. Two phones are better.** One-device local translation is complete without pairing; two phones are a later optional enhancement.
 
 | Pass | Scope | Status |
 | --- | --- | --- |
@@ -10,15 +12,16 @@ This is the user-approved sequence. Reordering requires explicit approval. Pass 
 | 4 | Translation quality bake-off | Complete |
 | 5 | Physical-device research proof | Complete |
 | 6 | Production offline TTS | Complete |
-| 7 | Production local AI adapters | Current |
-| 8 | First real production PTT app + initial visual design | Future |
+| 7 | Production local AI adapters | Complete |
+| 8 | First real production PTT app + visual identity | Current; physical product acceptance pending |
 | 9 | Context + terminology | Future |
 | 10 | Meaning protection | Future |
 | 11 | Translation notes | Future |
 | 12 | Automated model/language pack manager | Future |
-| 13 | Device profiles / optimization | Future |
-| 14 | Privacy / accessibility / storage | Future |
-| 15 | Subscription / entitlements | Future |
-| ~16 | Connected/account infrastructure + beta preparation | Future |
+| 13 | Paired Conversation PTT | Future |
+| 14 | Device profiles / optimization | Future |
+| 15 | Privacy / accessibility / storage | Future |
+| 16 | Subscription / entitlements | Future |
+| 17 | Connected Mode + accounts + beta/release preparation | Future |
 
-After 1.0: hands-free/VAD, camera, voice preservation, iPhone, and professional/enterprise expansion. No change in this document authorizes implementing a later pass.
+Post-1.0: hands-free/VAD, hands-free paired conversation, camera translation, voice preservation, iPhone, and professional/enterprise expansion. No later feature is implemented by this pass.
