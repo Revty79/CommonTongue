@@ -1,6 +1,6 @@
 # Pass 6 S25 playback correction
 
-Pass 6 remains open for physical playback confirmation. Pass 7 has not begun.
+The corrected S25 export confirms five required EN/ES/replay completions, and the tester confirmed audibility. The regression is resolved for the S25 phone speaker; see [physical closeout](PASS_6_CLOSEOUT.md). Pass 7 has not begun.
 
 ## Reported regression
 
@@ -12,7 +12,7 @@ Both paths use installed offline TTS, a PCM16 WAV and `AudioTrack.MODE_STATIC`. 
 
 [Android's AudioTrack reference](https://developer.android.com/reference/android/media/AudioTrack#STATE_NO_STATIC_DATA) documents that state. The correction restores write-then-validate ordering, including full-byte-count validation. It retains static playback, media/speech audio attributes, audio focus, noisy receiver, route protection, completion thresholds and cleanup. Voice selection, TTS synthesis, WAV parsing, Whisper, MADLAD, model assets, native translation and Pass 5 code are unchanged.
 
-This is a source-identified defect reproduced by a regression test, not yet a claim that the corrected APK has played on the S25. The original export did not record the track's initial state; the new export does.
+The source-identified defect was reproduced by a regression test before correction. The subsequent corrected S25 export now reports state `2` before each write, state `1` after a complete write, successful `play()` and full-buffer completion for the required cases. The original export did not record the initial state; the new export supplies the missing physical evidence. The original failed release remains historical evidence.
 
 ## Privacy-safe playback evidence
 

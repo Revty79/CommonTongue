@@ -4,6 +4,8 @@ Common Tongue is the working name for an Android-first, offline-first conversati
 
 **The translation UI remains a foundation build; Pass 6 adds its production offline speech adapter.** Pass 1 provides the Kotlin/Jetpack Compose foundation, boundaries and automation. Experimental ASR/translation models and runtimes remain outside the production app and domain. The debug-only voice check exercises the production `SpeechSynthesizer` adapter without a model pack.
 
+Pass 6's requested S25 phone-speaker proof is complete: English, Spanish and replay pass through the production adapter with installed offline voices and airplane mode off; the tester confirmed audibility. Keep the tested version 7 APK. See [Pass 6 closeout and remaining release concerns](docs/voice/PASS_6_CLOSEOUT.md). Pass 7 has not begun and requires review/authorization.
+
 Pass 3 adds model-neutral capability contracts, structured quality/context/failure values, a cancellable text use case, and a scoped deterministic integer verifier in `:core:translation`. The UI still reports no installed engine. See [translation contracts](docs/TRANSLATION_CONTRACTS.md) and [quality architecture](docs/QUALITY_ARCHITECTURE.md).
 
 The intended first product language pair is English and Latin-American Spanish, initially emphasizing Mexican/Latin-American Spanish. The research proof uses multilingual Whisper, OPUS-MT, and local TTS; regional/domain quality and physical-phone performance still need evaluation. See [Pass 2 findings](docs/feasibility/PASS_2_OFFLINE_FEASIBILITY.md).

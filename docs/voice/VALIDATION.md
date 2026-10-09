@@ -1,8 +1,8 @@
-# Pass 6 validation checkpoint
+# Pass 6 validation history
 
-Implementation checkpoint; **physical S25 acceptance is pending**. Pass 5's accepted v7 proof is not reused as a physical pass for this new production adapter. The user can test the phone speaker; physical headphones/Bluetooth coverage is unavailable and remains a documented concern. Pass 7 has not begun.
+Current result: **the requested S25 speaker proof passes** at correction commit `5af514dd4f1d19aa0bfceda3ffbd07d1f2586f08`, with five completed EN/ES/replay cases and tester-confirmed audibility. See [the reviewed physical closeout](PASS_6_CLOSEOUT.md) and [bounded evidence](../../tools/voice-layer/evidence/s25-v7-playback.json). Phone speaker only; physical headphones/Bluetooth coverage remains unavailable. Pass 7 has not begun.
 
-The first production S25 trial at `af383eaa1548fc677327f3163f72a0e2f11de94a` subsequently confirmed offline synthesis/voice selection but failed every playback attempt. See [the narrow playback correction and required rerun](PLAYBACK_CORRECTION.md). The following counts describe that original implementation checkpoint; later correction results are recorded separately in the correction build receipt. Pass 6 is not accepted yet.
+The first production S25 trial at `af383eaa1548fc677327f3163f72a0e2f11de94a` confirmed offline synthesis/voice selection but failed every playback attempt. See [the resolved playback regression](PLAYBACK_CORRECTION.md). The following sections preserve the original implementation checkpoint, its then-pending device/CI status and its 130-test counts. Later correction validation passed 138 JVM and 113 research tests, exact-commit CI, and the new physical proof recorded in the closeout.
 
 ## Executed locally
 

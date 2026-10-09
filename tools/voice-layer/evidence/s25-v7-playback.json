@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "scope": "PASS6_PRODUCTION_VOICE_LAYER_S25_PHONE_SPEAKER_COMPLETE_AWAITING_USER_REVIEW",
+  "source_export_sha256": "090aa16f27f2eea5ff4352193162281795b68b93215d433d4554d0c4a085407b",
+  "export_schema_version": 2,
+  "tested_source_commit": "5af514dd4f1d19aa0bfceda3ffbd07d1f2586f08",
+  "app_version": "0.6.1-pass6-dev",
+  "device_class": "Galaxy S25",
+  "android_api": 36,
+  "internet_permission": false,
+  "airplane_mode_at_export": false,
+  "capability_path": "SpeechSynthesizer -> installed offline Android TTS -> PCM16 WAV -> static AudioTrack",
+  "required_playback_cases": [
+    {
+      "case": "MANUAL_EN",
+      "outcome": "PASS",
+      "execution": "OFFLINE"
+    },
+    {
+      "case": "MANUAL_ES",
+      "outcome": "PASS",
+      "execution": "OFFLINE"
+    },
+    {
+      "case": "EN",
+      "outcome": "PASS",
+      "execution": "OFFLINE"
+    },
+    {
+      "case": "ES",
+      "outcome": "PASS",
+      "execution": "OFFLINE"
+    },
+    {
+      "case": "REPLAY",
+      "outcome": "PASS",
+      "execution": "OFFLINE"
+    }
+  ],
+  "selected_offline_voices": [
+    {
+      "engine": "com.google.android.tts",
+      "voice": "en-US-language",
+      "locale": "en-US",
+      "requires_network": false
+    },
+    {
+      "engine": "com.google.android.tts",
+      "voice": "es-US-language",
+      "locale": "es-US",
+      "requires_network": false
+    }
+  ],
+  "initialized_engines": [
+    {
+      "engine": "com.google.android.tts",
+      "android_result": 0,
+      "milliseconds": 417.933542
+    },
+    {
+      "engine": "com.samsung.SMT",
+      "android_result": 0,
+      "milliseconds": 18.01901
+    }
+  ],
+  "diagnostic_counts": {
+    "ENGINE_INITIALIZED": 2,
+    "VOICE_SELECTED": 5,
+    "SYNTHESIS_START": 5,
+    "SYNTHESIS_COMPLETE": 5,
+    "PLAYBACK_DETAIL": 138,
+    "PLAYBACK_START": 6,
+    "PLAYBACK_COMPLETE": 5,
+    "CANCELLED": 1
+  },
+  "attempts": [
+    {
+      "ordinal": 1,
+      "outcome": "COMPLETE",
+      "pcm_bytes": 186480,
+      "channels": 1,
+      "sample_rate_hz": 24000,
+      "focus_result": 1,
+      "receiver_registration": "SUCCEEDED",
+      "state_before_write": 2,
+      "write_return_bytes": 186480,
+      "state_after_write": 1,
+      "play_state_after_play": 3,
+      "routed_device_type": 2,
+      "initial_head_frames": 0,
+      "first_head_advance_frames": 480,
+      "first_playback_start_frames": 1440,
+      "total_pcm_frames": 93240,
+      "completed_head_frames": 93240,
+      "estimated_request_to_audio_ms": 1675.382447
+    },
+    {
+      "ordinal": 2,
+      "outcome": "COMPLETE",
+      "pcm_bytes": 201544,
+      "channels": 1,
+      "sample_rate_hz": 24000,
+      "focus_result": 1,
+      "receiver_registration": "SUCCEEDED",
+      "state_before_write": 2,
+      "write_return_bytes": 201544,
+      "state_after_write": 1,
+      "play_state_after_play": 3,
+      "routed_device_type": 2,
+      "initial_head_frames": 0,
+      "first_head_advance_frames": 480,
+      "first_playback_start_frames": 480,
+      "total_pcm_frames": 100772,
+      "completed_head_frames": 100772,
+      "estimated_request_to_audio_ms": 545.504688
+    },
+    {
+      "ordinal": 3,
+      "outcome": "COMPLETE",
+      "pcm_bytes": 186480,
+      "channels": 1,
+      "sample_rate_hz": 24000,
+      "focus_result": 1,
+      "receiver_registration": "SUCCEEDED",
+      "state_before_write": 2,
+      "write_return_bytes": 186480,
+      "state_after_write": 1,
+      "play_state_after_play": 3,
+      "routed_device_type": 2,
+      "initial_head_frames": 480,
+      "first_head_advance_frames": 960,
+      "first_playback_start_frames": 960,
+      "total_pcm_frames": 93240,
+      "completed_head_frames": 93240,
+      "estimated_request_to_audio_ms": 324.375468
+    },
+    {
+      "ordinal": 4,
+      "outcome": "COMPLETE",
+      "pcm_bytes": 201544,
+      "channels": 1,
+      "sample_rate_hz": 24000,
+      "focus_result": 1,
+      "receiver_registration": "SUCCEEDED",
+      "state_before_write": 2,
+      "write_return_bytes": 201544,
+      "state_after_write": 1,
+      "play_state_after_play": 3,
+      "routed_device_type": 2,
+      "initial_head_frames": 0,
+      "first_head_advance_frames": 480,
+      "first_playback_start_frames": 480,
+      "total_pcm_frames": 100772,
+      "completed_head_frames": 100772,
+      "estimated_request_to_audio_ms": 130.806563
+    },
+    {
+      "ordinal": 5,
+      "outcome": "COMPLETE",
+      "pcm_bytes": 201544,
+      "channels": 1,
+      "sample_rate_hz": 24000,
+      "focus_result": 1,
+      "receiver_registration": "SUCCEEDED",
+      "state_before_write": 2,
+      "write_return_bytes": 201544,
+      "state_after_write": 1,
+      "play_state_after_play": 3,
+      "routed_device_type": 2,
+      "initial_head_frames": 0,
+      "first_head_advance_frames": 960,
+      "first_playback_start_frames": 960,
+      "total_pcm_frames": 100772,
+      "completed_head_frames": 100772,
+      "estimated_request_to_audio_ms": 0
+    },
+    {
+      "ordinal": 6,
+      "outcome": "CANCELLED_AFTER_START",
+      "pcm_bytes": 186480,
+      "channels": 1,
+      "sample_rate_hz": 24000,
+      "focus_result": 1,
+      "receiver_registration": "SUCCEEDED",
+      "state_before_write": 2,
+      "write_return_bytes": 186480,
+      "state_after_write": 1,
+      "play_state_after_play": 3,
+      "routed_device_type": 2,
+      "initial_head_frames": 0,
+      "first_head_advance_frames": 480,
+      "first_playback_start_frames": 960,
+      "total_pcm_frames": 93240,
+      "completed_head_frames": null,
+      "estimated_request_to_audio_ms": 156.307759
+    }
+  ],
+  "playback_failures": 0,
+  "playback_timeouts": 0,
+  "android_playback_exceptions": 0,
+  "human_audibility": {
+    "outcome": "CONFIRMED_ENGLISH_SPANISH_REPLAY",
+    "source": "Prior explicit tester response in this session",
+    "output": "PHONE_SPEAKER",
+    "export_field": "REQUIRES_TESTER_CONFIRMATION_IS_A_STATIC_PLACEHOLDER"
+  },
+  "extra_cancelled_attempt": {
+    "ordinal": 6,
+    "outcome": "STARTED_THEN_CANCELLED",
+    "reason": "NOT_EXPORTED",
+    "interpretation": "Separate extra manual English turn; no failure, timeout or Android exception reported. Export/background cancellation is compatible with the lifecycle code but not proven by this export."
+  },
+  "limitations": [
+    "Phone speaker only; no physical headphones/Bluetooth coverage",
+    "No explicit airplane-mode rerun in this export; no OS-wide network-traffic claim",
+    "Playback-head latency estimates are not calibrated acoustic measurements; clamped zero replay estimate is not proof of zero latency",
+    "Instrumented device tests compiled, not executed by coordinator",
+    "Vendor-specific commercial invocation/output rights remain pre-release legal-review questions",
+    "Low-end devices, long sessions and broader conversation performance remain untested"
+  ],
+  "artifact": {
+    "apk": "CommonTongue-Pass6-Offline-Voice-Check.apk",
+    "sha256": "7d991d09f569c59bd3c79b318a3fe18bd09cb78883289dc2ff7156ac38d8af1d",
+    "signing_certificate_sha256": "129bb8734d002798d508b78621270cf6fdb3b0c91e0f4759bf70ccf8798001fb",
+    "application_id": "com.commontongue.prototype.debug",
+    "version_code": 7,
+    "release_url": "https://github.com/Revty79/CommonTongue/releases/tag/pass6-playback-correction-v7",
+    "preserve_existing_apk": true
+  },
+  "tested_implementation_ci": {
+    "run_id": 37871628399,
+    "conclusion": "success",
+    "url": "https://github.com/Revty79/CommonTongue/actions/runs/37871628399"
+  },
+  "preserved_pass5_baseline": "5ee45413e3c72493ae3f13ec6f913728828a3e0f",
+  "pass7": "NOT_STARTED_NOT_AUTHORIZED"
+}
