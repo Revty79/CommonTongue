@@ -158,6 +158,8 @@ class LocalTrialActivity : ComponentActivity() {
         }
 
     private fun busy(value: Boolean) {
+        if (value) window.addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+        else window.clearFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setup.isEnabled = !value
         run.isEnabled = !value && testResources.installed()
     }
