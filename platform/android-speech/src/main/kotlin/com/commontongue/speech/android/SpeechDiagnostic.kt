@@ -7,6 +7,7 @@ enum class SpeechStage {
     VOICE_SELECTED,
     SYNTHESIS_START,
     SYNTHESIS_COMPLETE,
+    PLAYBACK_DETAIL,
     PLAYBACK_START,
     PLAYBACK_COMPLETE,
     CANCELLED,
@@ -82,6 +83,7 @@ data class SpeechDiagnostic(
     val code: SpeechCode? = null,
     val androidCode: Int? = null,
     val routeType: Int? = null,
+    val playback: PlaybackDiagnostic? = null,
 )
 
 internal fun safeIdentifier(value: String): String =

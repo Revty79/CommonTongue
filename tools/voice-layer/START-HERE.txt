@@ -1,17 +1,13 @@
-COMMON TONGUE - PASS 6 OFFLINE VOICE CHECK
+COMMON TONGUE - PASS 6 PLAYBACK CORRECTION CHECK
 
-1. Download CommonTongue-Pass6-Offline-Voice-Check.apk on the S25 and open it to install.
+1. Download CommonTongue-Pass6-Offline-Voice-Check.apk on the S25 and open it to update.
+   Keep the existing app installed. This update is version 0.6.1-pass6-dev.
 2. Open Common Tongue Voice Check. This is separate from the Pass 5 research app.
 3. Set media volume to an audible level. Wi-Fi/cellular can remain on.
-4. Tap Run English + Spanish checks and listen for English and Spanish.
-5. Wait for Checks finished. The app also checks replay, rapid replacement, and safe failures.
-6. Try Hear English, Hear Spanish, Replay last speech, and Stop speaking.
-7. If available, repeat through headphones/Bluetooth, then disconnect during speech.
-   Speech should stop instead of spilling onto the phone speaker.
-8. Leave the app during speech, return, and try Replay last speech or a new turn.
-9. Optionally repeat Run English + Spanish checks with Airplane Mode ON as offline proof.
-10. Tap Export Pass 6 results, save the JSON, and share it with your coordinator.
-    Also say whether you heard English and Spanish, and which output devices you used.
+4. Tap Run English + Spanish checks. Listen for English, Spanish, then Spanish again (replay).
+5. Wait for Checks finished, then tap Export Pass 6 results and save the JSON.
+6. Share the JSON and say whether you heard English, Spanish and replay on the phone speaker.
+   The individual Hear English, Hear Spanish and Replay buttons remain available if needed.
 
 Keep your Pass 5 app, data, test pack, and offline voices. No reimport or model download.
 No computer, ADB, microphone permission, account, or paid service is required.

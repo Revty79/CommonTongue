@@ -47,28 +47,48 @@ internal class AndroidAudioPlayer(
         stop()
         val token = generation
         interruption = null
-        val attributes =
-            AudioAttributes.Builder()
-                .setUsage(AudioAttributes.USAGE_MEDIA)
-                .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                .build()
-        val request =
-            AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT)
-                .setAudioAttributes(attributes)
-                .setWillPauseWhenDucked(true)
-                .setAcceptsDelayedFocusGain(false)
-                .setOnAudioFocusChangeListener(
-                    { change ->
-                        if (token == generation && change != AudioManager.AUDIOFOCUS_GAIN)
-                            interrupt(SpeechCode.FOCUS_LOST)
-                    },
-                    main,
-                )
-                .build()
-        focus = request
+        val trace = PlaybackTrace(diagnostic)
         try {
-            if (manager.requestAudioFocus(request) != AudioManager.AUDIOFOCUS_REQUEST_GRANTED)
+            trace.record(
+                PlaybackDiagnostic(
+                    PlaybackStep.PCM_FORMAT,
+                    PlaybackOutcome.SUCCEEDED,
+                    pcmBytes = pcm.bytes.size,
+                    channels = pcm.channels,
+                    sampleRateHz = pcm.rate,
+                )
+            )
+            trace.begin(PlaybackStep.FOCUS_REQUEST)
+            val attributes =
+                AudioAttributes.Builder()
+                    .setUsage(AudioAttributes.USAGE_MEDIA)
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                    .build()
+            val request =
+                AudioFocusRequest.Builder(AudioManager.AUDIOFOCUS_GAIN_TRANSIENT)
+                    .setAudioAttributes(attributes)
+                    .setWillPauseWhenDucked(true)
+                    .setAcceptsDelayedFocusGain(false)
+                    .setOnAudioFocusChangeListener(
+                        { change ->
+                            if (token == generation && change != AudioManager.AUDIOFOCUS_GAIN)
+                                interrupt(SpeechCode.FOCUS_LOST)
+                        },
+                        main,
+                    )
+                    .build()
+            focus = request
+            val focusResult = manager.requestAudioFocus(request)
+            trace.record(
+                PlaybackDiagnostic(
+                    PlaybackStep.FOCUS_REQUEST,
+                    PlaybackOutcome.SUCCEEDED,
+                    focusResult = focusResult,
+                )
+            )
+            if (focusResult != AudioManager.AUDIOFOCUS_REQUEST_GRANTED)
                 throw SpeechFault(SpeechCode.FOCUS_DENIED)
+            trace.begin(PlaybackStep.NOISY_RECEIVER_REGISTER)
             val filter = IntentFilter(AudioManager.ACTION_AUDIO_BECOMING_NOISY)
             if (android.os.Build.VERSION.SDK_INT >= 33)
                 context.registerReceiver(noisy, filter, Context.RECEIVER_NOT_EXPORTED)
@@ -76,6 +96,10 @@ internal class AndroidAudioPlayer(
                 @Suppress("UnspecifiedRegisterReceiverFlag") context.registerReceiver(noisy, filter)
             }
             receiverRegistered = true
+            trace.record(
+                PlaybackDiagnostic(PlaybackStep.NOISY_RECEIVER_REGISTER, PlaybackOutcome.SUCCEEDED)
+            )
+            trace.begin(PlaybackStep.TRACK_CONSTRUCT)
             val player =
                 AudioTrack.Builder()
                     .setAudioAttributes(attributes)
@@ -93,6 +117,14 @@ internal class AndroidAudioPlayer(
                     .setBufferSizeInBytes(pcm.bytes.size)
                     .build()
             track = player
+            trace.record(
+                PlaybackDiagnostic(
+                    PlaybackStep.TRACK_CONSTRUCT,
+                    PlaybackOutcome.SUCCEEDED,
+                    trackState = player.state,
+                    playState = player.playState,
+                )
+            )
             val privateTypes =
                 mutableSetOf(
                     AudioDeviceInfo.TYPE_WIRED_HEADSET,
@@ -103,6 +135,7 @@ internal class AndroidAudioPlayer(
             if (android.os.Build.VERSION.SDK_INT >= 31)
                 privateTypes.add(AudioDeviceInfo.TYPE_BLE_HEADSET)
             var privateRouteSeen = player.routedDevice?.type in privateTypes
+            trace.begin(PlaybackStep.ROUTING_LISTENER_REGISTER)
             player.addOnRoutingChangedListener(
                 AudioRouting.OnRoutingChangedListener { routing ->
                     val routed = routing.routedDevice
@@ -116,13 +149,44 @@ internal class AndroidAudioPlayer(
                 },
                 main,
             )
-            if (
-                player.state != AudioTrack.STATE_INITIALIZED ||
-                    player.write(pcm.bytes, 0, pcm.bytes.size) != pcm.bytes.size
+            trace.record(
+                PlaybackDiagnostic(
+                    PlaybackStep.ROUTING_LISTENER_REGISTER,
+                    PlaybackOutcome.SUCCEEDED,
+                    routeType = player.routedDevice?.type,
+                )
             )
-                throw SpeechFault(SpeechCode.PLAYBACK_FAILED)
+            loadStaticPcm(
+                pcm.bytes.size,
+                { player.state },
+                { player.write(pcm.bytes, 0, pcm.bytes.size) },
+                trace,
+            )
             val requested = System.nanoTime()
+            trace.begin(PlaybackStep.PLAY_INVOKE)
             player.play()
+            trace.record(
+                PlaybackDiagnostic(
+                    PlaybackStep.PLAY_INVOKE,
+                    PlaybackOutcome.SUCCEEDED,
+                    trackState = player.state,
+                    playState = player.playState,
+                    routeType = player.routedDevice?.type,
+                )
+            )
+            trace.begin(PlaybackStep.HEAD_INITIAL)
+            val initialFrames = player.playbackHeadPosition.toLong() and 0xffffffffL
+            trace.record(
+                PlaybackDiagnostic(
+                    PlaybackStep.HEAD_INITIAL,
+                    PlaybackOutcome.SUCCEEDED,
+                    frames = initialFrames,
+                    routeType = player.routedDevice?.type,
+                )
+            )
+            trace.begin(PlaybackStep.WAIT_FOR_COMPLETION)
+            var lastReport = requested
+            var advancementReported = false
             var receipt: SpeechPlaybackReceipt? = null
             val totalFrames = pcm.bytes.size / (pcm.channels * 2)
             val duration = totalFrames * 1000.0 / pcm.rate
@@ -130,6 +194,25 @@ internal class AndroidAudioPlayer(
                 interruption?.let { throw SpeechFault(it) }
                 val now = System.nanoTime()
                 val frames = player.playbackHeadPosition.toLong() and 0xffffffffL
+                // Bounded samples: first advancement, then at most once per second, plus
+                // completion.
+                if (
+                    frames > initialFrames &&
+                        (!advancementReported || now - lastReport >= 1_000_000_000)
+                ) {
+                    trace.record(
+                        PlaybackDiagnostic(
+                            PlaybackStep.HEAD_ADVANCE,
+                            PlaybackOutcome.SUCCEEDED,
+                            frames = frames,
+                            playState = player.playState,
+                            routeType = player.routedDevice?.type,
+                            milliseconds = (now - requested) / 1e6,
+                        )
+                    )
+                    advancementReported = true
+                    lastReport = now
+                }
                 if (frames > pcm.firstSignalFrame && receipt == null) {
                     val firstSignal =
                         now - (frames * 1e9 / pcm.rate).toLong() +
@@ -149,12 +232,38 @@ internal class AndroidAudioPlayer(
                         )
                     )
                 }
-                if (frames >= totalFrames && receipt != null) return receipt
+                if (frames >= totalFrames && receipt != null) {
+                    trace.record(
+                        PlaybackDiagnostic(
+                            PlaybackStep.HEAD_COMPLETE,
+                            PlaybackOutcome.SUCCEEDED,
+                            frames = frames,
+                            playState = player.playState,
+                            routeType = player.routedDevice?.type,
+                        )
+                    )
+                    return receipt
+                }
                 val elapsed = (now - requested) / 1e6
-                if ((receipt == null && elapsed > 3000) || elapsed > duration + 5000)
+                if ((receipt == null && elapsed > 3000) || elapsed > duration + 5000) {
+                    trace.record(
+                        PlaybackDiagnostic(
+                            PlaybackStep.WAIT_FOR_COMPLETION,
+                            PlaybackOutcome.TIMED_OUT,
+                            frames = frames,
+                            playState = player.playState,
+                            routeType = player.routedDevice?.type,
+                            milliseconds = elapsed,
+                            code = SpeechCode.PLAYBACK_FAILED,
+                        )
+                    )
                     throw SpeechFault(SpeechCode.PLAYBACK_FAILED)
+                }
                 delay(20)
             }
+        } catch (error: Exception) {
+            trace.failed(error)
+            throw error
         } finally {
             stop()
         }

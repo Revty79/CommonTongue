@@ -25,8 +25,8 @@ android {
         applicationId = "com.commontongue.prototype"
         minSdk = 26
         targetSdk = 36
-        versionCode = 6
-        versionName = "0.6.0-pass6"
+        versionCode = 7
+        versionName = "0.6.1-pass6"
         buildConfigField("String", "SPEECH_SOURCE_REVISION", "\"${speechSourceRevision.get()}\"")
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

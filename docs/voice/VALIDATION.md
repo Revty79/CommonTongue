@@ -2,6 +2,8 @@
 
 Implementation checkpoint; **physical S25 acceptance is pending**. Pass 5's accepted v7 proof is not reused as a physical pass for this new production adapter. The user can test the phone speaker; physical headphones/Bluetooth coverage is unavailable and remains a documented concern. Pass 7 has not begun.
 
+The first production S25 trial at `af383eaa1548fc677327f3163f72a0e2f11de94a` subsequently confirmed offline synthesis/voice selection but failed every playback attempt. See [the narrow playback correction and required rerun](PLAYBACK_CORRECTION.md). The following counts describe that original implementation checkpoint; later correction results are recorded separately in the correction build receipt. Pass 6 is not accepted yet.
+
 ## Executed locally
 
 All 130 JVM tests passed, without failures/errors/skips: app 2, domain 10, translation 89, Android speech 29. The 29 voice-layer tests cover voice/provider/region policy, network/missing-voice rejection, PCM16 validation, replay/revocation, caller cancellation, replacement with delayed cleanup, stale replay release, cancellation-safe close, lifecycle, privacy, structured focus/route failures and latency measurement boundaries. These fakes test orchestration/policy; they do not prove hardware routing or Android service behavior.

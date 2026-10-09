@@ -17,7 +17,6 @@ import com.commontongue.speech.android.SpeechStage
 import com.commontongue.translation.AudioReference
 import com.commontongue.translation.CapabilityResult
 import com.commontongue.translation.FailureCategory
-import com.commontongue.translation.SpeakerPreservation
 import com.commontongue.translation.SpeechSynthesizer
 import com.commontongue.translation.SynthesisRequest
 import kotlinx.coroutines.CancellationException
@@ -25,10 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
@@ -50,7 +46,7 @@ class VoiceTrialActivity : Activity() {
         super.onCreate(savedInstanceState)
         speech =
             AndroidSpeechSynthesizer(applicationContext) { event ->
-                if (events.size == 160) events.removeFirst()
+                if (events.size == 512) events.removeFirst()
                 events.addLast(event)
                 if (event.stage == SpeechStage.PLAYBACK_START)
                     status.text = "Speech is playing through your phone's selected audio output."
@@ -67,6 +63,7 @@ class VoiceTrialActivity : Activity() {
                 content.addView(it)
             }
         text("Common Tongue — Pass 6 Voice Check").textSize = 24f
+        text("Playback correction · " + BuildConfig.VERSION_NAME)
         text(
             "Uses your installed offline voices. Wi-Fi and cellular may stay on. No model pack, microphone, account or development connection is needed."
         )
@@ -109,7 +106,7 @@ class VoiceTrialActivity : Activity() {
             }
         }
         text(
-            "After the checks: try a headset or Bluetooth output, press Stop, then leave and return to this screen and replay. Optionally repeat with airplane mode on for offline proof. Export the results and report whether you heard both languages."
+            "This check plays English, Spanish, then repeats the Spanish speech. Export the results and report whether you heard all three. Keep your installed voices."
         )
         button("Export Pass 6 results") {
             startActivityForResult(
@@ -173,53 +170,8 @@ class VoiceTrialActivity : Activity() {
             turn("EN", "en-US", ENGLISH)
             turn("ES", "es-419", SPANISH)
             replay?.let { record("REPLAY", speech.play(it)) }
-            val missing = speech.synthesize(SynthesisRequest(ENGLISH, LanguageId.parse("zz")))
-            record(
-                "UNAVAILABLE_LANGUAGE",
-                missing,
-                expectedCategory = FailureCategory.MODEL_NOT_INSTALLED,
-            )
-            val unsupported =
-                speech.synthesize(
-                    SynthesisRequest(
-                        ENGLISH,
-                        LanguageId.parse("en"),
-                        speakerPreservation = SpeakerPreservation.REQUESTED,
-                    )
-                )
-            record(
-                "UNSUPPORTED_SPEAKER",
-                unsupported,
-                expectedCategory = FailureCategory.UNSUPPORTED_CAPABILITY,
-            )
-            val capability: SpeechSynthesizer = speech
-            val replacements = coroutineScope {
-                val jobs =
-                    (1..5).map {
-                        async {
-                            capability.synthesize(
-                                SynthesisRequest(ENGLISH.repeat(4), LanguageId.parse("en"))
-                            )
-                        }
-                            .also { delay(5) }
-                    }
-                val final = jobs.last().await()
-                val cancelled = jobs.dropLast(1).count { it.isCancelled }
-                if (final is CapabilityResult.Success) {
-                    replay = final.value.audio
-                    record("RAPID_LATEST", speech.play(final.value.audio))
-                } else record("RAPID_LATEST", final)
-                cancelled
-            }
-            results.put(
-                JSONObject()
-                    .put("case", "RAPID_REPLACEMENT")
-                    .put("cancelled_prior_requests", replacements)
-                    .put("expected", 4)
-                    .put("outcome", if (replacements == 4) "PASS" else "FAILED")
-            )
             status.text =
-                "Checks finished. Export results, and confirm you heard English and Spanish."
+                "Checks finished. Export results, and confirm you heard English, Spanish and replay."
         } catch (error: CancellationException) {
             results.put(JSONObject().put("case", "CHECK_INTERRUPTED").put("outcome", "CANCELLED"))
             throw error
@@ -272,10 +224,23 @@ class VoiceTrialActivity : Activity() {
                     .put("code", event.code?.name ?: JSONObject.NULL)
                     .put("android_code", event.androidCode ?: JSONObject.NULL)
                     .put("audio_route_type", event.routeType ?: JSONObject.NULL)
+                    .put("playback_step", event.playback?.step?.name ?: JSONObject.NULL)
+                    .put("playback_outcome", event.playback?.outcome?.name ?: JSONObject.NULL)
+                    .put("audio_track_state", event.playback?.trackState ?: JSONObject.NULL)
+                    .put("audio_track_play_state", event.playback?.playState ?: JSONObject.NULL)
+                    .put("pcm_bytes", event.playback?.pcmBytes ?: JSONObject.NULL)
+                    .put("pcm_channels", event.playback?.channels ?: JSONObject.NULL)
+                    .put("pcm_sample_rate_hz", event.playback?.sampleRateHz ?: JSONObject.NULL)
+                    .put("audio_focus_result", event.playback?.focusResult ?: JSONObject.NULL)
+                    .put("audio_track_write_result", event.playback?.writeResult ?: JSONObject.NULL)
+                    .put("playback_head_frames", event.playback?.frames ?: JSONObject.NULL)
+                    .put("playback_route_type", event.playback?.routeType ?: JSONObject.NULL)
+                    .put("playback_elapsed_ms", event.playback?.milliseconds ?: JSONObject.NULL)
+                    .put("exception_type", event.playback?.exceptionType?.name ?: JSONObject.NULL)
             )
         }
         return JSONObject()
-            .put("schema_version", 1)
+            .put("schema_version", 2)
             .put("scope", "PASS_6_PRODUCTION_ADAPTER_PHYSICAL_CHECK")
             .put("device_model", android.os.Build.MODEL)
             .put("android_api", android.os.Build.VERSION.SDK_INT)
